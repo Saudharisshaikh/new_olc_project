@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto" >
+    <!-- <item android:id="@+id/menu_settings"
+          android:icon="@drawable/menu_ic_settings"
+          android:title="@string/menu_settings"
+          compat:showAsAction="ifRoom|withText" />
+    
+    <item android:id="@+id/menu_information"
+          android:icon="@drawable/menu_ic_info"
+          android:title="@string/menu_information"
+          compat:showAsAction="ifRoom|withText" />
+
+    <item android:id="@+id/menu_secure_network"
+        android:icon="@drawable/menu_ic_lock_unlock"
+        android:title=""
+        compat:showAsAction="ifRoom" /> -->
+
+    <item android:id="@+id/menu_signal_strenth"
+          android:title=""
+          compat:showAsAction="ifRoom"/>
+
+</menu>

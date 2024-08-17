@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/topBar"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolBarColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp"/>
+
+        <TextView
+            android:id="@+id/dialogTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:text="Medical Report"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="normal" />
+    </FrameLayout>
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/ivPhoto"
+        android:layout_below="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_placeholder_2"/>
+
+    <WebView
+        android:id="@+id/wvReport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnSaveReportImage"></WebView>
+
+</LinearLayout>

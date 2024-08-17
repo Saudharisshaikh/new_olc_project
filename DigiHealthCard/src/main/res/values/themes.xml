@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/covacard_dark_green</item>
+        <item name="colorPrimaryDark">@color/covacard_dark_green</item>
+        <item name="colorAccent">@color/toolBarColor</item>
+
+
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item><!--pin view style-->
+        <!-- Support library compatibility
+        <item name="actionBarStyle">@style/MyActionBar</item>
+
+        <item name="actionSheetStyle">@style/ActionSheetStyleiOS7</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>pin view style
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>pin view style-->
+    </style>
+
+
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/covacard_dark_green</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@color/covacard_dark_green</item>
+    </style>
+
+
+    <!--<style name="ActionSheetStyleiOS7">
+        <item name="actionSheetBackground">@android:color/transparent</item>
+        <item name="cancelButtonBackground">@drawable/slt_as_ios7_cancel_bt</item>
+        <item name="otherButtonTopBackground">@drawable/slt_as_ios7_other_bt_top</item>
+        <item name="otherButtonMiddleBackground">@drawable/slt_as_ios7_other_bt_middle</item>
+        <item name="otherButtonBottomBackground">@drawable/slt_as_ios7_other_bt_bottom</item>
+        <item name="otherButtonSingleBackground">@drawable/slt_as_ios7_other_bt_single</item>
+        &lt;!&ndash;<item name="cancelButtonTextColor">#1E82FF</item>&ndash;&gt;
+        <item name="otherButtonTextColor">#1E82FF</item>
+        &lt;!&ndash;<item name="actionSheetPadding">10dp</item>&ndash;&gt;
+        <item name="otherButtonSpacing">0dp</item>
+        <item name="cancelButtonMarginTop">10dp</item>
+        &lt;!&ndash;<item name="actionSheetTextSize">12sp</item>&ndash;&gt;
+
+        <item name="cancelButtonTextColor">@android:color/holo_red_dark</item>
+        <item name="actionSheetTextSize">15sp</item>
+        <item name="actionSheetPadding">15dp</item>
+    </style>-->
+</resources>

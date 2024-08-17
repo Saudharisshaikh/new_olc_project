@@ -1,0 +1,1159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    -->
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+
+    <queries>
+        <!-- Browser -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="http" />
+        </intent>
+
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <!-- Gallery -->
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+   <!-- <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!--From Android 12-->
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <!-- Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <!-- Needed only if your app makes the device discoverable to Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <!-- Needed only if your app communicates with already-paired Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--android 12 end-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <!--new permission for android 12+ or 13 SDK 33 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!--end-->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
+    <!--<uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND"/>-->
+
+
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />-->
+    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
+
+    <!-- [START gcm_permission] -->
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    &lt;!&ndash; Creates a custom permission so only this app can receive its messages. &ndash;&gt;
+    <permission
+        android:name="com.app.onlinecaredr.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.app.onlinecaredr.permission.C2D_MESSAGE" />-->
+
+    <!-- [END gcm_permission] -->
+    <application
+        android:name="com.app.emcurama.OnlineCareDr"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:label="@string/app_name"
+        tools:replace="android:allowBackup"
+        android:theme="@style/CustomActionBarTheme"
+        android:requestLegacyExternalStorage="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <activity
+            android:name="sg.com.temasys.skylink.sdk.sampleapp.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name" />
+
+        <!-- android:debuggable="true" -->
+        <!--
+        <activity
+            android:name="com.oovoo.sdk.sample.ui.SampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="eLiveCare"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        -->
+        <!-- =======================GCM================================= -->
+        <!-- [START gcm_receiver] -->
+        <!--<receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+        &lt;!&ndash; [END gcm_receiver] &ndash;&gt;
+
+
+        &lt;!&ndash; [START gcm_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END gcm_listener] &ndash;&gt;
+        &lt;!&ndash; [START instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.RegistrationIntentService"
+            android:exported="false" />-->
+        <!--
+        <service
+			android:name="com.oovoo.sdk.sample.services.MyGcmListenerService"
+			android:exported="false" >
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.MyInstanceIDListenerService"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.iid.InstanceID"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.RegistrationIntentService"
+			android:exported="false">
+		</service>
+        -->
+        <!-- =======================GCM================================= -->
+        <!--<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+
+        <!-- =============================App Activities==================================== -->
+
+        <activity
+            android:name="com.app.emcurama.MainActivityNew"
+            android:label="@string/app_label"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.emcurama.Login"
+            android:exported="true"
+            android:label="@string/app_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.emcurama.SearchADoctor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Signup"
+            android:parentActivityName="com.app.emcurama.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.Login" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName="com.app.emcurama.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.Login" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.UpdateProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Profile"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme">
+
+            <!-- @android:style/Theme.Dialog -->
+        </activity>
+     <!--   <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />-->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.app.emcurama.DoctorsList"
+            android:label="Available Doctors"
+            android:parentActivityName="com.app.emcurama.DocToDoc" />
+        <activity
+            android:name="com.app.emcurama.SelectedDoctorsProfile"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.emcurama.DoctorsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.DoctorsList" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.SubUsersList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Login As" />
+        <activity
+            android:name="com.app.emcurama.DrSchedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doctor&apos;s Schedule"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.app.emcurama.Reports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Reports"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.LiveCareDetails"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.emcurama.LiveCare">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.LiveCare" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.LiveCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Immediate Care"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ViewReport"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ViewReportFull"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Report"
+            android:parentActivityName="com.app.emcurama.ViewReport">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ViewReport" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.AfterCallDialogEmcura"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.emcurama.AfterCallDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.emcurama.SendPrescription"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Prescription"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.app.emcurama.DocToDoc"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doc to Doc"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.HomeHealth"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Home Health"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+
+        <!--
+        <service android:name=".VideoCallService" >
+        </service>
+        <service android:name=".services.MessageReceiverService" >
+        </service>
+        <service android:name=".services.VChatListener" >
+        </service>
+        -->
+        <service android:name="com.app.emcurama.services.OutgoingCallService" />
+        <!--
+        <service android:name=".services.IncomingCallServiceNew" >
+        </service>
+        -->
+        <!--
+        <service android:name=".services.DeviceRegisterService" >
+        </service>
+        -->
+        <service android:name="com.app.emcurama.services.LiveCareRefreshService" />
+
+        <receiver
+            android:name="com.app.emcurama.broadcasts.SaveGCM_TokenBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.SAVE_GCM_TOKEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.emcurama.broadcasts.BootCompleteBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.STOP_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.app.emcurama.DrsAppointments"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Appointments"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.DrApointmentDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.emcurama.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.SetDrShedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+
+        <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name="com.app.emcurama.PresscriptionsActivity"
+            android:label="@string/title_activity_presscriptions"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.app.emcurama.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.UpdateProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.PatientMedicalHistory"
+            android:label="Patient Medical History"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.TransectionsActivity"
+            android:label="@string/title_activity_trnsections"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+
+        <!--
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                Receives the actual messages.
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                Receives the registration id.
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".gcm.GCMActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+
+        <receiver
+            android:name=".gcm.MessageBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.quranplus.DISPLAY_MESSAGE" />
+                
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+
+
+
+
+               
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.app.emcurama.ActivityCallLogs"
+            android:label="@string/title_activity_activity_call_logs"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySendMessage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.app.emcurama.ConversationsActivity"
+            android:label="Messages"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ShowMessagePopupActivity"
+            android:parentActivityName="com.app.emcurama.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ViewConversationActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.app.emcurama.ConversationsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ConversationsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ShowLiveCarePopup"
+            android:parentActivityName="com.app.emcurama.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <!-- =============================App Activities==================================== -->
+        <activity
+            android:name="com.app.emcurama.DoctorScheduleNew"
+            android:label="@string/title_activity_doctor_schedule_new"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ReferAppointmentActivity"
+            android:label="@string/title_activity_refer_appointment"
+            android:parentActivityName="com.app.emcurama.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.CareRatings"
+            android:label="@string/title_activity_care_ratings"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySoapNotes"
+            android:label="@string/title_activity_activity_soap_notes"
+            android:parentActivityName="com.app.emcurama.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityRifills"
+            android:label="@string/title_activity_activity_rifills"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityRefillDetails"
+            android:label="@string/title_activity_activity_refill_details"
+            android:parentActivityName="com.app.emcurama.ActivityRifills">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityRifills" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityTelemedicineServices"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.emcurama.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityTCM"
+            android:label="Patients"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.emcurama.ActivityFindNurse" />
+        <activity
+            android:name="com.app.emcurama.ActivityBilling"
+            android:label="Billing"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.SupportMessagesActivity"
+            android:label="Support Messages"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityPatientRefill"
+            android:label="Patient Refill Requests"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityProbelemList"
+            android:label="Problem List"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityPinnedReports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.PresscriptionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Prescriptions"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityCareProviders"
+            android:label="Care Providers"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.CustomDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+        <activity
+            android:name="com.app.emcurama.ActivityTCM_2"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.emcurama.CustomDialogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.CustomDialogActivity" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityTCM_4"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySOAP"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySoapNotesEdit"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.emcurama.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityTelemedicineServicesEdit"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesEdit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesEdit" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityGroupChat"
+            android:label="Group Chat"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityGroupMessages"
+            android:label="Group Messages"
+            android:parentActivityName="com.app.emcurama.ActivityGroupChat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityGroupChat" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityDoctors"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.emcurama.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ShowGroupMessagePopup"
+            android:parentActivityName="com.app.emcurama.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityTCM_3"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.emcurama.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityCareProvidersInvite"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.emcurama.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityGroupMembers"
+            android:label="Group Members"
+            android:parentActivityName="com.app.emcurama.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityViewOTNotes"
+            android:label="OT/PT Notes"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityAddDoctor"
+            android:label="Add Doctor"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySOAPReferral"
+            android:label="Service Requests"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySOAPReferralOT"
+            android:label="OT DME Referrals"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySkilledNursingApprove"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.emcurama.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityDmeRefferalApprove"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.emcurama.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityPrescDetailCP"
+            android:label="Prescription Details"
+            android:parentActivityName="com.app.emcurama.PresscriptionsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.PresscriptionsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityHomeCareFormApprove"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.emcurama.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityTcmDetails"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.emcurama.ActivityTCM">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityTCM" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySoapNotesNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.emcurama.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySoapNotesEmpty"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.emcurama.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySoapNotesEditNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.emcurama.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySkilledNursing"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySkilledNursingEdit"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityDmeRefferal"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityDmeRefferalEdit"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityHomeCareForm"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityHomeCareFormEdit"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.emcurama.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityAllEnvir"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityEnvirForm"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.emcurama.ActivityAllEnvir">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityAllEnvir" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityAllFallRisk"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.FallRiskForm"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.emcurama.ActivityAllFallRisk">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityAllFallRisk" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.emcurama.ActivityAllBradenScale">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityAllBradenScale" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityAllBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityAllDepression"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityDepressionForm"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.emcurama.ActivityAllDepression">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.ActivityAllDepression" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityScreeningToolReport"
+            android:label="Screening Tools Report"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity android:name="com.app.emcurama.BaseActivity" />
+        <activity
+            android:name="com.app.emcurama.ActivityProgressNotes"
+            android:label="Add Progress Notes"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityProgressNotesView"
+            android:label="Progress Notes"
+            android:parentActivityName="com.app.emcurama.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivityRefferedPatients"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Referred Patients"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.emcurama.ActivitySwitchHosp"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Switch Hospital"
+            android:parentActivityName="com.app.emcurama.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.emcurama.MainActivityNew" /></activity>
+        <activity android:name="com.app.emcurama.permission.PermissionsActivity"
+            android:parentActivityName="com.app.emcurama.Login"
+            android:label="@string/app_name"/>
+        <activity android:name="com.app.emcurama.ActivityAppInvite"/>
+        <activity android:name="com.app.emcurama.ActivityInstatntConnect"/>
+        <activity android:name="com.app.emcurama.reliance.therapist.ActivityReferedPatients"/>
+
+        <activity android:name="com.app.emcurama.ActivityCovidFormList"/>
+
+        <activity android:name="com.app.emcurama.ActivityCareRequestsList"/>
+        <activity android:name="com.app.emcurama.ActivityCareCentersList"/>
+        <activity android:name="com.app.emcurama.ActivityCareCenterDocList"/>
+        <activity android:name="com.app.emcurama.ActivityCovidAssignDocList"/>
+
+        <!--===============Angora.io Starts============================================-->
+        <activity
+            android:name="io.agora.openlive.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="io.agora.openlive.activities.LiveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="io.agora.openlive.activities.RoleActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"/>
+        <activity
+            android:name="io.agora.openlive.activities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <!--===============Angora.io Ends============================================-->
+
+
+        <receiver android:name="com.app.emcurama.broadcasts.CallNotificationBroadcast"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.app.emcuradr.acceptcall" />
+                <action android:name="com.app.emcuradr.rejectcall" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" />
+
+
+        <!--FCM Starts-->
+        <!-- [START fcm_default_icon] -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <!-- [START firebase_service] -->
+        <service android:name="com.app.emcurama.fcm.MyFirebaseMessagingService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <service
+            android:name="com.app.emcurama.fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <!--FCM Ends-->
+        <!--This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM-->
+        <!--android:authorities="com.meetandeat.provider"-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.emcurama.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
+
+
+        <service
+            android:name=".services.GPSTracker"
+            android:foregroundServiceType="location">
+        </service>
+    </application>
+
+</manifest>

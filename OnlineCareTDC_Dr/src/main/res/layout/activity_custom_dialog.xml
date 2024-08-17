@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cust_border_white_outline"
+    android:orientation="vertical" >
+
+    <!--<TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Please take a second to rate our service"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#d04c26" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical" >
+
+        <RatingBar
+            android:progressDrawable="@drawable/custom_ratingbar_selector"
+            android:id="@+id/ratingBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:rating="2"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/tvDialogSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="SUBMIT"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDialogNoThanks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="2dp"  
+            android:layout_marginBottom="15dp"          
+            android:background="@drawable/btn_selector"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="NO THANKS"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/btnBackToHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_selector"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="Complete the Conversation"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"
+        android:textAllCaps="false"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/btnAdditionalDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        android:background="@drawable/btn_selector"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="Add to the SOAP notes"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"
+        android:textAllCaps="false"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/btnAddPrNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_selector"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="Add Progress Notes"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"
+        android:textAllCaps="false"
+        android:textStyle="bold" />
+</LinearLayout>

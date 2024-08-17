@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.emcurama.ActivityCovidAssignDocList">
+
+
+    <com.app.emcurama.util.ActionEditText
+        android:id="@+id/etSearch"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cust_border_white_outline"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Search"
+        android:imeOptions="actionDone"
+        android:drawableStart="@drawable/ic_search_black_24dp"
+        android:layout_alignParentTop="true"/>
+
+    <ListView
+        android:id="@+id/lvCareCenterDoc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/lv_covid_assign_doc_row"
+        android:dividerHeight="10dp"
+        android:divider="@android:color/transparent"
+        android:layout_below="@+id/etSearch"/>
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No data found"/>
+
+
+</RelativeLayout>

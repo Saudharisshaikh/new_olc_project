@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_clr">
+
+    <!--<include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ivAdView"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true">
+        <!--android:layout_below="@+id/toolbarLay"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/layPermissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Permissions Required."
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Please allow the required permissions. Please note that certain app features will not work until you will not allow the required permissions."
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnReviewPerm"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/btn_selector"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:text="Review &amp; Allow Permissions"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal" /><!--btn_cova_green-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layTrialExpired"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvTrialTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trial_expired"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTrialMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/trial_expied_msg"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnSubscribeNow"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/btn_selector"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:text="Subscribe Now"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal" /><!--btn_cova_green-->
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:src="@drawable/logo_covacard" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvAddCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_scan_card"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/backgroundtint_icon"
+                        android:gravity="center"
+                        android:text="Scan Card"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/viewScanCardDim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tvAddCard"
+                        android:layout_alignTop="@+id/tvAddCard"
+                        android:layout_alignEnd="@+id/tvAddCard"
+                        android:layout_alignBottom="@+id/tvAddCard"
+                        android:background="@color/homebtndisablecolor"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvShowCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_show_card"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/backgroundtint_icon"
+                        android:gravity="center"
+                        android:text="Show Cards"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/viewShowCardDim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tvShowCard"
+                        android:layout_alignTop="@+id/tvShowCard"
+                        android:layout_alignEnd="@+id/tvShowCard"
+                        android:layout_alignBottom="@+id/tvShowCard"
+                        android:background="@color/homebtndisablecolor"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTestResults"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_test_result"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/backgroundtint_icon"
+                        android:gravity="center"
+                        android:text="Test Results"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/viewTestResultsDim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tvTestResults"
+                        android:layout_alignTop="@+id/tvTestResults"
+                        android:layout_alignEnd="@+id/tvTestResults"
+                        android:layout_alignBottom="@+id/tvTestResults"
+                        android:background="@color/homebtndisablecolor"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+
+                <!--<View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"/>-->
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="invisible" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTestLocations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/test_locations"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/backgroundtint_icon"
+                        android:gravity="center"
+                        android:text="Test Locations"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/viewTestLocationsDim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tvTestLocations"
+                        android:layout_alignTop="@+id/tvTestLocations"
+                        android:layout_alignEnd="@+id/tvTestLocations"
+                        android:layout_alignBottom="@+id/tvTestLocations"
+                        android:background="@color/homebtndisablecolor"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvIdCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_id_card"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/backgroundtint_icon"
+                        android:gravity="center"
+                        android:text="ID Card"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/viewIdCardDim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tvIdCard"
+                        android:layout_alignTop="@+id/tvIdCard"
+                        android:layout_alignEnd="@+id/tvIdCard"
+                        android:layout_alignBottom="@+id/tvIdCard"
+                        android:background="@color/homebtndisablecolor"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/tvTeleHealth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_telehealth"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/backgroundtint_icon"
+                    android:gravity="center"
+                    android:text="Tele Health"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/tvShareApp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_share_app"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/backgroundtint_icon"
+                    android:gravity="center"
+                    android:text="Share App"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/red_dark_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tvProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_profile"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/backgroundtint_icon"
+                    android:gravity="center"
+                    android:text="My Profile"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tvLogout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_logout_cc"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/backgroundtint_icon"
+                    android:gravity="center"
+                    android:text="Logout"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <!--<TextView
+                    android:visibility="invisible"
+                    android:id="@+id/tvCovidTestPast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_print_card"
+                    android:gravity="center"
+                    android:text="Print Card"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:drawablePadding="10dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="?attr/selectableItemBackgroundBorderless" />-->
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <com.digihealthcard.util.AspectRationImageView
+        android:id="@+id/ivAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/covacard_ad" />
+
+</RelativeLayout>

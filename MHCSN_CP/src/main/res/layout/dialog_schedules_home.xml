@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:background="@drawable/cust_border_white_outline"
+            android:layout_marginTop="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="Please select an option"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tvAppointments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:drawableTop="@drawable/icon_appointment"
+                            android:gravity="center"
+                            android:text="My Appointments"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:drawablePadding="10dp"
+                            android:textSize="12dp" /><!--android:layout_margin="5dp"-->
+
+                        <TextView
+                            android:id="@+id/tvAppointmentBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginRight="30dp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/button_drawable"
+                            android:gravity="center"
+                            android:minHeight="17sp"
+                            android:minWidth="17sp"
+                            android:padding="2dp"
+                            android:paddingBottom="1dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:scaleType="fitStart"
+                            android:text="4"
+                            android:textColor="#ffffffff"
+                            android:textSize="12sp"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvDrSchedule"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_dr_schedule"
+                        android:gravity="center"
+                        android:text="Time Schedule"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvFollowups"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_dr_schedule"
+                        android:gravity="center"
+                        android:text="Follow Up"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvNurseAppointments"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_my_appointment"
+                        android:gravity="center"
+                        android:text="My Schedules"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvSoapRef"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_service_ref"
+                        android:gravity="center"
+                        android:text="Service Referral"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvPendingNotes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/icon_reports"
+                        android:gravity="center"
+                        android:text="Pending Notes"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvReffredPt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_ref_patient"
+                        android:gravity="center"
+                        android:text="Referred Patients"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+
+                    <TextView
+                        android:visibility="invisible"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_ref_patient"
+                        android:gravity="center"
+                        android:text="Referred Patients"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+                <!--<Button
+                    android:id="@+id/btnScheduleFollowup"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Schedule Followup"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnScheduleCareVisit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Schedule Care Visit"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/apptmnt_cancel_drawable"
+                    android:text="Not Now"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>-->
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!--<com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivStaffMember"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher"
+            app:border_color="#FFFFFF"
+            app:border_width="3dp"
+            app:shadow_color="@android:color/darker_gray"
+            app:shadow="true"
+            android:layout_gravity="center_horizontal"/>-->
+        <ImageView
+            android:id="@+id/ivStaffMember"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_black"
+            android:layout_gravity="end"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="5dp"/>
+
+    </FrameLayout>
+
+</LinearLayout>

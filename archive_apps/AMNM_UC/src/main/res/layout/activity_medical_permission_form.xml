@@ -1,0 +1,325 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.amnm_uc.MedicalPermissionForm" >
+
+    <ScrollView
+        android:id="@+id/scc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" >
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+             
+            
+            <!-- <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Name of child"/>
+            <EditText
+                android:id="@+id/etNameofchild"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Name of child"
+                android:inputType="textCapWords"
+                android:padding="10dp" /> 
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Age"/>
+            <EditText
+                android:id="@+id/etAgeofchild"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Age"
+                android:inputType="number"
+                android:padding="10dp" />-->
+            
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Name of mother"/>
+            <EditText
+                android:id="@+id/etNameofmother"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Name of mother"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Tel no"/>
+            <EditText
+                android:id="@+id/etTelNoofMother"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Tel no"
+                android:inputType="number"
+                android:padding="10dp" />
+            
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Name of father"/>
+            <EditText
+                android:id="@+id/etNameoffather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Name of father"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Age"/>
+            <EditText
+                android:id="@+id/etTelNoofFather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Tel no"
+                android:inputType="number"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Mother's signature"/>
+            <ImageView
+                android:id="@+id/ivMotherSignature"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/ic_signature"
+                android:background="@drawable/bg_fld"
+                android:hint="Tap to sign"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Date"/>
+            <EditText
+                android:id="@+id/etMotherSignatureDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Date"
+                android:focusable="false"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Father's signature"/>
+            <ImageView
+                android:id="@+id/ivFatherSignature"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/ic_signature"
+                android:background="@drawable/bg_fld"
+                android:hint="Tap to sign"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Date"/>
+            <EditText
+                android:id="@+id/etFatherSignatureDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Date"
+                android:focusable="false"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Name of notary"/>
+            <EditText
+                android:id="@+id/etNameOfNotary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Name of notary"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Sign"/>
+            <ImageView
+                android:id="@+id/ivSignOfNotary"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/ic_signature"
+                android:background="@drawable/bg_fld"
+                android:hint="Tap to sign"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Teacher or babysitter name"/>
+            <EditText
+                android:id="@+id/etteacher_or_babysitter_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Teacher or babysitter name"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Treatment date"/>
+            <EditText
+                android:id="@+id/etTreatmentDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Treatment date"
+                android:focusable="false"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnSubmitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"   
+                android:layout_margin="5dp"           
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:text="Submit" />
+            
+            <Button
+                android:id="@+id/btnSkipForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"  
+                android:layout_margin="5dp"             
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:text="Skip" />
+            
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,151 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.5.20'
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven {
+            url = "http://archiva.temasys.com.sg/repository/internal"
+            allowInsecureProtocol = true
+        }
+        maven { url "https://highsoft.bintray.com/Highcharts" }
+        //maven { url 'https://maven.fabric.io/public' }
+        mavenCentral()
+        //google()
+        //OR
+        //maven { url 'https://maven.google.com' }
+    }
+
+
+    //Ahmer work braintree update 16-12-2022
+    ext.brainTreeVersion = "4.38.2"
+
+    ext.deps = [
+            "braintreeCore" : "com.braintreepayments.api:braintree-core:$brainTreeVersion",
+            "threeDSecure" :  "com.braintreepayments.api:three-d-secure:$brainTreeVersion",
+            "paypal" : "com.braintreepayments.api:paypal:$brainTreeVersion",
+            "venmo" : "com.braintreepayments.api:venmo:$brainTreeVersion",
+            "googlePlay" :  "com.braintreepayments.api:google-pay:$brainTreeVersion",
+            "googlePay" : "com.braintreepayments.api:google-pay:$brainTreeVersion",
+            "card" : "com.braintreepayments.api:card:$brainTreeVersion",
+            "dataCollector" : "com.braintreepayments.api:data-collector:$brainTreeVersion",
+            "unionPay" : "com.braintreepayments.api:union-pay:$brainTreeVersion",
+            "cardForm" : "com.braintreepayments:card-form:$brainTreeVersion"
+    ]
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.4'
+        classpath 'com.google.gms:google-services:4.4.1'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.5"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
+        //classpath 'io.fabric.tools:gradle:1.+'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        //Braintree SDK
+        classpath 'de.marcphilipp.gradle:nexus-publish-plugin:0.4.0'
+        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.21.2'
+        //Braintree SDK
+    }
+}
+
+plugins {
+    id "org.sonarqube" version "2.5"
+    id 'org.jetbrains.kotlin.android' version '1.6.21' apply false
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven {
+            url = "http://archiva.temasys.com.sg/repository/internal"
+            allowInsecureProtocol = true
+        }
+        maven {
+            url "http://maven.microblink.com"
+            allowInsecureProtocol = true
+        }
+        maven { url "https://jitpack.io" }
+        maven { url "https://highsoft.bintray.com/Highcharts" }
+        //maven { url 'https://maven.fabric.io/public' }
+        mavenCentral()
+        //google()
+        //OR
+        //maven { url 'https://maven.google.com' }
+    }
+}
+
+subprojects {
+    repositories {
+        maven {
+            url "https://cardinalcommerceprod.jfrog.io/artifactory/android"
+            credentials {
+                username 'braintree_team_sdk'
+                password 'AKCp8jQcoDy2hxSWhDAUQKXLDPDx6NYRkqrgFLRc3qDrayg6rrCbJpsKKyMwaykVL8FWusJpp'
+            }
+        }
+    }
+}
+
+
+project.ext {
+    blinkIdVersion = '3.8.0'
+    compileSdkVersion = 33
+    targetSdkVersion = 33
+    //minSdkVersion = 17
+    minSdkVersion = 19
+    buildToolsVersion = '30.0.3'
+
+    //appCompatVersion = '1.4.0'
+    appCompatVersion = '1.6.1'
+    //supportV4version = '1.0.0'
+    googleMaterialVersion = '1.9.0'
+    cardviewVersion = '1.0.0'
+    contraintLayoutVersion = '2.1.4'
+    multidexVersion = '2.0.1'
+    recyclerViewVersion = '1.2.1'
+    swipeRefreshLayoutVersion = '1.1.0'
+    legacySupportV4 = '1.0.0'
+
+    //appCompatVersion = '28.0.0'
+    //appCompatVersion = '27.1.1'
+    //playServicesVersion = '9.0.1'
+    playServicesVersion = '9.0.2'
+    playServicesWalletVersion = '18.1.3'
+    googleMapsVersion = '18.1.0'
+    firebaseCoreVersion = '21.1.1'
+    firebaseMessagingVersion = '23.4.1'
+    firebaseAuthVersion = '20.6.0'
+    firebaseIidVersion = '21.1.0'
+    //contraintLayoutVersion = '+'
+    //contraintLayoutVersion = '1.1.3'
+    //multidexVersion = '1.0.2'
+    //socketIOVersion = '1.0.0'
+    //socketIOVersion = '2.0.1'
+    socketIOVersion = '2.1.0'
+    facebookSdkVersion = '12.1.0'
+    twitterSdkVersion = '3.1.1'
+    //glideVersion = '4.11.0'
+    glideVersion = '4.8.0'
+    filePickerVersion = '2.1.5'
+    paypalSdkVersion = '2.16.0'
+    braintreeCardFormVersion = '5.2.0' //used in olc before : 3.5.1
+    stripeSdkVersion = '17.1.0' //used in olc before :  10.4.6
+    zxingLibVersion = '4.1.0'
+    versionCodeBraintree = 105
+    //versionNameBraintree = '5.2.3-SNAPSHOT'
+    //versionNameBraintree = '6.5.1-SNAPSHOT'
+    versionNameBraintree = '6.13.0-SNAPSHOT'
+    googlePlayBillingVersion = "4.0.0"
+    uCropLibVersion = '2.2.8'
+    kprogressHudVersion = '1.2.0'
+
+    //kotlin_version = "1.3.72"
+    //3.6.0 previous glide version
+    //facebookSdkVersion = '4.23.0' //4.40.0 //5.0.1
+
+}

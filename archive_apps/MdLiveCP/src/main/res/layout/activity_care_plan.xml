@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mdlive_cp.careplan.ActivityCarePlan">
+
+    <ListView
+        android:id="@+id/lvCarePlanList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="10dp"
+        android:divider="@android:color/white"
+        tools:listitem="@layout/cp_list_row"
+        android:layout_above="@+id/layBottom1"/>
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No care plan added"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:id="@+id/layBottom1"
+        android:visibility="visible"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnAddCarePlan"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:text="Add New Care Plan"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</RelativeLayout>

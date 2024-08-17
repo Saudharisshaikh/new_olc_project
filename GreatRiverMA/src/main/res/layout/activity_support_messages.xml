@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.app.greatriverma.SupportMessagesActivity" >
+
+    <ListView
+        android:id="@+id/lvMessages"
+        android:layout_above="@+id/bottom_write_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+        android:stackFromBottom="true"
+        android:transcriptMode="normal" >
+    </ListView>
+    
+    <!-- <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Welcome to OnlineCare Support"
+        android:textColor="@color/theme_red"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" /> -->
+    
+    
+    
+    
+    <!-- <RelativeLayout
+        android:id="@+id/contOther"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivMsgOther"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="1sp"
+            app:shadow="true" />
+
+        <LinearLayout
+            android:id="@+id/wraper2"
+            android:layout_alignTop="@+id/ivMsgOther"
+            android:layout_toRightOf="@+id/ivMsgOther"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+        <TextView
+                android:id="@+id/tvMsgTimeOther"
+                android:layout_below="@+id/wraper2"
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Small Text"
+                android:visibility="gone"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+    </RelativeLayout> -->
+
+    <TextView
+        android:id="@+id/tvNoMsgs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="You don&apos;t have any messages yet"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_write_bar"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/etSendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="5"
+            android:scrollbars="vertical"
+            android:layout_toLeftOf="@+id/ivSendMessage"
+            android:background="@drawable/cust_border_white_outline"
+            android:hint="Type your message">
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/ivSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/etSendMessage"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_send_selector" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

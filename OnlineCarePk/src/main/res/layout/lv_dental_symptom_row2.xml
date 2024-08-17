@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:background="@drawable/list_selector_dental"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:padding="10dp">
+
+        <!---->
+
+        <RadioButton
+            android:id="@+id/tvSymptomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jack Denial"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:buttonTint="@color/dental_red"
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"/>
+
+        <!--<CheckedTextView
+            android:id="@+id/tvSymptomName"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            android:gravity="center_vertical"
+            android:checkMark="@null"
+            android:drawableLeft="?android:attr/listChoiceIndicatorSingle"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:theme="@style/ListItemTheme"
+            android:background="#FFFFFF" />-->
+    </LinearLayout>
+
+
+</RelativeLayout>

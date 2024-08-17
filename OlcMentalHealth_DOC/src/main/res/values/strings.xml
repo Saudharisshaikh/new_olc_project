@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="label_all_peers">All Peer(s)</string>
+    <string name="title_section1"> Audio Call </string>
+    <string name="title_section2"> Video Call </string>
+    <string name="title_section3"> Chat </string>
+    <string name="title_section4"> File Transfer </string>
+    <string name="title_section5"> Data Transfer </string>
+    <string name="title_section6"> Multi-Party Video Call </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_build_info">Build information</string>
+    <string name="enter_room_name">Enter Room Name</string>
+    <string name="enter_room">Submit</string>
+    <string name="send_data_peer">Send Data</string>
+    <string name="send_data_room">Send Data [Group]</string>
+    <string name="no_peer">No Peer in the room.</string>
+    <string name="data_transfer_status">Transfer %1$s bytes for Private and %2$s bytes for Group.</string>
+    <string name="data_transfer_received_expected">Received data %s bytes</string>
+    <string name="data_transfer_received_unexpected">Warning! Received %s bytes not from the Skylink Android sample app!</string>
+    <string name="peer_count">Peer count is %d</string>
+    <string name="data_transfer_waiting">Connected to Room %s, waiting for Peers</string>
+
+    <string name="allow_camera_permission_msg">Application needs access to your camera and storage in order to take pictures or select picture from your device gallery.
+        Please allow application to access your camera and storage.</string>
+
+    <string name="mute_audio">Mute Audio</string>
+    <string name="muted_audio">Muted Audio</string>
+    <string name="enable_audio">Enable Audio</string>
+    <string name="enabled_audio">Enabled Audio</string>
+
+    <string name="mute_video">Mute Video</string>
+    <string name="muted_video">Muted Video</string>
+    <string name="enable_video">Enable Video</string>
+    <string name="enabled_video">Enabled Video</string>
+
+    <string name="toggle_camera">Toggle Camera</string>
+    <string name="disconnect">Disconnect</string>
+
+    <string name="warn_no_peer_message">There is no peer in the room to send a message to.</string>
+    <string name="warn_no_sel_message">You have not selected a Peer to send a message to.</string>
+
+    <string name="restart_all_ice">Restart all (ICE)</string>
+    <string name="restart_ice">Restart (ICE)</string>
+    <string name="restart_all">Restart all</string>
+    <string name="restart">Restart</string>
+    <string name="recording_stop">Recording stop</string>
+    <string name="recording_start">Recording start</string>
+    <string name="action_configuration"> Configuration </string>
+
+
+    <!-- <string name="app_name">ooVoo SDK Sample 2.2</string> -->
+    <string name="username_label">Username:</string>
+    <string name="login_title">Log in</string>
+    <string name="conference_id_label">Conference ID:</string>
+    <string name="display_name_label">Display Name:</string>
+    <string name="join_title">Join</string>
+    <string name="menu_settings">Settings</string>
+    <string name="settings_base_url">Base URL:</string>
+    <string name="app_id">App ID:</string>
+    <string name="app_token">App Token:</string>
+    <string name="log_level">SDK Log Level:</string>
+    <string name="sdk_version">SDK Version:</string>
+    <string name="authorizing">Authorizing</string>
+    <string name="logging_in">Logging in</string>
+    <string name="joining_av_chat">Joining AV chat</string>
+    <string name="me">Me</string>
+    <string name="front_camera">Front camera</string>
+    <string name="back_camera">Back camera</string>
+    <string name="mute_camera">Mute camera</string>
+    <string name="change_camera">Change camera</string>
+    <string name="resolution">Resolution</string>
+    <string name="audio_routes">Audio Routes</string>
+    <string name="filters">Filters</string>
+    <string name="enter_session_id">Enter conference id</string>
+    <string name="enter_display_name">Enter display name</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_conference_id_and_display_name">Please enter conference id and display name</string>
+    <string name="enter_username_toast">Please enter username</string>
+    <string name="no_internet">No Internet Connection. Please check your internet connection or try again later.</string>
+    <string name="enter_conference_id">Enter conference ID</string>
+    <string name="wrong_conference_id">Conference ID is not valid</string>
+    <string name="enter_conference_display_name">Please enter display name</string>
+    <string name="session_id">Session ID</string>
+    <string name="info_participants">Participants info</string>
+    <string name="menu_information">Information</string>
+    <string name="join_session">Join Session</string>
+    <string name="display_name_too_long">Display name is too long</string>
+    <string name="wrong_username_id">Username is not valid</string>
+    <string name="video_cannot_be_viewed">Video cannot be viewed!</string>
+    <string name="device_is_not_supported">Device is not supported!</string>
+    <string name="start_call_title">Call</string>
+    <string name="call_receiver_label">Call receiver Id:</string>
+    <string name="enter_receiver_id">Enter receiver Id</string>
+    <string name="enter_call_receiver">Enter call receiver</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_title">Add</string>
+    <string name="call_receivers">Call receivers:</string>
+    <string name="calling">Calling</string>
+    <string name="answer">Answer</string>
+    <string name="decline">Decline</string>
+    <string name="no_receivers">Please add or enable up to 4 receivers!</string>
+    <string name="room_title">Room</string>
+    <string name="make_call_title">Make call</string>
+    <string name="use_custom_render">Use custom video render</string>
+    <string name="min_username_length">username must contain at least 6 characters</string>
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+    <string name="push_title">Push</string>
+    <string name="send_title">Send</string>
+    <string name="enter_push_receiver">Enter push receiver</string>
+    <string name="push_receivers">Push notification receivers:</string>
+    <string name="enter_text_push">Enter text to push</string>
+    <string name="all_receivers_offline">All receivers offline</string>
+    <string name="fail_to_send_message">Sending of message fail</string>
+    <string name="push_notification_sent">Push notification sent</string>
+    <string name="push_notification_error">Error sending push notification</string>
+    <string name="unknown">Unknown camera</string>
+    <string name="unsubscribe_title">Unsubscribe</string>
+    <string name="user_unsubscribed">User unsubscribed</string>
+    <string name="user_unsubscribe_error">Error to unsubscribe</string>
+    <string name="no_token_to_unsubscribe">There is no token to unsubscribe</string>
+    <string name="characters_missing">Characters missing</string>
+    <!-- <string name="user_offline">User %s is offline</string>\ -->
+
+    <!--<string name="app_name">OLC Doctor</string>
+    <string name="app_label">Doctor</string>-->
+
+    <string name="app_name">OLC MH Doc</string>
+    <string name="app_label">@string/app_name</string>
+
+    <string name="google_map_API_key">AIzaSyAT23hRHTMDlphRQ4SbX83mII08RSDRIi0</string>
+    <!-- <string name="google_map_API_key">AIzaSyBzAOhiX2nh8OJevhhgn2YiFOj5tF8pFdI</string> -->
+    <string name="settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="join">Join</string>
+    <string name="sessionId">Conference ID:</string>
+    <string name="sdkVersion">SDK Version:</string>
+    <string name="appId">App ID:</string>
+    <string name="avsIp">AVS IP:</string>
+    <string name="settings_screen_name">Settings</string>
+    <string name="ooVooTag">ooVooSample</string>
+    <string name="ooVooUserSettings">ooVooUserSettings</string>
+    <string name="activeUsers">Active Users:</string>
+    <string name="information_screen_name">Information</string>
+    <string name="video_call_screen_name">Video Call</string>
+    <string name="volume">Volume</string>
+    <string name="log_visibility">LogVisibility</string>
+    <string name="enter_effect_key">EnterEffect</string>
+    <string name="exit_effect_key">ExitEffect</string>
+    <string name="camera">C</string>
+    <string name="microphone">M</string>
+    <string name="speakers">S</string>
+    <string name="end_of_call">E</string>
+    <string name="session_id_settings_field">SessionID</string>
+    <string name="avs_ip_settings_field">AvsIP</string>
+    <string name="appIdPersisted">AppId</string>
+    <string name="appTokenPersisted">AppToken</string>
+    <string name="camera_type_settings_field">CameraType</string>
+    <string name="microphone_type_settings_field">MicrophoneType</string>
+    <string name="speakers_type_settings_field">SpeakersType</string>
+    <string name="usrID">User ID:</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="CloseAlertButtonCaption">Close</string>
+    <!-- <string name="resolution">Resolution</string> -->
+    <string name="displayName">Display Name:</string>
+    <string name="appToken">App Token:</string>
+    <!-- <string name="menu_settings">Settings</string> -->
+    <!-- <string name="menu_information">Information</string> -->
+    <string name="title_me">Me</string>
+    <string name="please_wait">Please wait...</string>
+    <!-- <string name="info_participants">Participants:</string> -->
+    <string name="video_error_msg">Video cannot be viewed.</string>
+    <!-- <string name="settings_base_url">Base URL:</string> -->
+    <string name="base_url_settings_field">BaseURL</string>
+    <!-- <string name="log_level">"SDK Log Level"</string> -->
+    <string name="initialization_wait">"Initialization, please wait"</string>
+    <!--
+    <string name="change_camera">"Change camera"</string>
+    <string name="front_camera">"Front camera"</string>
+    <string name="back_camera">"Back camera"</string>
+    <string name="mute_camera">"Mute camera"</string>
+
+
+
+
+
+
+    -->
+    <string name="low">"Low"</string>
+    <string name="med">"Med"</string>
+    <string name="hi">"Hi"</string>
+    <string name="hd">"HD"</string>
+    <!-- <string name="audio_routes">"Audio Routes"</string> -->
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_presscriptions">Prescriptions</string>
+    <string name="title_activity_trnsections">Transactions</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$d pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="title_activity_activity_call_logs">Call History</string>
+    <string name="title_activity_doctor_schedule_new">Doctor Schedule</string>
+    <string name="title_activity_refer_appointment">Refer Appointments</string>
+    <string name="title_activity_care_ratings">OnlineCare Ratings</string>
+    <string name="title_activity_activity_soap_notes">SOAP Notes</string>
+    <string name="title_activity_activity_rifills">Refills</string>
+    <string name="title_activity_activity_refill_details">Refill Details</string>
+
+    <string name="offline_label_txt">Please type a message to go offline. Anyone who wants to contact you from OnlineCare will get your message until you become online.</string>
+    <string name="offline_message">Thank you for your contact. Your message is important to me and I will respond as soon as possible.
+Thank You!</string>
+
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+
+    <!--===============Angora.io Starts============================================-->
+    <!-- Main Activity -->
+    <string name="start_broadcast_title">Start Live Broadcast</string>
+    <string name="topic_edit_hint">Pick a topic to chat</string>
+    <string name="powered_by_agora" translatable="false">Powered by agora.io</string>
+    <string name="need_necessary_permissions">Necessary permissions acquired</string>
+
+    <!-- Setting Activity -->
+    <string name="setting_title">Settings</string>
+    <string name="setting_resolution_title">Resolution</string>
+    <string name="setting_stats_title">Show video statistics</string>
+    <string name="setting_mirror_local_title">Local video preview mirror mode</string>
+    <string name="setting_mirror_remote_title">Remote video render mirror mode</string>
+    <string name="setting_mirror_encode_title">Local video encode mirror mode</string>
+
+    <string-array name="string_array_resolutions">
+        <item>320x240</item>
+        <item>480x360</item>
+        <item>640x360</item>
+        <item>640x480</item>
+        <item>960x540</item>
+        <item>1280x720</item>
+    </string-array>
+
+    <!-- Live Activity -->
+    <string name="fake_user_name" translatable="false">Shakespeare</string>
+
+    <!-- Role Choose Activity -->
+    <string name="select_role_title">Please choose your role</string>
+    <string name="select_role_broadcaster">Broadcaster</string>
+    <string name="select_role_audience">Audience</string>
+    <string name="select_role_broadcaster_hint">Join as broadcaster</string>
+    <string name="select_role_audience_hint">Join as audience</string>
+
+    <!-- Legal digits for channel names -->
+    <string name="legal_channel_name_characters" translatable="false">&#xA0;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&amp;()+,-:;&lt;=.>?@[]^_`{|}~</string>
+    <!--===============Angora.io Ends============================================-->
+</resources>

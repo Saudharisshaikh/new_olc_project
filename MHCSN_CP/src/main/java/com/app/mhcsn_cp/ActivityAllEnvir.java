@@ -1,0 +1,195 @@
+package com.app.mhcsn_cp;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import androidx.appcompat.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.app.mhcsn_cp.adapters.AllEnvirAdapter;
+import com.app.mhcsn_cp.api.ApiCallBack;
+import com.app.mhcsn_cp.api.ApiManager;
+import com.app.mhcsn_cp.api.CustomSnakeBar;
+import com.app.mhcsn_cp.model.EnvirBean;
+import com.app.mhcsn_cp.util.CheckInternetConnection;
+import com.app.mhcsn_cp.util.CustomToast;
+import com.app.mhcsn_cp.util.DATA;
+import com.app.mhcsn_cp.util.GloabalMethods;
+import com.app.mhcsn_cp.util.HideShowKeypad;
+import com.app.mhcsn_cp.util.OpenActivity;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+public class ActivityAllEnvir extends BaseActivity implements ApiCallBack{
+
+    Activity activity;
+    CheckInternetConnection checkInternetConnection;
+    OpenActivity openActivity;
+    CustomToast customToast;
+    HideShowKeypad hideShowKeypad;
+    SharedPreferences prefs;
+    ApiCallBack apiCallBack;
+    CustomSnakeBar customSnakeBar;
+
+    ListView lvAllEnv;
+    TextView tvNoData;
+
+    static boolean shoulRefresh = false;
+    @Override
+    protected void onResume() {
+        if(shoulRefresh){
+            shoulRefresh = false;
+
+            loadListData();
+        }
+        super.onResume();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_all_envir);
+
+        activity = ActivityAllEnvir.this;
+        checkInternetConnection = new CheckInternetConnection(activity);
+        customToast = new CustomToast(activity);
+        openActivity = new OpenActivity(activity);
+        customSnakeBar = CustomSnakeBar.getCustomSnakeBarInstance(activity);
+        hideShowKeypad = new HideShowKeypad(activity);
+        prefs = getSharedPreferences(DATA.SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+        apiCallBack = this;
+
+        lvAllEnv = (ListView) findViewById(R.id.lvAllEnvir);
+        tvNoData = findViewById(R.id.tvNoData);
+
+        lvAllEnv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                viewOrEditForm(position, true);
+            }
+        });
+
+
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle("Medical History");
+        Button btnToolbar = (Button) findViewById(R.id.btnToolbar);
+
+        btnToolbar.setText("Add New");
+        btnToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity.open(ActivityEnvirForm.class, false);
+            }
+        });
+
+
+        loadListData();
+
+
+        new GloabalMethods(activity).setAssesListHeader();
+        GloabalMethods.activityAssesList = activity;
+    }
+
+    public void loadListData(){
+        RequestParams params = new RequestParams();
+        params.put("patient_id",DATA.selectedUserCallId);
+        ApiManager apiManager = new ApiManager(ApiManager.ALL_ENVIR_ASSES,"post",params,apiCallBack, activity);
+        apiManager.loadURL();
+    }
+
+
+    ArrayList<EnvirBean> envirBeens;
+    public static EnvirBean selectedEnvirBean;
+    @Override
+    public void fetchDataCallback(String httpstatus, String apiName, String content) {
+        if(apiName.equalsIgnoreCase(ApiManager.ALL_ENVIR_ASSES)){
+            try {
+                JSONObject jsonObject = new JSONObject(content);
+                JSONArray data = jsonObject.getJSONArray("data");
+               /* envirBeens = new ArrayList<>();
+                EnvirBean bean;
+                for (int i = 0; i < data.length(); i++) {
+                    String id = data.getJSONObject(i).getString("id");
+                    String patient_id = data.getJSONObject(i).getString("patient_id");
+                    String doctor_id = data.getJSONObject(i).getString("doctor_id");
+                    String data1 = data.getJSONObject(i).getString("data");
+                    String dateof = data.getJSONObject(i).getString("dateof");
+                    String status = data.getJSONObject(i).getString("status");
+                    String is_deleted = data.getJSONObject(i).getString("is_deleted");
+                    String delete_date = data.getJSONObject(i).getString("delete_date");
+
+                    bean = new EnvirBean(id,patient_id,doctor_id,data1,dateof,status,is_deleted,delete_date);
+                    envirBeens.add(bean);
+                    bean = null;
+                }*/
+
+
+                if(data.length() == 0){
+                    tvNoData.setVisibility(View.VISIBLE);
+                }else {
+                    tvNoData.setVisibility(View.GONE);
+                }
+
+                Type listType = new TypeToken<ArrayList<EnvirBean>>() {}.getType();
+                envirBeens = new Gson().fromJson(data.toString(), listType);
+
+                if(envirBeens != null){
+                    lvAllEnv.setAdapter(new AllEnvirAdapter(activity,envirBeens));
+                    DATA.print("--size: "+envirBeens.size());
+                }else {
+                    DATA.print("-- envirBeens is null");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+            }
+        }
+    }
+
+
+    public void viewOrEditForm(int position, boolean isReadOnly){
+        selectedEnvirBean = envirBeens.get(position);
+        Intent intent = new Intent(activity, ActivityEnvirForm.class);
+        intent.putExtra("isReadOnly", isReadOnly);
+        intent.putExtra("isEdit",true);
+        startActivity(intent);
+    }
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_add_new, menu);
+
+        //boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawer);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_save_schedule) {
+
+            openActivity.open(ActivityEnvirForm.class, false);//not used !
+
+        }else if(item.getItemId() == android.R.id.home){
+            onBackPressed();
+            return true;//return true back activity state maintains if false back activity oncreate called
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:orientation="horizontal" >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imgSelPtImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="2sp"
+            app:shadow="true" />
+
+        <TextView
+            android:id="@+id/tvSelPtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/jkjk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp" >
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginTop="5dp"
+			android:paddingLeft="15dp"
+			android:paddingRight="15dp"
+			android:orientation="vertical" >
+
+			<Button
+				android:id="@+id/btnSelPtStartCheckup"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_margin="5dp"
+				android:background="@drawable/btn_selector"
+				android:padding="10dp"
+				android:text="Start Video Checkup"
+				android:textColor="@android:color/white"
+				android:textSize="18dp"
+				android:drawableLeft="@drawable/ic_livecare_video_checkup"
+				android:textStyle="normal"
+				android:textAllCaps="false" />
+
+			<Button
+				android:id="@+id/btnSendMsg"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_margin="5dp"
+				android:background="@drawable/btn_selector"
+				android:padding="10dp"
+				android:text="Send Message"
+				android:textColor="@android:color/white"
+				android:textSize="18dp"
+				android:drawableLeft="@drawable/ic_livecare_send_msg"
+				android:textStyle="normal"
+				android:textAllCaps="false" />
+
+		</LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

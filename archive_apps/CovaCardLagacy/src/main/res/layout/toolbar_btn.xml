@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        app:theme="@style/AppTheme.Toolbar"
+        app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
+        android:background="@color/covacard_dark_green"
+        app:contentInsetStartWithNavigation="0dp"
+        android:title="Medical History">
+        <Button
+            android:id="@+id/btnToolbar"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="My Reports"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:background="@drawable/btn_selector"/>
+    </androidx.appcompat.widget.Toolbar>
+</LinearLayout>

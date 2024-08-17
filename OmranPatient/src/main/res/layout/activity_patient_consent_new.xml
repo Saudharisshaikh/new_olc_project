@@ -1,0 +1,183 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.omranpatient.PatientConsentActivityNew" >
+
+    <ScrollView
+        android:id="@+id/scc"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp" >
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_logo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PATIENT CONSENT FORM"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(HIPAA)"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I understand that I have certain rights to privacy regarding my protected health information. These rights are given to me under the Health Insurance Portability and Accountability Act of 1996 (HIPAA). I understand that by signing this consent I authorize you to use and disclose my protected health information to carry out:\n\n* Treatment (including direct or indirect treatment by other healthcare providers involved in my treatment                            \n\n* Obtaining payment from third party payers (e.g. my insurance company)\n\n* The day to day healthcare operations of your practice\n\nI have also been informed of, and given the right to review and secure a copy of your Notice of Privacy Practices, which contains a more complete description of the uses and disclosures of my protected health information, and my rights under HIPAA. I understand that you reserve the right to change the terms of this notice from time to time and that I may contact you at any time to obtain the most current copy of this notice.\n\nI understand that I have the right to request restrictions on how my protected health information is used and disclosed to carry out treatment, payment, and health care operations, but that you are not required to agree to these requested restrictions. However, if you do agree, you are then bound to comply with this restriction.\n\nI understand that I may revoke this consent, in writing, at any time. However, any use or disclosure that occurred prior to the date I revoke this consent is not affected."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Patient Name"/>
+            <com.app.omranpatient.util.ActionEditText
+                android:id="@+id/etPatientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint="Patient Name"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Relationship to Patient"/>
+            <com.app.omranpatient.util.ActionEditText
+                android:id="@+id/etRelationship"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint="Relationship to Patient"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_marginRight="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-3dp"
+                        android:text="Signature"/>
+                    <ImageView
+                        android:id="@+id/ivSignature"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:layout_marginTop="6dp"
+                        android:src="@drawable/ic_signature"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:padding="10dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-3dp"
+                        android:text="Date"/>
+                    <EditText
+                        android:id="@+id/etSignatureDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:gravity="center"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Date"
+                        android:padding="10dp"
+                        android:layout_marginTop="6dp"
+                        android:focusable="false"
+                        android:editable="false"
+                        android:inputType="none" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnSubmitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"   
+                android:layout_margin="5dp"           
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:text="Submit" />
+            
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnSkipForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"  
+                android:layout_margin="5dp"             
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:text="Skip" />
+            
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

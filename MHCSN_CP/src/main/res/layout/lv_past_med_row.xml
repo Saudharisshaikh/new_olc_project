@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <!--<com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/icon_call_screen"
+        app:border_color="#E0E0E0"
+        app:border_width="2dp"
+        app:shadow="true"
+        app:border="true"
+        />-->
+    <LinearLayout
+        android:id="@+id/ll_listitem"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cust_border_white_outline"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp">
+
+
+        <LinearLayout
+            android:id="@+id/cellHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tvMedName"
+                android:text="Asprin 24 Mg tabs"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:id="@+id/tvMedStrength"
+                android:text="24 Mg"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:id="@+id/tvMedInstructions"
+                android:text="take 2 tabs daily after meel regular"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+
+                android:layout_weight="2"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_selector"
+                android:text="Renew"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="5dp"/>
+
+            <!--<TextView
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/btn_selector"
+                android:text="Edit"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                />-->
+            <TextView
+                android:id="@+id/tvViewMed"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/btn_selector"
+                android:text="View"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:focusable="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

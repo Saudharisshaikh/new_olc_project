@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--for check box toggle-->
+  <item
+      android:state_checked="true" >
+    <shape android:shape="rectangle">
+      <gradient
+          android:startColor="#F44336"
+          android:centerColor="#FD7D22"
+          android:endColor="#FF2212"
+          android:type="linear"
+          android:angle="90"
+          />
+      <corners android:radius="20dp" />
+    </shape>
+  </item>
+
+  <item
+      android:state_checked="false" >
+    <shape android:shape="rectangle">
+      <gradient
+          android:startColor="#2D2F2E"
+          android:centerColor="#727574"
+          android:endColor="#2D2F2E"
+          android:type="linear"
+          android:angle="90"
+          />
+      <corners android:radius="20dp" />
+    </shape>
+  </item>
+
+  <item>
+    <shape android:shape="rectangle">
+      <gradient
+          android:startColor="#2D2F2E"
+          android:centerColor="#727574"
+          android:endColor="#2D2F2E"
+          android:type="linear"
+          android:angle="90"
+          />
+      <corners android:radius="20dp" />
+    </shape>
+  </item>
+
+</selector>
+
+    <!--This is button drawable-->
+    <!--<shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle">
+      <gradient
+          android:startColor="#F44336"
+          android:centerColor="#FD7D22"
+          android:endColor="#FF2212"
+          android:type="linear"
+          android:angle="90"
+          />
+      <corners android:radius="20dp" />
+    </shape>-->
+
+    <!--#494949-->
+
+
+
+
+    <!--Note : This is edit text bg i.e cust_border_white_outline-->
+    <!--
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle" >
+      <solid android:color="#EEEEEE"/>
+      <corners android:radius="10dp" />
+      <stroke android:width="1px" android:color="@android:color/darker_gray" />
+    </shape>-->

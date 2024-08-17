@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray">
+
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/imgMainAd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolBarColor">
+
+            <LinearLayout
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="start|center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/back"
+                    android:background="@android:color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="Emotional Wellness"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_launcher"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/ivHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_home_white_24dp"
+                android:layout_gravity="top|right"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivConnectTherapist"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:clickable="true"
+                        android:src="@drawable/ic_connect_therapist"
+                        android:background="@android:color/transparent"
+                        />
+                    <ImageView
+                        android:id="@+id/ivSelfHelpTools"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginTop="50dp"
+                        android:clickable="true"
+                        android:src="@drawable/ic_selfhelp_tools"
+                        android:background="@android:color/transparent"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+    <com.app.onlinecare_pk.AspectRationImageView
+        android:id="@+id/imgMainAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/imgad" />
+</RelativeLayout>
+

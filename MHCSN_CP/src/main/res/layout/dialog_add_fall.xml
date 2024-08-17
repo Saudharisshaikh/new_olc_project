@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical|left"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Add New Fall"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:background="@android:color/transparent"
+                    android:id="@+id/ivCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_cancel_cir"
+                    android:layout_gravity="right"/>
+            </FrameLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray"/>
+
+            <LinearLayout
+                android:background="@android:color/transparent"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Date of Fall :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:id="@+id/etDateofFall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tap to enter date"
+                    android:padding="10sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Injury :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <RadioGroup
+                    android:id="@+id/rgAddFallInjury"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent">
+                    <RadioButton
+                        android:id="@+id/rbAddFallInjuryYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginEnd="5dp"
+                        android:background="@android:color/transparent"/>
+                    <RadioButton
+                        android:id="@+id/rbAddFallInjuryNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginStart="5dp"
+                        android:background="@android:color/transparent"/>
+                </RadioGroup>
+
+
+                <LinearLayout
+                    android:id="@+id/layInjuryOpt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Medical Care Received :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <Spinner
+                        android:id="@+id/spAddFallMediCare"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/spinner_bg"/>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Did the injury result in a hospitalization :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+                    <RadioGroup
+                        android:id="@+id/rgAddFallInjuryResult"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent">
+                        <RadioButton
+                            android:id="@+id/rbAddFallInjuryResultYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:buttonTint="@color/theme_red"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/transparent"/>
+                        <RadioButton
+                            android:id="@+id/rbAddFallInjuryResultNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:buttonTint="@color/theme_red"
+                            android:layout_marginStart="5dp"
+                            android:background="@android:color/transparent"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Additional Comments :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <com.app.mhcsn_cp.util.ActionEditText
+                    android:id="@+id/etAddFallDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Enter here"
+                    android:padding="10sp"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:gravity="top"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:imeOptions="actionDone"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+                <Button
+                    android:id="@+id/btnAddFall"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Submit"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

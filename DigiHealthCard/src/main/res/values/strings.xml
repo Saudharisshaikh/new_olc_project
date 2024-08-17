@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<string name="facebook_app_id">1323450094704115</string>--><!--COVACARD LIVE-->
+    <string name="facebook_app_id">322060396417411</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">4EAXLIguL8xk18Xh88ZqZz4fe</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">y6mSSOhyfeSoyIyrG90OFOpwVagoskewknlscdaMF51gErBsoJ</string>
+
+
+    <!-- <string name="app_name">ooVoo SDK Sample 2.3</string> -->
+
+    <!-- ==================================================================================== -->
+
+    <!--<string name="app_name">OLC Patient</string>
+    <string name="app_label">Patient</string>-->
+
+    <!--<string name="app_name">Convenient Urgent Care</string>-->
+    <!--<string name="app_name">Emcura Immediate Care</string>-->
+    <string name="app_name">DigiHealthCard</string>
+    <!--<string name="app_name">CovaCard Health Wallet</string>-->
+    <string name="app_label">Digi H Card</string>
+
+    <string name="google_map_API_key">AIzaSyDnH0LQ4s6fkKgJiM0v23czi2UwPFs47iY</string>
+    <!-- <string name="google_map_API_key">AIzaSyA86FOSNaodiZklEHkhEy5HgsyfFVLlgTw</string> -->
+
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+
+    <!--===============Angora.io Starts============================================-->
+    <!-- Main Activity -->
+    <string name="need_necessary_permissions">Necessary permissions acquired</string>
+
+    <!-- Setting Activity -->
+
+    <!-- Live Activity -->
+
+    <!-- Role Choose Activity -->
+
+    <!-- Legal digits for channel names -->
+    <!--===============Angora.io Ends============================================-->
+
+
+    <string-array name="options">
+        <item>hide status bar</item>
+        <item>images margin</item>
+        <item>container padding</item>
+        <item>images rounding</item>
+        <item>swipe-to-dismiss</item>
+        <item>zooming</item>
+        <item>show overlay</item>
+        <item>random background</item>
+        <item>post-processing (via ImageRequestBuilder)</item>
+    </string-array>
+
+
+    <string name="trial_expied_msg">Your trial period has been expired. Please do proceed and select a subscription package.</string>
+    <string name="trial_period">Trial Period.</string>
+    <string name="trial_expired">Trial Expired.</string>
+
+    <string name="allow_camera_permission_msg">Application needs access to your camera and storage in order to take pictures or select picture from your device gallery.
+        Please allow application to access your camera and storage.</string>
+
+</resources>

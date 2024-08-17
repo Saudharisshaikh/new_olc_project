@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mhcsn_cp.reliance.counter.ActivityCounter">
+
+    <!--<include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+
+    <LinearLayout
+        android:id="@+id/tabOptions"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnTabFalls"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/theme_red"
+            android:textColor="#FFFFFF"
+            android:text="Falls"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnTabHospAdm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"
+            android:text="Hospital Admission"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btnTabNursingHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"
+            android:text="Nursing Home"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+
+
+        <Button
+            android:id="@+id/btnTabEmergRoom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"
+            android:text="Emergency Room"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/lineSep"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black"
+        android:layout_below="@+id/tabOptions" />
+
+    <ViewFlipper
+        android:id="@+id/vfCounter"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lineSep" >
+
+        <RelativeLayout
+            android:id="@+id/layFall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ListView
+                android:id="@+id/lvFallList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                tools:listitem="@layout/lv_fall_list_row"
+                android:layout_above="@+id/layBottom1"
+                android:divider="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/tvNoFallData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No data found"/>
+
+            <LinearLayout
+                android:id="@+id/layBottom1"
+                android:visibility="visible"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnFallChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="View Chart"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"
+                        />
+                    <Button
+                        android:id="@+id/btnAddFall"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Add New"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layHospAdm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lvHospAdmList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/layBottom2"
+                android:layout_alignParentTop="true"
+                android:divider="@android:color/transparent"
+                tools:listitem="@layout/hosp_adm_row" />
+
+            <TextView
+                android:id="@+id/tvNoHospAdmData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No data found"/>
+
+            <LinearLayout
+                android:id="@+id/layBottom2"
+                android:visibility="visible"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnHospAdmChart"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="View Chart"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF" />
+                    <Button
+                        android:id="@+id/btnAddHospAdm"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Add New"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layNursingHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lvNursingHomeList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/layBottom3"
+                tools:listitem="@layout/lv_nurshomelist_row"
+                android:divider="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/tvNoNursingHomeData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No data found"/>
+            <LinearLayout
+                android:id="@+id/layBottom3"
+                android:visibility="visible"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnNursingHomeChart"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="View Chart"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF" />
+                    <Button
+                        android:id="@+id/btnAddNursingHome"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Add New"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layEmergRoom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lvEmergRoomList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/layBottom4"
+                tools:listitem="@layout/lv_emergroom_list_row"
+                android:divider="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/tvNoEmergRoomData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No data found"/>
+
+            <LinearLayout
+                android:id="@+id/layBottom4"
+                android:visibility="visible"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnEmergRoomChart"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="View Chart"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btnAddEmergRoom"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Add New"
+                        android:textStyle="normal"
+                        android:textAllCaps="false"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ViewFlipper>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".reliance.medication.ActivityMedicationList">
+
+
+
+    <LinearLayout
+        android:id="@+id/listHeader"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/theme_red"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/theme_red"
+            android:layout_marginEnd="5dp"/>
+
+        <TextView
+            android:text="Name"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:text="Strength"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:text="Directions"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+
+        <ImageView
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/baseline_import_export_black_18"/>
+    </LinearLayout>
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layBottom1"
+        android:layout_below="@+id/listHeader">
+
+        <com.woxthebox.draglistview.DragListView
+            android:id="@+id/lvMedications"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            tools:listitem="@layout/rv_medi_multiselect_row"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/tvNoMed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No medication(s) found."
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/layBottom1"
+        android:visibility="visible"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+
+        <CheckBox
+            android:visibility="gone"
+            android:id="@+id/cbSortMeds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sort Medications"
+            android:buttonTint="@color/theme_red"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnAddMedication"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/btn_selector"
+                android:text="Add Medication"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnStopMedication"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/btn_selector"
+                android:text="Stop Medication"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnPastMedication"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_selector"
+            android:text="Past Medication"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
+</RelativeLayout>

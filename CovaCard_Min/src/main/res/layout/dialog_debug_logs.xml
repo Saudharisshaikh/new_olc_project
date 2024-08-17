@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/cust_border_white_radius_10"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textAlignment="center"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:text="You can enable debug mode here. If you enable debug mode you can view API logs."
+                        android:textAlignment="textStart"
+                        android:gravity="start"
+                        android:textColor="@color/black"
+                        android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                    <CheckBox
+                        android:id="@+id/cbDebugMode"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="normal"
+                        android:button="@null"
+                        android:drawableRight="@drawable/custom_checkbox"
+                        android:drawablePadding="10dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:background="@drawable/cust_border"
+                        android:text="Enable Debug Mode"
+                        />
+
+
+                    <CheckBox
+                        android:id="@+id/cbDemoSubs"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="normal"
+                        android:button="@null"
+                        android:drawableRight="@drawable/custom_checkbox"
+                        android:drawablePadding="10dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:background="@drawable/cust_border"
+                        android:text="Dummy/Fake Subscription"
+                        />
+
+                    <Button
+                        android:id="@+id/btnDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Done"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textColor="@android:color/white"
+                        android:textAllCaps="false"/>
+
+                    <!--<Button
+                        android:id="@+id/btnFamilyMember"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="For Family Member"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textColor="@android:color/white"
+                        android:textAllCaps="false"/>
+
+                    <Button
+                        android:id="@+id/btnCancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/apptmnt_cancel_drawable"
+                        android:text="Not Now"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textColor="@android:color/white"
+                        android:textAllCaps="false"/>-->
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <!--<com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivStaffMember"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher"
+            app:border_color="#FFFFFF"
+            app:border_width="3dp"
+            app:shadow_color="@android:color/darker_gray"
+            app:shadow="true"
+            android:layout_gravity="center_horizontal"/>-->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher"
+            android:layout_gravity="center_horizontal"/>
+
+    </FrameLayout>
+
+</LinearLayout>

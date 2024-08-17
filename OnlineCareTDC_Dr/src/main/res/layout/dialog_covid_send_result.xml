@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_gray">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:background="@color/toolBarColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:background="@android:color/transparent"
+                android:id="@+id/ivCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_close_white_24dp"
+                />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|left"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Send COVID Testing Resuts"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Patient Name : "
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/theme_red"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/tvPatientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jack Denial"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Request Date : "
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/theme_red"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="April 17 2019"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+
+
+                <LinearLayout
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="start">
+
+
+                        <RelativeLayout
+                            android:id="@+id/layRow2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvLbl2"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:text="PCR Covid :"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/theme_red"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_toEndOf="@+id/tvLbl2">
+
+                                <RadioGroup
+                                    android:id="@+id/rgPcrCovid"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="start">
+
+                                    <RadioButton
+                                        android:id="@+id/rbPcrCovidPositive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Positive"
+                                        android:buttonTint="@color/colorPrimary"
+                                        />
+                                    <RadioButton
+                                        android:id="@+id/rbPcrCovidNegative"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Negative"
+                                        android:buttonTint="@color/colorPrimary"/>
+
+                                    <RadioButton
+                                        android:id="@+id/rbPcrCovidNotPerformed"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Not performed"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbPcrCovidPending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pending"
+                                        android:buttonTint="@color/colorPrimary" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:id="@+id/sep2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+
+                        <RelativeLayout
+                            android:id="@+id/layRow1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvLbl1"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:text="Rapid Covid In-House :"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/theme_red"
+                                android:layout_centerVertical="true"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_toEndOf="@+id/tvLbl1">
+
+                                <RadioGroup
+                                    android:id="@+id/rgRapidCovid"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="start">
+                                    <RadioButton
+                                        android:id="@+id/rbRapidCovidPositive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Positive"
+                                        android:buttonTint="@color/colorPrimary"
+                                        />
+                                    <RadioButton
+                                        android:id="@+id/rbRapidCovidNegative"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Negative"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidCovidNotPerformed"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Not performed"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidCovidPending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pending"
+                                        android:buttonTint="@color/colorPrimary" />
+                                </RadioGroup>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                        <View
+                            android:id="@+id/sep1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <RelativeLayout
+                            android:id="@+id/layRow3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvLbl3"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:text="Rapid Strep Test :"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/theme_red"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_toEndOf="@+id/tvLbl3">
+
+                                <RadioGroup
+                                    android:id="@+id/rgRapidStrep"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="start">
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidStrepPositive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Positive"
+                                        android:buttonTint="@color/colorPrimary"
+                                        />
+                                    <RadioButton
+                                        android:id="@+id/rbRapidStrepNegative"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Negative"
+                                        android:buttonTint="@color/colorPrimary"/>
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidStrepNotPerformed"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Not performed"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidStrepPending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pending"
+                                        android:buttonTint="@color/colorPrimary" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <View
+                            android:id="@+id/sep3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <RelativeLayout
+                            android:id="@+id/layRow5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvLbl5"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:text="Rapid Flu :"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/theme_red"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_toEndOf="@+id/tvLbl5">
+
+                                <RadioGroup
+                                    android:id="@+id/rgRapidFlu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="start">
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidFluPositive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Positive"
+                                        android:buttonTint="@color/colorPrimary"
+                                        />
+                                    <RadioButton
+                                        android:id="@+id/rbRapidFluNegative"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Negative"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidFluNotPerformed"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Not performed"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbRapidFluPending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pending"
+                                        android:buttonTint="@color/colorPrimary" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                        <View
+                            android:id="@+id/sep5"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+
+                        <RelativeLayout
+                            android:id="@+id/layRow6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvLbl6"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:text="DNA Flu :"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/theme_red"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_toEndOf="@+id/tvLbl6">
+
+                                <RadioGroup
+                                    android:id="@+id/rgDNA_Flu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="start">
+
+                                    <RadioButton
+                                        android:id="@+id/rbDNA_FluPositive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Positive"
+                                        android:buttonTint="@color/colorPrimary"
+                                        />
+                                    <RadioButton
+                                        android:id="@+id/rbDNA_FluNegative"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Negative"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbDNA_FluNotPerformed"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Not performed"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbDNA_FluPending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pending"
+                                        android:buttonTint="@color/colorPrimary" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <View
+                            android:id="@+id/sep4"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <RelativeLayout
+                            android:id="@+id/layRow4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvLbl4"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:text="Strep Culture :"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/theme_red"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:layout_toEndOf="@+id/tvLbl4">
+
+                                <RadioGroup
+                                    android:id="@+id/rgStrepCulture"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:gravity="start">
+
+                                    <RadioButton
+                                        android:id="@+id/rbStrepCulturePositive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Positive"
+                                        android:buttonTint="@color/colorPrimary"
+                                        />
+                                    <RadioButton
+                                        android:id="@+id/rbStrepCultureNegative"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Negative"
+                                        android:buttonTint="@color/colorPrimary"/>
+
+                                    <RadioButton
+                                        android:id="@+id/rbStrepCultureNotPerformed"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Not performed"
+                                        android:buttonTint="@color/colorPrimary" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbStrepCulturePending"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pending"
+                                        android:buttonTint="@color/colorPrimary" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Submit Covid Result"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+    <!--<Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_selector"
+        android:text="Submit Covid Result"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"/>-->
+
+
+</RelativeLayout>

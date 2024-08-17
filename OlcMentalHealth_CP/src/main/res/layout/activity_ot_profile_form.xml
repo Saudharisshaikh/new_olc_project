@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context=".reliance.assessment.ActivityOtProfileForm">
+
+    <ScrollView
+        android:id="@+id/svForm"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/bottomD"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="10dp"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/lay_asseslist_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The occupational profile is a summary of a client’s occupational history and experiences, patterns of daily living, interests, values, and needs” (AOTA, 2014, p. S13). The information is obtained from the client’s perspective through both formal interview techniques and casual conversation and leads to an individualized, client-centered approach to intervention. Each item below should be addressed to complete the occupational profile. Page numbers are provided to reference a description in the Occupational Therapy Practice Framework: Domain and Process, 3 rd Edition (AOTA, 2014)."
+                android:textStyle="normal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="11sp"
+                android:layout_gravity="center_vertical"
+                android:lineSpacingExtra="1dp"/>
+
+            <LinearLayout
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Client Report"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reason the client is seeking service and concerns related to engagement in occupations"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Why is the client seeking service, and what are the client’s current concerns relative to engaging in occupations and in daily life activities? (This may include the client’s general health status.)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField1"
+                        android:tag="form_data[client_seeking_service]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Occupations in which the client is successful (p. S5)"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="In what occupations does the client feel successful, and what barriers are affecting his or her success?"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField2"
+                        android:tag="form_data[client_feel_successful]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personal interests and values (p. S7)"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="What are the client’s values and interests?"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField3"
+                        android:tag="form_data[client_values_interests]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Occupational history (i.e., life experiences)"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="What is the client’s occupational history (i.e., life experiences)?"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField4"
+                        android:tag="form_data[client_occupational_history]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Performance patterns (routines, roles, habits, &amp; rituals) (p. S8)"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="What are the client’s patterns of engagement in occupations, and how have they changed over time? What are the client’s daily life roles? (Patterns can support or hinder occupational performance.)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField5"
+                        android:tag="form_data[client_patterns_engagement]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Environment / Context"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Physical (p. S28) (e.g., buildings, furniture, pets)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supports to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField6"
+                        android:tag="form_data[physical_a]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriers to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField7"
+                        android:tag="form_data[physical_b]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Social (p. S28) (e.g., spouse, friends, caregivers)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supports to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField8"
+                        android:tag="form_data[social_a]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriers to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField9"
+                        android:tag="form_data[social_b]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Cultural (p. S28) (e.g., customs, beliefs)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supports to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField10"
+                        android:tag="form_data[cultural_a]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriers to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField11"
+                        android:tag="form_data[cultural_b]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Personal (p. S28) (e.g., age, gender, SES, education)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supports to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField12"
+                        android:tag="form_data[personal_a]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriers to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField13"
+                        android:tag="form_data[personal_b]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Temporal (p. S28) (e.g., stage of life, time, year)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supports to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField14"
+                        android:tag="form_data[temporal_a]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriers to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField15"
+                        android:tag="form_data[temporal_b]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Virtual (p. S28) (e.g., chat, email, remote monitoring)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supports to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField16"
+                        android:tag="form_data[virtual_a]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriers to Occupational Engagement"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField17"
+                        android:tag="form_data[virtual_b]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Client Goals"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Client’s priorities and desired targeted outcomes: (p. S34)"
+                        android:textStyle="normal"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="11sp"
+
+                        android:layout_gravity="center_vertical"/>
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Consider: occupational performance—improvement and enhancement, prevention, participation, role competence, health and wellness, quality of life, well-being, and/or occupational justice."
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"/>
+
+                    <com.app.msu_cp.util.ActionEditText
+                        android:id="@+id/etOtProField18"
+                        android:tag="form_data[occupational_performance]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/bottomD"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnSubmitForm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:text="Submit"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</RelativeLayout>

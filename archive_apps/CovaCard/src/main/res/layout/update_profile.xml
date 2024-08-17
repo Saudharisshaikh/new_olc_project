@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <!--<include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+    <ScrollView
+        android:id="@+id/xxx"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="true" >
+        <!--android:layout_below="@+id/toolbarLay"-->
+
+        <LinearLayout
+            android:id="@+id/iik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@+id/joo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp" >
+
+                <com.onlinecare.AspectRationImageView
+                    android:id="@+id/imgMainList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+
+                <!--<com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/imgChangeProfileImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_call_screen"
+                    app:border="true"
+                    app:border_color="#66FFFFFF"
+                    app:border_width="2sp"
+                    app:shadow="true" />-->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgChangeProfileImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_default_user_squire"
+                        android:scaleType="centerCrop"/>
+
+                    <!--<com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/ivUserImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/icon_call_screen"
+                        app:border_color="@android:color/white"
+                        app:border_width="2dp"
+                        app:shadow="true"
+                        app:border="true"
+                        />-->
+
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnEditPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile Picture"
+                android:textColor="@color/theme_red"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:background="@android:color/transparent"/>
+
+            <View
+                android:id="@+id/vidd"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/theme_red" />
+
+
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="First Name*"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileFname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:inputType="textCapWords"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:background="@drawable/cust_border_white_outline" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="Last Name*"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileLname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:inputType="textCapWords"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:background="@drawable/cust_border_white_outline" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="Birthdate*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfilBday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline" >
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="Phone*"
+                android:textColor="@color/theme_red"/>
+            <!--<br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/etUpdateProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="25"
+                android:background="@drawable/cust_border_white_outline"
+
+                app:mask="###-###-####"
+
+                app:allowed_chars="1234567890">
+            </br.com.sapereaude.maskedEditText.MaskedEditText>-->
+
+            <!--+1(###)###-####-->  <!--android:hint="Phone Number"-->
+
+            <!--<EditText
+                android:id="@+id/etUpdateProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:textColor="@color/theme_red"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="25"
+                android:background="@drawable/cust_border_white_outline"
+                />-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp_CountryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccp_hintExampleNumber="false"
+                    app:ccp_countryPreference="us,pk"
+                    app:ccp_defaultNameCode="us"
+                    app:ccp_defaultPhoneCode="1"
+                    />
+
+                <br.com.sapereaude.maskedEditText.MaskedEditText
+                    android:id="@+id/etUpdateProfilePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:background="@android:color/transparent"
+
+                    android:maxLength="25"
+
+
+                    app:mask="###-###-####"
+
+                    app:allowed_chars="1234567890">
+                </br.com.sapereaude.maskedEditText.MaskedEditText>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="St. Address"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="35"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="City"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="35"
+                android:background="@drawable/cust_border_white_outline"
+                android:inputType="textCapWords"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="State"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:inputType="textCapWords"
+                android:text=""/>
+            <Spinner
+                android:id="@+id/spUpdateProfileState"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/spinner_bg" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="Country"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="40dp"
+                android:text="Zip Code"
+                android:textColor="@color/theme_red"/>
+            <com.covacard.util.ActionEditText
+                android:imeOptions="actionDone"
+                android:id="@+id/etUpdateProfileZipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="9"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <LinearLayout
+                android:id="@+id/mm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Gender*"
+                    android:textColor="@color/theme_red"/>
+
+                <RadioGroup
+                    android:id="@+id/rgEditProfilGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:checked="true"
+                        android:text="Male  "
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+
+                    <RadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginEnd="5dp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/oi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+                <!--
+                android:textColor="@color/theme_red"-->
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/texView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Marital Status*"
+                    android:layout_gravity="left|center_vertical"
+                    android:textColor="@color/theme_red"/>
+
+                <RadioGroup
+                    android:visibility="gone"
+                    android:id="@+id/rgMaritalStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioSingle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:checked="true"
+                        android:text="Single"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:textSize="11sp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioMarried"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Married"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:textSize="11sp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioDivorced"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Divorced"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:textSize="11sp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioWidowed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Widowed"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:textSize="11sp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnUpdtPrflSbmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:background="@drawable/btn_selector" />
+            <!-- android:layout_wixtaldth="wrap_content" commited remove bg img-->
+            <Button
+                android:id="@+id/btnUpdtPrflPwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="Change Password"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:background="@drawable/btn_selector"
+                />
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnAddInsurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="View / Modify Insuance"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:background="@drawable/btn_selector"
+                />
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnAddPrimaryCare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="Add / Modify Primary Care Provider"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:background="@drawable/btn_selector"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

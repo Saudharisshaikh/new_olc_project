@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/ivMsgImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/div"
+        android:src="@drawable/ic_placeholder_2"
+        android:background="@android:color/black"/>
+
+    <FrameLayout
+        android:id="@+id/topBar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/shadow"/>
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_gravity="right|center_vertical"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp"/>
+
+        <TextView
+            android:id="@+id/dialogTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="normal" />
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/div"
+        android:layout_above="@+id/bottom_write_bar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/theme_red"/>
+    <RelativeLayout
+        android:id="@+id/bottom_write_bar"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/etSendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="5"
+            android:scrollbars="vertical"
+            android:layout_toLeftOf="@+id/ivSendImage"
+            android:background="@android:color/transparent"
+            android:hint="Type your message">
+        </EditText>
+
+        <ImageButton
+            android:visibility="gone"
+            android:id="@+id/ivSendImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivSendMessage"
+            android:layout_alignBottom="@+id/etSendMessage"
+            android:paddingTop="10dp"
+            android:paddingBottom="16dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/ivSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/etSendMessage"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_send_selector" />
+
+    </RelativeLayout>
+</RelativeLayout>

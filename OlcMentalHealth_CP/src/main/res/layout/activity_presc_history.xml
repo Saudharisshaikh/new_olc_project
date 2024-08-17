@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context=".reliance.preschistory.ActivityPrescHistory">
+
+    <!--<include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+
+    <!--<include
+        layout="@layout/lay_asseslist_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarLay"/>-->
+
+
+    <LinearLayout
+        android:id="@+id/layDatePickers"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="20dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From"/>
+            <Button
+                android:id="@+id/btnHistoryFrom"
+                android:layout_marginTop="5dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/cust_border_grey_et"
+                android:text="2017-05-31"
+                android:drawableLeft="@drawable/calendar_history_screen"
+                android:padding="10dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="10dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To"/>
+            <Button
+                android:id="@+id/btnHistoryTo"
+                android:layout_marginTop="5dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/cust_border_grey_et"
+                android:text="2017-06-30"
+                android:drawableLeft="@drawable/calendar_history_screen"
+                android:padding="10dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.paging.listview.PagingListView
+        android:id="@+id/lvPrescHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        tools:listitem="@layout/lv_presc_history_row"
+        android:layout_below="@+id/layDatePickers"/><!--android:layout_below="@+id/layPtName"-->
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No data found"/>
+
+
+</RelativeLayout>

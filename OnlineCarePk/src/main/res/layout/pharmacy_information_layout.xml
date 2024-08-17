@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+                android:id="@+id/pharmacyLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvPharmacyLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="left"
+                    android:text="Please select your nearby pharmacy. Your eLiveCare prescriptions will be sent to your selected pharmacy"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/cust_border_white_outline_red"
+                    android:orientation="vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Your selected pharmacy information"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                    	android:textSize="15dp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/layPharmacyInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Pharmacy"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Address"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyStreetAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="City"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyCity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="State"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Zip Code"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyZipcode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Phone"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyPhone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="10" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Categories"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textColor="@color/theme_red"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvPharmacyCategories"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                    			android:textSize="15dp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    
+                    </LinearLayout>
+
+                    
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tvNoPharmacyAdded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="left"
+                    android:text="Pharmacy information is not added on your profile. Please add a pharmacy to get eLiveCare"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal" />
+                    <Button
+                        android:id="@+id/btnSelectPharmacy"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:gravity="center"
+                        android:text="Select Pharmacy"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                    
+                    <LinearLayout
+                    android:id="@+id/mapCont"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:orientation="vertical"
+                    android:visibility="visible" >
+
+                    <fragment
+                        android:id="@+id/map"
+                        android:name="com.google.android.gms.maps.MapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/theme_red" />
+            </LinearLayout>
+
+</LinearLayout>

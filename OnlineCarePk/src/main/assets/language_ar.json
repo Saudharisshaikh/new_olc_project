@@ -1,0 +1,26 @@
+{
+  "success": 1,
+  "message": "Success",
+  "homeview": {
+    "get_elivecare": "الحصول على eLiveCare",
+	"book_appointment":"تعيين كتاب",
+    "my_appointment": "بلدي التعيينات",
+    "medical_history": "تاريخ طبى",
+    "my_reports": "تقاريري",
+    "my_prescriptions": "بلدي وصفات",
+    "my_profile": "ملفي الشخصي",
+    "add_family_members": "إضافة عدد أفراد الأسرة",
+    "switch_user": "تغير المستخدم",
+    "transactions": "المعاملات",
+    "my_transactions": "معاملاتي",
+    "my_messages": "رسائلي",
+    "medical_devices": "أجهزة طبية",
+    "home_health": "الصحة الرئيسية",
+	"donate_for_care": "التبرع للرعاية",
+	"logout": "خروج"
+    },
+    "getelivecareview": 
+    {
+        "title":"Title"
+    }
+}

@@ -1,0 +1,247 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context=".ActivityTelemedicineServices" >
+
+
+    <RelativeLayout
+        android:id="@+id/layTMScont"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/topBar"
+            android:layout_alignParentTop="true"
+            android:background="@color/toolBarColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Services Billing Codes"
+                android:textColor="@android:color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginStart="10dp"/>
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:src="@drawable/ic_close_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topBar"
+            android:layout_above="@+id/bottom"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvEliveSessionTime"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/black"
+                android:text=""
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"/>
+            <ListView
+                android:visibility="gone"
+                android:id="@+id/lvTelemed2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1px"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <com.diegocarloslima.fgelv.lib.FloatingGroupExpandableListView
+                    android:id="@+id/lvTelemedicineData"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@drawable/group_indicator"
+                    android:dividerHeight="1px"
+                    android:divider="@android:color/white"/>
+                <CheckBox
+                    android:visibility="gone"
+                    android:id="@+id/cbToggleExpList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:button="@drawable/custom_checkbox2"
+                    android:padding="5dp" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#EEEEEE"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <Button
+                android:id="@+id/btnAddToFav"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_selector"
+                android:text="Add to Favourite"
+                android:layout_weight="1"
+                android:layout_marginRight="2dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnRemoveFav"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_selector"
+                android:text="Remove Favourite"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnDone"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_selector"
+                android:text="Next"
+                android:layout_weight="1"
+                android:layout_marginLeft="2dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layUseForBilling"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:visibility="visible"
+            android:id="@+id/viewDim"
+            android:background="#BFFFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/><!--80-->
+
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="40dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!--<TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Buy On Call"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+
+                    android:text="Helpline: "
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+                <TextView
+                    android:id="@+id/tvBuyoncallHelpline"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="+971585989005"
+                    android:textAlignment="center"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+            </LinearLayout>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Use for billing ?"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <Button
+                android:id="@+id/btnUseForBillingYes"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_selector"
+                android:text="Yes"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btnUseForBillingNo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_selector"
+                android:text="No"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

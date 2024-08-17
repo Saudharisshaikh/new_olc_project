@@ -1,0 +1,149 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray"
+    android:padding="10dp" >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/laybtnRequest"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/bg_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@color/bar_light_color"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp">
+
+            <com.app.OnlineCareTDC_Pt.util.AspectRationImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
+            <!--<com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imgChangeProfileImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_call_screen"
+                app:border="true"
+                app:border_color="#66FFFFFF"
+                app:border_width="2sp"
+                app:shadow="true" />-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/ivDr"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/doctor" />
+
+                <!--<com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivUserImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_call_screen"
+                    app:border_color="@android:color/white"
+                    app:border_width="2dp"
+                    app:shadow="true"
+                    app:border="true"
+                    />-->
+
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivDrLivecare"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="2sp"
+            app:shadow="true"
+            android:layout_gravity="top" />
+
+        <LinearLayout
+            android:id="@+id/row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvDrNameLivecare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/tvHospitalVicinity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:maxLines="1"
+                android:textSize="9dp"
+                android:layout_marginBottom="10dp"/>
+
+
+            <Button
+                android:id="@+id/btnRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_selector"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_marginTop="15dp"
+                android:text="Connect for Care"
+                android:visibility="gone"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:id="@+id/btnDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_selector"
+                style="?android:attr/borderlessButtonStyle"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:text="Doc. Info"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

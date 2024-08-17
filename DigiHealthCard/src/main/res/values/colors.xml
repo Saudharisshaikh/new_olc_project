@@ -1,0 +1,71 @@
+<resources>
+
+    <color name="red_dark_color">#B30000</color>
+
+    <color name="half_transparent_grey">#9FA2A2A2</color>
+
+
+    <!-- ====================================================================== -->
+
+
+    <!-- <color name="black_overlay">#66000000</color>
+    <color name="controller_grey">#EAEAEA</color>
+    <color name="image_holder_bg">#EAEAEA</color>
+
+    <color name="text_color">#FFF</color>
+    <color name="text_field_color">#000</color>
+    <color name="text_shadow">#FFF</color>
+    <color name="list_view_bg">#DADFEE</color>
+
+    <color name="send_light_color">#8897BF</color>
+    <color name="send_meduim_color">#5D6CA5</color>
+    <color name="send_dark_color">#515F9F</color>
+
+    <color name="bar_dark_color">#CECECE</color>
+    <color name="bar_meduim_color">#DFDEE0</color>
+    <color name="bar_light_color">#F2F2F2</color> -->
+
+
+
+	<color name="theme_red">#2cbabb</color><!--1A3F90--><!--OLC - CF4C27-->
+	<color name="theme_red_opaque_60">#992cbabb</color>
+	<color name="toolBarColor">#494949</color>
+	
+	<color name="grey_bg">#dadbe0</color>
+	
+	<color name="half_transparent">#66FFFFFF</color>
+
+	<color name="black">@color/black_night</color>
+	<color name="black_light">#6D6D6D</color>
+	
+	<!--<color name="colorPrimary">#d15a38</color>
+    <color name="colorPrimaryDark">#bc5132</color>-->
+	<color name="colorPrimary">@color/theme_red</color>
+    <color name="colorPrimaryDark">@color/theme_red</color>
+    <color name="colorAccent">@color/toolBarColor</color>
+
+    <color name="app_blue_color">#FF0180FF</color>
+
+	<color name="list_background_selected">#DDDDDD</color>
+	<color name="list_background">#ffffff</color>
+
+	<color name="black_night">#191919</color>
+	<color name="background_clr">#ffff</color>
+	<color name="cardBackcolor">#ffff</color>
+	<color name="backgroundtint_icon"></color>
+	<color name="txtlabelclr">#aaa</color>
+	<color name="statusbar">#ffff</color>
+
+	<!--===============Angora.io Starts============================================-->
+
+    <!--===============Angora.io Ends============================================-->
+
+
+	<color name="covacard_color">#2cbabb</color><!--1A3F90--><!--#2cbabb--> <!--#2cbbba  RAHEEL-->
+	<color name="covacard_dark_green">#017a95</color>
+	<color name="cc_grey">#f3f3f3</color>
+	<color name="cc_black">#414143</color>
+	<color name="edittextcolor">#191919</color>
+	<color name="homebtndisablecolor">#99FFFFFF</color>
+	
+</resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray">
+
+    <ScrollView
+        android:id="@+id/oio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:layout_above="@+id/imgAdSearchadr"
+        android:focusableInTouchMode="true" >
+
+        <LinearLayout
+            android:id="@+id/lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <!--<include layout="@layout/pharmacy_information_layout"/>-->
+
+            <EditText
+                android:id="@+id/etApptmntDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint="Appointment date"
+                android:inputType="none"
+                android:focusable="false"
+                android:editable="false"
+                android:padding="12dp" />
+
+            <!--<com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+                android:id="@+id/dateTimePicer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                app:picker_curved="true"
+                app:picker_cyclic="true"
+                app:picker_visibleItemCount="7" />-->
+
+            <!--<com.app.onlinecarenurse.util.InstantAutoComplete
+                android:id="@+id/autoTvSymptoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/spinner_bg"
+                android:hint="Your symptom"
+                android:editable="false"
+                android:padding="12dp" >
+
+            </com.app.onlinecarenurse.util.InstantAutoComplete>-->
+
+            <Spinner
+                android:id="@+id/spSelectSymptom"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/spinner_bg" />
+            <Spinner
+                android:id="@+id/spSelectCondtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/spinner_bg" />
+
+            <EditText
+                android:id="@+id/etExtraInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Additional information related to your condition (optional)"
+                android:padding="12dp" />
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/etZipCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint="Enter Zip code"
+                android:inputType="phone"
+                android:maxLength="8"
+                android:padding="12dp" />
+
+            <TextView
+                android:id="@+id/tvSelPharmacy"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"/>
+            <Button
+                android:id="@+id/btnPharmacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_selector"
+                android:text="Select Pharmacy"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnSbmtSymptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_selector"
+                android:text="Submit"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.app.mhcsn_cp.AspectRationImageView
+        android:id="@+id/imgAdSearchadr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/imgad"
+        />
+
+</RelativeLayout>

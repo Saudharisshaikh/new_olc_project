@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mhcsn_cp.ActivityOTPT_Notes">
+
+    <ScrollView
+        android:id="@+id/svSubjective"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/nurseOptionsBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border_white_radius_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Date"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTDate"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Date"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:focusable="false"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Time In"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTTimeIn"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Time In"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:focusable="false"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Time Out"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTTimeout"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Time Out"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:focusable="false"
+                        android:textCursorDrawable="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border_white_radius_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="Vitals"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="BP"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTBP"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter BP"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Temperature"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTTemperature"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Temperature"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="HR"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTHR"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter HR"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Respirations"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTRespirations"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Respirations"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="O2 Saturations"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTO2Saturations"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter O2 Saturations"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Blood Sugar"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTBloodSugar"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Blood Sugar"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/otptOptionsBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border_white_radius_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="Subjective"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTSubjective"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Subjective"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border_white_radius_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="Assessment"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="ADL"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTADL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter ADL"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="IADL"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTIADL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter IADL"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Mobility"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTMobility"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Mobility"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="DME Needs"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTDMENeeds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter DME Needs"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Generic Assessment"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTGenericAssessment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Generic Assessment"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border_white_radius_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:text="Plan"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etOTPlan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Enter Plan"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <com.app.mhcsn_cp.util.ExpandableHeightGridView
+                android:id="@+id/gvReportImages"
+                android:layout_margin="10dp"
+                android:scrollbars="none"
+                android:numColumns="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e5e5e5"
+                android:horizontalSpacing="5dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp"
+                >
+                <!--android:padding="5dp"-->
+            </com.app.mhcsn_cp.util.ExpandableHeightGridView>
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnSelectImages"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_selector"
+                android:text="Select Report Images"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnDMEReferral"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_selector"
+                android:text="DME Referral"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="bottom"
+                style="?android:attr/borderlessButtonStyle"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/btnSubmit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_selector"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

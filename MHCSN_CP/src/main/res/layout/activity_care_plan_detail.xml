@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.mhcsn_cp.careplan.ActivityCarePlanDetail">
+
+    <LinearLayout
+        android:id="@+id/container_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gray"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            app:theme="@style/AppTheme.Toolbar"
+            app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
+            android:background="#494949"
+            app:contentInsetStartWithNavigation="0dp">
+            <!--<Button
+                android:id="@+id/btnOffline"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Offline"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_selector"/>-->
+        </androidx.appcompat.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/left_drawer"
+        android:layout_gravity="start|bottom"
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:background="#FFFFFF">
+        <ListView
+            android:id="@+id/lvDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/white"
+            android:dividerHeight="1px">
+        </ListView>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

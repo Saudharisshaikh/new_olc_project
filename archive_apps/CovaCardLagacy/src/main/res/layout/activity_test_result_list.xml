@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".covacard.ActivityCardsList">
+
+    <include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarLay"
+        android:layout_above="@+id/laySyncMail">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/lvCardsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/lv_test_result_row"
+
+                android:divider="@android:color/transparent"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No test results found"/>
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/laySyncMail"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please send your COVID test results to the email projects@onlinecare.com. After sending email please tap on sync email button to view your test results inside the app."
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvEmailInfo"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/covacard_dark_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please make sure that you have to send your test results from the email registerd with your COVACARD acount. Your registered email is : memon.gmswe@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12sp"/>
+
+
+            <Button
+                android:id="@+id/btnSyncEmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_selector"
+                android:text="Sync Email"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

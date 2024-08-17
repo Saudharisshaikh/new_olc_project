@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mhcsn_spe.CareRatings" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Your rating is"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:text="0 - 2 Poor\n3 - 4 Good\n4 - 5 Excellent"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <!-- <RatingBar
+        android:id="@+id/ratingBar1"
+        android:isIndicator="true"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:progressDrawable="@drawable/custom_ratingbar_selector" /> -->
+        
+        <RatingBar
+                android:id="@+id/ratingBar1"
+                android:isIndicator="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:numStars="5"
+                android:progressTint="@color/theme_red"
+                android:stepSize="0.5"
+                android:theme="@style/RatingBar" />
+    
+    
+    <TextView
+        android:id="@+id/tvRatting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>

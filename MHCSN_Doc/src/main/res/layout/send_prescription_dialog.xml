@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+    <FrameLayout
+        android:background="@color/theme_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="Prescriptions Summary"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="start|center_vertical"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_close_white_24dp"
+            android:layout_gravity="end|center_vertical"/>
+    </FrameLayout>
+    <ScrollView
+        android:id="@+id/svSendPres"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="RX-"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/theme_red"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViw1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="Online Care Prescription"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/theme_red"
+                        android:textSize="13sp"
+                        android:textStyle="bold" /></LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date"/>
+                    <TextView
+                        android:id="@+id/tvPrescDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="23/4/2015"
+                        android:textStyle="normal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Patient"/>
+                    <TextView
+                        android:id="@+id/tvPrescPtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="Aftab Saraz"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="D.O.B"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPatientDOB"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1984-01-04"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gender"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPatientGender"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Male"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPatientPhone"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="03003030223"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Adress"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPatientAdress"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="A/05, street no 7 , Flint"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Symptoms"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPatientSymptom"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cough, Fever"/>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/viewww"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="invisible" />
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:background="#E0E0E0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/theme_red"
+                    android:text="For internal use only/ Not for pharmacy"/>
+                <RelativeLayout
+                    android:id="@+id/etVitalsCont"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                    <com.app.mhcsn_dr.util.ActionEditText
+                        android:id="@+id/etVitals"
+                        android:layout_toLeftOf="@+id/ic_mike_vitals"
+                        android:background="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:ems="10"
+                        android:hint="Vitals"
+                        android:padding="10dp"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine" >
+                    </com.app.mhcsn_dr.util.ActionEditText>
+                    <ImageView
+                        android:id="@+id/ic_mike_vitals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_mike1"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        style="?android:attr/borderlessButtonStyle"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <com.app.mhcsn_dr.util.ActionEditText
+                        android:id="@+id/etDiagnosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ic_mike_Diagnosis"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="Diagnosis"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:padding="10dp"></com.app.mhcsn_dr.util.ActionEditText>
+                    <ImageView
+                        android:id="@+id/ic_mike_Diagnosis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_mike1"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        style="?android:attr/borderlessButtonStyle"/>
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/theme_red"
+                    android:paddingLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Primary Diagnosis"/>
+
+                <RelativeLayout
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/autoComplete_etPrimaryDiagnosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="Please enter at least 2 char to search"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:textColorHint="@android:color/darker_gray" />
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/pbAutoComplete"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/theme_red"
+                    android:paddingLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Secondary Diagnosis"/>
+
+                <RelativeLayout
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/autoComplete_etSecondaryDiagnosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="Please enter at least 2 char to search"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:textColorHint="@android:color/darker_gray" />
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/pbAutoCompleteSecondary"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/theme_red"
+                    android:gravity="center"
+                    android:text="Pharmacy Details"/>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pharmacy"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPharmacy"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mail Order Pharmacy 10.6MU NOCS"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPharmacyPhone"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3145153142"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Address"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescPharmacyAddress"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnChangePharmacyPresc"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Change Pharmacy"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnAddDrugs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_selector"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="Add Medication"
+                android:layout_gravity="right"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/btnAdditionalMed"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_selector"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="Additional Medication"
+                android:layout_gravity="right"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <!-- <EditText
+                android:id="@+id/etTreatment"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_fld"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Treatment"
+                android:maxLines="10"
+                android:padding="10dp" >
+            </EditText> -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Medications"
+                    android:padding="10dp"
+                    android:textColor="@color/theme_red"
+                    android:gravity="center"
+                    android:background="@drawable/cust_border_grey_halftop"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+                <com.app.mhcsn_dr.util.ExpandableHeightListView
+                    android:id="@+id/lvDrugs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/darker_gray"
+                    android:dividerHeight="1px">
+
+                </com.app.mhcsn_dr.util.ExpandableHeightListView>
+            </LinearLayout>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/theme_red"
+                    android:gravity="center"
+                    android:text="Prescriber Details"/>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Prescriber"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescDrName"
+                        android:layout_weight="2.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mark Peter"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescDrPhone"
+                        android:layout_weight="2.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3145153142"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_weight="7.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Clinics"/>
+
+                    <TextView
+                        android:id="@+id/tvPrescDrClinics"
+                        android:layout_weight="2.5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3145153142"/>
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/ivSignature"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_signature" />
+                <TextView
+                    android:layout_below="@+id/ivSignature"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Signature"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tvSendPresAndDone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_selector"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="YES, DONE\nSend Prescription"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvSendPresCencel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_selector"
+                style="?android:attr/borderlessButtonStyle"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Cancel"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <TextView
+            android:id="@+id/tvTabSW"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:text="SW"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvTabRN"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="RN"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvTabOT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="OT"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvTabDietitian"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Dietitian"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black" />
+
+    <ViewFlipper
+        android:id="@+id/vfAsses"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ScrollView
+                android:fillViewport="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="30dp"
+                    android:gravity="top">
+
+                    <TextView
+                        android:id="@+id/tvMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp"
+                        android:gravity="center"
+                        android:text="Social Worker"
+                        android:textColor="@color/black"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <Button
+                        android:id="@+id/btnPHQ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Patient Health Questionnaire (PHQ-9)"
+                        android:textColor="@android:color/white"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnGAD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Generalized Anxiety Disorder 7-item (GAD-7) scale"
+                        android:textColor="@android:color/white"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnDAST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Network Drug Abuse Screening Test (DAST-10)"
+                        android:textColor="@android:color/white"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnSDHS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Social Determinents of Health Short Form"
+                        android:textColor="@android:color/white"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+
+                    <Button
+                        android:id="@+id/btnDepression"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Geriatric Depression Scale"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnBeckDepression"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Beck's Depression"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+
+                    <Button
+                        android:id="@+id/btnNotNow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_grey"
+                        android:padding="10dp"
+                        android:text="Not Now"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:fillViewport="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="30dp"
+                    android:gravity="top">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp"
+                        android:gravity="center"
+                        android:text="Registered Nurse"
+                        android:textColor="@color/black"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <Button
+                        android:id="@+id/btnBradenScale"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Braden Scale"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnSMG"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Self-Management Goals"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnMedications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Prescription History "
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnMedHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Medical History"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+
+                    <Button
+                        android:id="@+id/btnNotNow2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_grey"
+                        android:padding="10dp"
+                        android:text="Not Now"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ScrollView
+                android:fillViewport="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="30dp"
+                    android:gravity="top">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp"
+                        android:gravity="center"
+                        android:text="Occupational Therapy"
+                        android:textColor="@color/black"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <Button
+                        android:id="@+id/btnOTprofile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="OT Profile"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnOTevaluation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="OT Evaluation"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnEnvironmentalAssesment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Environmental Assessment"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+                    <Button
+                        android:id="@+id/btnFallRiskAssesment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Fall Risk Assessment Tool"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnADLform"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Katz Index of ADLs"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/btnIADLform"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Lawton IADL Scale"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+
+                    <Button
+                        android:id="@+id/btnNotNow3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_grey"
+                        android:padding="10dp"
+                        android:text="Not Now"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:fillViewport="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="30dp"
+                    android:gravity="top">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp"
+                        android:gravity="center"
+                        android:text="Dietitian"
+                        android:textColor="@color/black"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <Button
+                        android:id="@+id/btnDietAsses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:text="Dietitary Assessment"
+                        android:textColor="@android:color/white"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+
+
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnOCDAsses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/btn_selector"
+                            android:text="Obsessive-Compulsive Disorder Assessment"
+                            android:textColor="@android:color/white"
+                            android:textSize="15dp"
+                            android:textAllCaps="false"
+                            android:textStyle="normal" />
+
+                        <Button
+                            android:id="@+id/btnFCSASAsses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/btn_selector"
+                            android:text="Focus and Concentration Self Assessment Survey"
+                            android:textColor="@android:color/white"
+                            android:textSize="15dp"
+                            android:textAllCaps="false"
+                            android:textStyle="normal" />
+
+                        <Button
+                            android:id="@+id/btnPanicAttachAsses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/btn_selector"
+                            android:text="Panic Attack Assessment"
+                            android:textColor="@android:color/white"
+                            android:textSize="15dp"
+                            android:textAllCaps="false"
+                            android:textStyle="normal" />
+
+                        <Button
+                            android:id="@+id/btnSCOFFAsses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/btn_selector"
+                            android:text="SCOFF Assessment"
+                            android:textColor="@android:color/white"
+                            android:textSize="15dp"
+                            android:textAllCaps="false"
+                            android:textStyle="normal" />
+
+                        <Button
+                            android:id="@+id/btnStressQeueAsses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/btn_selector"
+                            android:text="Stress Questionnaire"
+                            android:textColor="@android:color/white"
+                            android:textSize="15dp"
+                            android:textAllCaps="false"
+                            android:textStyle="normal" />
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnNotNow4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_grey"
+                        android:padding="10dp"
+                        android:text="Not Now"
+                        android:textColor="@android:color/white"
+                        android:textSize="18dp"
+                        android:textAllCaps="false"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+    </ViewFlipper>
+
+</LinearLayout>

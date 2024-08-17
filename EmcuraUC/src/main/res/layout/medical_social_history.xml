@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutSocialHistory"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/pop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/RelativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Do you smoke?"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#d04c26" />
+
+                <RadioGroup
+                    android:id="@+id/rgMedicalSmoke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioSmokeYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="YES"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioSmokeNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etSmokeHowMuch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/bg_fld"
+                    android:hint="how much"
+                    android:padding="8dp"
+                    android:textColor="#d04c26" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/etSmokeHowLong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/bg_fld"
+                    android:hint="how long"
+                    android:padding="8dp"
+                    android:textColor="#d04c26" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/texiew1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Do you drink alcohol?"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#d04c26" />
+
+                <RadioGroup
+                    android:id="@+id/rgMedicalAlcohol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/rdioAlcoholYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="YES"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioAlcoholNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etAlcoholHowMuch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_fld"
+                    android:hint="how much"
+                    android:padding="8dp"
+                    android:textColor="#d04c26" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/etAlcoholHowLong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/bg_fld"
+                    android:hint="how long"
+                    android:padding="8dp"
+                    android:textColor="#d04c26" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/texiew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Do you use any street drugs?"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#d04c26" />
+
+                <RadioGroup
+                    android:id="@+id/rgStreetDrug"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioStreetYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="YES"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioStreetNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etStreetDrugList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_fld"
+                    android:hint="If yes, please list"
+                    android:padding="8dp"
+                    android:textColor="#d04c26" >
+                </EditText>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

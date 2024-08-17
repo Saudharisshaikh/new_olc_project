@@ -1,0 +1,22 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml:1:1-11:12
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml:1:1-11:12
+	package
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml:7:5-9:19
+	android:label
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml:7:46-78
+	android:allowBackup
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml:7:18-45
+uses-sdk
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/swipMenuListViewLib/src/main/AndroidManifest.xml

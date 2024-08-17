@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_find_nurse"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.mdlive_dr.ActivityFindNurse">
+
+    <LinearLayout
+        android:layout_above="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/layTcmOptions"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/tvTabTCM"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="TCM"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabCC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="Complex Care"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabHomeHealth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="Home Health"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabNursingHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="Nursing Home"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFFFFF"/>
+
+        <!--<HorizontalScrollView
+            android:fadeScrollbars="false"
+            android:scrollbarSize="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </HorizontalScrollView>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="5" >
+
+            <TextView
+                android:id="@+id/tvTabAll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="View All"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabNurse"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="Nurse"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabNursePractitioner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Nurse Practitioner"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabSocialWorker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Social Worker"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabDietitian"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Dietitian"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="5">
+            <TextView
+                android:id="@+id/tvTabOT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="OT/PT"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabPharmacist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Pharmacist"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabOM"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Office Manager"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabMA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Medical Assistant"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvTabSup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/theme_red_opaque_60"
+                android:gravity="center"
+                android:text="Supervisor"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:focusableInTouchMode="true"
+            android:background="@drawable/cust_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp">
+
+            <EditText
+                android:id="@+id/etSearchQuery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ivSearchQuery"
+                android:layout_alignTop="@+id/ivSearchQuery"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/ivSearchQuery"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:hint="Enter search keyword"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:padding="10dp" >
+            </EditText>
+
+            <ImageView
+                android:id="@+id/ivSearchQuery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/search_btn" />
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/lvNurse"
+            android:divider="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done Go Back"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:background="@color/theme_red"/>
+</RelativeLayout>

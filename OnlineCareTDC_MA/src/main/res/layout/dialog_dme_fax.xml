@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+    <FrameLayout
+        android:background="@color/theme_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DME Fax Search"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp"/>
+    </FrameLayout>
+    <RelativeLayout
+        android:background="@drawable/cust_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" >
+
+        <EditText
+            android:id="@+id/etSearchQuery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivSearchQuery"
+            android:layout_alignTop="@+id/ivSearchQuery"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/ivSearchQuery"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:hint="Enter search keyword"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:padding="10dp" >
+        </EditText>
+
+        <ImageView
+            android:id="@+id/ivSearchQuery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/search_btn" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lvDmeFax"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/lv_divider2"></ListView>
+</LinearLayout>

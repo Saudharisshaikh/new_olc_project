@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_follow_ups"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mdlive_cp.ActivityFollowUps">
+
+    <LinearLayout
+        android:id="@+id/layTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <TextView
+            android:id="@+id/tvTabTCM"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="TCM"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvTabCC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Complex Care"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvTabHomeHealth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Home Health"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvTabNursingHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Nursing Home"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <com.app.mdlive_cp.util.ActionEditText
+        android:id="@+id/etSearch"
+        android:visibility="gone"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cust_border_white_outline"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Search"
+        android:imeOptions="actionDone"
+        android:drawableStart="@drawable/ic_search_black_24dp"
+        android:layout_below="@+id/layTabs"/>
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/etFilterDate"
+        android:layout_below="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="Search by Date"
+        android:padding="10sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/cust_border_white_outline"
+        android:focusable="false"
+        android:inputType="none"
+        android:clickable="false"
+        android:longClickable="false"
+        android:gravity="center"/>
+
+    <ListView
+        android:id="@+id/lvFollowUps"
+        android:layout_below="@+id/etFilterDate"
+        android:divider="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:visibility="gone"
+        android:text="You don't have any followups yet"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

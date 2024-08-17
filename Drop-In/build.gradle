@@ -1,0 +1,199 @@
+plugins {
+    id 'com.android.library'
+    id 'de.marcphilipp.nexus-publish'
+    id 'signing'
+    id 'kotlin-android'
+}
+
+ext["signing.keyId"] = System.getenv('SIGNING_KEY_ID') ?: ''
+ext["signing.password"] = System.getenv('SIGNING_KEY_PASSWORD') ?: ''
+ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_KEY_FILE') ?: ''
+
+def LOCALHOST_IP = System.properties['LOCALHOST_IP'] ?: '"10.0.2.2"';
+def GATEWAY_IP = System.properties['GATEWAY_IP'] ?: '"10.0.2.2"';
+def GATEWAY_PORT = System.properties['GATEWAY_PORT'] ?: '"3000"';
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+    defaultConfig {
+        namespace 'com.braintreepayments.api.dropin'
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCodeBraintree
+        versionName rootProject.ext.versionNameBraintree
+
+        consumerProguardFiles 'proguard.pro'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    resourcePrefix 'bt_'
+
+    packagingOptions {
+        exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
+        exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions.unitTests {
+        returnDefaultValues true
+        includeAndroidResources true
+    }
+
+    lintOptions {
+        // RestrictedApi - Accessing Braintree Core SDK non-public methods
+        warning 'GradleCompatible', 'RestrictedApi'
+        textReport true
+        textOutput 'stdout'
+    }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
+
+    buildTypes.debug { type ->
+        type.buildConfigField 'String', 'LOCALHOST_IP', LOCALHOST_IP
+        type.buildConfigField 'String', 'GATEWAY_IP', GATEWAY_IP
+        type.buildConfigField 'String', 'GATEWAY_PORT', GATEWAY_PORT
+    }
+}
+
+dependencies {
+    // TODO: consider making this api in core to allow for PaymentType and other @IntDef / @StringDef constants to work for merchants
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.fragment:fragment:1.4.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+
+    api deps.braintreeCore
+    api deps.threeDSecure
+    api deps.paypal
+    api deps.venmo
+    api deps.googlePay
+    api deps.card
+    api deps.dataCollector
+    api deps.unionPay
+
+    api 'com.braintreepayments:card-form:5.4.0'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.gms:play-services-wallet:16.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    testImplementation 'androidx.test:rules:1.4.0'
+    testImplementation 'androidx.test:runner:1.4.0'
+    testImplementation 'androidx.test:core:1.4.0'
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.robolectric:robolectric:4.7.3'
+    testImplementation 'org.skyscreamer:jsonassert:1.4.0'
+
+    testImplementation 'androidx.core:core-ktx:1.6.0'
+    testImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10'
+    testImplementation 'androidx.test:core:1.4.0'
+    testImplementation 'androidx.work:work-testing:2.5.0'
+    testImplementation 'io.mockk:mockk:1.12.0'
+    testImplementation 'org.mockito:mockito-core:5.2.0'
+
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.fragment:fragment-testing:1.3.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'org.mockito:mockito-core:5.2.0'
+}
+
+// region signing and publishing
+
+task javadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    failOnError false
+}
+
+task javadocsJar(type: Jar, dependsOn: javadocs) {
+    archiveClassifier.set('javadoc')
+    from javadocs.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+}
+
+signing {
+    required {
+        !version.endsWith("SNAPSHOT") && !version.endsWith("DEVELOPMENT")
+    }
+    sign publishing.publications
+}
+
+nexusPublishing {
+    // give nexus sonatype more time to initialize the staging repository
+    clientTimeout = Duration.ofMinutes(3)
+    useStaging = !rootProject.versionNameBraintree.endsWith("SNAPSHOT")
+    repositories {
+        sonatype()
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                artifact sourcesJar
+                artifact javadocsJar
+
+                groupId = 'com.braintreepayments.api'
+                artifactId = 'drop-in'
+                version = rootProject.versionNameBraintree
+
+                pom {
+                    name = 'drop-in'
+                    packaging = 'aar'
+                    description = 'Drop-in payment form for Braintree\'s Android SDK. Integrate this library to add a readymade UI for your payments.'
+                    url = 'https://github.com/braintree/braintree-android-drop-in'
+
+                    scm {
+                        url = 'scm:git@github.com:braintree/braintree-android-drop-in.git'
+                        connection = 'scm:git@github.com:braintree/braintree-android-drop-in.git'
+                        developerConnection = 'scm:git@github.com:braintree/braintree-android-drop-in.git'
+                    }
+
+                    developers {
+                        developer {
+                            id = 'devs'
+                            name = 'Braintree Payments'
+                        }
+                    }
+
+                    licenses {
+                        license {
+                            name = 'MIT'
+                            url = 'http://opensource.org/licenses/MIT'
+                            distribution = 'repo'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+// endregion

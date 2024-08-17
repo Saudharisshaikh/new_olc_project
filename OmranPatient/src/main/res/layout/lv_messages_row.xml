@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/contMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+        
+        <LinearLayout
+            android:id="@+id/wraper1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_alignTop="@+id/ivMsgMe"
+            android:layout_toLeftOf="@+id/ivMsgMe"
+            android:background="@drawable/cust_border_white_outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tvMsgNameMe"
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gary Nevel"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivMsgImgMe"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_placeholder_2"/>
+
+            <TextView
+                android:id="@+id/tvMsgTextMe"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvMsgTimeMe"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+        </LinearLayout>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivMsgMe"
+            android:layout_alignParentRight="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="1sp"
+            app:shadow="true" />
+    </RelativeLayout>
+    
+    
+    
+    <RelativeLayout
+        android:id="@+id/contOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivMsgOther"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="1sp"
+            app:shadow="true" />
+
+        <LinearLayout
+            android:id="@+id/wraper2"
+            android:layout_alignTop="@+id/ivMsgOther"
+            android:layout_toRightOf="@+id/ivMsgOther"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tvMsgNameOther"
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nevia Mara"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivMsgImgOther"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_placeholder_2"/>
+            <TextView
+                android:id="@+id/tvMsgTextOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/tvMsgTimeOther"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+
+<resources>
+
+    <!-- Base application theme. -->
+
+
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+
+
+    <!-- Customize your theme here. -->
+
+
+    <!--</style>-->
+
+
+    <!--Base application theme, dependent on API level. This theme is replacedby AppBaseTheme from res/values-vXX/styles.xml on newer devices. -->
+
+
+
+    -<style parent="android:Theme.Light" name="AppBaseTheme">
+
+    <!--Theme customizations available in newer API levels can go inres/values-vXX/styles.xml, while customizations related tobackward-compatibility can go here. -->
+
+
+</style>
+
+    <!-- Application theme. -->
+
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"><!--android:Theme.Holo-->
+        <!--<style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">-->
+        <!--<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>-->
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item><!--pin view style-->
+
+        <!--<item name="android:windowLightStatusBar">true</item>-->
+
+    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+</style>
+
+    <!-- ================================================================================= -->
+
+
+
+    -<style parent="Theme.AppCompat.Light.NoActionBar" name="DrawerTheme">
+
+    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+
+    <item name="colorPrimary">@color/covacard_dark_green</item>
+
+    <item name="colorPrimaryDark">@color/covacard_dark_green</item>
+
+    <item name="colorAccent">@color/toolBarColor</item>
+
+    <item name="android:windowNoTitle">true</item>
+
+    <item name="windowActionBar">false</item>
+
+    <item name="android:textColorPrimary">@android:color/background_dark</item>
+
+    <item name="android:textColorSecondary">@android:color/background_dark</item>
+
+    <item name="actionMenuTextColor">@android:color/background_dark</item>
+    <item name="otpViewStyle">@style/OtpWidget.OtpView</item><!--pin view style-->
+
+</style>
+
+
+    -<style parent="@style/Theme.AppCompat.Dialog" name="TransparentTheme">
+
+    <item name="android:background">@color/half_transparent</item>
+
+    <!-- these 2 lines if custborder background added it was shown on each listview cell -->
+
+
+    <item name="background">@color/half_transparent</item>
+
+    <item name="android:windowBackground">@drawable/cust_border_half_transparent</item>
+
+    <item name="android:colorBackgroundCacheHint">@color/half_transparent</item>
+
+    <item name="android:windowContentOverlay">@color/half_transparent</item>
+
+    <item name="android:windowIsTranslucent">false</item>
+
+    <item name="android:windowAnimationStyle">@color/half_transparent</item>
+
+    <item name="windowActionBar">false</item>
+
+    <item name="windowNoTitle">true</item>
+
+</style>
+
+    <!--for white drawer title and togle color use this in toolbar-->
+
+
+
+    -<style parent="ThemeOverlay.AppCompat.ActionBar" name="AppTheme.Toolbar">
+
+    <!-- Customize color of navigation drawer icon and back arrow -->
+
+
+    <item name="colorControlNormal">@android:color/white</item>
+
+</style>
+
+
+    -<style parent="TextAppearance.Widget.AppCompat.Toolbar.Title" name="AppTheme.Toolbar.Title">
+
+    <!-- Set proper title size -->
+
+
+    <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+
+    <!-- Set title color -->
+
+
+    <item name="android:textColor">@android:color/white</item>
+
+</style>
+
+
+    -<style parent="Theme.AppCompat.Light.Dialog" name="DatePickerTheme">
+
+    <!-- Customize your theme here. -->
+
+
+    <item name="colorPrimary">@color/colorPrimary</item>
+
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+    <item name="colorAccent">@color/colorPrimary</item>
+
+</style>
+
+
+    -<style parent="Theme.AppCompat.Light.Dialog.Alert" name="CustomAlertDialogTheme">
+
+    <!--buttons color-->
+    <item name="colorAccent">@color/app_blue_color</item>
+    <!--title and message color-->
+    <item name="android:textColorPrimary">@color/black</item>
+    <!--dialog background-->
+    <item name="android:windowBackground">@drawable/background_dialog</item>
+
+</style>
+
+
+    -<style parent="LibAppTheme" name="FilePickerTheme">
+
+    <!-- Customize your theme here. -->
+
+
+    <item name="colorPrimary">@color/colorPrimary</item>
+
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+    <item name="colorAccent">@color/colorAccent</item>
+
+    <!--added by gm for file picker tabbar txt color-->
+
+
+    <item name="android:textColorPrimary">@android:color/white</item>
+
+    <!--Selected-->
+
+
+    <item name="android:textColorSecondary">#80FFFFFF</item>
+
+    <!--othertabs-->
+
+
+    <!--<item name="actionMenuTextColor">@android:color/white</item>-->
+
+
+</style>
+
+    <!--===============Angora.io Starts============================================-->
+
+
+    <!--===============Angora.io Ends============================================-->
+
+
+    <!--Fresco starts-->
+
+
+
+    -<style parent="AppTheme" name="SimpleButtonStyle">
+
+    <item name="android:background">@null</item>
+
+    <item name="android:textAllCaps">true</item>
+
+    <item name="android:textSize">14sp</item>
+
+    <item name="android:textStyle">bold</item>
+
+    <item name="android:textColor">@color/colorAccent</item>
+
+</style>
+
+
+    -<style parent="AppTheme" name="DescriptionText">
+
+    <item name="android:textColor">@color/colorAccent</item>
+
+    <item name="android:maxLines">5</item>
+
+    <item name="android:ellipsize">end</item>
+
+</style>
+
+    <!--Fresco Ends-->
+
+
+</resources>

@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.omrandr">
+
+    <!--
+        <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    -->
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
+    <!--<uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND"/>-->
+
+
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />-->
+    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
+
+    <!-- [START gcm_permission] -->
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    &lt;!&ndash; Creates a custom permission so only this app can receive its messages. &ndash;&gt;
+    <permission
+        android:name="com.app.onlinecaredr.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.app.onlinecaredr.permission.C2D_MESSAGE" />-->
+
+    <!-- [END gcm_permission] -->
+    <application
+        android:name="com.app.omrandr.OnlineCareDr"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CustomActionBarTheme"
+        android:requestLegacyExternalStorage="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <activity
+            android:name="sg.com.temasys.skylink.sdk.sampleapp.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name" />
+
+        <!-- android:debuggable="true" -->
+        <!--
+        <activity
+            android:name="com.oovoo.sdk.sample.ui.SampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="eLiveCare"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        -->
+        <!-- =======================GCM================================= -->
+        <!-- [START gcm_receiver] -->
+        <!--<receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+        &lt;!&ndash; [END gcm_receiver] &ndash;&gt;
+
+
+        &lt;!&ndash; [START gcm_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END gcm_listener] &ndash;&gt;
+        &lt;!&ndash; [START instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.RegistrationIntentService"
+            android:exported="false" />-->
+        <!--
+        <service
+			android:name="com.oovoo.sdk.sample.services.MyGcmListenerService"
+			android:exported="false" >
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.MyInstanceIDListenerService"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.iid.InstanceID"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.RegistrationIntentService"
+			android:exported="false">
+		</service>
+        -->
+        <!-- =======================GCM================================= -->
+        <!--<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+
+        <!-- =============================App Activities==================================== -->
+
+        <activity
+            android:name="com.app.omrandr.MainActivityNew"
+            android:label="@string/app_label"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.omrandr.Login"
+            android:label="@string/app_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.omrandr.SearchADoctor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Signup"
+            android:parentActivityName="com.app.omrandr.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.Login" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName="com.app.omrandr.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.Login" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.UpdateProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Profile"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme">
+
+            <!-- @android:style/Theme.Dialog -->
+        </activity>
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+        <activity
+            android:name="com.app.omrandr.DoctorsList"
+            android:label="Available Doctors"
+            android:parentActivityName="com.app.omrandr.DocToDoc" />
+        <activity
+            android:name="com.app.omrandr.SelectedDoctorsProfile"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.omrandr.DoctorsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.DoctorsList" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.SubUsersList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Login As" />
+        <activity
+            android:name="com.app.omrandr.DrSchedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doctor&apos;s Schedule"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.app.omrandr.Reports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Reports"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.LiveCareDetails"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.omrandr.LiveCare">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.LiveCare" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.LiveCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Immediate Care"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ViewReport"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ViewReportFull"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Report"
+            android:parentActivityName="com.app.omrandr.ViewReport">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ViewReport" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.AfterCallDialogEmcura"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.omrandr.AfterCallDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.omrandr.SendPrescription"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Prescription"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.app.omrandr.DocToDoc"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doc to Doc"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.HomeHealth"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Home Health"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+
+        <!--
+        <service android:name=".VideoCallService" >
+        </service>
+        <service android:name=".services.MessageReceiverService" >
+        </service>
+        <service android:name=".services.VChatListener" >
+        </service>
+        -->
+        <service android:name="com.app.omrandr.services.OutgoingCallService" />
+        <!--
+        <service android:name=".services.IncomingCallServiceNew" >
+        </service>
+        -->
+        <!--
+        <service android:name=".services.DeviceRegisterService" >
+        </service>
+        -->
+        <service android:name="com.app.omrandr.services.LiveCareRefreshService" />
+
+        <receiver
+            android:name="com.app.omrandr.broadcasts.SaveGCM_TokenBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.SAVE_GCM_TOKEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.omrandr.broadcasts.BootCompleteBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.STOP_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.app.omrandr.DrsAppointments"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Appointments"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.DrApointmentDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.omrandr.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.SetDrShedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+
+        <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name="com.app.omrandr.PresscriptionsActivity"
+            android:label="@string/title_activity_presscriptions"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.app.omrandr.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.UpdateProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.PatientMedicalHistory"
+            android:label="Patient Medical History"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.TransectionsActivity"
+            android:label="@string/title_activity_trnsections"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+
+        <!--
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                Receives the actual messages.
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                Receives the registration id.
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".gcm.GCMActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+
+        <receiver
+            android:name=".gcm.MessageBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.quranplus.DISPLAY_MESSAGE" />
+                
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+
+
+
+
+               
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.app.omrandr.ActivityCallLogs"
+            android:label="@string/title_activity_activity_call_logs"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySendMessage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.app.omrandr.ConversationsActivity"
+            android:label="Messages"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ShowMessagePopupActivity"
+            android:parentActivityName="com.app.omrandr.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ViewConversationActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.app.omrandr.ConversationsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ConversationsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ShowLiveCarePopup"
+            android:parentActivityName="com.app.omrandr.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <!-- =============================App Activities==================================== -->
+        <activity
+            android:name="com.app.omrandr.DoctorScheduleNew"
+            android:label="@string/title_activity_doctor_schedule_new"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ReferAppointmentActivity"
+            android:label="@string/title_activity_refer_appointment"
+            android:parentActivityName="com.app.omrandr.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.CareRatings"
+            android:label="@string/title_activity_care_ratings"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySoapNotes"
+            android:label="@string/title_activity_activity_soap_notes"
+            android:parentActivityName="com.app.omrandr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityRifills"
+            android:label="@string/title_activity_activity_rifills"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityRefillDetails"
+            android:label="@string/title_activity_activity_refill_details"
+            android:parentActivityName="com.app.omrandr.ActivityRifills">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityRifills" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityTelemedicineServices"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.omrandr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityTCM"
+            android:label="Patients"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.omrandr.ActivityFindNurse" />
+        <activity
+            android:name="com.app.omrandr.ActivityBilling"
+            android:label="Billing"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.SupportMessagesActivity"
+            android:label="Support Messages"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityPatientRefill"
+            android:label="Patient Refill Requests"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityProbelemList"
+            android:label="Problem List"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityPinnedReports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.PresscriptionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Prescriptions"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityCareProviders"
+            android:label="Care Providers"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.CustomDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+        <activity
+            android:name="com.app.omrandr.ActivityTCM_2"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.omrandr.CustomDialogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.CustomDialogActivity" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityTCM_4"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySOAP"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySoapNotesEdit"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.omrandr.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityTelemedicineServicesEdit"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesEdit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesEdit" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityGroupChat"
+            android:label="Group Chat"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityGroupMessages"
+            android:label="Group Messages"
+            android:parentActivityName="com.app.omrandr.ActivityGroupChat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityGroupChat" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityDoctors"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.omrandr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ShowGroupMessagePopup"
+            android:parentActivityName="com.app.omrandr.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityTCM_3"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.omrandr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityCareProvidersInvite"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.omrandr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityGroupMembers"
+            android:label="Group Members"
+            android:parentActivityName="com.app.omrandr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityViewOTNotes"
+            android:label="OT/PT Notes"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityAddDoctor"
+            android:label="Add Doctor"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySOAPReferral"
+            android:label="Service Requests"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySOAPReferralOT"
+            android:label="OT DME Referrals"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySkilledNursingApprove"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.omrandr.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityDmeRefferalApprove"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.omrandr.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityPrescDetailCP"
+            android:label="Prescription Details"
+            android:parentActivityName="com.app.omrandr.PresscriptionsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.PresscriptionsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityHomeCareFormApprove"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.omrandr.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityTcmDetails"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.omrandr.ActivityTCM">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityTCM" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySoapNotesNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.omrandr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySoapNotesEmpty"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.omrandr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySoapNotesEditNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.omrandr.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySkilledNursing"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySkilledNursingEdit"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityDmeRefferal"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityDmeRefferalEdit"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityHomeCareForm"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityHomeCareFormEdit"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.omrandr.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityAllEnvir"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityEnvirForm"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.omrandr.ActivityAllEnvir">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityAllEnvir" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityAllFallRisk"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.FallRiskForm"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.omrandr.ActivityAllFallRisk">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityAllFallRisk" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.omrandr.ActivityAllBradenScale">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityAllBradenScale" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityAllBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityAllDepression"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityDepressionForm"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.omrandr.ActivityAllDepression">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.ActivityAllDepression" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityScreeningToolReport"
+            android:label="Screening Tools Report"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity android:name="com.app.omrandr.BaseActivity" />
+        <activity
+            android:name="com.app.omrandr.ActivityProgressNotes"
+            android:label="Add Progress Notes"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityProgressNotesView"
+            android:label="Progress Notes"
+            android:parentActivityName="com.app.omrandr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivityRefferedPatients"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Referred Patients"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.omrandr.ActivitySwitchHosp"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Switch Hospital"
+            android:parentActivityName="com.app.omrandr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.omrandr.MainActivityNew" /></activity>
+        <activity android:name="com.app.omrandr.permission.PermissionsActivity"
+            android:parentActivityName="com.app.omrandr.Login"
+            android:label="@string/app_name"/>
+        <activity android:name="com.app.omrandr.ActivityAppInvite"/>
+        <activity android:name="com.app.omrandr.ActivityInstatntConnect"/>
+        <activity android:name="com.app.omrandr.reliance.therapist.ActivityReferedPatients"/>
+
+        <activity android:name="com.app.omrandr.ActivityCovidFormList"/>
+
+        <!--===============Angora.io Starts============================================-->
+        <activity
+            android:name="io.agora.openlive.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="io.agora.openlive.activities.LiveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="io.agora.openlive.activities.RoleActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"/>
+        <activity
+            android:name="io.agora.openlive.activities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <!--===============Angora.io Ends============================================-->
+
+
+        <receiver android:name="com.app.omrandr.broadcasts.CallNotificationBroadcast"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.app.emcuradr.acceptcall" />
+                <action android:name="com.app.emcuradr.rejectcall" />
+            </intent-filter>
+
+        </receiver>
+
+
+
+        <!--FCM Starts-->
+        <!-- [START fcm_default_icon] -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <!-- [START firebase_service] -->
+        <service android:name="com.app.omrandr.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <service
+            android:name="com.app.omrandr.fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <!--FCM Ends-->
+        <!--This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM-->
+        <!--android:authorities="com.meetandeat.provider"-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.omrandr.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
+    </application>
+
+</manifest>

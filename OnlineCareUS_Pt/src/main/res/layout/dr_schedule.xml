@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.OnlineCareUS_Pt.DrSchedule">
+
+    <TextView
+        android:id="@+id/tvDateLabel"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="You requested appointment for the date:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:id="@+id/tvSelectedDate"
+        android:layout_below="@+id/tvDateLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="DAY"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/theme_red" />
+    <TextView
+        android:id="@+id/tvLBL"
+        android:layout_below="@+id/tvSelectedDate"
+        android:background="@color/theme_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Available Doctor's Timings"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF" /><!-- \nYou can change appointment time here by click on a particular time -->
+    <View
+        android:id="@+id/divider_1"
+        android:layout_below="@+id/tvLBL"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#FFFFFF"/>
+    <LinearLayout
+        android:id="@+id/topCont"
+        android:layout_below="@+id/divider_1"
+        android:background="@color/theme_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:visibility="invisible"
+            android:layout_gravity="center_vertical"
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/theme_red"/>
+
+        <TextView
+            android:id="@+id/tvScheeDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="DAY"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"/>
+        <TextView
+            android:id="@+id/tvScheay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="From"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"/>
+        <TextView
+            android:id="@+id/tvSchedorkngHrs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="To"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topCont"
+        android:layout_above="@+id/bootomCont">
+        <ListView
+            android:id="@+id/lvDrSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not available in this day"
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bootomCont"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnOtherDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_margin="1dp"
+            android:text="Other Doctor"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnChangeDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:layout_margin="1dp"
+            android:padding="5dp"
+            android:text="Change date"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnProceed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:layout_margin="1dp"
+            android:padding="5dp"
+            android:text="Continue"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</RelativeLayout>

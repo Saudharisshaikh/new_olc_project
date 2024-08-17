@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" > <!-- <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/> -->
+    <!--
+<uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    -->
+    <uses-sdk tools:overrideLibrary="com.stripe.android.payments, com.stripe.android, com.braintreepayments.cardform,
+      com.stripe.android.stripe3ds2, com.stripe.android.paymentsheet, androidx.compose.ui.tooling, androidx.activity.compose,
+         androidx.lifecycle.viewmodel.compose, androidx.compose.material, androidx.compose.material.ripple,androidx.compose.foundation,
+          androidx.compose.material.icons.extended, androidx.compose.material.icons,androidx.compose.runtime.livedata,androidx.compose.ui.tooling.data,
+             androidx.compose.animation, androidx.compose.foundation.layout, androidx.compose.animation.core,androidx.compose.ui,androidx.compose.ui.text,
+                androidx.compose.runtime.saveable, androidx.compose.ui.graphics, androidx.compose.ui.unit,
+                 androidx.compose.ui.geometry,androidx.compose.ui.tooling.preview,
+     androidx.compose.runtime,androidx.compose.ui.util" />
+
+    <queries>
+        <package android:name="com.app.OnlineCareUS_Pt" />
+
+        <!-- Browser -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="http" />
+        </intent>
+
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <!-- Gallery -->
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" /> <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!--From Android 12-->
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <!-- Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <!-- Needed only if your app makes the device discoverable to Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <!-- Needed only if your app communicates with already-paired Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--android 12 end-->
+
+    <!-- Required to show current location -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--new permission for android 12+ or 13 SDK 33 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!--end-->
+
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="false"
+        android:theme="@style/CustomActionBarTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup,android:supportsRtl">
+        <activity
+            android:name=".ActivityDeleteMyAccount"
+            android:label="Delete Account"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName=".UpdateProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.ActivityDeleteMyAccount" />
+        </activity>
+        <activity android:name=".ActivityVerification" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:label="@string/app_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider322060396417411"
+            android:exported="true" />
+
+        <activity
+            android:name=".Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Registration"
+            android:parentActivityName=".Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.Login" />
+        </activity>
+        <activity
+            android:name=".ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName=".Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.Login" />
+        </activity>
+        <activity
+            android:name=".UpdateProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Update Profile"
+            android:parentActivityName=".ActivityCovacardHome"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.ActivityCovacardHome" />
+        </activity>
+        <activity
+            android:name=".util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme" /> <!-- <activity android:name="eu.janmuller.android.simplecropimage.CropImage" /> -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".SubUsersList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Primary Member"
+            android:parentActivityName=".ActivityCovacardHome"
+            android:theme="@style/DrawerTheme"> <!-- Login As -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.ActivityCovacardHome" />
+        </activity>
+        <activity
+            android:name=".AddFamilyMember"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Add Family Member"
+            android:parentActivityName=".ActivityCovacardHome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.ActivityCovacardHome" />
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <!--
+             <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="13f59d25bf4460cf7dc20ae64a0b6e70aadad6e5" />
+        -->
+        <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name=".UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName=".UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.digihealthcard.UpdateProfile" />
+        </activity>
+        <activity
+            android:name=".permission.PermissionsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".Login" /> <!-- FCM Starts -->
+        <!-- [START fcm_default_icon] -->
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" /> <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_channel] -->
+        <!-- [START firebase_service] -->
+        <service android:name=".fcm.MyFirebaseMessagingService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- [END firebase_service] -->
+        <service
+            android:name=".fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service> <!-- FCM Ends -->
+        <!-- This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM -->
+        <!-- android:authorities="com.meetandeat.provider" -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.digihealthcard.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
+
+        <activity
+            android:name=".ActivityCovacardHome"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".ActivityAddCard" />
+        <activity
+            android:name=".ActivityCardsList"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".ActivityTestLocations" />
+        <activity android:name=".ActivityAddTestResults" />
+        <activity
+            android:name=".ActivityTestResultsList"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".ActivityCardDetail" />
+        <activity android:name=".ActivityPackages" />
+        <activity android:name=".ActivityBuyPackage" />
+        <activity
+            android:name=".ActivityIdCardsList"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".ActivityAddIdCard" />
+        <activity android:name=".ActivityInvoices" />
+        <activity android:name=".ActivityPlayBilling" />
+    </application>
+
+</manifest>

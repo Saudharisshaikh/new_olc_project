@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViw1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OnlineCare Messages"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        android:background="@color/theme_red"
+        android:textStyle="normal" />
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvMsgPatientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Patient Name: Aftab Saraz"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/theme_red"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.app.onlinecare_pk.util.ActionEditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/etMessage"
+            android:imeOptions="actionDone"
+            android:padding="10dp"
+            android:hint="Type Message Here"
+            android:background="@drawable/cust_border_white_outline"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:maxLines="10"
+            android:ems="10"
+            android:gravity="top">
+
+        </com.app.onlinecare_pk.util.ActionEditText>
+        <TextView
+            android:id="@+id/btnSendMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_selector"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="Send Message"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textStyle="normal" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/btnSendMsgToFamily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_selector"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="Send to primary family member"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+</LinearLayout>

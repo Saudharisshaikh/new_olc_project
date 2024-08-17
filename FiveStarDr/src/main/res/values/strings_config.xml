@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+    <!-- PLEASE KEEP THIS App ID IN SAFE PLACE -->
+    <!-- Get your own App ID at https://dashboard.agora.io/ -->
+    <!-- After you entered the App ID, remove <##> outside of Your App ID -->
+    <!--<string name="private_app_id" translatable="false">765a9cd68e1247119e3d5bbe06089e40</string>-->
+
+    <!--<string name="private_app_id" translatable="false">360d80810e674a97919bdf89dc0e4f53</string>--> <!--appid without secrite my account info.ecconnective-->
+
+    <!--    without proxy-->
+    <string name="private_app_id" translatable="false">1c47218abb2541d993ecf27ced038773</string>
+    <!--    <string name="private_app_id" translatable="false">736ce277956c42eb9bdcfac67c2b7fef</string>-->
+
+    <!-- Obtain a temp Access Token at https://dashboard.agora.io -->
+    <!-- You will need to deploy your own token server for production release -->
+    <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
+   <!-- <string name="agora_access_token" translatable="false">4933bdaa53544671991049dc08a5fee3</string>-->
+    <string name="agora_access_token" translatable="false"></string>
+
+
+    <!--Live Account - Sir jamals paid account
+    APP ID : 1c47218abb2541d993ecf27ced038773-->
+</resources>

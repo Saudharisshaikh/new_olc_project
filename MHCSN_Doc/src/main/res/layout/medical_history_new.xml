@@ -1,0 +1,1635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray" >
+
+    <LinearLayout
+        android:id="@+id/tabBar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <TextView
+            android:id="@+id/tvPast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Diagnosis"
+            android:textSize="10sp"
+            android:textColor="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvSocial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Social"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvRelatives"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Family"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvMedications"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Medications"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
+        android:layout_below="@+id/tabBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frameLayout1"
+        android:layout_centerHorizontal="true" >
+
+        <!-- layout 1 starts -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/iu"
+                android:layout_above="@+id/bottomLayPast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvPastHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/theme_red"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="1. PAST MEDICAL HISTORY"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ListView
+                        android:id="@+id/lvMedicalHistory1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/tvNoPastHistory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="No medical history added"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:layout_margin="20dp"
+                            android:gravity="center"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/layNoNetwork"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/internet"/>
+                            <TextView
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No internet connection"/>
+
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Refresh to try again"/>
+
+                            <ImageView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/reload"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomLayPast"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Other"/>
+                <com.app.mhcsn_dr.util.ActionEditText
+                    android:id="@+id/etPastOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="Other"
+                    android:padding="8dp"
+                    android:gravity="top"
+                    android:imeOptions="actionDone"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:minLines="2"
+                    android:maxLines="5">
+                </com.app.mhcsn_dr.util.ActionEditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- layout 1 ends -->
+
+
+        <!-- layout 2 starts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvSocialHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="2. SOCIAL HISTORY"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:id="@+id/pop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:id="@+id/RelativeLaout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Are you a?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <RadioGroup
+                            android:id="@+id/rgMedicalSmoke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical" >
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeCurrentSmoker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Current Smoker"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red"
+                                android:enabled="false"/>
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeFormerSmoker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Former Smoker"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red"
+                                android:enabled="false"/>
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeNonSmoker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Non Smoker"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red"
+                                android:enabled="false"/>
+
+
+                            <!--<RadioButton
+                                android:id="@+id/radioSmokeYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="YES"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red"
+                                android:enabled="false"/>
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NO"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red"
+                                android:enabled="false"/>-->
+                        </RadioGroup>
+
+
+                        <LinearLayout
+                            android:id="@+id/laySmokeDetail"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvSmokeTypeLbl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Type"
+                                android:layout_marginStart="8dp"/>
+
+                            <Spinner
+                                android:id="@+id/spSmokeType"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/spinner_bg"
+                                android:enabled="false"/>
+
+                            <LinearLayout
+                                android:id="@+id/laySmokeCurrentSmoker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvSmokeAgeLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="What age did you start?"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"/>
+
+
+                                <com.app.mhcsn_dr.util.ActionEditText
+                                    android:id="@+id/etSmokeWhatAge"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="Type here"
+                                    android:padding="8dp"
+                                    android:gravity="top"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="none"
+                                    android:minLines="1"
+                                    android:focusable="false"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:editable="false"/>
+
+                                <TextView
+                                    android:id="@+id/tvSmokeHowMuchPerDayLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="How much per day?"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginStart="8dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spSmokeHowMuchPerDay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/spinner_bg"
+                                    android:enabled="false"/>
+                                <TextView
+                                    android:id="@+id/tvSmokeReadyToQuitLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Are you ready to quit?"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginStart="8dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spSmokeReadyToQuit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/spinner_bg"
+                                    android:enabled="false"/>
+
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:id="@+id/laySmokeFormerSmoker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/tvSmokeHowLongDidULbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="How long did you smoke?"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"/>
+
+
+                                <com.app.mhcsn_dr.util.ActionEditText
+                                    android:id="@+id/etSmokeHowLongDidUsmoke"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="Type here"
+                                    android:padding="8dp"
+                                    android:gravity="top"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="none"
+                                    android:minLines="1"
+                                    android:focusable="false"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:editable="false"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tvSmokeQuitDateLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Quit date"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"/>
+
+
+                                <com.app.mhcsn_dr.util.ActionEditText
+                                    android:id="@+id/etSmokeQuitDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="Tap to enter date"
+                                    android:padding="8dp"
+                                    android:gravity="top"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:minLines="1"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <!--<com.app.emcuradr.util.ActionEditText
+                            android:id="@+id/etSmokeHowMuch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="how much"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1">
+                        </com.app.emcuradr.util.ActionEditText>
+
+                        <com.app.emcuradr.util.ActionEditText
+                            android:id="@+id/etSmokeHowLong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="how long"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1" >
+                        </com.app.emcuradr.util.ActionEditText>-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/texiew1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Do you drink alcohol?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <RadioGroup
+                            android:id="@+id/rgMedicalAlcohol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/rdioAlcoholYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:enabled="false"
+                                android:text="YES"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioAlcoholNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:text="NO"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red" />
+                        </RadioGroup>
+
+                        <EditText
+                            android:id="@+id/etAlcoholHowMuch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="how much"
+                            android:inputType="none"
+                            android:minLines="1"
+                            android:padding="8dp" >
+                        </EditText>
+
+                        <EditText
+                            android:id="@+id/etAlcoholHowLong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="how long"
+                            android:inputType="none"
+                            android:minLines="1"
+                            android:padding="8dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/texiew"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Do you use any street drugs?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <RadioGroup
+                            android:id="@+id/rgStreetDrug"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/radioStreetYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:enabled="false"
+                                android:text="YES"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioStreetNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:text="NO"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red" />
+                        </RadioGroup>
+
+                        <EditText
+                            android:id="@+id/etStreetDrugList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="If yes, please list"
+                            android:inputType="none"
+                            android:minLines="1"
+                            android:padding="8dp" >
+                        </EditText>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Other"
+                            android:layout_margin="10dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <com.app.mhcsn_dr.util.ActionEditText
+                            android:id="@+id/etSocialOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Other"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:minLines="3" >
+                        </com.app.mhcsn_dr.util.ActionEditText>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- layout 2 ends -->
+
+
+        <!-- layout 3 starts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvSocialHstory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="3. HAS ANY OF YOUR RELATIVES HAD:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:id="@+id/vv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/qw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkDisease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Inherited Disease"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etDisease"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkHeart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Heart Trouble"
+                            android:textColor="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <EditText
+                            android:id="@+id/etHeart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkMental"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Mental Illness"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etMental"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkCancer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Cancer"
+                            android:textColor="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <EditText
+                            android:id="@+id/etCancer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkBp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="High Blood Pressure"
+                            android:textColor="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <EditText
+                            android:id="@+id/etBp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkStroke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Stroke"
+                            android:textColor="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <EditText
+                            android:id="@+id/etStroke"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkDiabetes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Diabetes"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etDiabetes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkKidney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Kidney Problems"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etKidney"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkTubr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Tuberculosis"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etTubr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkEpilespy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Epilespy"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etEpilespy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checksickle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Sickle Cell Disease"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etsickle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkBleeming"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:buttonTint="@color/theme_red"
+                            android:enabled="false"
+                            android:text="Bleeding Problems"
+                            android:textColor="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <EditText
+                            android:id="@+id/etBleeming"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="who"
+                            android:inputType="none"
+                            android:minLines="2"
+                            android:padding="10dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- layout 3 ends -->
+
+
+        <!-- layout final starts -->
+
+        <RelativeLayout
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvSociHstory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="4. ARE YOU ON ANY MEDICATIONS?"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+
+            <ScrollView
+                android:id="@+id/nb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btnUpdateMedical"
+                android:layout_below="@+id/tvSociHstory">
+
+                <LinearLayout
+                    android:id="@+id/yi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/bb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_margin="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Medications"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/rgMedications"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/radioMedicationYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/theme_red"
+                                android:checked="true"
+                                android:enabled="false"
+                                android:text="Yes"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioMedicationNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/theme_red"
+                                android:enabled="false"
+                                android:text="No"
+                                android:textColor="@color/theme_red" />
+                        </RadioGroup>
+
+                        <FrameLayout
+                            android:id="@+id/contMedications"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border2">
+                            <!--android:drawableStart="@drawable/ic_add_box_black_24dp"
+                                android:drawablePadding="5dp"-->
+                            <TextView
+                                android:id="@+id/tvAddMed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/app_blue_color"
+                                android:text="Medications"
+                                android:gravity="center"
+                                android:layout_gravity="start"/>
+                            <TextView
+                                android:id="@+id/tvViewMed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/app_blue_color"
+                                android:text="View (0)"
+                                android:gravity="center"
+                                android:layout_gravity="end"/>
+                        </FrameLayout>
+
+                        <EditText
+                            android:visibility="gone"
+                            android:id="@+id/etMedicationsList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="List Medications"
+                            android:inputType="none"
+                            android:minLines="3"
+                            android:padding="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bbc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tvSostory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Have you any Alergies?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/rgAllergies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radioAllergiesYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/theme_red"
+                                android:checked="true"
+                                android:enabled="false"
+                                android:text="Yes"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioAllergiesNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/theme_red"
+                                android:enabled="false"
+                                android:text="No"
+                                android:textColor="@color/theme_red" />
+                        </RadioGroup>
+
+                        <!--margintop is applied by radiogroup margin bottom-->
+                        <RelativeLayout
+                            android:id="@+id/contAllergies"
+                            android:background="@drawable/cust_border2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!--android:drawableStart="@drawable/ic_add_box_black_24dp"
+                                    android:drawablePadding="5dp"-->
+                                <TextView
+                                    android:id="@+id/tvAddAllergy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="Allergies"
+                                    android:gravity="center"
+                                    android:layout_gravity="start"/>
+                                <TextView
+                                    android:id="@+id/tvViewAllergy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="View (0)"
+                                    android:gravity="center"
+                                    android:layout_gravity="end"/>
+                            </FrameLayout>
+                        </RelativeLayout>
+
+                        <EditText
+                            android:visibility="gone"
+                            android:id="@+id/etAllergiesList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="list allergies"
+                            android:inputType="none"
+                            android:minLines="3"
+                            android:padding="8dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bbd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tvSitory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="Please list all hospitalizations and surgeries"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:id="@+id/contHosptalization"
+                            android:background="@drawable/cust_border2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!--android:drawableStart="@drawable/ic_add_box_black_24dp"
+                                    android:drawablePadding="5dp"-->
+                                <TextView
+                                    android:id="@+id/tvAddHosp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="Hospitalizations"
+                                    android:gravity="center"
+                                    android:layout_gravity="start"/>
+                                <TextView
+                                    android:id="@+id/tvViewHosp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="View (0)"
+                                    android:gravity="center"
+                                    android:layout_gravity="end"/>
+                            </FrameLayout>
+                        </RelativeLayout>
+
+                        <EditText
+                            android:visibility="gone"
+                            android:id="@+id/etHospSergryList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="Hospitalizations and surgeries"
+                            android:inputType="none"
+                            android:minLines="3"
+                            android:padding="8dp" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tvOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Other"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <com.app.mhcsn_dr.util.ActionEditText
+                            android:id="@+id/etMedicalHistoryOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Other"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:minLines="3" >
+                        </com.app.mhcsn_dr.util.ActionEditText>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btnUpdateMedical"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:text="Done"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+    </ViewFlipper>
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/btnFlipPrev"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:text="Previous"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"
+            android:enabled="false" />
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/cir1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_blavk_unselected"/>
+            <ImageView
+                android:id="@+id/cir2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected"/>
+            <ImageView
+                android:id="@+id/cir3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected"/>
+            <ImageView
+                android:id="@+id/cir4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnFlipNext"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </FrameLayout>
+
+</RelativeLayout>

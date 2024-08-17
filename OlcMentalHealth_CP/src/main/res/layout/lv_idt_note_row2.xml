@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/CardView.SS">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/host_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/contEnd"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Provider : "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:id="@+id/tvIdtRowProvName"
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Alicia Lichfield"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contEnd"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/tvIdtRowDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00:27"
+                        android:drawableEnd="@drawable/ic_idt_time"
+                        android:gravity="center"
+                        android:drawablePadding="5dp"
+                        android:layout_gravity="end"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/layIDTeditOrLock"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:visibility="invisible"
+                            android:id="@+id/tvIDTLockLbl"
+                            android:layout_marginEnd="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Locked"/>
+                        <ImageView
+                            android:id="@+id/ivIdtLockOrEdit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_edit_idt"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp">
+
+                <!--<TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Notes : "
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"/>-->
+                <TextView
+                    android:id="@+id/tvIdtRowNotes"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="OnlineCare technology is platform agnostic. It can be used on Windows, Smartphones (IOS/Android) and Tablets."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

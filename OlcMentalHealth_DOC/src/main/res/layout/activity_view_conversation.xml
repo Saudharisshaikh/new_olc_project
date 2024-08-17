@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.msu_dr.ViewConversationActivity" >
+
+    <ListView
+        android:id="@+id/lvMessages"
+        android:layout_above="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+         android:stackFromBottom="true"
+        android:transcriptMode="normal"
+        tools:listitem="@layout/lv_messages_row" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/tvNoMsgs"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You don't have any messages yet"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <View
+        android:id="@+id/div"
+        android:layout_above="@+id/bottom_write_bar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/theme_red"/>
+    <RelativeLayout
+        android:id="@+id/bottom_write_bar"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/etSendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="5"
+            android:scrollbars="vertical"
+            android:layout_toLeftOf="@+id/ivSendImage"
+            android:background="@android:color/transparent"
+            android:hint="Type your message">
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/ivSendImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivSendMessage"
+            android:layout_alignBottom="@+id/etSendMessage"
+            android:paddingTop="10dp"
+            android:paddingBottom="16dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/ivSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/etSendMessage"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_send_selector" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

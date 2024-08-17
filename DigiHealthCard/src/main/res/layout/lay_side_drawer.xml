@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/left_drawer"
+    android:layout_gravity="start|top"
+    android:orientation="vertical"
+    android:layout_width="270dp"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/ll_user"
+        android:background="@color/covacard_dark_green"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                >
+
+                <ImageView
+                    android:id="@+id/ivUserImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_default_user_squire"
+                    android:scaleType="centerCrop"/>
+
+                <!--<com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivUserImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_call_screen"
+                    app:border_color="@android:color/white"
+                    app:border_width="2dp"
+                    app:shadow="true"
+                    app:border="true"
+                    />-->
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="4dp">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jamal Ghani"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="upstojamal@gmail.com"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+1-202-619-7849"
+                    android:textStyle="normal"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1212 D Street, Flint, MI, United States."
+                    android:textStyle="normal"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_covacard"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:background="@color/background_clr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+
+                <TextView
+                    android:layout_marginTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/layHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/home_menu_en"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Home"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layScanCard"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+
+                        android:scaleType="center"
+                        android:src="@drawable/createsession_menu_ds"/>-->
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvScanLbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:gravity="center"
+                            android:text="Scan Card"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:visibility="gone"
+                            android:id="@+id/viewScanCardDim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvScanLbl"
+                            android:layout_alignTop="@+id/tvScanLbl"
+                            android:layout_alignEnd="@+id/tvScanLbl"
+                            android:layout_alignBottom="@+id/tvScanLbl"
+                            android:background="@color/homebtndisablecolor" />
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layShowCard"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/mysession_menu_ds"/>-->
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvShowCardLbl"
+                            android:layout_marginStart="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:gravity="center"
+                            android:text="Show Cards"/>
+
+                        <View
+                            android:visibility="gone"
+                            android:id="@+id/viewShowCardDim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvShowCardLbl"
+                            android:layout_alignTop="@+id/tvShowCardLbl"
+                            android:layout_alignEnd="@+id/tvShowCardLbl"
+                            android:layout_alignBottom="@+id/tvShowCardLbl"
+                            android:background="@color/homebtndisablecolor" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layTestResults"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/watchlist_menu_ds"/>-->
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvTstResultsLbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:gravity="center"
+                            android:text="Test Results"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:visibility="gone"
+                            android:id="@+id/viewTestResultsDim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvTstResultsLbl"
+                            android:layout_alignTop="@+id/tvTstResultsLbl"
+                            android:layout_alignEnd="@+id/tvTstResultsLbl"
+                            android:layout_alignBottom="@+id/tvTstResultsLbl"
+                            android:background="@color/homebtndisablecolor"/>
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layTestLocations"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/notification_menu_ds"/>-->
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvTstLocLbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:gravity="center"
+                            android:text="Test Locations"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:visibility="gone"
+                            android:id="@+id/viewTestLocationsDim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvTstLocLbl"
+                            android:layout_alignTop="@+id/tvTstLocLbl"
+                            android:layout_alignEnd="@+id/tvTstLocLbl"
+                            android:layout_alignBottom="@+id/tvTstLocLbl"
+                            android:background="@color/homebtndisablecolor" />
+
+                    </RelativeLayout>
+
+                    <!--<LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/cart_badge"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/badge_background"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:textColor="@android:color/white"
+                            android:text="14"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layIdCard"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/watchlist_menu_ds"/>-->
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvIdLbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:gravity="center"
+                            android:text="ID Card"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:visibility="gone"
+                            android:id="@+id/viewIdCardDim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvIdLbl"
+                            android:layout_alignTop="@+id/tvIdLbl"
+                            android:layout_alignEnd="@+id/tvIdLbl"
+                            android:layout_alignBottom="@+id/tvIdLbl"
+                            android:background="@color/homebtndisablecolor" />
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layTeleHealth"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/watchlist_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Tele Health"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layMyProfile"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/watchlist_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="My Profile"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layLogout"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/watchlist_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Logout"/>
+
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy &amp; Terms"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/layPrivacy"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/revenue_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Privacy Policy"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layTerms"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_marginLeft="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/packages_black"/>-->
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Terms and Conditions"/>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/laySubscPolicy"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_marginLeft="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/paymentterms_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Subscription Policy"/>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/laySubscPlans"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_marginLeft="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/paymentterms_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="Subscription Plans"/>
+
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/layEmail_1"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!-- <ImageView
+                         android:layout_marginLeft="2dp"
+                         android:layout_width="wrap_content"
+                         android:layout_height="match_parent"
+                         android:padding="8dp"
+
+                         android:scaleType="center"
+                         android:src="@drawable/myprofile_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="info@digihealthcard.com"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/layEmail_2"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
+
+                    <!--<ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:scaleType="center"
+                        android:src="@drawable/setting_menu_ds"/>-->
+                    <TextView
+                        android:layout_marginStart="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text="support@digihealthcard.com"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layAppInfo"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/covacard_dark_green"
+                android:foreground="?attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/tvAppNameCopyRight"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="© 2021 DigiHealthCard Mobile App."
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    android:textColor="@android:color/white"
+                    android:maxLines="1"/>
+                <TextView
+                    android:id="@+id/tvVersionName"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center"
+                    android:text="Version 1.0 [1]"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    android:textColor="@android:color/white"
+                    android:maxLines="1"/>
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center"
+                    android:text="Powered By DigiHealthCard L.L.C"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    android:textColor="@android:color/white"
+                    android:maxLines="1"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

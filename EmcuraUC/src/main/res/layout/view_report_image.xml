@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/bg_gray">
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/imgViewReport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnSaveReportImage" />
+
+    <WebView
+        android:id="@+id/wvReport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnSaveReportImage"/>
+
+    <TextView
+        android:id="@+id/btnSaveReportImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE TO DEVICE"
+        android:layout_centerHorizontal="true"
+        android:background="@color/theme_red"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

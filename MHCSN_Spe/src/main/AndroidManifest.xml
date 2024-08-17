@@ -1,0 +1,1135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    -->
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<!--    <uses-permission android:name="android.permission.BLUETOOTH" />-->
+<!--    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
+    <!--From Android 12-->
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
+    <!-- Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <!-- Needed only if your app makes the device discoverable to Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <!-- Needed only if your app communicates with already-paired Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--android 12 end-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
+    <!--<uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND"/>-->
+
+
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />-->
+    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
+
+    <!-- [START gcm_permission] -->
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    &lt;!&ndash; Creates a custom permission so only this app can receive its messages. &ndash;&gt;
+    <permission
+        android:name="com.app.onlinecaredr.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.app.onlinecaredr.permission.C2D_MESSAGE" />-->
+
+    <!--new permission for android 12+ or 13 SDK 33 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!--end-->
+
+
+    <!-- [END gcm_permission] -->
+    <application
+        android:name="com.app.mhcsn_spe.OnlineCareDr"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CustomActionBarTheme"
+        android:requestLegacyExternalStorage="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <activity
+            android:name="sg.com.temasys.skylink.sdk.sampleapp.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name" />
+
+        <!-- android:debuggable="true" -->
+        <!--
+        <activity
+            android:name="com.oovoo.sdk.sample.ui.SampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="eLiveCare"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        -->
+        <!-- =======================GCM================================= -->
+        <!-- [START gcm_receiver] -->
+        <!--<receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+        &lt;!&ndash; [END gcm_receiver] &ndash;&gt;
+
+
+        &lt;!&ndash; [START gcm_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END gcm_listener] &ndash;&gt;
+        &lt;!&ndash; [START instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.RegistrationIntentService"
+            android:exported="false" />-->
+        <!--
+        <service
+			android:name="com.oovoo.sdk.sample.services.MyGcmListenerService"
+			android:exported="false" >
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.MyInstanceIDListenerService"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.iid.InstanceID"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.RegistrationIntentService"
+			android:exported="false">
+		</service>
+        -->
+        <!-- =======================GCM================================= -->
+        <!--<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+
+        <!-- =============================App Activities==================================== -->
+
+        <activity
+            android:name="com.app.mhcsn_spe.MainActivityNew"
+            android:label="@string/app_label"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.mhcsn_spe.Login"
+            android:label="@string/app_label"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.SearchADoctor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Signup"
+            android:parentActivityName="com.app.mhcsn_spe.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.Login" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName="com.app.mhcsn_spe.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.Login" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.UpdateProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Profile"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme">
+
+            <!-- @android:style/Theme.Dialog -->
+        </activity>
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+        <activity
+            android:name="com.app.mhcsn_spe.DoctorsList"
+            android:label="Available Doctors"
+            android:parentActivityName="com.app.mhcsn_spe.DocToDoc" />
+        <activity
+            android:name="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.mhcsn_spe.DoctorsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.DoctorsList" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.SubUsersList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Login As" />
+        <activity
+            android:name="com.app.mhcsn_spe.DrSchedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doctor&apos;s Schedule"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.app.mhcsn_spe.Reports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Reports"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.LiveCareDetails"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.mhcsn_spe.LiveCare">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.LiveCare" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.LiveCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Immediate Care"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ViewReport"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ViewReportFull"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Report"
+            android:parentActivityName="com.app.mhcsn_spe.ViewReport">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ViewReport" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.AfterCallDialogEmcura"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.mhcsn_spe.AfterCallDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.mhcsn_spe.SendPrescription"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Prescription"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.app.mhcsn_spe.DocToDoc"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doc to Doc"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.HomeHealth"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Home Health"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+
+        <!--
+        <service android:name=".VideoCallService" >
+        </service>
+        <service android:name=".services.MessageReceiverService" >
+        </service>
+        <service android:name=".services.VChatListener" >
+        </service>
+        -->
+        <service android:name="com.app.mhcsn_spe.services.OutgoingCallService" />
+        <!--
+        <service android:name=".services.IncomingCallServiceNew" >
+        </service>
+        -->
+        <!--
+        <service android:name=".services.DeviceRegisterService" >
+        </service>
+        -->
+        <service android:name="com.app.mhcsn_spe.services.LiveCareRefreshService" />
+
+        <receiver
+            android:name="com.app.mhcsn_spe.broadcasts.SaveGCM_TokenBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.SAVE_GCM_TOKEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.mhcsn_spe.broadcasts.BootCompleteBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.STOP_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.app.mhcsn_spe.DrsAppointments"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Appointments"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.DrApointmentDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.mhcsn_spe.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.SetDrShedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+
+        <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name="com.app.mhcsn_spe.PresscriptionsActivity"
+            android:label="@string/title_activity_presscriptions"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.app.mhcsn_spe.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.UpdateProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.PatientMedicalHistory"
+            android:label="Patient Medical History"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.TransectionsActivity"
+            android:label="@string/title_activity_trnsections"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+
+        <!--
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                Receives the actual messages.
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                Receives the registration id.
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".gcm.GCMActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+
+        <receiver
+            android:name=".gcm.MessageBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.quranplus.DISPLAY_MESSAGE" />
+                
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+
+
+
+
+               
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityCallLogs"
+            android:label="@string/title_activity_activity_call_logs"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySendMessage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.app.mhcsn_spe.ConversationsActivity"
+            android:label="Messages"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ShowMessagePopupActivity"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ViewConversationActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.app.mhcsn_spe.ConversationsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ConversationsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ShowLiveCarePopup"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <!-- =============================App Activities==================================== -->
+        <activity
+            android:name="com.app.mhcsn_spe.DoctorScheduleNew"
+            android:label="@string/title_activity_doctor_schedule_new"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ReferAppointmentActivity"
+            android:label="@string/title_activity_refer_appointment"
+            android:parentActivityName="com.app.mhcsn_spe.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.CareRatings"
+            android:label="@string/title_activity_care_ratings"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySoapNotes"
+            android:label="@string/title_activity_activity_soap_notes"
+            android:parentActivityName="com.app.mhcsn_spe.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityRifills"
+            android:label="@string/title_activity_activity_rifills"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityRefillDetails"
+            android:label="@string/title_activity_activity_refill_details"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityRifills">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityRifills" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTelemedicineServices"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.mhcsn_spe.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTCM"
+            android:label="Patients"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.mhcsn_spe.ActivityFindNurse" />
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityBilling"
+            android:label="Billing"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.SupportMessagesActivity"
+            android:label="Support Messages"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityPatientRefill"
+            android:label="Patient Refill Requests"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityProbelemList"
+            android:label="Problem List"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityPinnedReports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.PresscriptionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Prescriptions"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityCareProviders"
+            android:label="Care Providers"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.CustomDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTCM_2"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.mhcsn_spe.CustomDialogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.CustomDialogActivity" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTCM_4"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySOAP"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySoapNotesEdit"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTelemedicineServicesEdit"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesEdit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesEdit" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityGroupChat"
+            android:label="Group Chat"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityGroupMessages"
+            android:label="Group Messages"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityGroupChat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityGroupChat" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityDoctors"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ShowGroupMessagePopup"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTCM_3"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityCareProvidersInvite"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityGroupMembers"
+            android:label="Group Members"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityViewOTNotes"
+            android:label="OT/PT Notes"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityAddDoctor"
+            android:label="Add Doctor"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySOAPReferral"
+            android:label="Service Requests"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySOAPReferralOT"
+            android:label="OT DME Referrals"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySkilledNursingApprove"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityDmeRefferalApprove"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityPrescDetailCP"
+            android:label="Prescription Details"
+            android:parentActivityName="com.app.mhcsn_spe.PresscriptionsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.PresscriptionsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityHomeCareFormApprove"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityTcmDetails"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityTCM">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityTCM" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySoapNotesNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.mhcsn_spe.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySoapNotesEmpty"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.mhcsn_spe.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySoapNotesEditNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySkilledNursing"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySkilledNursingEdit"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityDmeRefferal"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityDmeRefferalEdit"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityHomeCareForm"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityHomeCareFormEdit"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.mhcsn_spe.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityAllEnvir"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityEnvirForm"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityAllEnvir">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityAllEnvir" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityAllFallRisk"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.FallRiskForm"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityAllFallRisk">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityAllFallRisk" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityAllBradenScale">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityAllBradenScale" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityAllBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityAllDepression"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityDepressionForm"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityAllDepression">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.ActivityAllDepression" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityScreeningToolReport"
+            android:label="Screening Tools Report"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity android:name="com.app.mhcsn_spe.BaseActivity" />
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityProgressNotes"
+            android:label="Add Progress Notes"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityProgressNotesView"
+            android:label="Progress Notes"
+            android:parentActivityName="com.app.mhcsn_spe.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivityRefferedPatients"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Referred Patients"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.mhcsn_spe.ActivitySwitchHosp"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Switch Hospital"
+            android:parentActivityName="com.app.mhcsn_spe.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.mhcsn_spe.MainActivityNew" /></activity>
+        <activity android:name="com.app.mhcsn_spe.permission.PermissionsActivity"
+            android:parentActivityName="com.app.mhcsn_spe.Login"
+            android:label="@string/app_name"/>
+        <activity android:name="com.app.mhcsn_spe.ActivityAppInvite"/>
+        <activity android:name="com.app.mhcsn_spe.ActivityInstatntConnect"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.therapist.ActivityReferedPatients"/>
+
+
+        <activity
+            android:name="com.app.mhcsn_spe.reliance.assessment.ActivityDepInvList"
+            android:parentActivityName="com.app.mhcsn_spe.ActivityTcmDetails"
+            android:label="Beck's Depression"
+            android:theme="@style/DrawerTheme"/>
+        <activity
+            android:name="com.app.mhcsn_spe.reliance.assessment.ActivityBecksDepression"
+            android:parentActivityName="com.app.mhcsn_spe.reliance.assessment.ActivityDepInvList"
+            android:label="Beck's Depression"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.new_assesment.ActivityOCD_Form"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.new_assesment.ActivityOCD_List"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.new_assesment.ActivityStressQues_Form"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.ActivityPHQ_Form"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.ActivityPhqList"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.ActivityDastList"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.mhcsn_spe.reliance.assessment.ActivityDAST_Form"/>
+
+        <!--===============Angora.io Starts============================================-->
+        <activity
+            android:name="io.agora.openlive.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="io.agora.openlive.activities.LiveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="io.agora.openlive.activities.RoleActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"/>
+        <activity
+            android:name="io.agora.openlive.activities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <!--===============Angora.io Ends============================================-->
+
+
+        <receiver android:name="com.app.mhcsn_spe.broadcasts.CallNotificationBroadcast"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.app.emcuradr.acceptcall" />
+                <action android:name="com.app.emcuradr.rejectcall" />
+            </intent-filter>
+
+        </receiver>
+
+
+
+        <!--FCM Starts-->
+        <!-- [START fcm_default_icon] -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <!-- [START firebase_service] -->
+        <service android:name="com.app.mhcsn_spe.fcm.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <service
+            android:name="com.app.mhcsn_spe.fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <!--FCM Ends-->
+        <!--This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM-->
+        <!--android:authorities="com.meetandeat.provider"-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.mhcsn_spe.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
+    </application>
+
+</manifest>

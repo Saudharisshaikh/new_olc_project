@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    //buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'ss.com.bannerslider'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    //compile 'com.squareup.picasso:picasso:2.5.2'
+    //api 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    api "com.github.bumptech.glide:glide:${rootProject.ext.glideVersion}"
+}
+
+
+
+
+
+
+
+

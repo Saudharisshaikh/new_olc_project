@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0">
+    <path
+        android:pathData="M0,12l0,12 11.5,-5.7c6.3,-3.2 11.5,-6 11.5,-6.3 0,-0.3 -5.2,-3.1 -11.5,-6.3l-11.5,-5.7 0,12z"
+        android:strokeColor="#D9534F"
+        android:fillColor="#D9534F"/>
+</vector>
+<!--
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/rightArrow">
+        &lt;!&ndash;<rotate
+            android:fromDegrees="45"
+            android:toDegrees="45"
+            android:pivotX="-40%"
+            android:pivotY="87%" >
+            <shape
+                android:shape="rectangle"  >
+                <stroke android:color="@android:color/transparent" android:width="10dp"/>
+                <solid
+                    android:color="#D9534F"  />
+            </shape>
+        </rotate>&ndash;&gt;
+
+        &lt;!&ndash;<rotate
+            android:fromDegrees="220"
+            android:toDegrees="0"
+            android:pivotX="35%"
+            android:pivotY="5%" >
+            <shape
+                android:shape="rectangle" >
+                <stroke android:color="#000000" android:width="1dp"/>
+                <solid
+                    android:color="#000000" />
+            </shape>
+        </rotate>&ndash;&gt;
+
+        <rotate
+            android:fromDegrees="45"
+            android:toDegrees="45"
+            android:pivotX="-40%"
+            android:pivotY="87%" >
+            <shape
+                android:shape="rectangle" >
+                <stroke android:color="#D9534F" android:width="10dp"/>
+                <solid
+                    android:color="#D9534F" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>-->

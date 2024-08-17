@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray">
+
+    <include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lvMyInsurance"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            tools:listitem="@layout/insurance_row"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/bottomD"/>
+
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layNoInsurance"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNoInsurance"
+                android:text="You don't posses insurance, Do you want to add ?" />
+
+            <Button
+                android:id="@+id/btnAddIns"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_selector"
+                android:text="Add Now"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"/>
+            <Button
+                android:id="@+id/btnSkipIns"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_grey"
+                android:text="Skip"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/bottomD"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray"/>
+            <Button
+                android:id="@+id/btnContinue"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/btn_selector"
+                android:text="Continue"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.OnlineCareUS_MA.ActivityDmeRefferalApprove">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:focusableInTouchMode="true"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Patient Name"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCarePtName"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:inputType="textPersonName"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null"
+                            android:textSize="11dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Referral Date"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareReferralDate"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Insurance Policy No"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareInsurance"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:inputType="textPersonName"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:maxLines="1"
+                            android:textCursorDrawable="@null"
+                            android:textSize="11dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Referring M.D"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareRefMD"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="D.O.B"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareDOB"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null"
+                            android:textSize="11dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Managing Physician"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareManagingPhy"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Address"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareAddress"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:inputType="textPersonName"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null"
+                            android:textSize="11dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="4dp"
+                            android:text="Primary Home Care Diagnosis"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCarePriDiag"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="City/State/Zip"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareZipcode"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Next Appt. Date"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareNextAptDate"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Phone"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCarePhone"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textSize="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Last Office Visit"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <com.app.OnlineCareUS_MA.util.ActionEditText
+                            android:id="@+id/etHomeCareLastOfcVisit"
+                            android:imeOptions="actionDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:textSize="11dp"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:focusableInTouchMode="true"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <!--<TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Patient Name"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.onlinecaredr.util.ActionEditText
+                    android:id="@+id/etSkilledPatientName"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Patient Name"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Date"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.OnlineCareUS_MA.util.ActionEditText
+                    android:id="@+id/etSkilledDate"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Date"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:focusable="false"
+                    android:textCursorDrawable="@null" />
+
+                <!--<TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Patient Phone"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.onlinecaredr.util.ActionEditText
+                    android:id="@+id/etSkilledPatientPhone"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Patient Phone"
+                    android:inputType="phone"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null" />-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Diagnosis"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.OnlineCareUS_MA.util.ActionEditText
+                    android:id="@+id/etSkilledDiagnosis"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Diagnosis"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Precaution"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.OnlineCareUS_MA.util.ActionEditText
+                    android:id="@+id/etSkilledPrecaution"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Precaution"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Walker"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <com.app.OnlineCareUS_MA.util.ExpandableHeightListView
+                    android:id="@+id/lvWalker"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cane"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <com.app.OnlineCareUS_MA.util.ExpandableHeightListView
+                    android:id="@+id/lvCane"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hospital Bed"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <com.app.OnlineCareUS_MA.util.ExpandableHeightListView
+                    android:id="@+id/lvHospitalBed"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Commode"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <com.app.OnlineCareUS_MA.util.ExpandableHeightListView
+                    android:id="@+id/lvCommode"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <com.app.OnlineCareUS_MA.util.ExpandableHeightListView
+                    android:id="@+id/lvOtherDME"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:focusableInTouchMode="true"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Other Treatments"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <com.app.OnlineCareUS_MA.util.ActionEditText
+                    android:id="@+id/etDmeOtherTreatments"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Other Treatments"
+                    android:inputType="textMultiLine"
+                    android:layout_marginTop="6dp"
+                    android:padding="10dp"
+                    android:minLines="4"
+                    android:textCursorDrawable="@null"
+                    android:divider="@android:color/transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:focusableInTouchMode="true"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_radius_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DME Name"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RelativeLayout
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/etDmeName"
+                        android:layout_toLeftOf="@+id/ivSearchFax"
+                        android:layout_centerVertical="true"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="DME Name"
+                        android:inputType="textMultiLine"
+                        android:padding="10dp"
+                        android:minLines="1"
+                        android:textCursorDrawable="@null"
+                        android:divider="@android:color/transparent"/>
+                    <ImageView
+                        android:id="@+id/ivSearchFax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/search_btn"
+                        android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <com.app.OnlineCareUS_MA.util.ActionEditText
+                    android:id="@+id/etDmeEmail"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginTop="6dp"
+                    android:padding="10dp"
+                    android:minLines="1"
+                    android:textCursorDrawable="@null"
+                    android:divider="@android:color/transparent"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fax"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <com.app.OnlineCareUS_MA.util.ActionEditText
+                    android:id="@+id/etDmeFax"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Fax"
+                    android:inputType="phone"
+                    android:layout_marginTop="6dp"
+                    android:padding="10dp"
+                    android:minLines="1"
+                    android:textCursorDrawable="@null"
+                    android:divider="@android:color/transparent"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/cbApprove"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Approve"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/theme_red"
+                    android:buttonTint="@color/theme_red"/>
+
+                <RelativeLayout
+                    android:id="@+id/laySignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_alignParentTop="true"
+                        android:id="@+id/ivSignature"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="200dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_signature" />
+                    <TextView
+                        android:layout_below="@+id/ivSignature"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Signature for approval"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnDmeDone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_selector"
+                android:text="Send"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:layout_margin="10dp"
+                android:layout_gravity="bottom"
+                style="?android:attr/borderlessButtonStyle"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

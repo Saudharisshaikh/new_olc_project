@@ -1,0 +1,20 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml:2:1-10:12
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml:2:1-10:12
+	package
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml:4:5-30
+	xmlns:android
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml:3:5-28
+uses-sdk
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/circularImageView1/src/main/AndroidManifest.xml

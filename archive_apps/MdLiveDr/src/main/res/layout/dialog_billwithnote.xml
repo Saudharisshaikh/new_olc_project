@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:background="@color/theme_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Virtual Visit Notes"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_close_white_24dp"
+            android:layout_gravity="end|center_vertical"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+
+            <!--Hide from view.. Ios similarity... Emcura-->
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="Patient Name :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/theme_red"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/tvNotePatientName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="Jack Denial"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="Services Billing Codes :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/theme_red"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/tvNoteBillingCodes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="960110 - Ofiice Visit"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Virtual Visit Note :"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textColor="@color/theme_red"/>
+            <com.app.mdlive_dr.util.ActionEditText
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Please enter your virtual visit note here"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:maxLines="10"
+                android:padding="10dp">
+
+            </com.app.mdlive_dr.util.ActionEditText>
+
+            <TextView
+                android:id="@+id/tvSubmitNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="Save"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textStyle="normal"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:id="@+id/tvPreviousNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="View Previous Notes"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textStyle="normal"
+                android:textAllCaps="true"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,360 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.onlinecare.ConsentFormActivity" >
+    
+    <ScrollView
+        android:id="@+id/scc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp" >
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+            
+             <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Special medical problems (comma separeted)"/>
+
+            <EditText
+                android:id="@+id/etSpecialmedicalproblems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Special medical problems"
+                android:padding="10dp"                
+                android:inputType="textMultiLine"  
+    			android:lines="8" 
+    			android:minLines="6"  
+    			android:gravity="top|left" 
+   		   	    android:maxLines="10" 
+   			    android:scrollbars="vertical" />
+
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Last tetanus shot (MM/DD/YY)"/>
+            <EditText
+                android:id="@+id/etLasttetanusshot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Last tetanus shot (MM/DD/YY)"
+                android:padding="10dp"
+                android:focusable="false"
+                android:editable="false" 
+                 android:inputType="none" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Medication allergies"/>
+
+            <EditText
+                android:id="@+id/etMedicationallergies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Medication allergies"
+                android:padding="10dp"
+                android:inputType="textMultiLine"  
+    			android:lines="8" 
+    			android:minLines="6"  
+    			android:gravity="top|left" 
+   		   	    android:maxLines="10" 
+   			    android:scrollbars="vertical" />
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="History of asthama"/>
+            
+            <RadioGroup
+                    android:id="@+id/rgHistoryofasthama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioHistoryofasthamaYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="Yes"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioHistoryofasthamaNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+                
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="History of heart problems"/>
+            
+            <RadioGroup
+                    android:id="@+id/rgHistoryofheart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioHistoryofheartYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="Yes"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioHistoryofheartNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+                
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="History of siezures"/>
+            
+            <RadioGroup
+                    android:id="@+id/rgHistoryofsiezures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioHistoryofsiezuresYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="Yes"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioHistoryofsiezuresNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Full name"/>
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Name"
+                android:inputType="textCapWords"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="DOB"/>
+
+            <EditText
+                android:id="@+id/etDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="DOB"
+                android:focusable="false"
+                android:editable="false" 
+                android:inputType="none"
+                android:padding="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Do you have any insurance?"/>
+            
+            <RadioGroup
+                    android:id="@+id/rgInsurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioInsuranceYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="Yes"
+                        android:textColor="#d04c26" />
+
+                    <RadioButton
+                        android:id="@+id/radioInsuranceNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textColor="#d04c26" />
+                </RadioGroup>
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Insurance"/>
+
+            <EditText
+                android:id="@+id/etInsurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Insurance"
+                 android:inputType="textCapWords"
+                android:paddingLeft="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Policy number"/>
+
+            <EditText
+                android:id="@+id/etPolicynumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Policy number" 
+                 android:inputType="number"
+                android:paddingLeft="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Group"/>
+
+            <EditText
+                android:id="@+id/etGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Group" 
+                 android:inputType="text"
+                android:paddingLeft="10dp" />
+            
+            <TextView 
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:text="Code"/>
+
+            <EditText
+                android:id="@+id/etCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_fld"
+                android:hint="Code" 
+                 android:inputType="text"
+                android:paddingLeft="10dp" />
+
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnSubmitForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"   
+                android:layout_margin="5dp"           
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:text="Submit" />
+            
+            <Button
+                android:id="@+id/btnSkipForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"  
+                android:layout_margin="5dp"             
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:text="Skip" />
+            
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

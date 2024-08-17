@@ -1,0 +1,67 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+    <view
+            class="eu.janmuller.android.simplecropimage.CropImageView"
+            android:id="@+id/image"
+            android:background="@drawable/bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_x="0dip"
+            android:layout_y="0dip"
+            />
+
+    <!--android:paddingLeft="10dip"
+            android:paddingRight="10dip"-->
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+        <Button
+                android:layout_alignParentLeft="true"
+                android:id="@+id/discard"
+                android:layout_width="90dp"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_drawable"
+                android:textColor="#FFFFFF"
+                android:text="@string/cancel"
+                android:textAppearance="?android:attr/textAppearanceMedium"/><!--style="@style/CropButton"-->
+
+        <ImageButton
+                android:id="@+id/rotateLeft"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/discard"
+                style="@style/CropButton"
+                android:background="@drawable/button_drawable"
+                android:src="@drawable/ic_rotate_left"
+                />
+
+        <ImageButton
+                android:id="@+id/rotateRight"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/rotateLeft"
+                style="@style/CropButton"
+                android:background="@drawable/button_drawable"
+                android:src="@drawable/ic_rotate_right"
+                />
+        <Button
+                android:id="@+id/save"
+                android:layout_width="90dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/rotateRight"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="@drawable/button_drawable"
+                android:textColor="#FFFFFF"
+                android:text="@string/save"
+                /><!--style="@style/CropButton"-->
+
+    </RelativeLayout>
+</RelativeLayout>

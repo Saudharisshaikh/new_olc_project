@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rootCell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/cust_border_white_outline">
+
+        <TextView
+            android:id="@+id/tvFallListDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvFallListFallDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fall Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tvFallListInjury"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Injury"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tvFallListMedCare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medical Care Received"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tvFallListInjuryResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Did the injury result in a hospitalization"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+
+
+        <TextView
+            android:id="@+id/tvFallListDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Additional Comments"
+            android:layout_marginTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+</LinearLayout>

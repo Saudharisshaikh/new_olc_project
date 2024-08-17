@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray">
+
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:background="#494949"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/ivBack"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="My Appointments"/>
+
+        <CheckBox
+            android:id="@+id/cbRefer"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refer"
+            android:buttonTint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/spinnerCont"
+        android:layout_below="@+id/topBar"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <com.app.OnlineCareUS_Dr.util.SpinnerCustom
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/holo_red_dark"
+            android:id="@+id/spDates"
+            android:background="@drawable/spinner_bg"
+            android:spinnerMode="dropdown" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/tabOptions"
+        android:layout_below="@+id/spinnerCont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvAllAppoitments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All Appointments"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@color/theme_red"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/tvAvaitingAppoitments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiting"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/div1"
+        android:layout_below="@+id/tabOptions"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"/>
+
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_below="@+id/div1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvSuleDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:text="Date"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvsw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:text="Patient"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvDrAppntStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:text="Status"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/vfDrAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/btnReferAppointments">
+        <ListView
+            android:id="@+id/lvDrAppointments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp" />
+
+        <ListView
+            android:id="@+id/lvDrAwaitingAppointments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp" />
+
+    </ViewFlipper>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tvNoAppointment"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your appointment queue is empty" />
+
+    <Button
+        android:id="@+id/btnReferAppointments"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:padding="10dp"
+        android:layout_above="@+id/btnReferAppointmentsToAdmin"
+        android:text="Refer Appointments to Other Doctor"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/btnReferAppointmentsToAdmin"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="Refer Appointments to Admin"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+</RelativeLayout>

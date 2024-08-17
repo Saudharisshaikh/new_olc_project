@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.emcuradr.ActivityCovidFormList">
+
+
+    <LinearLayout
+        android:id="@+id/layTop"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <!--<LinearLayout
+            android:id="@+id/tabOptions"
+            android:layout_below="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/cust_border_sq_blue">
+
+            <TextView
+                android:id="@+id/tvUnAssigned"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Un Assigned"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="@color/app_blue_color"
+                android:tag="1"/>
+            <TextView
+                android:id="@+id/tvAssigned"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Assigned"
+                android:textColor="@color/app_blue_color"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="#FFFFFF"
+                />
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:paddingTop="15dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Location :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginStart="10dp"/>
+
+            <com.app.emcuradr.util.SpinnerCustom
+                android:id="@+id/spTestLocation"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/spinner_bg"/>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/etDateFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="According to Date"
+                    android:textAllCaps="false"
+                    android:padding="10dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:drawableStart="@drawable/ic_search_black_24dp"
+                    android:drawablePadding="10dp"/>
+
+                <ImageView
+                    android:id="@+id/ivClearDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_close_black"
+                    android:layout_gravity="end"
+                    android:padding="5dp"/>
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <com.app.emcuradr.util.SpinnerCustom
+                    android:id="@+id/spOrderBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/spinner_bg"
+                    android:layout_marginEnd="2.5dp"
+                    android:layout_weight="1"/>
+
+
+
+                <com.app.emcuradr.util.ActionEditText
+                    android:id="@+id/etSearch"
+                    android:inputType="textPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:padding="10dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginStart="2.5dp"
+                    android:hint="Search"
+                    android:imeOptions="actionDone"
+                    android:drawableStart="@drawable/ic_search_black_24dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <CheckBox
+        android:id="@+id/cbHideFilters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hide Filters"
+        android:buttonTint="@color/theme_red"
+
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/layTop"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cbHideFilters"
+        android:layout_alignParentBottom="true">
+
+        <ListView
+            android:id="@+id/lvCovidList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/lv_covid_list_row"
+            android:dividerHeight="10dp"
+            android:divider="@android:color/transparent"
+            />
+
+        <TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No data found"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

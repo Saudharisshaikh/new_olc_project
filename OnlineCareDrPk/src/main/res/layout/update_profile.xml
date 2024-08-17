@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/xxx"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="true" >
+
+        <LinearLayout
+            android:id="@+id/iik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+            <FrameLayout
+                android:id="@+id/joo"
+                android:layout_width="130sp"
+                android:layout_height="130sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="12sp" >
+
+                <com.app.onlinecare_dr_pk.AspectRationImageView
+                    android:id="@+id/imgMainList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/imgChangeProfileImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_call_screen"
+                    app:border="true"
+                    app:border_color="#66FFFFFF"
+                    app:border_width="2sp"
+                    app:shadow="true" />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnEditPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile Picture"
+                android:textColor="@color/theme_red"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:background="@android:color/transparent"/>
+            <View
+                android:id="@+id/vidd"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#d04c26" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="30dp"
+                android:text="First Name*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileFname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="First Name"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- " >
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Last Name*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileLname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Last Name"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "  >
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Birthdate*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfilBday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Birth Date"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="none"
+                android:editable="false" >
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Phone*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="phone"
+                android:maxLength="11">
+            </EditText>
+            <!--<br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/etUpdateProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="25"
+                android:background="@drawable/cust_border_white_outline"
+
+                app:mask="###-###-####"
+
+                app:allowed_chars="1234567890">
+            </br.com.sapereaude.maskedEditText.MaskedEditText>-->
+
+            <!--+1(###)###-####-->  <!--android:hint="Phone Number"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Address*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Address"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="text" >
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="City*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileDrCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="City"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="text" >
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginLeft="30dp"
+                android:text="State*"
+                android:textColor="@color/theme_red"/>
+            <!--<EditText
+                android:id="@+id/etUpdateProfileState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="State"
+                android:textColor="@color/theme_red"
+                android:padding="10sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline" >
+            </EditText>-->
+            <Spinner
+                android:id="@+id/spUpdateProfileState"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/spinner_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Country*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Country"
+                android:padding="10sp"
+                android:textColor="@android:color/darker_gray"
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:enabled="false"
+                android:clickable="false"
+                android:longClickable="false">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Designation*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileOccupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Designation"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="text">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Introduction"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileIntroduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Introduction"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:inputType="text" >
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Qualification"
+                android:textColor="@color/theme_red"/>
+
+            <EditText
+                android:id="@+id/etUpdateProfileQualification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:gravity="top|left"
+                android:hint="Qualification"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="10"
+                android:minLines="6"
+                android:padding="10sp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black" >
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Career Data"
+                android:textColor="@color/theme_red"/>
+
+            <EditText
+                android:id="@+id/etUpdateProfileCareerData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:gravity="top|left"
+                android:hint="Career Data"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="10"
+                android:minLines="6"
+                android:padding="10sp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Zip Code*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etUpdateProfileZipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Zip code"
+                android:inputType="number"
+                android:padding="10sp"
+                android:textColor="@color/black" >
+            </EditText>
+
+
+            <LinearLayout
+                android:id="@+id/mm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Gender"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgEditProfilGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:checked="true"
+                        android:text="Male  "
+                        android:buttonTint="@color/theme_red"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:buttonTint="@color/theme_red"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <CheckBox
+                android:visibility="gone"
+                android:id="@+id/cbAvailableForeLiveCare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:layout_gravity="center_horizontal"
+                android:text="   Do you want to available for OnlineCare?"
+                android:buttonTint="@color/theme_red"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/oi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="6dp" >
+
+                <TextView
+                    android:id="@+id/texView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:text="Marital Status"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgMaritalStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioSingle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:checked="true"
+                        android:text="Single"
+                        android:textColor="@color/theme_red" />
+
+                    <RadioButton
+                        android:id="@+id/radioMarried"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Married"
+                        android:textColor="@color/theme_red" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnUpdtPrflSbmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Update Profile"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="@drawable/btn_selector" />
+
+            <Button
+                android:id="@+id/btnUpdtPrflPwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Change Password"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="@drawable/btn_selector" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

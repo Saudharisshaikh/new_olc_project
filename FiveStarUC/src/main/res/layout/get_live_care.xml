@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray">
+
+    <ScrollView
+        android:id="@+id/oio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgAd"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scrollbarSize="0dp">
+
+        <LinearLayout
+            android:id="@+id/lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <!--<TextView
+                android:textStyle="bold"
+                android:textColor="@color/theme_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select from the following that applies to you : "
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />-->
+            <!--<include layout="@layout/pharmacy_information_layout"/>-->
+
+            <!--android:text="Symptom*"-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="-6dp"
+                android:text="Select from the following that applies to you* :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/theme_red"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spSymptomNew"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/spinner_bg"
+                android:visibility="gone" />
+
+            <com.app.fivestaruc.util.ExpandableHeightGridView
+                android:id="@+id/gvSymptomNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="#e5e5e5"
+                android:choiceMode="singleChoice"
+                android:horizontalSpacing="5dp"
+                android:numColumns="2"
+                android:padding="5dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp"
+                android:visibility="gone"
+                tools:listitem="@layout/listitem_singlechoice" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="-6dp"
+                android:text="Select from the following symptoms: *"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/theme_red"
+                android:textStyle="normal" />
+
+            <!--#e5e5e5-->
+            <com.app.fivestaruc.util.ExpandableHeightGridView
+                android:id="@+id/gvConditionNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/cust_border_grey_outline"
+                android:choiceMode="multipleChoice"
+                android:horizontalSpacing="5dp"
+                android:numColumns="2"
+                android:padding="5dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp"
+                tools:listitem="@layout/listitem_multichoice" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="Symptom*"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.fivestaruc.util.InstantAutoComplete
+                    android:id="@+id/autoLiveTvSymptoms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:editable="false"
+                    android:hint="Select symptom"
+                    android:padding="10dp" />
+
+                <Spinner
+                    android:id="@+id/spLiveSelectSymptm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="Condition*"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Spinner
+                    android:id="@+id/spLiveSelectCondtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/spinner_bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Additional Symptoms Explanation"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:visibility="gone" />
+
+                <com.app.fivestaruc.util.ActionEditText
+                    android:id="@+id/etPainWhere"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Additional Symptoms Explanation"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null"
+                    android:visibility="gone" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="Any area of pain related to your symptoms :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red"
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
+                <!--com.app.emcurauc.util.AutofitRecyclerView-->
+                <!--android:clipToPadding="false"
+                    android:columnWidth="@dimen/column_width"-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBodyPart"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:padding="5dp"
+                    android:visibility="gone"></androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="Level of Pain if any :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red"
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
+                <Spinner
+                    android:id="@+id/spPainSeverity"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/spinner_bg"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPainSeverity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:padding="5dp"
+                    android:visibility="gone"></androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="-6dp"
+                android:text="Any additional information related to your symptoms :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/theme_red"
+                android:textStyle="normal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:layout_margin="8dp"
+                android:background="@drawable/cust_border_white_outline">
+
+                <com.app.fivestaruc.util.ActionEditText
+                    android:id="@+id/etLiveExtraInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/ic_mike_LiveExtraInfo"
+                    android:background="@android:color/transparent"
+                    android:gravity="top"
+                    android:hint="Describe your condition"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:padding="10dp" />
+
+                <ImageView
+                    android:id="@+id/ic_mike_LiveExtraInfo"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_mike1" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layHideOnEdit1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="Zipcode :"
+                    android:visibility="gone"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etLiveZipCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:visibility="gone"
+                    android:hint="Enter Zip code"
+                    android:inputType="phone"
+                    android:padding="10dp"></EditText>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="States of Residency: *"
+                    android:textColor="@color/theme_red"/>
+
+                <com.app.fivestaruc.util.ActionEditText
+                    android:imeOptions="actionDone"
+                    android:id="@+id/etgetLiveCareState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint="State"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:text="Michigan"/>
+
+                <Spinner
+                    android:id="@+id/spgetLivecareState"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/spinner_bg" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:text="Are you traveling out of state / Internationally : *"
+                    android:textColor="@color/theme_red"/>
+
+                <RadioGroup
+                    android:id="@+id/rgInternational"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioInternationalYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="Yes"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+
+                    <RadioButton
+                        android:id="@+id/radioInternationalNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="-6dp"
+                android:text="Height / Weight: *"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/theme_red"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/cust_border_grey_outline"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Height:"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.app.fivestaruc.util.ActionEditText
+                                android:id="@+id/etOTHeightFt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="1dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:hint="Feet"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:maxLength="1"
+                                android:padding="10dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textCursorDrawable="@null" />
+
+                            <com.app.fivestaruc.util.ActionEditText
+                                android:id="@+id/etOTHeightIn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="1dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:hint="Inches"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:padding="10dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textCursorDrawable="@null" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:maxLines="1"
+                            android:text="Weight(Lbs):"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="13sp" />
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:id="@+id/etOTWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="e.g. 158"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:maxLength="3"
+                            android:padding="10dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="-6dp"
+                android:text="Vitals (if available/Optional) :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/theme_red"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/cust_border_grey_outline"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:maxLines="1"
+                            android:text="Temperature:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="13sp" />
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:id="@+id/etOTTemperature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="e.g 98.6"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="10dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginLeft="3dp"-->
+                    <!--                        android:layout_marginRight="3dp"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:visibility="gone"-->
+                    <!--                        android:gravity="center_horizontal"-->
+                    <!--                        android:orientation="vertical">-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="wrap_content"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:layout_marginBottom="4dp"-->
+                    <!--                            android:maxLines="1"-->
+                    <!--                            android:text="Weight(Lbs):"-->
+                    <!--                            android:textAppearance="?android:attr/textAppearanceSmall"-->
+                    <!--                            android:textSize="13sp" />-->
+
+                    <!--                        <com.app.fivestaruc.util.ActionEditText-->
+                    <!--                            android:id="@+id/etOTWeight"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:background="@drawable/cust_border_white_outline"-->
+                    <!--                            android:ems="10"-->
+                    <!--                            android:gravity="center"-->
+                    <!--                            android:hint="e.g. 158"-->
+                    <!--                            android:imeOptions="actionDone"-->
+                    <!--                            android:inputType="numberDecimal"-->
+                    <!--                            android:padding="10dp"-->
+                    <!--                            android:textAppearance="?android:attr/textAppearanceSmall"-->
+                    <!--                            android:textCursorDrawable="@null" />-->
+                    <!--                    </LinearLayout>-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:maxLines="1"
+                            android:text="Blood Sugar:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="13sp" />
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:id="@+id/etOTBloodSugar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="e.g. 100"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="10dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:maxLines="1"
+                            android:text="Heart Rate:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="13sp" />
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:id="@+id/etOTHR"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="e.g. 80"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="10dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:maxLines="1"
+                            android:text="Respirations:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="13sp" />
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:id="@+id/etOTRespirations"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="e.g. 18"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:maxLines="1"
+                            android:text="O2 Saturations:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textSize="13sp" />
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:id="@+id/etOTO2Saturations"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="e.g. 95"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="Blood Pressure:"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.app.fivestaruc.util.ActionEditText
+                                android:id="@+id/etOTBPSys"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="1dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:hint="Systolic"
+                                android:imeOptions="actionDone"
+                                android:inputType="phone"
+                                android:padding="10dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textCursorDrawable="@null" />
+
+                            <com.app.fivestaruc.util.ActionEditText
+                                android:id="@+id/etOTBPDia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="1dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:hint="Diastolic"
+                                android:imeOptions="actionDone"
+                                android:inputType="phone"
+                                android:padding="10dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textCursorDrawable="@null" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginBottom="4dp"-->
+                        <!--                            android:text="Height:"-->
+                        <!--                            android:visibility="gone"-->
+                        <!--                            android:textAppearance="?android:attr/textAppearanceSmall" />-->
+
+                        <!--                        <LinearLayout-->
+                        <!--                            android:visibility="gone"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:orientation="horizontal">-->
+
+                        <!--                            <com.app.fivestaruc.util.ActionEditText-->
+                        <!--                                android:id="@+id/etOTHeightFt"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginEnd="1dp"-->
+                        <!--                                android:layout_weight="1"-->
+                        <!--                                android:background="@drawable/cust_border_white_outline"-->
+                        <!--                                android:ems="10"-->
+                        <!--                                android:gravity="center"-->
+                        <!--                                android:hint="Feet"-->
+                        <!--                                android:imeOptions="actionDone"-->
+                        <!--                                android:inputType="number"-->
+                        <!--                                android:padding="10dp"-->
+                        <!--                                android:textAppearance="?android:attr/textAppearanceSmall"-->
+                        <!--                                android:textCursorDrawable="@null" />-->
+
+                        <!--                            <com.app.fivestaruc.util.ActionEditText-->
+                        <!--                                android:id="@+id/etOTHeightIn"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="1dp"-->
+                        <!--                                android:layout_weight="1"-->
+                        <!--                                android:background="@drawable/cust_border_white_outline"-->
+                        <!--                                android:ems="10"-->
+                        <!--                                android:gravity="center"-->
+                        <!--                                android:hint="Inches"-->
+                        <!--                                android:imeOptions="actionDone"-->
+                        <!--                                android:inputType="number"-->
+                        <!--                                android:padding="10dp"-->
+                        <!--                                android:textAppearance="?android:attr/textAppearanceSmall"-->
+                        <!--                                android:textCursorDrawable="@null" />-->
+                        <!--                        </LinearLayout>-->
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layHideOnEdit2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="-6dp"
+                    android:text="Would you like to add any image related to your symptoms (Optional) :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red"
+                    android:textStyle="normal" />
+
+                <com.app.fivestaruc.util.ExpandableHeightGridView
+                    android:id="@+id/gvReportImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/cust_border_grey_outline"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="3"
+                    android:scrollbars="none"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dp">
+                    <!--android:padding="5dp"  #e5e5e5-->
+                </com.app.fivestaruc.util.ExpandableHeightGridView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSelectImages"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_selector"
+                android:text="Select Report Images"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvNumReprtsSelctd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSelPharmacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:text=""
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tvSelPharmacyAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:text=""
+                    android:textColor="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPharmacy"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_selector"
+                        android:text="Select Pharmacy"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnLiveShareReports"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_selector"
+                        android:text="Share Medical Reports"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--            ahmer remove qoute from this textview 13-05-2022 ios similar-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="In order for us to provide you with virtual care services you must accept and agree with patient virtual care consent authorization :"
+                android:textAllCaps="true"
+                android:textColor="@color/toolBarColor"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center_horizontal"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <CheckBox
+                    android:id="@+id/cbPatientAuth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_toLeftOf="@+id/ivReviewAuth"
+                    android:buttonTint="#43A047"
+                    android:text="I ACCEPT &amp; AGREE WITH PATIENT VIRTUAL CARE CONSENT AUTHORIZATION"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/bol_red"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivReviewAuth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="13dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_information"
+                    android:textColor="@color/theme_red"
+                    app:tint="@color/app_blue_color" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnLiveSbmtSymptom"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_selector"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.app.fivestaruc.AspectRationImageView
+        android:id="@+id/imgAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/imgad" />
+
+</RelativeLayout>

@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    -->
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android , com.braver.tool.picker" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" /> <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <queries>
+
+        <!-- Browser -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="http" />
+        </intent>
+
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <!-- Gallery -->
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!--<uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
+    <!--From Android 12-->
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
+    <!-- Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <!-- Needed only if your app makes the device discoverable to Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <!-- Needed only if your app communicates with already-paired Bluetooth
+         devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--android 12 end-->
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <!--new permission for android 12+ or 13 SDK 33 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!--end-->
+
+    <application
+        android:name="com.app.OnlineCareUS_Dr.OnlineCareDr"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher_rounded"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/CustomActionBarTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityCancelPrescription"
+            android:label="Cancel Prescription"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.PresscriptionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.PresscriptionActivity" />
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="sg.com.temasys.skylink.sdk.sampleapp.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name" /> <!-- android:debuggable="true" -->
+        <!--
+        <activity
+            android:name="com.oovoo.sdk.sample.ui.SampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="eLiveCare"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        -->
+        <!-- =======================GCM================================= -->
+        <!-- [START gcm_receiver] -->
+        <!--
+<receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+        &lt;!&ndash; [END gcm_receiver] &ndash;&gt;
+
+
+        &lt;!&ndash; [START gcm_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END gcm_listener] &ndash;&gt;
+        &lt;!&ndash; [START instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.RegistrationIntentService"
+            android:exported="false" />
+        -->
+        <!--
+        <service
+			android:name="com.oovoo.sdk.sample.services.MyGcmListenerService"
+			android:exported="false" >
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.MyInstanceIDListenerService"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.iid.InstanceID"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.RegistrationIntentService"
+			android:exported="false">
+		</service>
+        -->
+        <!-- =======================GCM================================= -->
+        <!--
+<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        -->
+        <!-- =============================App Activities==================================== -->
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
+
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.MainActivityNew"
+            android:label="@string/app_label"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.Login"
+            android:exported="true"
+            android:label="@string/app_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.SearchADoctor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Signup"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.Login" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.Login" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.UpdateProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Profile"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme">
+
+            <!-- @android:style/Theme.Dialog -->
+        </activity> <!-- <activity android:name="eu.janmuller.android.simplecropimage.CropImage" /> -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.DoctorsList"
+            android:label="Available Doctors"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.DocToDoc" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.DoctorsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.DoctorsList" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.SubUsersList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Login As" />
+        <!--
+<activity
+            android:name="com.app.OnlineCareUS_Dr.DrSchedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doctor&apos;s Schedule"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        -->
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.Reports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Reports"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.LiveCareDetails"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.LiveCare">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.LiveCare" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.LiveCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Immediate Care"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ViewReport"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ViewReportFull"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Report"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ViewReport">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ViewReport" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.AfterCallDialogEmcura"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.AfterCallDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.SendPrescription"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Prescription"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.DocToDoc"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doc to Doc"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.HomeHealth"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Home Health"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <!--
+        <service android:name=".VideoCallService" >
+        </service>
+        <service android:name=".services.MessageReceiverService" >
+        </service>
+        <service android:name=".services.VChatListener" >
+        </service>
+        -->
+        <service android:name="com.app.OnlineCareUS_Dr.services.OutgoingCallService" />
+        <!--
+        <service android:name=".services.IncomingCallServiceNew" >
+        </service>
+        -->
+        <!--
+        <service android:name=".services.DeviceRegisterService" >
+        </service>
+        -->
+        <service android:name="com.app.OnlineCareUS_Dr.services.LiveCareRefreshService" />
+
+        <receiver
+            android:name="com.app.OnlineCareUS_Dr.broadcasts.SaveGCM_TokenBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.SAVE_GCM_TOKEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.OnlineCareUS_Dr.broadcasts.BootCompleteBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.STOP_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.DrsAppointments"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Appointments"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.DrApointmentDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.SetDrShedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity> <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.PresscriptionsActivity"
+            android:label="@string/title_activity_presscriptions"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.UpdateProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.PatientMedicalHistory"
+            android:label="Patient Medical History"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.TransectionsActivity"
+            android:label="@string/title_activity_trnsections"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <!--
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                Receives the actual messages.
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                Receives the registration id.
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".gcm.GCMActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+
+        <receiver
+            android:name=".gcm.MessageBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.quranplus.DISPLAY_MESSAGE" />
+                
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+
+
+
+
+               
+            </intent-filter>
+        </receiver>
+        -->
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityCallLogs"
+            android:label="@string/title_activity_activity_call_logs"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySendMessage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ConversationsActivity"
+            android:label="Messages"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ShowMessagePopupActivity"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ViewConversationActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ConversationsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ConversationsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ShowLiveCarePopup"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity> <!-- =============================App Activities==================================== -->
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.DoctorScheduleNew"
+            android:label="@string/title_activity_doctor_schedule_new"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ReferAppointmentActivity"
+            android:label="@string/title_activity_refer_appointment"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.CareRatings"
+            android:label="@string/title_activity_care_ratings"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySoapNotes"
+            android:label="@string/title_activity_activity_soap_notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityRifills"
+            android:label="@string/title_activity_activity_rifills"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityRefillDetails"
+            android:label="@string/title_activity_activity_refill_details"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityRifills">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityRifills" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTelemedicineServices"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTCM"
+            android:label="Patients"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.OnlineCareUS_Dr.ActivityFindNurse" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityBilling"
+            android:label="Billing"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.SupportMessagesActivity"
+            android:label="Support Messages"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityPatientRefill"
+            android:label="Patient Refill Requests"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityProbelemList"
+            android:label="Problem List"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityPinnedReports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.PresscriptionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Prescriptions"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityCareProviders"
+            android:label="Care Providers"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.CustomDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTCM_2"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.CustomDialogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.CustomDialogActivity" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTCM_4"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySOAP"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySoapNotesEdit"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTelemedicineServicesEdit"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesEdit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesEdit" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityGroupChat"
+            android:label="Group Chat"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityGroupMessages"
+            android:label="Group Messages"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityGroupChat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityGroupChat" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityDoctors"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ShowGroupMessagePopup"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTCM_3"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityCareProvidersInvite"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityGroupMembers"
+            android:label="Group Members"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityViewOTNotes"
+            android:label="OT/PT Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityAddDoctor"
+            android:label="Add Doctor"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySOAPReferral"
+            android:label="Service Requests"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySOAPReferralOT"
+            android:label="OT DME Referrals"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySkilledNursingApprove"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityDmeRefferalApprove"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityPrescDetailCP"
+            android:label="Prescription Details"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.PresscriptionsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.PresscriptionsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityHomeCareFormApprove"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityTcmDetails"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityTCM">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityTCM" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySoapNotesEmpty"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySkilledNursing"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySkilledNursingEdit"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityDmeRefferal"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityDmeRefferalEdit"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityHomeCareForm"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityHomeCareFormEdit"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityAllEnvir"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityEnvirForm"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityAllEnvir">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityAllEnvir" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityAllFallRisk"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.FallRiskForm"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityAllFallRisk">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityAllFallRisk" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityAllBradenScale">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityAllBradenScale" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityAllBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityAllDepression"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityDepressionForm"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.ActivityAllDepression">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.ActivityAllDepression" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityScreeningToolReport"
+            android:label="Screening Tools Report"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity android:name="com.app.OnlineCareUS_Dr.BaseActivity" />
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityProgressNotes"
+            android:label="Add Progress Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityProgressNotesView"
+            android:label="Progress Notes"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivityRefferedPatients"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Referred Patients"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.ActivitySwitchHosp"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Switch Hospital"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.OnlineCareUS_Dr.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.OnlineCareUS_Dr.permission.PermissionsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="com.app.OnlineCareUS_Dr.Login" />
+        <activity android:name="com.app.OnlineCareUS_Dr.ActivityAppInvite" />
+        <activity android:name="com.app.OnlineCareUS_Dr.ActivityInstatntConnect" />
+        <activity android:name="com.app.OnlineCareUS_Dr.reliance.therapist.ActivityReferedPatients" />
+        <activity
+            android:name=".reliance.assessment.ActivityDepInvList"
+            android:label="Beck&apos;s Depression"
+            android:parentActivityName=".ActivityTcmDetails"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name=".reliance.assessment.ActivityBecksDepression"
+            android:label="Beck&apos;s Depression"
+            android:parentActivityName=".reliance.assessment.ActivityDepInvList"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".reliance.assessment.new_assesment.ActivityOCD_Form" />
+        <activity
+            android:name=".reliance.assessment.new_assesment.ActivityOCD_List"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".reliance.assessment.new_assesment.ActivityStressQues_Form" />
+        <activity android:name=".reliance.assessment.ActivityPHQ_Form" />
+        <activity
+            android:name=".reliance.assessment.ActivityPhqList"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name=".reliance.assessment.ActivityDastList"
+            android:theme="@style/DrawerTheme" />
+        <activity android:name=".reliance.assessment.ActivityDAST_Form" />
+
+        <activity android:name="com.app.OnlineCareUS_Dr.ActivityCovidFormList" /> <!-- ===============Angora.io Starts============================================ -->
+        <activity
+            android:name="io.agora.openlive.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="io.agora.openlive.activities.LiveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.agora.openlive.activities.RoleActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.agora.openlive.activities.SettingsActivity"
+            android:screenOrientation="portrait" /> <!-- ===============Angora.io Ends============================================ -->
+        <receiver
+            android:name="com.app.OnlineCareUS_Dr.broadcasts.CallNotificationBroadcast"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.app.emcuradr.acceptcall" />
+                <action android:name="com.app.emcuradr.rejectcall" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" /> <!-- FCM Starts -->
+        <!-- [START fcm_default_icon] -->
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" /> <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_channel] -->
+        <!-- [START firebase_service] -->
+        <service android:name="com.app.OnlineCareUS_Dr.fcm.MyFirebaseMessagingService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- [END firebase_service] -->
+        <service
+            android:name="com.app.OnlineCareUS_Dr.fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service> <!-- FCM Ends -->
+        <!-- This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM -->
+        <!-- android:authorities="com.meetandeat.provider" -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.OnlineCareUS_Dr.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
+
+        <service
+            android:name="com.app.OnlineCareUS_Dr.services.GPSTracker"
+            android:foregroundServiceType="location"></service>
+    </application>
+
+</manifest>

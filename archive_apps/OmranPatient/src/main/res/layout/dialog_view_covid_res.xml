@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COVID Test Results"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Patient Name : "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvPatientName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jack Denial"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Request Date : "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="April 17 2019"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cust_border_grey_outline"
+                android:padding="10dp">
+
+
+                <!--<TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+
+                    android:text="COVID Test Results"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>-->
+
+                <LinearLayout
+                    android:id="@+id/layRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rapid Covid In-House"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvRapidCOVID"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/ivRapidCOVID"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/sep1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="5dp"/>
+
+                <LinearLayout
+                    android:id="@+id/layRow2"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="PCR Covid"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvPCR_COVID"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/ivPCR_COVID"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/sep2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="5dp"/>
+
+                <LinearLayout
+                    android:id="@+id/layRow3"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rapid Strep Test"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvRapidStrep"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/ivRapidStrep"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/sep3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="5dp"/>
+
+                <LinearLayout
+                    android:id="@+id/layRow4"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Strep Culture"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvStrepCulture"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/ivStrepCulture"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/sep4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="5dp"/>
+
+                <LinearLayout
+                    android:id="@+id/layRow5"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rapid Flu"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvRapidFlu"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/ivRapidFlu"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/sep5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="5dp"/>
+
+
+                <LinearLayout
+                    android:id="@+id/layRow6"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="DNA Flu"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvDNA_Flu"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/ivDNA_Flu"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_selector"
+                android:text="Done"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>
+
+            <!--<Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/apptmnt_cancel_drawable"
+                android:text="Not Now"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>-->
+
+
+        </LinearLayout>
+
+        <!--<com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivStaffMember"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher"
+            app:border_color="#FFFFFF"
+            app:border_width="3dp"
+            app:shadow_color="@android:color/darker_gray"
+            app:shadow="true"
+            android:layout_gravity="center_horizontal"/>-->
+        <ImageView
+            android:id="@+id/ivPatient"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher"
+            android:layout_gravity="center_horizontal"/>
+
+    </FrameLayout>
+
+</LinearLayout>

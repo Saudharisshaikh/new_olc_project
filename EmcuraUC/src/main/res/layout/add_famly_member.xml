@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/login_topimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/img_top"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/scc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/imgAdAdmembr">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="First Name*"
+                android:textColor="@color/theme_red"
+                android:layout_marginTop="30dp"/>
+            <EditText
+                android:id="@+id/etAdmemberFname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint=""
+                android:inputType="textCapWords"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:background="@drawable/cust_border_white_outline"/>
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Last Name*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etAdmemberLname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapWords"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Username*"
+                android:textColor="@color/theme_red"/>
+
+            <RelativeLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline">
+
+                <com.app.emcurauc.util.ActionEditText
+                    android:id="@+id/etAdmemberUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="textPersonName"
+                    android:padding="10sp"
+                    android:maxLength="35"
+                    android:layout_toLeftOf="@+id/pbAutoComplete"
+                    android:background="@android:color/transparent"
+                    android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789"/>
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/pbAutoComplete"
+                    android:layout_toLeftOf="@+id/ivClear"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_cancel_cir"
+                    android:paddingRight="5dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Email*"
+                android:textColor="@color/theme_red"/>
+
+            <EditText
+                android:id="@+id/etAdmemberEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textEmailAddress"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Phone Number*"
+                android:textColor="@color/theme_red"/>
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/etSignupPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="25"
+                android:background="@drawable/cust_border_white_outline"
+                app:mask="###-###-####"
+                app:allowed_chars="1234567890">
+            </br.com.sapereaude.maskedEditText.MaskedEditText>
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Occupation*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etAdmemberOccupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="text"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"/>
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Birthdate*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etAdmemberDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="none"
+                android:editable="false"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Relationship*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etAdmemberRelationship"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="text"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Password*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etAdmemberPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textPassword"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Confirm Password*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etAdmemberConfirmPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textPassword"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Gender*"
+                android:textColor="@color/theme_red"/>
+            <Spinner
+                android:id="@+id/spAdmemberGender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/spinner_bg"/>
+
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Marital status*"
+                android:textColor="@color/theme_red"/>
+            <!--Removed by jamal in emcura-->
+            <Spinner
+                android:id="@+id/spAdmemberMarital"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/spinner_bg"/>
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="St. Address*"
+                android:textColor="@color/theme_red"/>
+
+            <com.app.emcurauc.util.ActionEditText
+                android:id="@+id/etSignupAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="City*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:background="@drawable/cust_border_white_outline"
+                />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="State*"
+                android:textColor="@color/theme_red"/>
+            <!--<EditText
+                android:id="@+id/etSignupState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="State"
+                android:inputType="none"
+                android:focusable="false"
+                android:text="Michigan"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:background="@drawable/cust_border_white_outline" />-->
+
+            <Spinner
+                android:id="@+id/spSignupState"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/spinner_bg"
+                />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Country*"
+                android:textColor="@color/theme_red"/>
+
+            <EditText
+                android:id="@+id/etSignupCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint=""
+                android:textColor="@color/black"
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Zip Code*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupZipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint=""
+                android:inputType="number"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="9"
+                android:background="@drawable/cust_border_white_outline"
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insurance : "
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:textStyle="bold"
+                android:layout_gravity="start"
+                android:textColor="@color/theme_red"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Note : You can select an insurance for this family member from your already added insurance list. Also you can add a new insurance for your family member."
+                android:layout_marginTop="5dp"
+                android:textStyle="normal"
+                android:layout_gravity="start"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/layNewInsurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+
+                <TextView
+                    android:id="@+id/tvPatientInsurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:id="@+id/btnAddInsurance"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Add New Insurance"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+
+            <Spinner
+                android:id="@+id/spSelectInsurance"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/spinner_bg"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <CheckBox
+                android:id="@+id/cbNewInsurance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add New Insurance"
+                android:buttonTint="@color/theme_red"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"/>
+
+
+
+
+
+            <Button
+                android:id="@+id/btnAdmemberCreateUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_selector" />
+        </LinearLayout>
+    </ScrollView>
+    
+    <com.app.emcurauc.AspectRationImageView
+        android:id="@+id/imgAdAdmembr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/imgad" />
+
+</RelativeLayout>

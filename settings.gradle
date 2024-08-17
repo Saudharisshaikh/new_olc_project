@@ -1,0 +1,120 @@
+include ':circularImageView1'
+include ':materialDialogLib'
+include ':progressWheelLib'
+include ':swipMenuListViewLib'
+include ':signaturepad'
+include ':simplecropimagelib'
+include ':sweetalertdialog'
+include ':FloatingGroupExpandableListView'
+include ':LibResult'
+include ':multipleimageselect'
+include ':singledateandtimepicker'
+include ':bannerslider'
+include ':idcardcamera'
+include ':PagingListView'
+include ':Drop-In'
+include ':pickit'
+
+include ':GreatRiverMA'
+
+include ':MHCSN_CP'
+include ':MHCSN_Doc'
+include ':MHCSN_UC'
+include ':MHCSN_Spe'
+include ':MHCSN_MA'
+include ':MSU_UC'
+include ':MSU_CP'
+include ':MSU_Doc'
+
+include ':EmcuraUC'
+include ':EmcuraDr'
+include ':EmcuraMA'
+
+include ':OnlineCarePk'
+include ':OnlineCareDrPk'
+
+include ':OnlineCare'
+
+include ':CovaCard_Min'
+include ':DigiHealthCard'
+
+include ':OnlineCareUS_Dr'
+include ':OnlineCareUS_MA'
+include ':OnlineCareUS_Pt'
+
+include ':OlcMentalHealth_Pt'
+include ':OlcMentalHealth_DOC'
+include ':OlcMentalHealth_CP'
+
+include ':OnlineCareTDC_Dr'
+include ':OnlineCareTDC_Pt'
+include ':OnlineCareTDC_MA'
+
+include ':FiveStarUC'
+include ':FiveStarDr'
+
+include ':OmranDr'
+include ':OmranPatient'
+
+
+//Note : GM moved these modules to the archive on 26Nov2021 before handover to Ahmer
+/*include ':AMNM_Doc'
+include ':AMNM_MA'
+include ':AMNM_UC'
+
+include ':OmranDr'
+include ':OmranPatient'
+
+include ':PriorityOne_Doc'
+include ':PriorityOne_UC'
+
+include ':MdLiveCP'
+include ':MdLiveUC'
+include ':MdLiveDr'
+
+include ':CovaCard'
+include ':CovaCardLagacy'
+*/
+
+//========ArchiveApps=============
+/*include ':OnlineCareDr'
+include ':OnlineCareSpecialist'
+include ':OnlineCareHomeCare'
+include ':OnlineCareFamily'
+include ':OnlineCareEMS'*/
+//========ArchiveApps=============
+//include ':OnlineCareUC'
+//include ':OnlineCareUC_Dr'
+//include ':OnlineCareMA'
+//include ':OnlineCareNurse'
+//========ArchiveApps=============
+/*include ':ConvenientUC'
+include ':ConvenientDr'
+include ':ConvenientFamily'*/
+//========ArchiveApps=============
+//========ArchiveApps=============
+//include ':EmcuraFamily'
+//========ArchiveApps=============
+//include ':KetteringUC'
+//include ':GreatRiverUC_New'
+//include ':GreatRiverDr_New'
+//include ':GreatRiverUC'
+//include ':GreatRiverDr'
+//========ArchiveApps=============
+/*include ':GreatRiverCP'
+include ':GreatRiverSpecialist'*/
+//========ArchiveApps=============
+//include ':FiveStarUC'
+//include ':FiveStarDr'
+
+//========ArchiveApps=============
+/*
+
+include ':MHCSN_Spe'
+include ':mihealths_CP'
+include ':mihealths_UC'
+include ':mihealths_Doc'
+include ':mihealths_Spe'*/
+//========ArchiveApps=============
+//include ':FlintPatient'
+

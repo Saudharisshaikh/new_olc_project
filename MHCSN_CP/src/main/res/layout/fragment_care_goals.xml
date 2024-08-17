@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.mhcsn_cp.careplan.FragmentCareGoals">
+
+    <Spinner
+        android:id="@+id/spGoalType"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/spinner_bg"/>
+    <ListView
+        android:id="@+id/lvCareGoals"
+        android:layout_below="@+id/spGoalType"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        tools:listitem="@layout/lv_cp_goal_row"
+        android:layout_above="@+id/layBottom1"/>
+
+    <TextView
+        android:id="@+id/tvNoGoals"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Goal Added"
+        android:layout_centerInParent="true"/>
+
+
+    <LinearLayout
+        android:id="@+id/layBottom1"
+        android:visibility="visible"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnAddCareGoal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:text="Add New Care Goal"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.covacard">
+
+    <!--<uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />-->
+
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Required to show current location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+
+    <permission
+        android:name="com.app.covacard.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.app.emcurauc.permission.MAPS_RECEIVE" />
+
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />-->
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission
+        android:name="com.app.emcurauc.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.app.emcurauc.permission.C2D_MESSAGE" />-->
+
+    <application
+        android:name="com.app.covacard.OnlineCare"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CustomActionBarTheme"
+
+        android:allowBackup="false"
+        tools:replace="android:allowBackup"
+        android:requestLegacyExternalStorage="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <activity
+            android:name="sg.com.temasys.skylink.sdk.sampleapp.MainActivity"
+            android:label="@string/app_name"
+            /><!--android:excludeFromRecents="true"-->
+
+        <!--
+        <activity
+            android:name="com.oovoo.sdk.sample.ui.SampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        -->
+
+        <!--<receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.onlinecare" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.app.emcurauc.gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.app.emcurauc.gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.app.emcurauc.gcm.RegistrationIntentService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+
+        <!-- =======================================added from onlinecare============================================= -->
+        <!-- =================================included================================= -->
+        <activity
+            android:name="com.app.covacard.Login"
+            android:label="@string/app_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1323450094704115"
+            android:exported="true" />
+
+        <activity
+            android:name="com.app.covacard.SearchADoctor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Book Appointment"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.MainActivityNew"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.covacard.Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Registration"
+            android:parentActivityName="com.app.covacard.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.Login" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName="com.app.covacard.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.Login" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.UpdateProfile"
+            android:theme="@style/DrawerTheme"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Update Profile"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme" />
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+        <activity
+            android:name="com.app.covacard.DoctorsList"
+            android:label="Available Doctors"
+            android:parentActivityName="com.app.covacard.SearchADoctor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.SearchADoctor" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.SelectedDoctorsProfile"
+            android:label="Doctor&apos;s Profile"
+            android:parentActivityName="com.app.covacard.DoctorsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.DoctorsList" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.AppntmtReqtd"
+            android:label="Appointment Set"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.covacard.AwaitingAppointments" />
+        <activity
+            android:name="com.app.covacard.SubUsersList"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/DrawerTheme"
+            android:label="Primary Member" ><!--Login As-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.AddFamilyMember"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Add Family Member"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.DrSchedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doctor&apos;s Schedule"
+            android:parentActivityName="com.app.covacard.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.MyAppointments"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Appointments"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.app.covacard.Reports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Medical Reports"
+            android:parentActivityName="com.app.covacard.ReportFolders">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.ReportFolders" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ReportFolders"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Report Folders"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.GetLiveCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Connect For Immediate Care"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.BookAppointment"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Book Appointment"
+            android:parentActivityName="com.app.covacard.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.SelectReports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Select Medical Reports"
+            android:parentActivityName="com.app.covacard.BookAppointment">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.BookAppointment" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.GiveNameReportDialog"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" /><!--@android:style/Theme.Dialog-->
+        <activity
+            android:name="com.app.covacard.ViewReportImage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Medical Report"
+            android:parentActivityName="com.app.covacard.Reports">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.Reports" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.MyAppointmentDetails"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Appointment Details"
+            android:parentActivityName="com.app.covacard.MyAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MyAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.LiveCareWaitingArea"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="eLiveCare Waiting Area"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.MedicalHistory1"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Medical History"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.covacard.util.FileExplore" />
+        <activity
+            android:name="com.app.covacard.AfterCallDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <!--android:theme="@android:style/Theme.DeviceDefault.Dialog" -->
+        <activity
+            android:name="com.app.covacard.ActivityInsurance"
+            android:theme="@style/DrawerTheme"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Insurance"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.DonateForCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Donate for care"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.FirstLogin"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Online Care" />
+        <activity
+            android:name="com.app.covacard.FreeCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Online Care" />
+        <!--
+        <activity
+            android:name=".heartbeat.HeartRateMonitor"
+            android:parentActivityName=".LiveCareWaitingArea" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.onlinecare.LiveCareWaitingArea" />
+        </activity>
+        -->
+
+
+        <!--
+        <service android:name=".services.VChatListener" >
+        </service>
+        <service android:name=".VideoCallService" >
+        </service>
+        <service android:name=".services.MessageReceiverService" >
+        </service>
+        <service android:name=".services.IncomingCallService" >
+        </service>
+        <service android:name=".services.MayBeWork" >
+        </service>
+        -->
+
+        <!--
+        <receiver
+            android:name=".broadcasts.IncomingCallBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="ACCEPT" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <!--Note: this service and broadcast was to monitor livecarewaiting patients on waitingArea activity-->
+        <!--Android 28 manifest broadcasts shut down also startService may be create issues  2Jan2019  GM-->
+        <!--<service android:name="com.app.emcurauc.services.LiveCareWaitingService1" />
+        <receiver
+            android:name="com.app.emcurauc.broadcasts.BootCompleteBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+            </intent-filter>
+        </receiver>-->
+        <receiver
+            android:name="com.app.covacard.broadcasts.SaveGCM_TokenBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.emcurauc.SAVE_GCM_TOKEN" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+        <service android:name=".services.IncomingCallServiceNew" >
+        </service> 
+        <service android:name=".services.DeviceRegisterService" >
+        </service>
+        -->
+        <!--
+        <service
+            android:name="com.alexbbb.uploadservice.UploadService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.onlinecare.uploadservice.action.upload" />
+            </intent-filter>
+        </service>
+        -->
+        <!--
+             <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="13f59d25bf4460cf7dc20ae64a0b6e70aadad6e5" />
+        -->
+
+
+        <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name="com.app.covacard.MapActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_map"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.PresscriptionActivity"
+            android:label="@string/title_activity_presscription"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.app.covacard.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.UpdateProfile" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.paypal.PaymentPaypalActivity"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.paypal.PaymentLiveCare"
+            android:parentActivityName="com.app.covacard.GetLiveCare">
+            <!--android:theme="@style/Theme.AppCompat.Light.Dialog"-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.GetLiveCare" />
+        </activity>
+
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <activity
+            android:name="com.app.covacard.TransectionsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_transections"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+
+        <!--
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                Receives the actual messages.
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                Receives the registration id.
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.app.onlinecare" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".gcm.GCMActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+
+        <receiver
+            android:name=".gcm.MessageBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.quranplus.DISPLAY_MESSAGE" />
+                
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+
+
+
+               
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.app.covacard.ActivityDoctorInfo"
+            android:label="Dr Information"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name="com.app.covacard.ActivitySendMessage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_messages"
+            android:parentActivityName="com.app.covacard.ViewConversationActivity"
+            android:theme="@android:style/Theme.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.ViewConversationActivity" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ConversationsActivity"
+            android:label="@string/title_activity_conversations"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ViewConversationActivity"
+            android:label="@string/title_activity_all_messages"
+            android:parentActivityName="com.app.covacard.ConversationsActivity"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.ConversationsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ShowMessagePopupActivity"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <!-- =================================included================================= -->
+        <activity
+            android:name="com.app.covacard.ConsentFormActivity"
+            android:label="@string/title_activity_consent_form" />
+        <activity
+            android:name="com.app.covacard.MedicalPermissionForm"
+            android:label="@string/title_activity_medical_permission_form" />
+        <activity
+            android:name="com.app.covacard.PatientConsentActivity"
+            android:label="@string/title_activity_patient_consent" />
+        <activity
+            android:name="com.app.covacard.PatientConsentActivityNew"
+            android:label="@string/title_activity_patient_consent" />
+        <activity
+            android:name="com.app.covacard.devices.MyDevices"
+            android:label="My Devices"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.devices.AvailableDevicesActivity"
+            android:label="Available Devices"
+            android:parentActivityName="com.app.covacard.devices.MyDevices">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.devices.MyDevices" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.devices.AuthSuccessActivity"
+            android:label="Online Care"
+            android:parentActivityName="com.app.covacard.devices.MyDevices">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.devices.MyDevices" />
+
+            <intent-filter>
+                <data android:scheme="onlinecare" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.covacard.devices.WithingsBpDataActivity1"
+            android:label="Blood Pressure Data"
+            android:parentActivityName="com.app.covacard.devices.MyDevices">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.devices.MyDevices" />
+        </activity>
+        <!-- =======================================added from onlinecare============================================= -->
+        <activity
+            android:name="com.app.covacard.SupportMessagesActivity"
+            android:label="@string/title_activity_support_messages"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.PatientNurses"
+            android:label="Care Providers"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ActivityPrimaryCareDoctors"
+            android:label="Primary Care"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ActivityGroupChat"
+            android:label="Group Chat"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ActivityGroupMessages"
+            android:label="Group Messages"
+            android:parentActivityName="com.app.covacard.ActivityGroupChat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.ActivityGroupChat" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ActivityGroupMembers"
+            android:label="Group Members"
+            android:parentActivityName="com.app.covacard.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ShowGroupMessagePopup"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.covacard.ActivityUrgentCareDoc"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="UrgentCare Centers"
+            android:parentActivityName="com.app.covacard.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.covacard.ActivityMyProviders"
+            android:label="My Providers"
+            android:parentActivityName="com.app.covacard.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.UpdateProfile" />
+
+        </activity>
+        <activity android:name="com.app.covacard.permission.PermissionsActivity"
+            android:parentActivityName="com.app.covacard.Login"
+            android:label="@string/app_name"/>
+        <activity
+            android:name="com.app.covacard.ActivityAppntmtOptions"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:label="Appointments" />
+        <activity android:name="com.app.covacard.paypal.ActivityCreditCardStripe"/>
+        <activity android:name="com.app.covacard.b_health2.ActivityConnectTherapist"/>
+        <activity android:name="com.app.covacard.b_health2.ActivityConsent"/>
+        <activity android:name="com.app.covacard.b_health2.ActivityIcWaitingRoom"/>
+        <activity android:name="com.app.covacard.b_health2.ActivityApptmntProviders"/>
+        <activity android:name="com.app.covacard.b_health2.ActivityDoctorSlots"/>
+        <activity android:name="com.app.covacard.b_health2.ActivityImmeCareProviders"/>
+        <activity android:name="com.app.covacard.b_health2.GetLiveCareFormBhealth"/>
+
+        <activity
+            android:name="com.app.covacard.b_health.ActivityBecksDepression"
+            android:parentActivityName="com.app.covacard.b_health.ActivityDepInvList"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.covacard.b_health.ActivityDepInvList"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:label="Beck's Depression"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.b_health.assessment.new_assesment.ActivityOCD_Form"/>
+        <activity android:name="com.app.covacard.b_health.assessment.new_assesment.ActivityOCD_List"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.b_health.assessment.new_assesment.ActivityStressQues_Form"/>
+        <activity android:name="com.app.covacard.b_health.assessment.ActivityPHQ_Form"/>
+        <activity android:name="com.app.covacard.b_health.assessment.ActivityPhqList"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.b_health.assessment.ActivityDastList"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.b_health.assessment.ActivityDAST_Form"/>
+
+
+        <!--===============Angora.io Starts============================================-->
+        <activity
+            android:name="io.agora.openlive.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="io.agora.openlive.activities.LiveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="io.agora.openlive.activities.RoleActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"/>
+        <activity
+            android:name="io.agora.openlive.activities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <!--===============Angora.io Ends============================================-->
+
+
+        <!--FCM Starts-->
+        <!-- [START fcm_default_icon] -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <!-- [START firebase_service] -->
+        <service android:name="com.app.covacard.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <service
+            android:name="com.app.covacard.fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <!--FCM Ends-->
+
+        <!--This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM-->
+        <!--android:authorities="com.meetandeat.provider"-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.covacard.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
+
+        <activity
+            android:name="com.app.covacard.ActivityEliveAssignedPopup"
+            android:parentActivityName="com.app.covacard.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.covacard.MainActivityNew" />
+        </activity>
+
+        <activity android:name="com.app.covacard.ActivityPinView"/>
+        <activity android:name="com.app.covacard.ActivityCovidTest"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.ActivityCovidFormList"/>
+        <activity android:name="com.app.covacard.ActivityCovidTest2"/>
+        <activity android:name="com.app.covacard.covacard.ActivityCovacardHome"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.covacard.ActivityAddCard"/>
+        <activity android:name="com.app.covacard.covacard.ActivityCardsList"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.covacard.ActivityTestLocations"/>
+        <activity android:name="com.app.covacard.covacard.ActivityAddTestResults"/>
+        <activity android:name="com.app.covacard.covacard.ActivityTestResultsList"
+            android:theme="@style/DrawerTheme"/>
+        <activity android:name="com.app.covacard.covacard.ActivityCardDetail"/>
+    </application>
+
+</manifest>

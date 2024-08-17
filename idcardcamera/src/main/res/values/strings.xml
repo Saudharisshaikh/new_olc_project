@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IDCardCamera</string>
+
+    <string name="touch_to_focus">Touch the screen to focus</string>
+    <string name="crop_fail">Crop failure</string>
+    <string name="no_flash">The device does not support flash</string>
+</resources>

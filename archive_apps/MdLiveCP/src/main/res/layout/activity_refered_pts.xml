@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mdlive_cp.reliance.therapist.ActivityReferedPatients">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnTabPending"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/theme_red"
+            android:textColor="#FFFFFF"
+            android:text="Pending"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnTabApproved"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"
+            android:text="Approved"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btnTabDeclined"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"
+            android:text="Declined"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+    <ViewFlipper
+        android:id="@+id/vfRefredPatients"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true">
+
+            <com.app.mdlive_cp.util.ActionEditText
+                android:id="@+id/etSearchPt"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline"
+                android:padding="10dp"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Search"
+                android:imeOptions="actionDone"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:layout_alignParentTop="true"/>
+            <ListView
+                android:id="@+id/lvReffPt"
+                android:layout_below="@+id/etSearchPt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/lv_reff_pt_row"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvNoData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No patient found"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true">
+
+            <com.app.mdlive_cp.util.ActionEditText
+                android:id="@+id/etSearchPt2"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline"
+                android:padding="10dp"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Search"
+                android:imeOptions="actionDone"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:layout_alignParentTop="true"/>
+            <ListView
+                android:id="@+id/lvReffPt2"
+                android:layout_below="@+id/etSearchPt2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/lv_reff_pt_row"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvNoData2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No patient found"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true">
+
+            <com.app.mdlive_cp.util.ActionEditText
+                android:id="@+id/etSearchPt3"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline"
+                android:padding="10dp"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Search"
+                android:imeOptions="actionDone"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:layout_alignParentTop="true"/>
+            <ListView
+                android:id="@+id/lvReffPt3"
+                android:layout_below="@+id/etSearchPt3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/lv_reff_pt_row"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvNoData3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No patient found"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+    </ViewFlipper>
+
+
+
+</LinearLayout>

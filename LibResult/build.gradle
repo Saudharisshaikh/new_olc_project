@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.microblink.libresult'
+}
+
+dependencies {
+    implementation "androidx.legacy:legacy-support-v4:${rootProject.ext.legacySupportV4}"
+    implementation("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
+        transitive = true
+        exclude group: 'com.android.support'
+    }
+
+    // uncomment this to use custom LibBlinkID build
+//    compile project(':LibBlinkID-release')
+//    compile "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
+    <LinearLayout
+        android:layout_above="@+id/devicesControlLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vc_controller_height"
+        android:orientation="horizontal" >
+    <Button
+        android:id="@+id/btnConnectToConsult"
+        android:drawableLeft="@drawable/connect_to_consultant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_consultant_selector"       
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Call to Specialist"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+    
+    <ImageButton
+        android:id="@+id/btnEndCall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_weight="1"
+        android:src="@drawable/ic_end_call"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_endcall_selector"       
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+    </LinearLayout>
+<!-- android:onClick="searchSp"    android:background="@color/controller_grey"-->
+    <LinearLayout
+        android:id="@+id/devicesControlLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vc_controller_height"
+        android:background="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="5" >
+		
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:id="@+id/microphoneButton"
+            android:layout_width="@dimen/vc_controller_button_size"
+            android:layout_height="@dimen/vc_controller_button_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/microphone_selector"
+            style="?android:attr/borderlessButtonStyle"
+             />
+			</LinearLayout>
+			
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:id="@+id/speakersButton"
+            android:layout_width="@dimen/vc_controller_button_size"
+            android:layout_height="@dimen/vc_controller_button_size"
+            android:layout_gravity="center_vertical"
+			style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/speakers_selector"
+             />
+
+        </LinearLayout>
+
+        <LinearLayout 
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:id="@+id/endOfCallButton"
+            android:layout_width="42dip"
+            android:layout_height="42dip"
+            android:background="@drawable/controller_hangup_selector" 
+        	android:layout_gravity="center_vertical"    
+        	style="?android:attr/borderlessButtonStyle"    
+       	 	android:cropToPadding="true"
+       	 	android:keepScreenOn="true"
+       	 	 />
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:id="@+id/cameraButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="@dimen/vc_controller_button_size"
+            android:layout_height="@dimen/vc_controller_button_size"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/camera_selector"
+              />
+        </LinearLayout>
+        <Button
+            android:visibility="gone"
+            android:id="@+id/effectButton"
+            android:layout_width="@dimen/vc_controller_button_size"
+            android:layout_height="@dimen/vc_controller_button_size"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/effect_selector" />
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:id="@+id/videoResolution"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="@dimen/vc_controller_button_size"
+            android:layout_height="@dimen/vc_controller_button_size"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/resolution_selector" />
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+        <Button
+            android:id="@+id/audioRoutes"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="@dimen/vc_controller_button_size"
+            android:layout_height="@dimen/vc_controller_button_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/speakers_selector"
+             />
+</LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

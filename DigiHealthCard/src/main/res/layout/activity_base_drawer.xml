@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.digihealthcard.ActivityBaseDrawer">
+
+    <LinearLayout
+        android:id="@+id/mainContentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="@color/background_clr"
+            app:cardElevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@color/background_clr">
+                <!--android:padding="8dp"
+                    android:elevation="2dp"-->
+
+                <ImageView
+                    android:id="@+id/ivToolbarBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:src="@drawable/back"
+                    app:tint="@color/covacard_color" />
+
+                <ImageView
+                    android:id="@+id/ivToolbarMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/ivToolbarBack"
+                    android:paddingStart="10dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="15dp"
+                    android:src="@drawable/sidemenu"
+                    app:tint="@color/covacard_color" />
+
+                <TextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/ivToolbarMenu"
+                    android:text="Dashboard"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical">
+                    <!--<ImageView
+                        android:id="@+id/ivSupport"
+                        android:padding="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/support_top"/>
+
+                    <ImageView
+                        android:id="@+id/ivNotification"
+                        android:padding="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/back" />-->
+
+                    <Button
+                        android:id="@+id/btnToolbarAdd"
+                        android:textAllCaps="false"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="My Reports"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="normal"
+                        android:layout_marginEnd="5dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:background="@drawable/btn_selector"/>
+
+                    <ImageView
+                        android:id="@+id/ivToolbarHome"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_white_24dp"
+                        app:tint="@color/covacard_color"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/container_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
+
+
+    </LinearLayout>
+
+<!--        &lt;!&ndash;android:layout_above="@id/tabBarView"&ndash;&gt;-->
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:minHeight="?attr/actionBarSize"-->
+<!--            android:background="@color/colorPrimary"-->
+<!--            app:theme="@style/AppTheme.Toolbar"-->
+<!--            app:titleTextAppearance="@style/AppTheme.Toolbar.Title"-->
+<!--            app:contentInsetStartWithNavigation="0dp"-->
+<!--            android:layout_alignParentTop="true"/>-->
+
+<!--        &lt;!&ndash;<androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--            android:id="@+id/swiperefresh"-->
+<!--            android:layout_below="@+id/toolbar"-->
+<!--            android:layout_above="@+id/tabBarView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--            <ListView-->
+<!--                android:id="@+id/list"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                tools:listitem="@layout/home_item"-->
+<!--                android:divider="@android:color/transparent"-->
+<!--                android:dividerHeight="0dp"/>-->
+<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>&ndash;&gt;-->
+
+
+
+<!--        &lt;!&ndash;<include-->
+<!--            layout="@layout/layout_tabs"-->
+<!--            android:id="@+id/tabBarView"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_alignParentBottom="true"/>&ndash;&gt;-->
+
+<!--    </LinearLayout>-->
+
+
+    <!--android:layout_width="@dimen/sliding_menu_width"-->
+    <include layout="@layout/lay_side_drawer"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

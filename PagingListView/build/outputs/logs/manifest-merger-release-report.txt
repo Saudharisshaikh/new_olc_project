@@ -1,0 +1,18 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml:2:1-10:12
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml:2:1-10:12
+	package
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml:6:5-19
+uses-sdk
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml
+INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/onlinecare/Desktop/Prescription_project/PagingListView/src/main/AndroidManifest.xml

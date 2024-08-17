@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10sp"
+    android:paddingBottom="10sp"
+    android:paddingRight="10sp"
+    android:paddingLeft="10sp"
+    android:orientation="horizontal"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/tvDepressionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+       	android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="5dp"
+        android:text="Do you prefer to stay at home, rather than going out and doing new things"
+        android:textColor="@color/black"/>
+
+    <CheckBox
+        android:id="@+id/cbDepression"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:checked="true"
+        android:focusable="false"
+        android:drawableBottom="@drawable/custom_checkbox"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="Yes"
+        android:textColor="@android:color/black"
+        android:button="@null"/><!--android:enabled="false"-->
+</LinearLayout>

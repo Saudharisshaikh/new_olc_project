@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/rootCell"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tvSdhsQuestion"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What is your housing situation today?"
+            android:textStyle="normal"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <com.app.mdlive_cp.util.ExpandableHeightListView
+            android:id="@+id/lvSDHSOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/transparent"
+            tools:listitem="@layout/lv_sdhs_option_row"/>
+
+    </LinearLayout>
+</LinearLayout>

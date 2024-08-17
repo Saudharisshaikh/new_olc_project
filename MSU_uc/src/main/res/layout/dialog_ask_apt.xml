@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cust_border_white_radius_10"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="normal"
+            android:textColor="@android:color/black"
+            android:gravity="center"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please select a type of the appointment"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginTop="10dp"
+            android:textStyle="normal"
+            android:textColor="#80000000"/>
+
+        <!--<TextView
+            android:visibility="visible"
+            android:id="@+id/tvAddOTNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add OT/PT Notes"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/app_blue_color"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textStyle="normal"/>-->
+        <TextView
+            android:id="@+id/tvImmeAppt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Urgent Care Appointment"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/app_blue_color"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textStyle="normal"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/tvEmoWellApt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emotional Wellness Appointment"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/app_blue_color"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:textStyle="normal"
+            android:gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/tvNotNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not Now"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/red"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:textStyle="normal"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

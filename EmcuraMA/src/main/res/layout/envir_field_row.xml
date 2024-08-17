@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10sp"
+    android:paddingBottom="10sp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvEnvRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lives in apartment or house re-engineered accessible for persons with disabilities"/>
+
+    <RadioGroup
+        android:id="@+id/rgEnvRow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioNA"
+            android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/theme_red"
+            android:text="N/A"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/><!--android:layout_weight="1"-->
+
+        <RadioButton
+            android:id="@+id/radioYes"
+            android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/theme_red"
+            android:text="Yes"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/><!--android:layout_weight="1"-->
+
+        <RadioButton
+            android:id="@+id/radioNo"
+            android:tag="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/theme_red"
+            android:text="No"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/><!--android:layout_weight="1"-->
+    </RadioGroup>
+
+
+</LinearLayout>

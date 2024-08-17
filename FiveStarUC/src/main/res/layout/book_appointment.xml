@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/kj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lvBottom"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvSelectDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/btn_selector"
+                android:gravity="center"
+                android:paddingBottom="7dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="7dp"
+                android:text="Select Day"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Morning:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/theme_red"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvScheduleTimeMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="00:00 AM to 00.00 AM"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#cc000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Evening:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/theme_red"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvScheduleTimeEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="00:00 PM to 00.00 PM"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#cc000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:visibility="gone"
+                android:id="@+id/rgEvMor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/radioMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Morning"
+                    android:textColor="@color/theme_red"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Evening"
+                    android:textColor="@color/theme_red"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <View
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+
+            <TextView
+                android:id="@+id/tvDateLabel"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="You requested appointment for the date:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black" />
+            <TextView
+                android:id="@+id/tvSelectedDate"
+                android:layout_below="@+id/tvDateLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="DAY"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/theme_red" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="20dp" >
+
+                <Button
+                    android:id="@+id/btnBkShareReports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btn_selector"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="Share Medical Reports"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNumReprtsSelctd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
+
+            <RadioGroup
+                android:id="@+id/rgPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp" >
+
+                <RadioButton
+                    android:id="@+id/radioPayPal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Pay with PayPal/Credit Card"
+                    android:textColor="@color/theme_red"
+                    android:buttonTint="@color/theme_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <RadioButton
+                    android:visibility="gone"
+                    android:id="@+id/radioCreditCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Credit Card"
+                    android:textColor="@color/theme_red"
+                    android:textSize="16sp"
+                    android:buttonTint="@color/theme_red"
+                    android:textStyle="bold" />
+                <RadioButton
+                    android:id="@+id/radioHealthInsurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Use My Health Insurance"
+                    android:textColor="@color/theme_red"
+                    android:textSize="16sp"
+                    android:buttonTint="@color/theme_red"
+                    android:textStyle="bold" />
+                <RadioButton
+                    android:id="@+id/radioFreeCare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free Care"
+                    android:textColor="@color/theme_red"
+                    android:buttonTint="@color/theme_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/layFreeOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+
+                <!--<TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />-->
+
+                <TextView
+                    android:id="@+id/tvMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="Free urgent care is provided to patient who have access to a &quot;free clinical care code&quot;.
+\nIf you do not have one now, please contact your provider for future free clinical care."
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
+                <com.app.fivestaruc.util.ActionEditText
+                    android:id="@+id/etFreeCareCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="Enter code here"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"
+                    android:drawablePadding="10dp"
+                    android:imeOptions="actionDone"/>
+
+                <Button
+                    android:id="@+id/btnSubmitFreeCareCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Apply"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <!--<Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/apptmnt_cancel_drawable"
+                    android:text="Not Now"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>-->
+
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:visibility="gone"
+                android:id="@+id/rgFreeOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp" >
+
+                <RadioButton
+                    android:id="@+id/radioStudent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="All college students get free care"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/theme_red"/>
+
+                <!--<RadioButton
+                    android:id="@+id/radioEmployee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My employer will pay for my care"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />-->
+
+                <RadioButton
+                    android:id="@+id/radioSingleMom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I am a single mom and I really\nneed care for my child"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/theme_red"/>
+            </RadioGroup>
+
+            <!--<TextView
+                    android:id="@+id/tvNoInsuranceAdded"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/theme_red"
+                    android:gravity="center"
+                    android:layout_margin="15dp"
+                    android:textSize="16sp"
+                    android:text="Please enter your insurance details"/>
+            <LinearLayout 
+                android:id="@+id/InsuranceCont"
+                android:visibility="gone"
+                android:background="@drawable/cust_border"
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout 
+                android:weightSum="10"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="Insurance :"/>
+                <TextView 
+                    android:id="@+id/tvInsurance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textColor="@color/theme_red"
+                    android:text="Insurance"/>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:weightSum="10"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="Policy no :"/>
+                <TextView 
+                    android:id="@+id/tvPolicyNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textColor="@color/theme_red"
+                    android:text="1234566"/>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:weightSum="10"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="Group :"/>
+                <TextView 
+                    android:id="@+id/tvGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textColor="@color/theme_red"
+                    android:text="Group"/>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:weightSum="10"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="Code :"/>
+                <TextView 
+                    android:id="@+id/tvCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textColor="@color/theme_red"
+                    android:text="Code"/>
+            </LinearLayout>
+            </LinearLayout>
+            <Button
+        android:id="@+id/btnAddInsurance"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_selector"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Enter Insurance"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />-->
+
+
+            <LinearLayout
+                android:id="@+id/insuranceCont"
+                android:visibility="gone"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Insurance :"/>
+                    <Spinner
+                        android:id="@+id/spInsurance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:spinnerMode="dropdown"
+                        android:textColor="@color/theme_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Policy no :"/>
+                    <com.app.fivestaruc.util.ActionEditText
+                        android:imeOptions="actionDone"
+                        android:id="@+id/etPolicynumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Policy number"
+                        android:padding="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Group :"/>
+                    <com.app.fivestaruc.util.ActionEditText
+                        android:imeOptions="actionDone"
+                        android:id="@+id/etGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Group"
+                        android:padding="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Code :"/>
+                    <com.app.fivestaruc.util.ActionEditText
+                        android:imeOptions="actionDone"
+                        android:id="@+id/etCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Code"
+                        android:padding="10dp" />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btnVarifyInsurance"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/btn_selector"
+                    android:padding="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Varify Insurance"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layCreditCard"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="-5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Information"
+                    android:textSize="15sp"
+                    android:textColor="#344A6B"
+                    />
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:background="#EEEEEE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvCrediCardAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Amount $5"
+                        android:padding="8dp"
+                        android:background="#313136"
+                        android:textColor="#FFFFFF"
+                        />
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Payment Information"
+                            android:layout_marginEnd="10dp"
+                            android:visibility="gone"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/creditcart_icons2"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray"/>
+
+                    <!--Lagacy Card Input Form : GM-->
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cardholder Name"/>
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:imeOptions="actionDone"
+                            android:id="@+id/etCardholder"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Cardholder Name"
+                            android:padding="10dp" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Card Number"/>
+
+                        <com.app.fivestaruc.util.ActionEditText
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:id="@+id/etCardNo"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Card No"
+                            android:padding="10dp" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Card Type"/>
+
+                        <Spinner
+                            android:id="@+id/spCardType"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:spinnerMode="dropdown"
+                            android:textColor="@android:color/holo_red_dark" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="10"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_marginTop="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="CVV Code"/>
+                                <com.app.fivestaruc.util.ActionEditText
+                                    android:imeOptions="actionDone"
+                                    android:inputType="number"
+                                    android:id="@+id/etCardCVV"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_weight="3"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="CVV Code"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_marginTop="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Card Expiration"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:weightSum="2"
+                                    android:layout_marginTop="5dp"
+                                    android:orientation="horizontal">
+
+                                    <Spinner
+                                        android:id="@+id/spCardExpiryMonth"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_weight="1"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:spinnerMode="dropdown"/>
+
+                                    <Spinner
+                                        android:id="@+id/spCardExpiryYear"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:spinnerMode="dropdown" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <!--New Braintree credit card form - Stripe-->
+                    <LinearLayout
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <com.braintreepayments.cardform.view.CardForm
+                            android:visibility="visible"
+                            android:id="@+id/card_form"
+                            android:layout_margin="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lvBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/btnBKAccept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:background="@drawable/btn_selector"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnBKDecline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="6dp"
+            android:text="Decline"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:background="@drawable/apptmnt_cancel_drawable" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray">
+
+    <LinearLayout
+        android:id="@+id/layAllPeers"
+        android:layout_above="@+id/callControlls"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:id="@+id/self_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_margin="1dp"></FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/peer_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_margin="1dp"></FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:id="@+id/peer_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_margin="1dp"></FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/peer_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_margin="1dp"></FrameLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/peer_full"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/callControlls"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="#808080"
+        android:visibility="gone"></FrameLayout>
+
+    <LinearLayout
+        android:background="#E0E0E0"
+        android:padding="5dp"
+        android:id="@+id/callControlls"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnDisconnect"
+                android:layout_width="@dimen/vc_controller_button_size"
+                android:layout_height="@dimen/vc_controller_button_size"
+                android:background="@drawable/sdk_ic_disc"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/toggle_audio"
+                android:layout_width="@dimen/vc_controller_button_size"
+                android:layout_height="@dimen/vc_controller_button_size"
+                android:background="@drawable/sdk_ic_mic"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <Button
+                android:id="@+id/toggle_video"
+                android:layout_width="@dimen/vc_controller_button_size"
+                android:layout_height="@dimen/vc_controller_button_size"
+                android:background="@drawable/sdk_ic_camera"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <Button
+                android:id="@+id/toggle_camera"
+                android:layout_width="@dimen/vc_controller_button_size"
+                android:layout_height="@dimen/vc_controller_button_size"
+                android:background="@drawable/icon_switch_camera"
+                android:visibility="visible" />
+        </LinearLayout>
+        <!--<Button
+            android:id="@+id/disconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/disconnect"
+            android:visibility="visible" />-->
+
+    </LinearLayout>
+
+</RelativeLayout>
+

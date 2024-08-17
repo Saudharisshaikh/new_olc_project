@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    android:weightSum="10"
+    tools:context="com.app.covacard.b_health2.ActivityImmeCareProviders">
+
+
+    <LinearLayout
+        android:id="@+id/mapCont"
+        android:layout_weight="6.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3.5"
+        android:focusableInTouchMode="true">
+
+        <com.app.covacard.util.ActionEditText
+            android:id="@+id/etSearchDoc"
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cust_border_white_outline"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Search"
+            android:imeOptions="actionDone"
+            android:drawableStart="@drawable/ic_search_black_24dp"
+            android:layout_alignParentTop="true"/>
+        <ListView
+            android:id="@+id/lvMyProviders"
+            android:layout_below="@+id/etSearchDoc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/lv_immecare_providers_row"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5dp"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvNoProvider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No provider found"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

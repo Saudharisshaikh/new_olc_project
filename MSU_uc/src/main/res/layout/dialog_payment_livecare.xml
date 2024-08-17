@@ -1,0 +1,685 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF">
+
+    <FrameLayout
+        android:id="@+id/topLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_red">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:text="How would you like to pay?"
+            android:gravity="start"
+            android:padding="15dp"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp"
+            android:padding="15dp"
+            android:layout_gravity="end|center_vertical"/>
+    </FrameLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cardV"
+        android:layout_below="@+id/topLay">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:visibility="gone"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/paypal"
+                    android:layout_margin="5dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/visa"/>
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/rgPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:gravity="center">
+                            <!--android:text="Pay with Paypal"-->
+                            <RadioButton
+                                android:id="@+id/radioPayPal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:drawableEnd="@drawable/ic_paypal_card"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:drawablePadding="20dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <!--android:text="Use My Health Insurance"-->
+                            <RadioButton
+                                android:id="@+id/radioHealthInsurance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableEnd="@drawable/ic_insurance"
+                                android:textColor="@color/theme_red"
+                                android:textSize="16sp"
+                                android:buttonTint="@color/theme_red"
+                                android:textStyle="bold"
+                                android:drawablePadding="20dp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray"/>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <!--android:text="Free Care"-->
+                            <RadioButton
+                                android:id="@+id/radioFreeCare"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableEnd="@drawable/ic_freecare"
+                                android:textColor="@color/theme_red"
+                                android:textSize="16sp"
+                                android:buttonTint="@color/theme_red"
+                                android:textStyle="bold"
+                                android:drawablePadding="20dp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray"/>
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <!--android:text="Credit Card"-->
+                            <RadioButton
+                                android:id="@+id/radioCreditCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableEnd="@drawable/ic_creditcard"
+                                android:textColor="@color/theme_red"
+                                android:textSize="16sp"
+                                android:buttonTint="@color/theme_red"
+                                android:textStyle="bold"
+                                android:drawablePadding="20dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray"/>
+
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/layFreeOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+
+                <!--<TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />-->
+
+                <TextView
+                    android:id="@+id/tvMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="Free urgent care is provided to patient who have access to a &quot;free clinical care code&quot;.
+\nIf you do not have one now, please contact your provider for future free clinical care."
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
+                <com.app.msu_uc.util.ActionEditText
+                    android:id="@+id/etFreeCareCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="Enter code here"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"
+                    android:drawablePadding="10dp"
+                    android:imeOptions="actionDone"/>
+
+                <Button
+                    android:id="@+id/btnSubmitFreeCareCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Apply"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <!--<Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/apptmnt_cancel_drawable"
+                    android:text="Not Now"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>-->
+
+
+            </LinearLayout>
+
+
+
+            <RadioGroup
+                android:visibility="gone"
+                android:id="@+id/rgFreeOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp" >
+
+                <RadioButton
+                    android:id="@+id/radioStudent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="All college students get free care"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/theme_red"/>
+
+                <!--<RadioButton
+                    android:id="@+id/radioEmployee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My employer will pay for my care"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />-->
+
+                <RadioButton
+                    android:id="@+id/radioSingleMom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I am a single mom and I really\nneed care for my child"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/theme_red"/>
+            </RadioGroup>
+
+            <!--<LinearLayout
+                android:id="@+id/insuranceCont"
+                android:visibility="visible"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Insurance :"/>
+                    <Spinner
+                        android:id="@+id/spInsurance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:spinnerMode="dropdown"
+                        android:textColor="@color/theme_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Policy no :"/>
+                    <com.app.emcurauc.util.ActionEditText
+                        android:imeOptions="actionDone"
+                        android:id="@+id/etPolicynumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Policy number"
+                        android:padding="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Group :"/>
+                    <com.app.emcurauc.util.ActionEditText
+                        android:imeOptions="actionDone"
+                        android:id="@+id/etGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Group"
+                        android:padding="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"
+                        android:text="Code :"/>
+                    <com.app.emcurauc.util.ActionEditText
+                        android:imeOptions="actionDone"
+                        android:id="@+id/etCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint="Code"
+                        android:padding="10dp" />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btnVarifyInsurance"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/btn_selector"
+                    android:padding="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Varify Insurance"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>-->
+
+            <LinearLayout
+                android:id="@+id/layCreditCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="-5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Information"
+                    android:textSize="15sp"
+                    android:textColor="#344A6B"
+                    />
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:background="#EEEEEE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvCrediCardAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Amount $5"
+                        android:padding="8dp"
+                        android:background="#313136"
+                        android:textColor="#FFFFFF"
+                        />
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Payment Information"
+                            android:layout_marginEnd="10dp"
+                            android:visibility="gone"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/creditcart_icons2"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray"/>
+
+                    <!--Lagacy Card Input Form : GM-->
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cardholder Name"/>
+
+                        <com.app.msu_uc.util.ActionEditText
+                            android:imeOptions="actionDone"
+                            android:id="@+id/etCardholder"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Cardholder Name"
+                            android:padding="10dp" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Card Number"/>
+
+                        <com.app.msu_uc.util.ActionEditText
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:id="@+id/etCardNo"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Card No"
+                            android:padding="10dp"
+                            android:maxLength="16"/>
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Card Type"/>
+
+                        <Spinner
+                            android:id="@+id/spCardType"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:spinnerMode="dropdown"
+                            android:textColor="@android:color/holo_red_dark" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="10"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_marginTop="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="CVV Code"/>
+                                <com.app.msu_uc.util.ActionEditText
+                                    android:imeOptions="actionDone"
+                                    android:inputType="number"
+                                    android:id="@+id/etCardCVV"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_weight="3"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="CVV Code"
+                                    android:padding="10dp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_marginTop="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Card Expiration"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:weightSum="2"
+                                    android:layout_marginTop="5dp"
+                                    android:orientation="horizontal">
+
+                                    <Spinner
+                                        android:id="@+id/spCardExpiryMonth"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_weight="1"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:spinnerMode="dropdown"/>
+
+                                    <Spinner
+                                        android:id="@+id/spCardExpiryYear"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:spinnerMode="dropdown" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!--New Braintree credit card form - Stripe-->
+                    <LinearLayout
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <com.braintreepayments.cardform.view.CardForm
+                            android:visibility="visible"
+                            android:id="@+id/card_form"
+                            android:layout_margin="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout></ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layBottom"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ss.com.bannerslider.views.BannerSlider
+                android:id="@+id/banner_slider1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:animateIndicators="true"
+                app:defaultIndicators="circle"
+                app:interval="4000"
+                app:loopSlides="true"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/layBottom"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray" />
+        <Button
+            android:id="@+id/btnPay"
+            android:onClick="onBuyPressed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_selector"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="Continue"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+</RelativeLayout>

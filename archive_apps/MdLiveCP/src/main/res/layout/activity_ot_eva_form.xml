@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context=".reliance.assessment.ActivityOtEvaForm">
+
+    <ScrollView
+        android:id="@+id/svForm"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/bottomD"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="10dp"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/lay_asseslist_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Occupational Profile"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Background Information :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField1"
+                        android:tag="form_data[background_information]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Living arrangements and Daily Activity Information :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField2"
+                        android:tag="form_data[living_arrangements]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:gravity="start|top"
+                        android:imeOptions="actionDone"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Interests :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField3"
+                        android:tag="form_data[interests]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Staff/Family Concerns :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField4"
+                        android:tag="form_data[staff_family_concerns]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Staff/Family Concerns :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <CheckBox
+                        android:id="@+id/cbOtEvaField1"
+                        android:tag="form_data[current_visions_goals][]"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Live"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginLeft="20dp"/>
+                    <CheckBox
+                        android:id="@+id/cbOtEvaField2"
+                        android:tag="form_data[current_visions_goals][]"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Work/Learn"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginLeft="20dp"/>
+                    <CheckBox
+                        android:id="@+id/cbOtEvaField3"
+                        android:tag="form_data[current_visions_goals][]"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hobbies/Relationships"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginLeft="20dp"/>
+                    <CheckBox
+                        android:id="@+id/cbOtEvaField4"
+                        android:tag="form_data[current_visions_goals][]"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Health"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginLeft="20dp"/>
+                    <CheckBox
+                        android:id="@+id/cbOtEvaField5"
+                        android:tag="form_data[current_visions_goals][]"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:layout_marginLeft="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HEALTH AND SAFETY CHALLENGES"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Relevant Diagnosis (may not include all diagnosis) :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField5"
+                        android:tag="form_data[relevant_diagnosis]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Relevant Medical/Safety History/Challenges:"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField6"
+                        android:tag="form_data[relevant_medical]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OT ASSESSMENT"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Strengths :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField7"
+                        android:tag="form_data[strengths]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="SUMMARY Challenges and Possible Barriers to Achieving Visions/Outcomes :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField8"
+                        android:tag="form_data[summary_challenges]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="How OT might assist the individual with health, safety, daily routines and/or achieving goals :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField9"
+                        android:tag="form_data[ot_might_assist]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OT RECOMMENDATIONS"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="OT intervention is recommended. Comments :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField10"
+                        android:tag="form_data[ot_intervention]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Environmental Modifications/DME Recommendations :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField11"
+                        android:tag="form_data[environmental_modifications]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Recommendations for other services or referrals :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etOtEvaField12"
+                        android:tag="form_data[recommendations_services]"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:hint="Type here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
+                        android:gravity="start|top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Name of Agency :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+
+            <com.app.mdlive_cp.util.ActionEditText
+                android:id="@+id/etOtEvaField13"
+                android:tag="form_data[name_of_agency]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:gravity="start|top"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/bottomD"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnSubmitForm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:text="Submit"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,1881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray" >
+
+    <include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/tabBar"
+        android:layout_below="@+id/toolbarLay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <TextView
+            android:id="@+id/tvPast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Diagnosis"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvSocial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Social"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvRelatives"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Family"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvMedications"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Medications"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
+        android:layout_below="@+id/tabBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frameLayout1"
+        android:layout_centerHorizontal="true" >
+
+        <!-- layout 1 starts -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/iu"
+                android:layout_above="@+id/bottomLayPast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tvPastHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/theme_red"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="1. PAST MEDICAL HISTORY"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/layDiagnosis"
+                        android:padding="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:background="@android:color/transparent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Diagnosis :"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textStyle="normal"
+                            android:layout_marginLeft="10dp"/>
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:focusableInTouchMode="true"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                android:id="@+id/auto_complete_edit_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textMultiLine"
+                                android:background="@android:color/transparent"
+                                android:padding="10dp"
+                                android:hint="Please enter at least 2 char to search"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:layout_toLeftOf="@+id/pbAutoComplete"/>
+                            <ProgressBar
+                                android:visibility="gone"
+                                android:id="@+id/pbAutoComplete"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                style="?android:attr/progressBarStyleSmall"
+                                android:layout_centerVertical="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <EditText
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:longClickable="false"
+                            android:id="@+id/etMedHistrDiagnosis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:hint=""
+                            android:padding="10sp"
+                            android:inputType="textMultiLine"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:maxLines="4"/>
+                        <!--android:focusable="false"
+                            android:clickable="false"
+                            android:longClickable="false"-->
+                    </LinearLayout>
+
+                    <ListView
+                        android:id="@+id/lvMedicalHistory1"
+                        android:layout_below="@+id/layDiagnosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/layNoNetwork"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/internet"/>
+                        <TextView
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No internet connection"/>
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Refresh to try again"/>
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/reload"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomLayPast"
+                android:focusableInTouchMode="true"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Other"/>
+                <com.app.emcurauc.util.ActionEditText
+                    android:id="@+id/etPastOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:gravity="top"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:minLines="2"
+                    android:maxLines="4">
+                </com.app.emcurauc.util.ActionEditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- layout 1 ends -->
+
+
+        <!-- layout 2 starts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvSocialHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:text="2. SOCIAL HISTORY"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:id="@+id/pop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:id="@+id/RelativeLaout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Are you a?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <RadioGroup
+                            android:id="@+id/rgMedicalSmoke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical" >
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeCurrentSmoker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Current Smoker"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeFormerSmoker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Former Smoker"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeNonSmoker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Non Smoker"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+
+
+                            <!--<RadioButton
+                                android:id="@+id/radioSmokeYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="YES"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioSmokeNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NO"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />-->
+                        </RadioGroup>
+
+
+                        <LinearLayout
+                            android:id="@+id/laySmokeDetail"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvSmokeTypeLbl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Type"
+                                android:layout_marginStart="8dp"/>
+
+                            <Spinner
+                                android:id="@+id/spSmokeType"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/spinner_bg"/>
+
+                            <LinearLayout
+                                android:id="@+id/laySmokeCurrentSmoker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvSmokeAgeLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="What age did you start?"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"/>
+
+
+                                <com.app.emcurauc.util.ActionEditText
+                                    android:id="@+id/etSmokeWhatAge"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="Type here"
+                                    android:padding="8dp"
+                                    android:gravity="top"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:minLines="1"/>
+
+                                <TextView
+                                    android:id="@+id/tvSmokeHowMuchPerDayLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="How much per day?"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginStart="8dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spSmokeHowMuchPerDay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/spinner_bg"/>
+                                <TextView
+                                    android:id="@+id/tvSmokeReadyToQuitLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Are you ready to quit?"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginStart="8dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spSmokeReadyToQuit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/spinner_bg"/>
+
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:id="@+id/laySmokeFormerSmoker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/tvSmokeHowLongDidULbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="How long did you smoke?"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"/>
+
+
+                                <com.app.emcurauc.util.ActionEditText
+                                    android:id="@+id/etSmokeHowLongDidUsmoke"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="Type here"
+                                    android:padding="8dp"
+                                    android:gravity="top"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textMultiLine"
+                                    android:minLines="1"/>
+
+                                <TextView
+                                    android:id="@+id/tvSmokeQuitDateLbl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Quit date"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"/>
+
+
+                                <com.app.emcurauc.util.ActionEditText
+                                    android:id="@+id/etSmokeQuitDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/cust_border_white_outline"
+                                    android:hint="Tap to enter date"
+                                    android:padding="8dp"
+                                    android:gravity="top"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:minLines="1"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <!--<com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etSmokeHowMuch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="how much"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1">
+                        </com.app.emcurauc.util.ActionEditText>
+
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etSmokeHowLong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="how long"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1" >
+                        </com.app.emcurauc.util.ActionEditText>-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/texiew1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Do you drink alcohol?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <RadioGroup
+                            android:id="@+id/rgMedicalAlcohol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/rdioAlcoholYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="YES"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioAlcoholNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NO"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+                        </RadioGroup>
+
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etAlcoholHowMuch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="how much"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1" >
+                        </com.app.emcurauc.util.ActionEditText>
+
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etAlcoholHowLong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="how long"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="1" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/texiew"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Do you use any street drugs?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <RadioGroup
+                            android:id="@+id/rgStreetDrug"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/radioStreetYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="YES"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+
+                            <RadioButton
+                                android:id="@+id/radioStreetNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NO"
+                                android:buttonTint="@color/theme_red"
+                                android:textColor="@color/theme_red" />
+                        </RadioGroup>
+
+                        <!--<com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etStreetDrugList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="If yes, please list"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="3" >
+                        </com.app.emcurauc.util.ActionEditText>-->
+
+                        <LinearLayout
+                            android:id="@+id/layStreetDrugs"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/cust_border_white_outline">
+
+                            <CheckBox
+                                android:id="@+id/cbLSD"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="LSD"
+                                android:buttonTint="@color/theme_red"/>
+                            <CheckBox
+                                android:id="@+id/cbMarijuana"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Marijuana"
+                                android:buttonTint="@color/theme_red"/>
+                            <CheckBox
+                                android:id="@+id/cbCocaine"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Cocaine"
+                                android:buttonTint="@color/theme_red"/>
+
+                            <CheckBox
+                                android:id="@+id/cbMethAmphetamines"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Methamphetamines"
+                                android:buttonTint="@color/theme_red"/>
+                            <CheckBox
+                                android:id="@+id/cbHeroine"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Heroin"
+                                android:buttonTint="@color/theme_red"/>
+
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/cbCarfentanyl"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Carfentanyl"
+                                    android:buttonTint="@color/theme_red"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Other"
+                            android:layout_margin="10dp"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red" />
+
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etSocialOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint=""
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="3" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- layout 2 ends -->
+
+
+        <!-- layout 3 starts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+
+            <!--3. HAS ANY OF YOUR RELATIVES HAD:-->
+            <!--3. Enter Family History:-->
+            <TextView
+                android:id="@+id/tvSocialHstory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="@color/theme_red"
+                android:text="3. Have any of your relatives had:"
+                android:textAllCaps="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:id="@+id/vv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/qw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkDisease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Inherited Disease"
+                            android:tag="0"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etDisease"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkHeart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:tag="1"
+                            android:text="Heart Trouble"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etHeart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkMental"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Mental Illness"
+                            android:tag="2"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etMental"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkCancer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Cancer"
+                            android:tag="3"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etCancer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkBp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="High Blood Pressure"
+                            android:tag="4"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etBp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkStroke"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Stroke"
+                            android:tag="5"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etStroke"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkDiabetes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Diabetes"
+                            android:tag="6"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etDiabetes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkKidney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:tag="7"
+                            android:text="Kidney Problems"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etKidney"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkTubr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Tuberculosis"
+                            android:tag="8"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etTubr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkEpilespy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Epilespy"
+                            android:tag="9"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etEpilespy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checksickle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Sickle Cell Disease"
+                            android:tag="10"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etsickle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkBleeming"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Bleeding Problems"
+                            android:tag="11"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etBleeming"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:gravity="top"
+                        android:orientation="vertical" >
+
+                        <CheckBox
+                            android:id="@+id/checkFamilyOther"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="Other"
+                            android:tag="12"
+                            android:textColor="@color/theme_red"
+                            android:buttonTint="@color/theme_red" />
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enter family history"/>
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etFamilyOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="who"
+                            android:padding="10dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="2" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- layout 3 ends -->
+
+
+        <!-- layout final starts -->
+
+        <RelativeLayout
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvSociHstory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="4. ARE YOU ON ANY MEDICATIONS?"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"/>
+
+            <ScrollView
+                android:id="@+id/nb"
+                android:layout_above="@+id/btnUpdateMedical"
+                android:layout_below="@+id/tvSociHstory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/yi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"><!--android:descendantFocusability="blocksDescendants"-->
+
+                    <LinearLayout
+                        android:id="@+id/bb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_margin="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Medications"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/rgMedications"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/radioMedicationYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Yes"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red"/>
+
+                            <RadioButton
+                                android:id="@+id/radioMedicationNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/medicationsCont"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!--Note: this is medication view removed in emcura make same to iphone app-->
+                            <RelativeLayout
+                                android:visibility="gone"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp">
+                                <ImageView
+                                    android:id="@+id/ivAddMedication"
+                                    android:layout_alignParentTop="true"
+                                    android:padding="15dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cust_border_gr_half"
+                                    android:src="@drawable/ic_add_box_black_24dp"/>
+                                <View
+                                    android:id="@+id/divSep"
+                                    android:layout_width="1px"
+                                    android:layout_height="match_parent"
+                                    android:background="@android:color/black"
+                                    android:layout_toLeftOf="@+id/ivAddMedication"/>
+                                <ImageView
+                                    android:id="@+id/ivSearchMedication"
+                                    android:layout_alignParentTop="true"
+                                    android:padding="15dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/divSep"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/cust_border_gr_sq"
+                                    android:src="@drawable/ic_search_black_24dp"/>
+
+                                <com.app.emcurauc.util.ActionEditText
+                                    android:id="@+id/etMedicationsAddMedication"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/ivSearchMedication"
+                                    android:layout_alignTop="@+id/ivSearchMedication"
+                                    android:layout_alignBottom="@+id/ivSearchMedication"
+                                    android:background="@drawable/textlines"
+                                    android:hint="Add Medication"
+                                    android:padding="8dp"
+                                    android:gravity="center_vertical"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textMultiLine"
+                                    android:minLines="1">
+                                </com.app.emcurauc.util.ActionEditText>
+
+                                <com.app.emcurauc.util.ExpandableHeightListView
+                                    android:id="@+id/lvMedications"
+                                    android:layout_below="@id/etMedicationsAddMedication"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                </com.app.emcurauc.util.ExpandableHeightListView>
+                            </RelativeLayout>
+
+                            <!--margintop is applied by radiogroup margin bottom-->
+                            <FrameLayout
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border2">
+                                <TextView
+                                    android:id="@+id/tvAddMed"
+                                    android:drawableStart="@drawable/ic_add_box_black_24dp"
+                                    android:drawablePadding="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="Add Medication"
+                                    android:gravity="center"
+                                    android:layout_gravity="start"/>
+                                <TextView
+                                    android:id="@+id/tvViewMed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="View (0)"
+                                    android:gravity="center"
+                                    android:layout_gravity="end"/>
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bbc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tvSostory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Have you any Allergies?"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/rgAllergies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radioAllergiesYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Yes"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red"/>
+
+                            <RadioButton
+                                android:id="@+id/radioAllergiesNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textColor="@color/theme_red"
+                                android:buttonTint="@color/theme_red"/>
+                        </RadioGroup>
+
+                        <!--Note: this is allergy view removed in emcura make same to iphone app-->
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/contAllergies_1"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+                            <ImageView
+                                android:id="@+id/ivAddAllergies"
+                                android:layout_alignParentTop="true"
+                                android:padding="15dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_add_box_black_24dp"
+                                android:background="@drawable/cust_border_gr_half"/>
+
+                            <com.app.emcurauc.util.ActionEditText
+                                android:id="@+id/etAddAllergies"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@+id/ivAddAllergies"
+                                android:layout_alignTop="@+id/ivAddAllergies"
+                                android:layout_alignBottom="@+id/ivAddAllergies"
+                                android:background="@drawable/textlines"
+                                android:hint="Add Allergies"
+                                android:padding="8dp"
+                                android:gravity="center_vertical"
+                                android:imeOptions="actionDone"
+                                android:inputType="textMultiLine"
+                                android:minLines="1" >
+                            </com.app.emcurauc.util.ActionEditText>
+
+                            <com.app.emcurauc.util.ExpandableHeightListView
+                                android:id="@+id/lvAllergies"
+                                android:layout_below="@id/etAddAllergies"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            </com.app.emcurauc.util.ExpandableHeightListView>
+                        </RelativeLayout>
+
+
+                        <!--margintop is applied by radiogroup margin bottom-->
+                        <RelativeLayout
+                            android:id="@+id/contAllergies"
+                            android:background="@drawable/cust_border2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/tvAddAllergy"
+                                    android:drawableStart="@drawable/ic_add_box_black_24dp"
+                                    android:drawablePadding="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="Add Allergies"
+                                    android:gravity="center"
+                                    android:layout_gravity="start"/>
+                                <TextView
+                                    android:id="@+id/tvViewAllergy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="View (0)"
+                                    android:gravity="center"
+                                    android:layout_gravity="end"/>
+                            </FrameLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bbd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tvSitory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="Please list all hospitalizations and surgeries"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <!--Note: this is Hosptalization view removed in emcura make same to iphone app-->
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/contHosptalization_1"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+                            <ImageView
+                                android:id="@+id/ivAddHosptalization"
+                                android:layout_alignParentTop="true"
+                                android:padding="15dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_add_box_black_24dp"
+                                android:background="@drawable/cust_border_gr_half"/>
+
+                            <com.app.emcurauc.util.ActionEditText
+                                android:id="@+id/etAddHosptalization"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@+id/ivAddHosptalization"
+                                android:layout_alignTop="@+id/ivAddHosptalization"
+                                android:layout_alignBottom="@+id/ivAddHosptalization"
+                                android:background="@drawable/textlines"
+                                android:hint="Add Hospitalization"
+                                android:padding="8dp"
+                                android:gravity="center_vertical"
+                                android:imeOptions="actionDone"
+                                android:inputType="textMultiLine"
+                                android:minLines="1" >
+                            </com.app.emcurauc.util.ActionEditText>
+
+                            <com.app.emcurauc.util.ExpandableHeightListView
+                                android:id="@+id/lvHosptalization"
+                                android:layout_below="@id/etAddHosptalization"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            </com.app.emcurauc.util.ExpandableHeightListView>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/contHosptalization"
+                            android:background="@drawable/cust_border2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/tvAddHosp"
+                                    android:drawableStart="@drawable/ic_add_box_black_24dp"
+                                    android:drawablePadding="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="Add Hospitalizations"
+                                    android:gravity="center"
+                                    android:layout_gravity="start"/>
+                                <TextView
+                                    android:id="@+id/tvViewHosp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/app_blue_color"
+                                    android:text="View (0)"
+                                    android:gravity="center"
+                                    android:layout_gravity="end"/>
+                            </FrameLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tvOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="Other"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/theme_red"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <com.app.emcurauc.util.ActionEditText
+                            android:id="@+id/etMedicalHistoryOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:hint="Enter Other"
+                            android:padding="8dp"
+                            android:gravity="top"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minLines="3" >
+                        </com.app.emcurauc.util.ActionEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btnUpdateMedical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:layout_alignParentBottom="true"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </ViewFlipper>
+
+    <FrameLayout
+        android:visibility="visible"
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/btnFlipPrev"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:text="Previous"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:textColor="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"
+            android:enabled="false" />
+<!-- android:background="@drawable/icon_prev" -->
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/cir1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_blavk_unselected"/>
+            <ImageView
+                android:id="@+id/cir2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected"/>
+            <ImageView
+                android:id="@+id/cir3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected"/>
+            <ImageView
+                android:id="@+id/cir4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnFlipNext"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:textColor="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/btn_selector"
+            style="?android:attr/borderlessButtonStyle"/>
+        <!-- android:background="@drawable/icon_next" -->
+    </FrameLayout>
+
+</RelativeLayout>

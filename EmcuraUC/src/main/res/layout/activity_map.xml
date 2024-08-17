@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context="com.app.emcurauc.MapActivity" >
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/mapCont"
+        android:layout_weight="6.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="3.5"
+        android:focusableInTouchMode="true">
+
+        <com.app.emcurauc.util.ActionEditText
+            android:visibility="gone"
+            android:id="@+id/etSearchDoc"
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cust_border_white_outline"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Search"
+            android:imeOptions="actionDone"
+            android:drawableStart="@drawable/ic_search_black_24dp"/>
+
+        <ListView
+            android:id="@+id/lvDoctorsLivecare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+<resources>
+
+	<color name="black_overlay">#66000000</color>
+	<color name="controller_grey">#EAEAEA</color>
+	<color name="image_holder_bg">#EAEAEA</color>
+
+	<color name="text_color">#FFF</color>
+	<color name="text_field_color">#000</color>
+	<color name="text_shadow">#FFF</color>
+	<color name="list_view_bg">#DADFEE</color>
+
+	<color name="send_light_color">#8897BF</color>
+	<color name="send_meduim_color">#5D6CA5</color>
+	<color name="send_dark_color">#515F9F</color>
+
+	<color name="bar_dark_color">#CECECE</color>
+	<color name="bar_meduim_color">#DFDEE0</color>
+	<color name="bar_light_color">#F2F2F2</color>
+	<color name="red_dark_color">#B30000</color>
+
+	<color name="spinner_color_bg">#849599</color>
+	<color name="hint_color">#D3D3D3</color>
+
+	<color name="half_transparent_grey">#9FA2A2A2</color>
+
+	<color name="red">#FF0000</color>
+	<color name="light_red">#FFCCCB</color>
+
+	<color name="green">#00FF00</color>
+	<color name="light_green">#90EE90</color>
+
+	<color name="color_preloader_center">#FFCCCB</color>
+	<color name="color_preloader_start">#FF0000</color>
+	<color name="color_preloader_end">#00FF00</color>
+
+
+
+	<color name="opaque_red">#f00</color>
+	<color name="dark_gray">#494949</color>
+	<color name="translucent_red">#80ff0000</color>
+
+
+	<color name="theme_red">#f15a2c</color>
+	<color name="theme_red_opaque_60">#99f15a2c</color>
+	<color name="theme_red_opaque_40">#66f15a2c</color>
+	<color name="toolBarColor">#494949</color>
+
+
+	<color name="colorPrimary">@color/theme_red</color>
+	<color name="colorPrimaryDark">@color/theme_red</color>
+	<color name="colorAccent">@color/toolBarColor</color>
+
+	<color name="half_transparent">#66FFFFFF</color>
+
+	<!--<color name="half_transparent_black">#66000000</color>   40% transparent-->
+	<color name="half_transparent_black">#80000000</color>
+
+	<color name="app_blue_color">#16453b</color>
+
+	<color name="black">#191919</color>
+	<color name="black_light">#6D6D6D</color>
+
+	<color name="list_background_selected1">#DDDDDD</color>
+
+	<color name="list_background_selected">#E0E0E0</color>
+	<color name="list_background">#ffffff</color>
+	<!--<color name="list_background_selected">@color/theme_red</color>
+	<color name="list_background">@color/theme_red_opaque_60</color>-->
+
+
+
+	<!--===============Angora.io Starts============================================-->
+	<color name="gray_lightest">#DEDEDE</color>
+	<color name="gray_light">#CCCCCC</color>
+	<color name="gray">#989898</color>
+	<color name="gray_dark">#666666</color>
+	<color name="gray_deep_dark">#333333</color>
+
+	<color name="blue">#007AFF</color>
+	<color name="blue_medium">#44A2FC</color>
+	<color name="blue_light">#0ECFFF</color>
+	<color name="blue_alpha">#9CD9FF</color>
+
+	<color name="dark_black">#CC262626</color>
+	<color name="black_half_transparent">#66000000</color>
+	<color name="black_full_transparent">#22000000</color>
+	<!--===============Angora.io Ends============================================-->
+
+
+	<color name="list_divider">#979797</color>
+	<!--<color name="list_item_selected_state">#F4F6F6</color>-->
+	<!--<color name="list_item_selected_state">#E5E5E5</color>-->
+	<color name="list_item_selected_state">#E0E0E0</color>
+	<color name="list_item_normal_state">#FFFFFF</color>
+
+</resources>

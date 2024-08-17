@@ -1,0 +1,225 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:signature="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    signature:cardCornerRadius="15dp"
+    signature:cardBackgroundColor="@android:color/white"
+    signature:cardElevation="10dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+
+        <!--Prescriptions sent to patient. Do you want to complete the consultation?-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Your Virtual Care video checkup has been completed. Would you like to complete the consultation and remove patient from your Live Virtual Care queue ?"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:id="@+id/layAssignOptions"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:gravity="left">
+            <CheckBox
+                android:id="@+id/cbSendAVS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send after visit summary to the patient"
+                android:checked="false"
+                android:button="@null"
+                android:textStyle="normal"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawableEnd="@drawable/custom_checkbox"
+                android:gravity="center_vertical"
+                android:textSize="14sp"/>
+
+            <CheckBox
+                android:id="@+id/cbSendAVSToPCP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send after visit summary to P.C.P"
+                android:checked="false"
+                android:button="@null"
+                android:textStyle="normal"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawableEnd="@drawable/custom_checkbox"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"/>
+
+            <CheckBox
+                android:id="@+id/cbSendBillingSummarytoBillers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send Billing Summary to Billers"
+                android:checked="true"
+                android:button="@null"
+                android:textStyle="normal"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawableEnd="@drawable/custom_checkbox"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"/>
+
+            <CheckBox
+                android:id="@+id/cbProcessTheBillingProcessDirectly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Process the billing process directly"
+                android:checked="false"
+                android:button="@null"
+                android:textStyle="normal"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawableEnd="@drawable/custom_checkbox"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please select a patient type for the care providers"/>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/cust_border_blue_sq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cbTCM"
+                        android:textColor="@color/app_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TCM"
+                        android:textStyle="normal"
+                        android:background="@drawable/custom_checkbox_acd"
+                        android:button="@null"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:id="@+id/d1"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/app_blue_color"/>
+
+                    <CheckBox
+                        android:id="@+id/cbCC"
+                        android:textColor="@color/app_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CC"
+                        android:textStyle="normal"
+                        android:background="@drawable/custom_checkbox_acd"
+                        android:button="@null"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:id="@+id/d2"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/app_blue_color"/>
+
+                    <CheckBox
+                        android:id="@+id/cbHomeHealth"
+                        android:textColor="@color/app_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="H-Health"
+                        android:textStyle="normal"
+                        android:background="@drawable/custom_checkbox_acd"
+                        android:button="@null"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:id="@+id/d3"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/app_blue_color"/>
+
+                    <CheckBox
+                        android:id="@+id/cbNursingHome"
+                        android:textColor="@color/app_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nursing-H"
+                        android:textStyle="normal"
+                        android:background="@drawable/custom_checkbox_acd"
+                        android:button="@null"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/btnRemove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/btn_selector"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Yes Remove"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/btnNotRemove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_selector"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Not Now"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

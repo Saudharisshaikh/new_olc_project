@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/jkjk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <!-- <LinearLayout
+            android:id="@+id/mnn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/mmm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                 >
+
+                <TextView
+                    android:id="@+id/tvApSy1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_schedule_day"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="DOCTOR&apos;s NAME"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/lin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imgSelDrImage"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="3dp"
+                        android:src="@drawable/ic_launcher"
+                        app:border="true"
+                        app:border_color="#FFFFFF"
+                        app:border_width="1sp"
+                        app:shadow="true" />
+
+                    <TextView
+                        android:id="@+id/tvSelDrName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvApptSy1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_schedule_day"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="DATE"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvptSymp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_schedule_day"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="TIME"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptSymp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_schedule_day"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="SYMPTOM"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptSymp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptSmp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_schedule_day"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="CONDITION"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptCond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptSp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_schedule_day"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="DESCRIPTION"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApptDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout> -->
+
+
+        <LinearLayout
+            android:id="@+id/mnn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/mmm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/lin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/imgCont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/imgSelDrImage"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="3dp"
+                            android:src="@drawable/icon_call_screen"
+                            app:border="true"
+                            app:border_color="@android:color/white"
+                            app:border_width="2sp"
+                            app:shadow="true" />
+
+                        <!-- <com.mikhaellopez.circularimageview.CircularImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom|right"
+                            android:src="@drawable/doctor_icon"
+                            app:border="false"
+                            app:shadow="false" 
+                             /> -->
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvSelDrName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="Dr Marter"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textStyle="normal"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvSelDrDesg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="5dp"
+                            android:text="Nurse"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvApptReffered"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="Appointment reffered to admin due to doctor unavailability. Your appointment will be entertained by OnlineCare very soon"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Appointment Date:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="18sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvApptDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="22/4/2014"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Appointment Time:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="18sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvApptTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="morning"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Appointment Reason:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="18sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvApptReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="Reason is there"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Symptoms:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="18sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvApptSymp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="symtoms"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Condition:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="18sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvApptCond"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="conds"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Description:"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="18sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/tvApptDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="desc here"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:textColor="@android:color/black"/>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnOk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:padding="10dp"
+                    android:text="Done"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnCancelAppointment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="-5dp"
+                    android:background="@drawable/btn_selector"
+                    android:padding="10dp"
+                    android:text="Cancel Appointment"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <!-- <Button
+                   android:id="@+id/btnCancelAppointment"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp"
+                   android:background="@drawable/btn_selector"
+                   android:padding="10dp"
+                   android:text="Cancel Appointment"
+                   android:textColor="@android:color/white"
+                   android:textSize="18dp"
+                   android:textStyle="bold" />
+                <Button
+                   android:id="@+id/btnSendMsg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp"
+                   android:background="@drawable/btn_selector"
+                   android:padding="10dp"
+                   android:text="Send Message"
+                   android:textColor="@android:color/white"
+                   android:textSize="18dp"
+                   android:drawableLeft="@drawable/ic_livecare_send_msg"
+                   android:textStyle="bold" /> -->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/qqq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/btnApptCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="7dp"
+            android:background="@drawable/bg_schedule_day"
+            android:padding="10dp"
+            android:text="CANCEL APPOINTMENT"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

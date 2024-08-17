@@ -1,0 +1,981 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dental_home_bg3"
+    android:orientation="vertical"
+    tools:context="com.app.onlinecare_pk.dental.ActivityDental_AOC"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2D2F2E">
+        <TextView
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Anatomy of the Oral Cavity"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"
+            android:layout_gravity="start|center_vertical"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp"
+            android:padding="10dp"
+            android:layout_gravity="end"/>
+    </FrameLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTabOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="10dp"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:background="@drawable/cust_border_white_outline_red">
+
+            <Button
+                android:id="@+id/btnTabPart1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFFFF"
+                android:text="Part 1"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="1"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"/>
+
+            <Button
+                android:id="@+id/btnTabPart2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:textColor="@color/colorPrimary"
+                android:text="Part 2"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ViewFlipper
+            android:id="@+id/vfDentalCareForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/btnDone">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dental_edu1"
+
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivLip"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.398"
+                    app:layout_constraintVertical_bias="0.229" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivTeeth"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.299"
+                    app:layout_constraintHorizontal_bias="0.39"/>
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivHardPalate"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.482"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.35" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivGingiva"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.585"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.282" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivSoftPalate"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.402" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivUvula"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.59"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.427" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivTonsil"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.65"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.4925" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivBluccail"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.73"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.54" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivFloorOfMouth"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.59"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.695" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivRetTri"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.360"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.485" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivTongue1"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.380"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.545" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivTongue2"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.225"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.715" />
+
+
+                <CheckBox
+                    android:id="@+id/cbLip"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.217"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+                <CheckBox
+                    android:id="@+id/cbTeeth"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.02"
+                    app:layout_constraintVertical_bias="0.288"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+                <CheckBox
+                    android:id="@+id/cbHardPalate"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.005"
+                    app:layout_constraintStart_toStartOf="@id/imageView"
+
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.349"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+
+                <CheckBox
+                    android:id="@+id/cbSoftPalate"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.01"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.408"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cbRetTri"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.495"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cbTongue"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintVertical_bias="0.606"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"
+
+                    />
+
+
+
+
+                <CheckBox
+                    android:id="@+id/cbGingiva"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="0.283"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+
+                <CheckBox
+                    android:id="@+id/cbUvula"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="0.425"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+                <CheckBox
+                    android:id="@+id/cbTonsil"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="0.493"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+
+                <CheckBox
+                    android:id="@+id/cbBluccail"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="0.570"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+
+                <CheckBox
+                    android:id="@+id/cbFloorOfMouth"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="0.714"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>
+
+
+
+                <!--<CheckBox
+                    android:id="@+id/cbTeeth"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0.280"
+
+                    android:scaleX="0.60"
+                    android:scaleY="0.60"/>-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:padding="10dp"
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dental_edu2"
+
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                <CheckBox
+                    android:id="@+id/cb1stBicuspid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.3"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cb2ndBicuspid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.33"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cb1stMolar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.358"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cb2ndMolar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.395"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cb3rdMolar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.44"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cbCentralIncisor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.25"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbLateralIncisor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.275"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cbCuspid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.303"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbHardPalate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.352"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbSoftPalate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.435"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cbUvula2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.489"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbPalatineTonsil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.532"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbBodyOfTongue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.575"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbSubmandibularDucts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.636"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+
+                <CheckBox
+                    android:id="@+id/cbLips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.676"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+                <CheckBox
+                    android:id="@+id/cbGingiva2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="0.50"
+                    android:scaleY="0.50"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.715"
+                    app:layout_constraintHorizontal_bias="0.776"
+                    />
+
+
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv1stBicuspid"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.325"
+                    app:layout_constraintVertical_bias="0.3125" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv2ndBicuspid"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.33"
+                    app:layout_constraintVertical_bias="0.3396" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv1stMolar"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.315"
+                    app:layout_constraintVertical_bias="0.365" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv2ndMolar"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintVertical_bias="0.4" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv3rdMolar"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.29"
+                    app:layout_constraintVertical_bias="0.43" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivCentralIncisor"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintVertical_bias="0.263" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivLateralIncisor"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.555"
+                    app:layout_constraintVertical_bias="0.284" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivCuspid"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.613"
+                    app:layout_constraintVertical_bias="0.313" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivHardPalate2"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.47"
+                    app:layout_constraintVertical_bias="0.36" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivSoftPalate2"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.49"
+                    app:layout_constraintVertical_bias="0.438" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivUvula2"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.47"
+                    app:layout_constraintVertical_bias="0.487" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivPalatineTonsil"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.613"
+                    app:layout_constraintVertical_bias="0.523" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivBodyOfTongue"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.472"
+                    app:layout_constraintVertical_bias="0.563" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivSubmandibularDucts"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.515"
+                    app:layout_constraintVertical_bias="0.618" />
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivLips"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.633"
+                    app:layout_constraintVertical_bias="0.6632" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivGingiva2"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/cust_cir_blue_light"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_bias="0.515"
+                    app:layout_constraintVertical_bias="0.701" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ViewFlipper>
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_dental_red"
+            android:text="Done"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

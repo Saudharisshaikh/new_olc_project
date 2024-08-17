@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical" >
+
+    <RelativeLayout 
+        android:id="@+id/lay_denial_reason_code" 
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+    	
+        <TextView 
+            android:id="@+id/tvHeader"
+            android:layout_alignParentTop="true"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="#FFFFFF"
+           android:text="Select a reason code"
+           android:layout_gravity="center_vertical"
+           android:padding="10dp"
+           android:background="@color/theme_red"
+           android:textStyle="bold"
+           android:textAppearance="?android:attr/textAppearanceMedium"/>
+        
+    <ListView
+        android:id="@+id/lv_denial_reason_code"
+        android:layout_below="@+id/tvHeader"
+        android:layout_above="@+id/btnSubmitDenieCode" 
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+        
+    </ListView>
+    <Button
+        android:id="@+id/btnSubmitDenieCode"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_selector"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Submit"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold" />
+    </RelativeLayout>
+    <LinearLayout 
+        android:visibility="gone"
+        android:id="@+id/layDenieWithNewRXReason"
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+   <FrameLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       
+       <TextView 
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="#FFFFFF"
+           android:text="Enter a reason"
+           android:layout_gravity="center_vertical"
+           android:padding="10dp"
+           android:background="@color/theme_red"
+           android:textStyle="bold"
+           android:textAppearance="?android:attr/textAppearanceMedium"/>
+    
+    </FrameLayout>
+    
+    <com.app.msu_dr.util.ActionEditText
+                android:id="@+id/etReason"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"   
+                android:ems="10"
+                android:hint="Please enter a reason for denied with newRX"
+                android:gravity="top"
+                android:maxLength="140"
+                android:imeOptions="actionDone"
+                android:inputType="textImeMultiLine"
+                android:minLines="5"
+                android:layout_margin="20dp"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ01234567890-,;.*+/- "
+                android:padding="10dp" >
+            </com.app.msu_dr.util.ActionEditText>
+
+    <Button
+        android:id="@+id/btnSubmitDenie"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_selector"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Submit"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+</LinearLayout>
+</LinearLayout>

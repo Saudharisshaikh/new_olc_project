@@ -1,0 +1,1600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="#2D2F2E"
+                android:textColor="@android:color/white"
+                android:padding="5dp"
+
+                android:layout_height="wrap_content"
+                android:text="Please tap a tooth, quadrant name, or whole mouth to select your pain spot."
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/laySec_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="top|center_horizontal"
+                    android:background="@color/dental_part_unselected">
+
+                    <TextView
+                        android:id="@+id/tvSec1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upper Right"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/ivTeethSection1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_teeth_sec_1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth1"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.82"
+                            app:layout_constraintVertical_bias="0.196" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth2"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.63"
+                            app:layout_constraintVertical_bias="0.24" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth3"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.45"
+                            app:layout_constraintVertical_bias="0.30" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth4"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.31"
+                            app:layout_constraintVertical_bias="0.42" />
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth5"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.25"
+                            app:layout_constraintVertical_bias="0.56"
+                            />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth6"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.2"
+                            app:layout_constraintVertical_bias="0.670"
+                            />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth7"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.17"
+                            app:layout_constraintVertical_bias="0.775"
+                            />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth8"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.17"
+                            app:layout_constraintVertical_bias="0.89"
+                            />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:id="@+id/laySec_2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="top|center_horizontal"
+                    android:background="@color/dental_part_unselected">
+
+                    <TextView
+                        android:id="@+id/tvSec2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upper Left"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="10dp"/>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/ivTeethSection2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_teeth_sec_2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth9"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.185"
+                            app:layout_constraintVertical_bias="0.196"
+                            />
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth10"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintVertical_bias="0.245" />
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth11"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.55"
+                            app:layout_constraintVertical_bias="0.3" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth12"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintVertical_bias="0.4" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth13"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.77"
+                            app:layout_constraintVertical_bias="0.57" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth14"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.8"
+                            app:layout_constraintVertical_bias="0.7" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth15"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.84"
+                            app:layout_constraintVertical_bias="0.8" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth16"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.84"
+                            app:layout_constraintVertical_bias="0.899" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/laySec_3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="bottom|center_horizontal"
+                    android:background="@color/dental_part_unselected">
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ivTeethSection3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_teeth_sec_3"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth23"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.17"
+                            app:layout_constraintVertical_bias="0.196" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth22"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.21"
+                            app:layout_constraintVertical_bias="0.421" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth21"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.292"
+                            app:layout_constraintVertical_bias="0.575" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth20"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintVertical_bias="0.68" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth19"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.54"
+                            app:layout_constraintVertical_bias="0.742" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth18"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.68"
+                            app:layout_constraintVertical_bias="0.76" />
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth17"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.87"
+                            app:layout_constraintVertical_bias="0.765" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvSec3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lower Right"
+                        android:gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:id="@+id/laySec_4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="bottom|center_horizontal"
+                    android:background="@color/dental_part_unselected">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ivTeethSection4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_teeth_sec_4"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth30"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.85"
+                            app:layout_constraintVertical_bias="0.196" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth29"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.8"
+                            app:layout_constraintVertical_bias="0.42" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth28"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.72"
+                            app:layout_constraintVertical_bias="0.57" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth27"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.62"
+                            app:layout_constraintVertical_bias="0.68" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth26"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintVertical_bias="0.72" />
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth25"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.33"
+                            app:layout_constraintVertical_bias="0.75" />
+
+
+                        <ImageView
+                            android:tag="0"
+                            android:id="@+id/ivTeeth24"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0.14"
+                            app:layout_constraintVertical_bias="0.77" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:visibility="visible"
+                        android:id="@+id/tvSec4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lower Left"
+                        android:gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnPre2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/btn_dental_red"
+                    android:text="Previous"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal" />
+
+                <Button
+                    android:id="@+id/btnContinue2"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/btn_dental_red"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+        <!--<ImageView
+            android:id="@+id/ivPrevSec1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:padding="12sp"
+            android:layout_marginTop="50dp"/>-->
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ><!--android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"-->
+
+            <ImageView
+                android:id="@+id/ivMouthSkeleton"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/inner_mount"
+                android:alpha="0.7"
+                android:padding="10dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <CheckBox
+                android:id="@+id/cbTeeth_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_1"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintVertical_bias="0.39"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_2"
+                app:layout_constraintHorizontal_bias="0.06"
+                app:layout_constraintVertical_bias="0.31"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_3"
+                app:layout_constraintHorizontal_bias="0.09"
+                app:layout_constraintVertical_bias="0.246"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_4"
+                app:layout_constraintHorizontal_bias="0.127"
+                app:layout_constraintVertical_bias="0.175"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_5"
+                app:layout_constraintHorizontal_bias="0.176"
+                app:layout_constraintVertical_bias="0.11"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_6"
+                app:layout_constraintHorizontal_bias="0.253"
+                app:layout_constraintVertical_bias="0.05"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_7"
+                app:layout_constraintHorizontal_bias="0.35"
+                app:layout_constraintVertical_bias="0.022"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_8"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintVertical_bias="0.015" />
+
+            <CheckBox
+                android:id="@+id/cbTeeth_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_9"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintVertical_bias="0.021"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_10"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintVertical_bias="0.029"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+
+            <CheckBox
+                android:id="@+id/cbTeeth_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_11"
+                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintVertical_bias="0.05"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_12"
+                app:layout_constraintHorizontal_bias="0.83"
+                app:layout_constraintVertical_bias="0.108"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_13"
+                app:layout_constraintHorizontal_bias="0.905"
+                app:layout_constraintVertical_bias="0.168"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_14"
+                app:layout_constraintHorizontal_bias="0.935"
+                app:layout_constraintVertical_bias="0.24"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_15"
+                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintVertical_bias="0.31"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_16"
+                app:layout_constraintHorizontal_bias="0.97"
+                app:layout_constraintVertical_bias="0.39"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_17"
+                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintVertical_bias="0.59"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_18"
+                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintVertical_bias="0.68"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+
+            <CheckBox
+                android:id="@+id/cbTeeth_19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_19"
+                app:layout_constraintHorizontal_bias="0.94"
+                app:layout_constraintVertical_bias="0.755"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_20"
+                app:layout_constraintHorizontal_bias="0.89"
+                app:layout_constraintVertical_bias="0.82"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+
+
+            <CheckBox
+                android:id="@+id/cbTeeth_21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_21"
+                app:layout_constraintHorizontal_bias="0.83"
+                app:layout_constraintVertical_bias="0.8856"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_22"
+                app:layout_constraintHorizontal_bias="0.745"
+                app:layout_constraintVertical_bias="0.94"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_23"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintVertical_bias="0.97"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_24"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintVertical_bias="0.98"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_25"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintVertical_bias="0.98"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_26"
+                app:layout_constraintHorizontal_bias="0.35"
+                app:layout_constraintVertical_bias="0.98"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_27"
+                app:layout_constraintHorizontal_bias="0.265"
+                app:layout_constraintVertical_bias="0.942"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_28"
+                app:layout_constraintHorizontal_bias="0.175"
+                app:layout_constraintVertical_bias="0.8856"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_29"
+                app:layout_constraintHorizontal_bias="0.11"
+                app:layout_constraintVertical_bias="0.818"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_30"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintVertical_bias="0.75"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_31"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintVertical_bias="0.68"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <CheckBox
+                android:id="@+id/cbTeeth_32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_teeth_32"
+                app:layout_constraintHorizontal_bias="0.03"
+                app:layout_constraintVertical_bias="0.6"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+
+            <TextView
+                android:id="@+id/tvTeeth_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.18"
+                app:layout_constraintVertical_bias="0.39"
+
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintVertical_bias="0.33"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.225"
+                app:layout_constraintVertical_bias="0.265"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintVertical_bias="0.21"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.285"
+                app:layout_constraintVertical_bias="0.158"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.34"
+                app:layout_constraintVertical_bias="0.129"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintVertical_bias="0.11"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.46"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+
+            <TextView
+                android:id="@+id/tvTeeth_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintVertical_bias="0.107"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.59"
+                app:layout_constraintVertical_bias="0.115"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.66"
+                app:layout_constraintVertical_bias="0.136"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.72"
+                app:layout_constraintVertical_bias="0.158"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.778"
+                app:layout_constraintVertical_bias="0.2"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.79"
+                app:layout_constraintVertical_bias="0.263"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.82"
+                app:layout_constraintVertical_bias="0.326"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.82"
+                app:layout_constraintVertical_bias="0.39"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+
+            <TextView
+                android:id="@+id/tvTeeth_17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="17"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.805"
+                app:layout_constraintVertical_bias="0.586"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.81"
+                app:layout_constraintVertical_bias="0.655"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintVertical_bias="0.72"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.755"
+                app:layout_constraintVertical_bias="0.78"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.715"
+                app:layout_constraintVertical_bias="0.825"
+
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.67"
+                app:layout_constraintVertical_bias="0.863"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.60"
+                app:layout_constraintVertical_bias="0.891"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintVertical_bias="0.895"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.46"
+                app:layout_constraintVertical_bias="0.893"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="26"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintVertical_bias="0.891"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="27"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.34"
+                app:layout_constraintVertical_bias="0.863"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="28"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintVertical_bias="0.825"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.24"
+                app:layout_constraintVertical_bias="0.78"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintVertical_bias="0.72"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="31"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.18"
+                app:layout_constraintVertical_bias="0.655"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+            <TextView
+                android:id="@+id/tvTeeth_32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="32"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintHorizontal_bias="0.175"
+                app:layout_constraintVertical_bias="0.584"
+                app:layout_constraintStart_toStartOf="@+id/ivMouthSkeleton"
+                app:layout_constraintEnd_toEndOf="@+id/ivMouthSkeleton"
+                app:layout_constraintTop_toTopOf="@+id/ivMouthSkeleton"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMouthSkeleton"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <CheckBox
+            android:id="@+id/cbWholeMouth"
+            android:layout_gravity="center"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:button="@null"
+            android:background="@drawable/dental_all_part_toggle"
+            android:text="Whole\nMouth"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+
+    </FrameLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@android:color/white">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:visibility="gone"
+        android:id="@+id/ivPatient"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/icon_call_screen"
+        android:layout_margin="10dp"
+        app:border="true"
+        app:border_color="#FFFFFF"
+        app:border_width="1sp"
+        app:shadow="true" />
+
+    <RelativeLayout
+        android:id="@+id/layCenter"
+        android:layout_toEndOf="@+id/ivPatient"
+        android:layout_toStartOf="@id/ivDeleteDoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:id="@+id/layName"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivIsonline"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_notification"
+                />
+
+            <TextView
+                android:id="@+id/tvPatientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Medium Text"
+                android:textColor="@color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_toEndOf="@+id/ivIsonline"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:id="@+id/ivDeleteDoc"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_delete_forever_black_24dp"/>
+
+</RelativeLayout>

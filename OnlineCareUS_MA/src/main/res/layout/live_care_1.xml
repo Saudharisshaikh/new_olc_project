@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/layHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvsw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="1dp"
+            android:layout_weight="3"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Patient&apos;s\nName"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSuleDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Number in Queue"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvLiveCare"
+        android:layout_below="@+id/layHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/lv_divider"
+        android:layout_margin="1dp" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/tvNoLiveCares"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your eLiveCare queue is empty"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

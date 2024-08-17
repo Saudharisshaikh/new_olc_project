@@ -1,0 +1,3863 @@
+package com.app.msu_cp;
+
+import static com.app.msu_cp.api.ApiManager.PREF_APP_LBL_KEY;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.ScrollView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ViewFlipper;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
+import androidx.fragment.app.DialogFragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.app.msu_cp.adapters.HistoryAllergyAdapter;
+import com.app.msu_cp.adapters.HistoryDiagAdapter;
+import com.app.msu_cp.adapters.HistoryHosptAdapter;
+import com.app.msu_cp.adapters.HistoryMediAdapter;
+import com.app.msu_cp.adapters.MedSummaryAdapter;
+import com.app.msu_cp.adapters.PastHistoryAdapter;
+import com.app.msu_cp.adapters.SurgeryAdapter;
+import com.app.msu_cp.api.ApiCallBack;
+import com.app.msu_cp.api.ApiManager;
+import com.app.msu_cp.careplan.IcdCodeBean;
+import com.app.msu_cp.careplan.IcdCodesAdapter;
+import com.app.msu_cp.model.DrugBean;
+import com.app.msu_cp.model.MedSummaryBean;
+import com.app.msu_cp.model.PastHistoryBean;
+import com.app.msu_cp.model.RelativeHadBean;
+import com.app.msu_cp.model.SurguryBean;
+import com.app.msu_cp.util.CheckInternetConnection;
+import com.app.msu_cp.util.CustomToast;
+import com.app.msu_cp.util.DATA;
+import com.app.msu_cp.util.DatePickerFragment;
+import com.app.msu_cp.util.ExpandableHeightListView;
+import com.app.msu_cp.util.GloabalMethods;
+import com.app.msu_cp.util.HideShowKeypad;
+import com.app.msu_cp.util.OpenActivity;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
+
+public class PatientMedicalHistoryNew extends BaseActivity{
+
+	Activity activity;
+	public HideShowKeypad hideShowKeypad;
+	SharedPreferences prefs;
+	Button btnFlipPrev,btnFlipNext;
+
+	//past history layout...
+	ListView lvMedicalHistory1;
+	EditText etPastOther;
+	//MedicalHistoryAdapter medicalHistoryAdapter;
+
+	PastHistoryAdapter adapter;
+	StringBuilder s;
+	OpenActivity openActivity;
+	ApiCallBack apiCallBack;
+
+	//social history layout.,.
+	RadioGroup rgMedicalSmoke, rgMedicalAlcohol, rgStreetDrug;
+	EditText etAlcoholHowMuch, etAlcoholHowLong, etSocialOther;//etStreetDrugList
+	RadioButton radioMedicalAlcoholYes,radioMedicalAlcoholNo,radioStreetDrugYes,radioStreetDrugNo;
+	LinearLayout layStreetDrugs;
+	CheckBox cbLSD, cbMarijuana, cbCocaine, cbMethAmphetamines, cbHeroine ,cbCarfentanyl;
+	CheckBox[] checkBoxesStreetDrugs;
+	//family history layout
+	CheckBox checkDisease, checkHeart,checkMental, checkCancer, checkBp, checkStroke, checkDiabetes,
+			checkKidney, checkTubr, checkEpilespy, checksickle, checkBleeming,checkFamilyOther;
+	CheckBox[] checkBoxesFamily;
+	EditText etDisease,etHeart, etMental, etCancer, etBp, etStroke, etDiabetes,
+			etKidney, etTubr, etEpilespy, etsickle, etBleeming,etFamilyOther;
+	RadioButton rbFatherID,rbMotherID,rbGrandParentsID,rbBrotherID,rbSisterID,
+			rbFatherHT,rbMotherHT,rbGrandParentsHT,rbBrotherHT,rbSisterHT,
+			rbFatherMI,rbMotherMI,rbGrandParentsMI,rbBrotherMI,rbSisterMI,
+			rbFatherC,rbMotherC,rbGrandParentsC,rbBrotherC,rbSisterC,
+			rbFatherHBP,rbMotherHBP,rbGrandParentsHBP,rbBrotherHBP,rbSisterHBP,
+			rbFatherSt,rbMotherSt,rbGrandParentsSt,rbBrotherSt,rbSisterSt,
+			rbFatherDia,rbMotherDia,rbGrandParentsDia,rbBrotherDia,rbSisterDia,
+			rbFatherKP,rbMotherKP,rbGrandParentsKP,rbBrotherKP,rbSisterKP,
+			rbFatherTB,rbMotherTB,rbGrandParentsTB,rbBrotherTB,rbSisterTB,
+			rbFatherEp,rbMotherEp,rbGrandParentsEp,rbBrotherEp,rbSisterEp,
+			rbFatherSCD,rbMotherSCD,rbGrandParentsSCD,rbBrotherSCD,rbSisterSCD,
+			rbFatherBle,rbMotherBle,rbGrandParentsBle,rbBrotherBle,rbSisterBle,
+			rbFatherOther,rbMotherOther,rbGrandParentsOther,rbBrotherOther,rbSisterOther;
+	RadioButton[] radiosID, radiosHT, radiosMI, radiosC, radiosHBP, radiosSt, radiosDia, radiosKP, radiosTB, radiosEp, radiosSCD, radiosBle, radiosOther;
+	LinearLayout layID, layHT, layMI, layC, layHBP, laySt, layDia, layKP, layTB, layEp, laySCD, layBle, layOther;
+	RadioButton rbOtherID,rbOtherHT,rbOtherMI,rbOtherC,rbOtherHBP,rbOtherSt,rbOtherDia,rbOtherKP,rbOtherTB,rbOtherEp,rbOtherSCD,rbOtherBle,rbOtherOther;
+	EditText etOtherID,etOtherHT,etOtherMI,etOtherC,etOtherHBP,etOtherSt,etOtherDia,etOtherKP,etOtherTB,etOtherEp,etOtherSCD,etOtherBle,etOtherOther;
+	EditText[] etFamilyOthers;
+
+	//final layout
+	RadioGroup rgMedications,rgAllergies;
+	EditText etMedicalHistoryOther;
+	Button btnUpdateMedical;
+	RadioButton radioMedicationsYes,radioMedicationsNo,radioAllergiesYes,radioAllergiesNo;
+
+	EditText etMedicationsAddMedication;
+	ExpandableHeightListView lvMedications;
+	ImageView ivAddMedication, ivSearchMedication;
+	TextView tvAddMed;
+	public TextView tvViewMed;
+	ArrayList<String> medicationList;
+
+	ExpandableHeightListView lvAllergies;
+	ImageView ivAddAllergies;
+	EditText etAddAllergies;
+	TextView tvAddAllergy;
+	public TextView tvViewAllergy;
+	ArrayList<String> allergiesList;
+
+	ExpandableHeightListView lvHosptalization;
+	ImageView ivAddHosptalization;
+	EditText etAddHosptalization;
+	TextView tvAddHosp;
+	public TextView tvViewHosp;
+	ArrayList<String> hosptalizationList;
+
+	TextView tvAddSurg,tvViewSurg,tvNoSurg;
+	LinearLayout laySurgeries;
+	ImageView ivCloseSurgeries;
+	ExpandableHeightListView lvSurgeries;
+	ImageView ivCloseAddSurgeries;
+	EditText etSurgLocation,etSurgType,etSurgDocName,etSurgDate;
+	Button btnAddSurg;
+	LinearLayout layAddSurgeries;
+	SwipeRefreshLayout srSurgeries;
+	ArrayList<SurguryBean> surguryBeans;
+	SurgeryAdapter surgeryAdapter;
+
+	TextView tvAddMedSummary, tvViewMedSummary, tvNoMedSummary;
+	LinearLayout layMedSummary;
+	ImageView ivCloseMedSummary;
+	ExpandableHeightListView lvMedSummary;
+	ImageView ivCloseAddMedSummary;
+	EditText etMedSummary;
+	Button btnAddMedSummary;
+	LinearLayout layAddMedSummary;
+	SwipeRefreshLayout srMedSummary;
+	ArrayList<MedSummaryBean> medSummaryBeans;
+	MedSummaryAdapter medSummaryAdapter;
+
+	LinearLayout layNoNetwork;
+
+	//tabs
+	TextView tvPast,tvSocial,tvRelatives,tvMedications;
+
+
+	//new Diagnosis ILC_CODES field
+	LinearLayout layDiagnosis;
+	ProgressBar pbAutoComplete;
+	private static final int TRIGGER_AUTO_COMPLETE = 100;
+	private static final long AUTO_COMPLETE_DELAY = 500; //300 - > orig value
+	private Handler handler;
+	private IcdCodesAdapter icdCodesAdapter;
+	//EditText etMedHistrDiagnosis;
+
+	public TextView tvViewDiag,tvAddDiag;
+	ExpandableHeightListView lvDiagnosis;
+	List<String> diagnosisList;
+	//new Diagnosis ILC_CODES field
+
+
+	//New Smoke Section code
+	RadioButton radioSmokeCurrentSmoker,radioSmokeFormerSmoker,radioSmokeNonSmoker;
+	LinearLayout laySmokeDetail,laySmokeCurrentSmoker,laySmokeFormerSmoker;
+	Spinner spSmokeType,spSmokeHowMuchPerDay,spSmokeReadyToQuit;
+	EditText etSmokeWhatAge,etSmokeHowLongDidUsmoke,etSmokeQuitDate;
+	TextView tvSmokeTypeLbl,tvSmokeAgeLbl,tvSmokeHowMuchPerDayLbl,tvSmokeReadyToQuitLbl,tvSmokeHowLongDidULbl,tvSmokeQuitDateLbl;//labels
+
+	//EditText etSmokeHowMuch,etSmokeHowLong;
+	//RadioButton radioMedicalSmokeYes,radioMedicalSmokeNo;
+
+	//Current Smoker=0 , Former Smoker=1, Non Smoker=2
+
+	ArrayList<String> smokeTypeList;
+	ArrayList<String> smokeHowMuchPerDayList;
+	ArrayList<String> smokeReadyToQuitList;
+	//New Smoke Section code
+
+
+
+	/*String pastHistryArr[] = {"Anemia","Heart Disease","Rheumetic Fever","Mitral Valve Prolapse Thyroid","Cancer","Gall Blader Disease","Blood Transfusion",
+			"Pelvic Infection","Bladder Infections","Genital Herpes","Seizurs","Migrains","Liver Disease","Depression/Anxiety",
+			"Drug or Alcohol Problem","Gonorrhea/Syphillis/Chlamydia","Asthma","Pneumonia","Diabetes","Sickle Cell Trait","Blood clot in legs/lungs",
+			"Osteopenia",};*/
+
+	ViewFlipper viewFlipper;
+	CheckInternetConnection connection;
+	CustomToast toast;
+	boolean shouldUpdate = true;
+
+	@Override
+	protected void onResume() {
+		/*if (radioMedicalSmokeYes.isChecked()) {
+			DATA.isSmoke = 1;
+		} else {
+			DATA.isSmoke = 0;
+		}*/
+		if (radioMedicalAlcoholYes.isChecked()) {
+			DATA.isDrunk = 1;
+		} else {
+			DATA.isDrunk = 0;
+		}
+		if (radioStreetDrugYes.isChecked()) {
+			DATA.isDrug=1;
+		} else {
+			DATA.isDrug=0;
+		}
+		if (radioAllergiesYes.isChecked()) {
+			DATA.isAlergies=1;
+		} else {
+			DATA.isAlergies=0;
+		}
+		if (radioMedicationsYes.isChecked()) {
+			DATA.isMedication = 1;
+		} else {
+			DATA.isMedication = 0;
+		}
+		if (hosptalizationList != null){
+			if(hosptalizationList.isEmpty()){
+				DATA.isHospitalized = 0;
+			}else {
+				DATA.isHospitalized = 1;
+			}
+		}else {
+			DATA.isHospitalized = 0;
+		}
+		super.onResume();
+	}
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.patient_medical_history);
+
+		activity = PatientMedicalHistoryNew.this;
+		apiCallBack = this;
+		connection = new CheckInternetConnection(activity);
+		toast = new CustomToast(activity);
+		openActivity = new OpenActivity(activity);
+		hideShowKeypad = new HideShowKeypad(activity);
+		prefs = getSharedPreferences(DATA.SHARED_PREFS_NAME, Context.MODE_PRIVATE);
+		viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
+
+		btnFlipNext = (Button) findViewById(R.id.btnFlipNext);
+		btnFlipPrev = (Button) findViewById(R.id.btnFlipPrev);
+
+		/*setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setTitle("Medical History");
+
+		findViewById(R.id.btnToolbar).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				// TODO Auto-generated method stub
+				final Dialog verDialog = new Dialog(activity);
+				verDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+				verDialog.setContentView(R.layout.dialog_verification);
+				verDialog.getWindow().setBackgroundDrawableResource(R.drawable.cust_border_white_outline);
+
+				final TextView tvMessage = (TextView) verDialog.findViewById(R.id.tvMessage);
+				final EditText etPincode = (EditText) verDialog.findViewById(R.id.etPincode);
+				Button btnEnterPincode = (Button) verDialog.findViewById(R.id.btnEnterPincode);
+				Button btnForgotPincode = (Button) verDialog.findViewById(R.id.btnForgotPincode);
+
+				btnEnterPincode.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						if (etPincode.getText().toString().isEmpty()) {
+							Toast.makeText(activity, "Please enter your prescription pincode", Toast.LENGTH_SHORT).show();
+						} else {
+							if (prefs.getString("pincode", "1234").equals(etPincode.getText().toString())) {
+								verDialog.dismiss();
+								openActivity.open(ReportFolders.class, false);
+							} else {
+								tvMessage.setText("Incorrect pincode. Possible typing mistake?");
+							}
+						}
+					}
+				});
+
+				btnForgotPincode.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						verDialog.dismiss();
+						initForgotPincodeDialogDialog();
+					}
+				});
+
+				verDialog.show();
+			}
+		});*/
+
+		s = new StringBuilder(200);
+
+		//past history====================================================
+//		String pastHistryArr[] = {"Anemia","Heart Disease","Rheumetic Fever","Mitral Valve Prolapse Thyroid","Cancer","Gall Blader Disease","Blood Transfusion",
+//				"Pelvic Infection","Bladder Infections","Genital Herpes","Seizurs","Migrains","Liver Disease","Depression/Anxiety",
+//				"Drug or Alcohol Problem","Gonorrhea/Syphillis/Chlamydia","Asthma","Pneumonia","Diabetes","Sickle Cell Trait","Blood clot in legs/lungs",
+//				"Osteopenia",};
+
+		/*DATA.pastHistoryBeans = new ArrayList<PastHistoryBean>();
+		DATA.pastHistoryBeans.add(new PastHistoryBean(0, "Anemia", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(1, "Heart Disease", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(2, "Rheumetic Fever", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(3, "Mitral Valve Prolapse Thyroid", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(4, "Cancer", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(5, "Gall Blader Disease", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(6, "Blood Transfusion", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(7, "Pelvic Infection", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(8, "Bladder Infections", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(9, "Genital Herpes", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(10, "Seizurs", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(11, "Migrains", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(12, "Liver Disease", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(13, "Depression/Anxiety", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(14, "Drug or Alcohol Problem", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(15, "Gonorrhea/Syphillis/Chlamydia", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(16, "Asthma", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(17, "Pneumonia", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(18, "Diabetes", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(19, "Sickle Cell Trait", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(20, "Blood clot in legs/lungs", false));
+		DATA.pastHistoryBeans.add(new PastHistoryBean(21, "Osteopenia", false));
+
+		adapter = new PastHistoryAdapter(activity, DATA.pastHistoryBeans);
+		lvMedicalHistory1.setAdapter(adapter);*/
+
+		lvMedicalHistory1 = (ListView) findViewById(R.id.lvMedicalHistory1);
+		etPastOther = (EditText) findViewById(R.id.etPastOther);
+		/*medicalHistoryAdapter = new MedicalHistoryAdapter(activity, pastHistryArr);
+		lvMedicalHistory1.setAdapter(medicalHistoryAdapter);*/
+
+
+
+
+//		DATA.allReports = new ArrayList<ReportsModel>();
+
+//		ReportsModel temp;
+//
+//		for(int i = 0; i<pastHistryArr.length; i++) {
+//
+//			temp = new ReportsModel();
+//			temp.name = pastHistryArr[i];
+//
+//			DATA.allReports.add(temp);
+//
+//			temp = null;
+//		}
+//		selecReportsAdapter = new SelecReportsAdapter(activity);
+//		lvMedicalHistory1.setAdapter(selecReportsAdapter);
+
+		//past history ends====================================================
+
+		//social history================================================
+		rgMedicalAlcohol = (RadioGroup) findViewById(R.id.rgMedicalAlcohol);
+		rgMedicalSmoke = (RadioGroup) findViewById(R.id.rgMedicalSmoke);
+		rgStreetDrug = (RadioGroup) findViewById(R.id.rgStreetDrug);
+		//etSmokeHowMuch = (EditText) findViewById(R.id.etSmokeHowMuch);
+		//etSmokeHowLong = (EditText) findViewById(R.id.etSmokeHowLong);
+		etAlcoholHowMuch = (EditText) findViewById(R.id.etAlcoholHowMuch);
+		etAlcoholHowLong = (EditText) findViewById(R.id.etAlcoholHowLong);
+		//etStreetDrugList = (EditText) findViewById(R.id.etStreetDrugList);
+		etSocialOther = (EditText) findViewById(R.id.etSocialOther);
+		//radioMedicalSmokeYes=(RadioButton) findViewById(R.id.radioSmokeYes);
+		//radioMedicalSmokeNo=(RadioButton) findViewById(R.id.radioSmokeNo);
+		radioMedicalAlcoholYes=(RadioButton) findViewById(R.id.rdioAlcoholYes);
+		radioMedicalAlcoholNo=(RadioButton) findViewById(R.id.radioAlcoholNo);
+		radioStreetDrugYes=(RadioButton) findViewById(R.id.radioStreetYes);
+		radioStreetDrugNo=(RadioButton) findViewById(R.id.radioStreetNo);
+		layStreetDrugs = findViewById(R.id.layStreetDrugs);
+		cbLSD = findViewById(R.id.cbLSD);
+		cbMarijuana = findViewById(R.id.cbMarijuana);
+		cbCocaine = findViewById(R.id.cbCocaine);
+		cbMethAmphetamines = findViewById(R.id.cbMethAmphetamines);
+		cbHeroine = findViewById(R.id.cbHeroine);
+		cbCarfentanyl = findViewById(R.id.cbCarfentanyl);
+		checkBoxesStreetDrugs = new CheckBox[]{cbLSD, cbMarijuana, cbCocaine, cbMethAmphetamines, cbHeroine, cbCarfentanyl};
+		//social history ends============================================================
+
+		//Family History============================================================
+		checkDisease = (CheckBox) findViewById(R.id.checkDisease);
+		checkHeart = (CheckBox) findViewById(R.id.checkHeart);
+		checkMental = (CheckBox) findViewById(R.id.checkMental);
+		checkCancer = (CheckBox) findViewById(R.id.checkCancer);
+		checkBp = (CheckBox) findViewById(R.id.checkBp);
+		checkStroke = (CheckBox) findViewById(R.id.checkStroke);
+		checkDiabetes = (CheckBox) findViewById(R.id.checkDiabetes);
+		checkKidney = (CheckBox) findViewById(R.id.checkKidney);
+		checkTubr = (CheckBox) findViewById(R.id.checkTubr);
+		checkEpilespy = (CheckBox) findViewById(R.id.checkEpilespy);
+		checksickle = (CheckBox) findViewById(R.id.checksickle);
+		checkBleeming = (CheckBox) findViewById(R.id.checkBleeming);
+		checkFamilyOther = findViewById(R.id.checkFamilyOther);
+
+		etDisease = (EditText) findViewById(R.id.etDisease);
+		etHeart = (EditText) findViewById(R.id.etHeart);
+		etMental = (EditText) findViewById(R.id.etMental);
+		etCancer = (EditText) findViewById(R.id.etCancer);
+		etBp = (EditText) findViewById(R.id.etBp);
+		etStroke = (EditText) findViewById(R.id.etStroke);
+		etDiabetes = (EditText) findViewById(R.id.etDiabetes);
+		etKidney = (EditText) findViewById(R.id.etKidney);
+		etTubr = (EditText) findViewById(R.id.etTubr);
+		etEpilespy = (EditText) findViewById(R.id.etEpilespy);
+		etsickle = (EditText) findViewById(R.id.etsickle);
+		etBleeming = (EditText) findViewById(R.id.etBleeming);
+		etFamilyOther = (EditText) findViewById(R.id.etFamilyOther);
+
+		rbFatherID = findViewById(R.id.rbFatherID);
+		rbMotherID = findViewById(R.id.rbMotherID);
+		rbGrandParentsID = findViewById(R.id.rbGrandParentsID);
+		rbBrotherID = findViewById(R.id.rbBrotherID);
+		rbSisterID = findViewById(R.id.rbSisterID);
+		rbFatherHT = findViewById(R.id.rbFatherHT);
+		rbMotherHT = findViewById(R.id.rbMotherHT);
+		rbGrandParentsHT = findViewById(R.id.rbGrandParentsHT);
+		rbBrotherHT = findViewById(R.id.rbBrotherHT);
+		rbSisterHT = findViewById(R.id.rbSisterHT);
+		rbFatherMI = findViewById(R.id.rbFatherMI);
+		rbMotherMI = findViewById(R.id.rbMotherMI);
+		rbGrandParentsMI = findViewById(R.id.rbGrandParentsMI);
+		rbBrotherMI = findViewById(R.id.rbBrotherMI);
+		rbSisterMI = findViewById(R.id.rbSisterMI);
+		rbFatherC = findViewById(R.id.rbFatherC);
+		rbMotherC = findViewById(R.id.rbMotherC);
+		rbGrandParentsC = findViewById(R.id.rbGrandParentsC);
+		rbBrotherC = findViewById(R.id.rbBrotherC);
+		rbSisterC = findViewById(R.id.rbSisterC);
+		rbFatherHBP = findViewById(R.id.rbFatherHBP);
+		rbMotherHBP = findViewById(R.id.rbMotherHBP);
+		rbGrandParentsHBP = findViewById(R.id.rbGrandParentsHBP);
+		rbBrotherHBP = findViewById(R.id.rbBrotherHBP);
+		rbSisterHBP = findViewById(R.id.rbSisterHBP);
+		rbFatherSt = findViewById(R.id.rbFatherSt);
+		rbMotherSt = findViewById(R.id.rbMotherSt);
+		rbGrandParentsSt = findViewById(R.id.rbGrandParentsSt);
+		rbBrotherSt = findViewById(R.id.rbBrotherSt);
+		rbSisterSt = findViewById(R.id.rbSisterSt);
+		rbFatherDia = findViewById(R.id.rbFatherDia);
+		rbMotherDia = findViewById(R.id.rbMotherDia);
+		rbGrandParentsDia = findViewById(R.id.rbGrandParentsDia);
+		rbBrotherDia = findViewById(R.id.rbBrotherDia);
+		rbSisterDia = findViewById(R.id.rbSisterDia);
+		rbFatherKP = findViewById(R.id.rbFatherKP);
+		rbMotherKP = findViewById(R.id.rbMotherKP);
+		rbGrandParentsKP = findViewById(R.id.rbGrandParentsKP);
+		rbBrotherKP = findViewById(R.id.rbBrotherKP);
+		rbSisterKP = findViewById(R.id.rbSisterKP);
+		rbFatherTB = findViewById(R.id.rbFatherTB);
+		rbMotherTB = findViewById(R.id.rbMotherTB);
+		rbGrandParentsTB = findViewById(R.id.rbGrandParentsTB);
+		rbBrotherTB = findViewById(R.id.rbBrotherTB);
+		rbSisterTB = findViewById(R.id.rbSisterTB);
+		rbFatherEp = findViewById(R.id.rbFatherEp);
+		rbMotherEp = findViewById(R.id.rbMotherEp);
+		rbGrandParentsEp = findViewById(R.id.rbGrandParentsEp);
+		rbBrotherEp = findViewById(R.id.rbBrotherEp);
+		rbSisterEp = findViewById(R.id.rbSisterEp);
+		rbFatherSCD = findViewById(R.id.rbFatherSCD);
+		rbMotherSCD = findViewById(R.id.rbMotherSCD);
+		rbGrandParentsSCD = findViewById(R.id.rbGrandParentsSCD);
+		rbBrotherSCD = findViewById(R.id.rbBrotherSCD);
+		rbSisterSCD = findViewById(R.id.rbSisterSCD);
+		rbFatherBle = findViewById(R.id.rbFatherBle);
+		rbMotherBle = findViewById(R.id.rbMotherBle);
+		rbGrandParentsBle = findViewById(R.id.rbGrandParentsBle);
+		rbBrotherBle = findViewById(R.id.rbBrotherBle);
+		rbSisterBle = findViewById(R.id.rbSisterBle);
+		rbFatherOther = findViewById(R.id.rbFatherOther);
+		rbMotherOther = findViewById(R.id.rbMotherOther);
+		rbGrandParentsOther = findViewById(R.id.rbGrandParentsOther);
+		rbBrotherOther = findViewById(R.id.rbBrotherOther);
+		rbSisterOther = findViewById(R.id.rbSisterOther);
+
+
+		layID = findViewById(R.id.layID);
+		layHT = findViewById(R.id.layHT);
+		layMI = findViewById(R.id.layMI);
+		layC = findViewById(R.id.layC);
+		layHBP = findViewById(R.id.layHBP);
+		laySt = findViewById(R.id.laySt);
+		layDia = findViewById(R.id.layDia);
+		layKP = findViewById(R.id.layKP);
+		layTB = findViewById(R.id.layTB);
+		layEp = findViewById(R.id.layEp);
+		laySCD = findViewById(R.id.laySCD);
+		layBle = findViewById(R.id.layBle);
+		layOther = findViewById(R.id.layOther);
+
+
+		rbOtherID = findViewById(R.id.rbOtherID);
+		rbOtherHT = findViewById(R.id.rbOtherHT);
+		rbOtherMI = findViewById(R.id.rbOtherMI);
+		rbOtherC = findViewById(R.id.rbOtherC);
+		rbOtherHBP = findViewById(R.id.rbOtherHBP);
+		rbOtherSt = findViewById(R.id.rbOtherSt);
+		rbOtherDia = findViewById(R.id.rbOtherDia);
+		rbOtherKP = findViewById(R.id.rbOtherKP);
+		rbOtherTB = findViewById(R.id.rbOtherTB);
+		rbOtherEp = findViewById(R.id.rbOtherEp);
+		rbOtherSCD = findViewById(R.id.rbOtherSCD);
+		rbOtherBle = findViewById(R.id.rbOtherBle);
+		rbOtherOther = findViewById(R.id.rbOtherOther);
+		etOtherID = findViewById(R.id.etOtherID);
+		etOtherHT = findViewById(R.id.etOtherHT);
+		etOtherMI = findViewById(R.id.etOtherMI);
+		etOtherC = findViewById(R.id.etOtherC);
+		etOtherHBP = findViewById(R.id.etOtherHBP);
+		etOtherSt = findViewById(R.id.etOtherSt);
+		etOtherDia = findViewById(R.id.etOtherDia);
+		etOtherKP = findViewById(R.id.etOtherKP);
+		etOtherTB = findViewById(R.id.etOtherTB);
+		etOtherEp = findViewById(R.id.etOtherEp);
+		etOtherSCD = findViewById(R.id.etOtherSCD);
+		etOtherBle = findViewById(R.id.etOtherBle);
+		etOtherOther = findViewById(R.id.etOtherOther);
+
+		etFamilyOthers = new EditText[]{etOtherID,etOtherHT,etOtherMI,etOtherC,etOtherHBP,etOtherSt,etOtherDia,etOtherKP,etOtherTB,etOtherEp,etOtherSCD,etOtherBle,etOtherOther};
+
+
+		radiosID = new RadioButton[]{rbFatherID,rbMotherID,rbGrandParentsID,rbBrotherID,rbSisterID,rbOtherID};
+		radiosHT = new RadioButton[]{rbFatherHT,rbMotherHT,rbGrandParentsHT,rbBrotherHT,rbSisterHT,rbOtherHT};
+		radiosMI = new RadioButton[]{rbFatherMI,rbMotherMI,rbGrandParentsMI,rbBrotherMI,rbSisterMI,rbOtherMI};
+		radiosC = new RadioButton[]{rbFatherC,rbMotherC,rbGrandParentsC,rbBrotherC,rbSisterC,rbOtherC};
+		radiosHBP = new RadioButton[]{rbFatherHBP,rbMotherHBP,rbGrandParentsHBP,rbBrotherHBP,rbSisterHBP,rbOtherHBP};
+		radiosSt = new RadioButton[]{rbFatherSt,rbMotherSt,rbGrandParentsSt,rbBrotherSt,rbSisterSt,rbOtherSt};
+		radiosDia = new RadioButton[]{rbFatherDia,rbMotherDia,rbGrandParentsDia,rbBrotherDia,rbSisterDia,rbOtherDia};
+		radiosKP = new RadioButton[]{rbFatherKP,rbMotherKP,rbGrandParentsKP,rbBrotherKP,rbSisterKP,rbOtherKP};
+		radiosTB = new RadioButton[]{rbFatherTB,rbMotherTB,rbGrandParentsTB,rbBrotherTB,rbSisterTB,rbOtherTB};
+		radiosEp = new RadioButton[]{rbFatherEp,rbMotherEp,rbGrandParentsEp,rbBrotherEp,rbSisterEp,rbOtherEp};
+		radiosSCD = new RadioButton[]{rbFatherSCD,rbMotherSCD,rbGrandParentsSCD,rbBrotherSCD,rbSisterSCD,rbOtherSCD};
+		radiosBle = new RadioButton[]{rbFatherBle,rbMotherBle,rbGrandParentsBle,rbBrotherBle,rbSisterBle,rbOtherBle};
+		radiosOther = new RadioButton[]{rbFatherOther,rbMotherOther,rbGrandParentsOther,rbBrotherOther,rbSisterOther,rbOtherOther};
+
+
+
+
+
+
+		checkBoxesFamily = new CheckBox[]{checkDisease, checkHeart,checkMental, checkCancer, checkBp, checkStroke, checkDiabetes,
+				checkKidney, checkTubr, checkEpilespy, checksickle, checkBleeming,checkFamilyOther};
+
+		for (int i = 0; i < checkBoxesFamily.length; i++) {
+			checkBoxesFamily[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					if(!isChecked){
+						if(buttonView.getId() == R.id.checkDisease){
+							for (int j = 0; j < radiosID.length; j++) {
+								radiosID[j].setChecked(false);
+								radiosID[j].setEnabled(false);
+								etOtherID.setVisibility(View.GONE);
+								etOtherID.setText("");
+							}
+							etDisease.setText("");
+							etDisease.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkHeart){
+							for (int j = 0; j < radiosHT.length; j++) {
+								radiosHT[j].setChecked(false);
+								radiosHT[j].setEnabled(false);
+								etOtherHT.setVisibility(View.GONE);
+								etOtherHT.setText("");
+							}
+							etHeart.setText("");
+							etHeart.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkMental){
+							for (int j = 0; j < radiosMI.length; j++) {
+								radiosMI[j].setChecked(false);
+								radiosMI[j].setEnabled(false);
+								etOtherMI.setVisibility(View.GONE);
+								etOtherMI.setText("");
+							}
+							etMental.setText("");
+							etMental.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkCancer){
+							for (int j = 0; j < radiosC.length; j++) {
+								radiosC[j].setChecked(false);
+								radiosC[j].setEnabled(false);
+								etOtherC.setVisibility(View.GONE);
+								etOtherC.setText("");
+							}
+							etCancer.setText("");
+							etCancer.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkBp){
+							for (int j = 0; j < radiosHBP.length; j++) {
+								radiosHBP[j].setChecked(false);
+								radiosHBP[j].setEnabled(false);
+								etOtherHBP.setVisibility(View.GONE);
+								etOtherHBP.setText("");
+							}
+							etBp.setText("");
+							etBp.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkStroke){
+							for (int j = 0; j < radiosSt.length; j++) {
+								radiosSt[j].setChecked(false);
+								radiosSt[j].setEnabled(false);
+								etOtherSt.setVisibility(View.GONE);
+								etOtherSt.setText("");
+							}
+							etStroke.setText("");
+							etStroke.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkDiabetes){
+							for (int j = 0; j < radiosDia.length; j++) {
+								radiosDia[j].setChecked(false);
+								radiosDia[j].setEnabled(false);
+								etOtherDia.setVisibility(View.GONE);
+								etOtherDia.setText("");
+							}
+							etDiabetes.setText("");
+							etDiabetes.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkKidney){
+							for (int j = 0; j < radiosKP.length; j++) {
+								radiosKP[j].setChecked(false);
+								radiosKP[j].setEnabled(false);
+								etOtherKP.setVisibility(View.GONE);
+								etOtherKP.setText("");
+							}
+							etKidney.setText("");
+							etKidney.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkTubr){
+							for (int j = 0; j < radiosTB.length; j++) {
+								radiosTB[j].setChecked(false);
+								radiosTB[j].setEnabled(false);
+								etOtherTB.setVisibility(View.GONE);
+								etOtherTB.setText("");
+							}
+							etTubr.setText("");
+							etTubr.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checkEpilespy){
+							for (int j = 0; j < radiosEp.length; j++) {
+								radiosEp[j].setChecked(false);
+								radiosEp[j].setEnabled(false);
+								etOtherEp.setVisibility(View.GONE);
+								etOtherEp.setText("");
+							}
+							etEpilespy.setText("");
+							etEpilespy.setEnabled(false);
+						} else if(buttonView.getId() == R.id.checksickle){
+							for (int j = 0; j < radiosSCD.length; j++) {
+								radiosSCD[j].setChecked(false);
+								radiosSCD[j].setEnabled(false);
+								etOtherSCD.setVisibility(View.GONE);
+								etOtherSCD.setText("");
+							}
+							etsickle.setText("");
+							etsickle.setEnabled(false);
+						}else if(buttonView.getId() == R.id.checkBleeming){
+							for (int j = 0; j < radiosBle.length; j++) {
+								radiosBle[j].setChecked(false);
+								radiosBle[j].setEnabled(false);
+								etOtherBle.setVisibility(View.GONE);
+								etOtherBle.setText("");
+							}
+							etBleeming.setText("");
+							etBleeming.setEnabled(false);
+						}else if(buttonView.getId() == R.id.checkFamilyOther){
+							for (int j = 0; j < radiosOther.length; j++) {
+								radiosOther[j].setChecked(false);
+								radiosOther[j].setEnabled(false);
+								etOtherOther.setVisibility(View.GONE);
+								etOtherOther.setText("");
+							}
+							etFamilyOther.setText("");
+							etFamilyOther.setEnabled(false);
+						}
+					}else {
+
+
+						if(buttonView.getId() == R.id.checkDisease){
+							for (int j = 0; j < radiosID.length; j++) {
+								//radiosID[j].setChecked(false);
+								radiosID[j].setEnabled(true);
+							}
+							//etDisease.setText("");
+							etDisease.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkHeart){
+							for (int j = 0; j < radiosHT.length; j++) {
+								//radiosHT[j].setChecked(false);
+								radiosHT[j].setEnabled(true);
+							}
+							//etHeart.setText("");
+							etHeart.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkMental){
+							for (int j = 0; j < radiosMI.length; j++) {
+								//radiosMI[j].setChecked(false);
+								radiosMI[j].setEnabled(true);
+							}
+							//etMental.setText("");
+							etMental.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkCancer){
+							for (int j = 0; j < radiosC.length; j++) {
+								//radiosC[j].setChecked(false);
+								radiosC[j].setEnabled(true);
+							}
+							//etCancer.setText("");
+							etCancer.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkBp){
+							for (int j = 0; j < radiosHBP.length; j++) {
+								//radiosHBP[j].setChecked(false);
+								radiosHBP[j].setEnabled(true);
+							}
+							//etBp.setText("");
+							etBp.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkStroke){
+							for (int j = 0; j < radiosSt.length; j++) {
+								//radiosSt[j].setChecked(false);
+								radiosSt[j].setEnabled(true);
+							}
+							//etStroke.setText("");
+							etStroke.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkDiabetes){
+							for (int j = 0; j < radiosDia.length; j++) {
+								//radiosDia[j].setChecked(false);
+								radiosDia[j].setEnabled(true);
+							}
+							//etDiabetes.setText("");
+							etDiabetes.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkKidney){
+							for (int j = 0; j < radiosKP.length; j++) {
+								//radiosKP[j].setChecked(false);
+								radiosKP[j].setEnabled(true);
+							}
+							//etKidney.setText("");
+							etKidney.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkTubr){
+							for (int j = 0; j < radiosTB.length; j++) {
+								//radiosTB[j].setChecked(false);
+								radiosTB[j].setEnabled(true);
+							}
+							//etTubr.setText("");
+							etTubr.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checkEpilespy){
+							for (int j = 0; j < radiosEp.length; j++) {
+								//radiosEp[j].setChecked(false);
+								radiosEp[j].setEnabled(true);
+							}
+							//etEpilespy.setText("");
+							etEpilespy.setEnabled(true);
+						} else if(buttonView.getId() == R.id.checksickle){
+							for (int j = 0; j < radiosSCD.length; j++) {
+								//radiosSCD[j].setChecked(false);
+								radiosSCD[j].setEnabled(true);
+							}
+							//etsickle.setText("");
+							etsickle.setEnabled(true);
+						}else if(buttonView.getId() == R.id.checkBleeming){
+							for (int j = 0; j < radiosBle.length; j++) {
+								//radiosBle[j].setChecked(false);
+								radiosBle[j].setEnabled(true);
+							}
+							//etBleeming.setText("");
+							etBleeming.setEnabled(true);
+						}else if(buttonView.getId() == R.id.checkFamilyOther){
+							for (int j = 0; j < radiosOther.length; j++) {
+								//radiosOther[j].setChecked(false);
+								radiosOther[j].setEnabled(true);
+							}
+							//etFamilyOther.setText("");
+							etFamilyOther.setEnabled(true);
+						}
+					}
+				}
+			});
+		}
+
+		for (int i = 0; i < radiosID.length; i++) {
+			int finalI = i;
+			radiosID[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosID.length; j++) {radiosID[j].setChecked(false);}
+					radiosID[finalI].setChecked(true);
+					etDisease.setText(radiosID[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosID, etDisease, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosHT.length; i++) {
+			int finalI = i;
+			radiosHT[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosHT.length; j++) {radiosHT[j].setChecked(false);}
+					radiosHT[finalI].setChecked(true);
+					etHeart.setText(radiosHT[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosHT, etHeart, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosMI.length; i++) {
+			int finalI = i;
+			radiosMI[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					////Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosMI.length; j++) {radiosMI[j].setChecked(false);}
+					radiosMI[finalI].setChecked(true);
+					etMental.setText(radiosMI[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosMI, etMental, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosC.length; i++) {
+			int finalI = i;
+			radiosC[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosC.length; j++) {radiosC[j].setChecked(false);}
+					radiosC[finalI].setChecked(true);
+					etCancer.setText(radiosC[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosC, etCancer, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosHBP.length; i++) {
+			int finalI = i;
+			radiosHBP[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosHBP.length; j++) {radiosHBP[j].setChecked(false);}
+					radiosHBP[finalI].setChecked(true);
+					etBp.setText(radiosHBP[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosHBP, etBp, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosSt.length; i++) {
+			int finalI = i;
+			radiosSt[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosSt.length; j++) {radiosSt[j].setChecked(false);}
+					radiosSt[finalI].setChecked(true);
+					etStroke.setText(radiosSt[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosSt, etStroke, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosDia.length; i++) {
+			int finalI = i;
+			radiosDia[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosDia.length; j++) {radiosDia[j].setChecked(false);}
+					radiosDia[finalI].setChecked(true);
+					etDiabetes.setText(radiosDia[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosDia, etDiabetes, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosKP.length; i++) {
+			int finalI = i;
+			radiosKP[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosKP.length; j++) {radiosKP[j].setChecked(false);}
+					radiosKP[finalI].setChecked(true);
+					etKidney.setText(radiosKP[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosKP, etKidney, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosTB.length; i++) {
+			int finalI = i;
+			radiosTB[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosTB.length; j++) {radiosTB[j].setChecked(false);}
+					radiosTB[finalI].setChecked(true);
+					etTubr.setText(radiosTB[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosTB, etTubr, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosEp.length; i++) {
+			int finalI = i;
+			radiosEp[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosEp.length; j++) {radiosEp[j].setChecked(false);}
+					radiosEp[finalI].setChecked(true);
+					etEpilespy.setText(radiosEp[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosEp, etEpilespy, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosSCD.length; i++) {
+			int finalI = i;
+			radiosSCD[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosSCD.length; j++) {radiosSCD[j].setChecked(false);}
+					radiosSCD[finalI].setChecked(true);
+					etsickle.setText(radiosSCD[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosSCD, etsickle, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosBle.length; i++) {
+			int finalI = i;
+			radiosBle[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosBle.length; j++) {radiosBle[j].setChecked(false);}
+					radiosBle[finalI].setChecked(true);
+					etBleeming.setText(radiosBle[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosBle, etBleeming, finalI);
+				}
+			});
+		}
+		for (int i = 0; i < radiosOther.length; i++) {
+			int finalI = i;
+			radiosOther[i].setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Note: this code was to show 1 radio selected.
+					/*for (int j = 0; j < radiosOther.length; j++) {radiosOther[j].setChecked(false);}
+					radiosOther[finalI].setChecked(true);
+					etFamilyOther.setText(radiosOther[finalI].getTag().toString());*/
+
+					setEditTextDataOnRadioClick(radiosOther, etFamilyOther, finalI);
+				}
+			});
+		}
+
+		//Family History ends========================================================
+
+		//Final History==============================================================
+		rgMedications = (RadioGroup) findViewById(R.id.rgMedications);
+		rgAllergies = (RadioGroup) findViewById(R.id.rgAllergies);
+		etMedicalHistoryOther = (EditText) findViewById(R.id.etMedicalHistoryOther);
+		btnUpdateMedical = (Button) findViewById(R.id.btnUpdateMedical);
+		radioMedicationsYes=(RadioButton) findViewById(R.id.radioMedicationYes);
+		radioMedicationsNo=(RadioButton) findViewById(R.id.radioMedicationNo);
+		radioAllergiesYes=(RadioButton) findViewById(R.id.radioAllergiesYes);
+		radioAllergiesNo=(RadioButton) findViewById(R.id.radioAllergiesNo);
+
+		//Final History ends=========================================================
+
+		layNoNetwork = findViewById(R.id.layNoNetwork);
+
+		btnFlipNext.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				DATA.print("--viewFlipper "+ viewFlipper.getDisplayedChild());
+				viewFlipper.showNext();
+
+				int selectedChild = viewFlipper.getDisplayedChild();
+
+				setupViewFiliperAndTabs(selectedChild);
+
+				DATA.print("-- selectedChild btn next : "+selectedChild);
+
+				if (selectedChild == 3) {
+					btnFlipNext.setEnabled(false);
+				} else {
+					btnFlipNext.setEnabled(true);
+				}
+
+				if (selectedChild == 0) {
+					btnFlipPrev.setEnabled(false);
+				} else {
+					btnFlipPrev.setEnabled(true);
+				}
+
+				setInd();
+			}
+		});
+		btnFlipPrev.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				DATA.print("--viewFlipper "+ viewFlipper.getDisplayedChild());
+				viewFlipper.showPrevious();
+
+				int selectedChild = viewFlipper.getDisplayedChild();
+
+				setupViewFiliperAndTabs(selectedChild);
+
+				DATA.print("-- selectedChild btn previos : "+selectedChild);
+
+				if (selectedChild == 3) {
+					btnFlipNext.setEnabled(false);
+				} else {
+					btnFlipNext.setEnabled(true);
+				}
+
+				if (selectedChild == 0) {
+					btnFlipPrev.setEnabled(false);
+				} else {
+					btnFlipPrev.setEnabled(true);
+				}
+
+				setInd();
+			}
+		});
+
+		btnUpdateMedical.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				/*if(DATA.isFromFirstLogin) {
+
+					openActivity.open(FreeCare.class, true);
+				}
+				else {*/
+				StringBuilder s = new StringBuilder(200);
+				DATA.desaesenamesFromHistory = "";
+				for (PastHistoryBean bean : DATA.pastHistoryBeans) {
+					if (bean.isSelected()) {
+						s.append(DATA.desaesenamesFromHistory+bean.getId());
+						s.append(",");
+						//DATA.desaesenamesFromHistory=DATA.desaesenamesFromHistory+bean.getId()+",";
+					}
+				}
+				DATA.desaesenamesFromHistory = s.toString();
+				if (!DATA.desaesenamesFromHistory.isEmpty()) {
+					DATA.desaesenamesFromHistory=DATA.desaesenamesFromHistory.substring(0, DATA.desaesenamesFromHistory.length()-1);
+				}
+				DATA.print("--selected positions "+DATA.desaesenamesFromHistory);
+
+				String patient_id = DATA.selectedUserCallId;
+				String medical_history=DATA.desaesenamesFromHistory;
+				String is_smoke=DATA.isSmoke+"";
+				String smoke_detail = "";
+
+				/*if (DATA.isSmoke == 1) {
+					if (etSmokeHowLong.getText().toString().isEmpty() || etSmokeHowMuch.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						Toast.makeText(activity, "Please enter smoke detail", Toast.LENGTH_SHORT).show();
+					}else {
+						shouldUpdate = true;
+						smoke_detail= etSmokeHowLong.getText().toString()+"/"+etSmokeHowMuch.getText().toString();
+					}
+				}*/
+				if(DATA.isSmoke == 0){
+					String smokeType = "";
+					try {smokeType = smokeTypeList.get(spSmokeType.getSelectedItemPosition());}catch (Exception e){e.printStackTrace();}
+					String smokeAge = etSmokeWhatAge.getText().toString().trim();
+					String smokeHowMuchPerDay = "";
+					try {smokeHowMuchPerDay = smokeHowMuchPerDayList.get(spSmokeHowMuchPerDay.getSelectedItemPosition());}catch (Exception e){e.printStackTrace();}
+					String smokeReadyToQuit = "";
+					try {smokeReadyToQuit = smokeReadyToQuitList.get(spSmokeReadyToQuit.getSelectedItemPosition());}catch (Exception e){e.printStackTrace();}
+
+					smoke_detail = smokeType + "|" +smokeAge + "|" + smokeHowMuchPerDay + "|" + smokeReadyToQuit;
+				}else if(DATA.isSmoke == 1){
+					String smokeType = "";
+					try {smokeType = smokeTypeList.get(spSmokeType.getSelectedItemPosition());}catch (Exception e){e.printStackTrace();}
+					String smokeHowLong = etSmokeHowLongDidUsmoke.getText().toString().trim();
+					String smokeQuitDate = etSmokeQuitDate.getText().toString().trim();
+
+					smoke_detail = smokeType + "|" + smokeHowLong + "|" + smokeQuitDate;
+				}else if(DATA.isSmoke == 2){
+					smoke_detail = "";
+				}
+
+				String is_drink = DATA.isDrunk+"";
+				String drink_detail = "";
+				if (DATA.isDrunk == 1) {
+					if (etAlcoholHowLong.getText().toString().isEmpty() || etAlcoholHowMuch.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						Toast.makeText(activity, "Please enter drink detail", Toast.LENGTH_SHORT).show();
+					} else {
+						shouldUpdate = true;
+						drink_detail=etAlcoholHowLong.getText().toString()+"/"+etAlcoholHowMuch.getText().toString();
+					}
+				}
+
+				String is_drug = DATA.isDrug+"";
+				String drug_detail = "";
+				if (DATA.isDrug == 1) {
+					StringBuilder sbDrugDetail = new StringBuilder();
+					for (int i = 0; i < checkBoxesStreetDrugs.length; i++) {
+						if(checkBoxesStreetDrugs[i].isChecked()){
+							sbDrugDetail.append(checkBoxesStreetDrugs[i].getText().toString());
+							sbDrugDetail.append("\n");
+						}
+					}
+					if (sbDrugDetail.toString().isEmpty()) {//etStreetDrugList.getText()
+						shouldUpdate = false;
+						Toast.makeText(activity, "Please enter drugs detail", Toast.LENGTH_SHORT).show();
+					} else {
+						shouldUpdate = true;
+						drug_detail = sbDrugDetail.substring(0, sbDrugDetail.length()-1);//etStreetDrugList.getText()
+					}
+				}
+
+
+				String is_medication=DATA.isMedication+"";
+				String medication_detail = "";
+				if (DATA.isMedication == 1) {
+					if(medicationList != null){
+						if (medicationList.isEmpty()) {
+							shouldUpdate = false;
+							Toast.makeText(activity, "Please enter medication detail", Toast.LENGTH_SHORT).show();
+						} else {
+							shouldUpdate = true;
+							for (int i = 0; i < medicationList.size(); i++) {
+								medication_detail = medication_detail+medicationList.get(i);
+								if(i < (medicationList.size()-1)){
+									medication_detail = medication_detail+"\n";
+								}
+							}
+						}
+					}else{
+						shouldUpdate = false;
+						Toast.makeText(activity, "Please enter medication detail", Toast.LENGTH_SHORT).show();
+					}
+				}
+
+				String is_alergies=DATA.isAlergies+"";
+				String alergies_detail = "";
+				if (DATA.isAlergies == 1) {
+					if(allergiesList != null){
+						if(allergiesList.isEmpty()){
+							shouldUpdate = false;
+							Toast.makeText(activity, "Please enter Allergies detail", Toast.LENGTH_SHORT).show();
+						}else{
+							shouldUpdate = true;
+							for (int i = 0; i < allergiesList.size(); i++) {
+								alergies_detail = alergies_detail+allergiesList.get(i)+"\n";
+							}
+						}
+					}else{
+						shouldUpdate = false;
+						Toast.makeText(activity, "Please enter Allergies detail", Toast.LENGTH_SHORT).show();
+					}
+				}
+
+
+				String hospitalize_detail = "";
+				if(hosptalizationList != null){
+					if(hosptalizationList.isEmpty()){
+						DATA.isHospitalized = 0;
+						hospitalize_detail= "";
+					}else{
+						DATA.isHospitalized = 1;
+						for (int i = 0; i < hosptalizationList.size(); i++) {
+							hospitalize_detail = hospitalize_detail + hosptalizationList.get(i)+"\n";
+						}
+					}
+				}else{
+					DATA.isHospitalized = 0;
+					hospitalize_detail= "";
+				}
+				String is_hospitalize = DATA.isHospitalized+"";
+
+//			CheckBox checkDisease, checkHeart,checkMental, checkCancer, checkBp, checkStroke, checkDiabetes,
+//				checkKidney, checkTubr, checkEpilespy, checksickle, checkBleeming,checkFamilyOther;
+//
+//			EditText etDisease,etHeart, etMental, etCancer, etBp, etStroke, etDiabetes,
+//					 etKidney, etTubr, etEpilespy, etsickle, etBleeming,etFamilyOther;
+				String relation_had="";
+				String relation_had_name="";
+				String relation_had_id="";
+				if (checkDisease.isChecked()) {
+					if (etDisease.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Inherited Disease detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etDisease.setError("Please enter Inherited Disease detail");
+						layID.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had =relation_had+checkDisease.getText().toString();
+						relation_had_name = relation_had_name+etDisease.getText().toString();
+						relation_had_id = relation_had_id+checkDisease.getTag().toString();
+						layID.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkHeart.isChecked()) {
+					if (etHeart.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Heart Trouble detail", Toast.LENGTH_SHORT).show();
+
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etHeart.setError("Please enter Heart Trouble detail");
+						layHT.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkHeart.getText().toString();
+						relation_had_name = relation_had_name+"/"+etHeart.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkHeart.getTag().toString();
+						layHT.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkMental.isChecked()) {
+					if (etMental.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Mental Illness detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etMental.setError("Please enter Mental Illness detail");
+						layMI.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkMental.getText().toString();
+						relation_had_name = relation_had_name+"/"+etMental.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkMental.getTag().toString();
+						layMI.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkCancer.isChecked()) {
+					if (etCancer.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Cancer detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etCancer.setError("Please enter Cancer detail");
+						layC.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkCancer.getText().toString();
+						relation_had_name = relation_had_name+"/"+etCancer.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkCancer.getTag().toString();
+						layC.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkBp.isChecked()) {
+					if (etBp.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter High Blood Pressure detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etBp.setError("Please enter High Blood Pressure detail");
+						layHBP.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkBp.getText().toString();
+						relation_had_name = relation_had_name+"/"+etBp.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkBp.getTag().toString();
+						layHBP.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkStroke.isChecked()) {
+					if (etStroke.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Stroke detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etStroke.setError("Please enter Stroke detail");
+						laySt.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkStroke.getText().toString();
+						relation_had_name = relation_had_name+"/"+etStroke.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkStroke.getTag().toString();
+						laySt.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkDiabetes.isChecked()) {
+					if (etDiabetes.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Diabetes detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etDiabetes.setError("Please enter Diabetes detail");
+						layDia.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkDiabetes.getText().toString();
+						relation_had_name = relation_had_name+"/"+etDiabetes.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkDiabetes.getTag().toString();
+						layDia.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkKidney.isChecked()) {
+					if (etKidney.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Kidney Problem detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etKidney.setError("Please enter Kidney Problem detail");
+						layKP.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkKidney.getText().toString();
+						relation_had_name = relation_had_name+"/"+etKidney.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkKidney.getTag().toString();
+						layKP.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkTubr.isChecked()) {
+					if (etTubr.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Tuberculosis detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etTubr.setError("Please enter Tuberculosis detail");
+						layTB.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkTubr.getText().toString();
+						relation_had_name = relation_had_name+"/"+etTubr.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkTubr.getTag().toString();
+						layTB.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkEpilespy.isChecked()) {
+					if (etEpilespy.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Epilespy detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etEpilespy.setError("Please enter Epilespy detail");
+						layEp.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkEpilespy.getText().toString();
+						relation_had_name = relation_had_name+"/"+etEpilespy.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkEpilespy.getTag().toString();
+						layEp.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checksickle.isChecked()) {
+					if (etsickle.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Sickle Cell Disease detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etsickle.setError("Please enter Sickle Cell Disease detail");
+						laySCD.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checksickle.getText().toString();
+						relation_had_name = relation_had_name+"/"+etsickle.getText().toString();
+						relation_had_id = relation_had_id+"/"+checksickle.getTag().toString();
+						laySCD.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+				if (checkBleeming.isChecked()) {
+					if (etBleeming.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Bleeming Problems detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etBleeming.setError("Please enter Bleeding Problems detail");
+						layBle.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkBleeming.getText().toString();
+						relation_had_name = relation_had_name+"/"+etBleeming.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkBleeming.getTag().toString();
+						layBle.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+
+
+				if (checkFamilyOther.isChecked()) {
+					if (etFamilyOther.getText().toString().isEmpty()) {
+						shouldUpdate = false;
+						//Toast.makeText(activity, "Please enter Bleeming Problems detail", Toast.LENGTH_SHORT).show();
+						viewFlipper.setDisplayedChild(2);
+						btnFlipNext.setEnabled(true);
+						etFamilyOther.setError("Please enter problem detail");
+						layOther.setBackgroundResource(R.drawable.cust_border_grey_outline_red);
+					} else {
+						relation_had = relation_had+"/"+checkFamilyOther.getText().toString();
+						relation_had_name = relation_had_name+"/"+etFamilyOther.getText().toString();
+						relation_had_id = relation_had_id+"/"+checkFamilyOther.getTag().toString();
+						layOther.setBackgroundResource(R.drawable.cust_border_white_outline);
+					}
+				}
+
+				//String icd_codes = etMedHistrDiagnosis.getText().toString();
+				String icd_codes = "";
+				if(diagnosisList != null){
+					for (int i = 0; i < diagnosisList.size(); i++) {
+						icd_codes = icd_codes + diagnosisList.get(i);
+						if(i < (diagnosisList.size() - 1)){
+							icd_codes = icd_codes+"\n";
+						}
+					}
+				}
+
+				if (connection.isConnectedToInternet()) {
+					if(shouldUpdate){
+
+						StringBuilder other_relation= new StringBuilder();
+						for (int i = 0; i < etFamilyOthers.length; i++) {
+							if(checkBoxesFamily[i].isChecked()){
+								if(TextUtils.isEmpty(etFamilyOthers[i].getText().toString().trim())){
+									other_relation.append("0");
+								}else {
+									other_relation.append(etFamilyOthers[i].getText().toString().trim());
+								}
+								other_relation.append("/");
+							}
+						}
+						String otherRel = other_relation.toString();
+						if (otherRel != null && otherRel.length() > 0 && otherRel.charAt(otherRel.length() - 1) == '/') {
+							otherRel = otherRel.substring(0, otherRel.length() - 1);
+						}
+						DATA.print("-- other_relation : "+otherRel);
+
+
+						sendMedicalHistory(patient_id, medical_history, is_smoke, smoke_detail, is_drink, drink_detail, is_drug, drug_detail,
+								relation_had, relation_had_name, relation_had_id, is_medication, medication_detail, is_alergies, alergies_detail,
+								is_hospitalize, hospitalize_detail, icd_codes, otherRel);
+					}
+				}else {
+					toast.showToast(DATA.NO_NETWORK_MESSAGE, 0, Toast.LENGTH_SHORT);
+				}
+
+				//finish();
+				//}
+
+//				Toast.makeText(activity, "Upload and save on the server is under construction", 1).show();
+			}
+		});
+
+
+
+
+
+		//New Smoke Section code
+		tvSmokeTypeLbl = findViewById(R.id.tvSmokeTypeLbl);
+		tvSmokeAgeLbl = findViewById(R.id.tvSmokeAgeLbl);
+		tvSmokeHowMuchPerDayLbl = findViewById(R.id.tvSmokeHowMuchPerDayLbl);
+		tvSmokeReadyToQuitLbl = findViewById(R.id.tvSmokeReadyToQuitLbl);
+		tvSmokeHowLongDidULbl = findViewById(R.id.tvSmokeHowLongDidULbl);
+		tvSmokeQuitDateLbl = findViewById(R.id.tvSmokeQuitDateLbl);
+
+		radioSmokeCurrentSmoker = findViewById(R.id.radioSmokeCurrentSmoker);
+		radioSmokeFormerSmoker  = findViewById(R.id.radioSmokeFormerSmoker);
+		radioSmokeNonSmoker = findViewById(R.id.radioSmokeNonSmoker);
+
+		laySmokeDetail  = findViewById(R.id.laySmokeDetail);
+		laySmokeCurrentSmoker = findViewById(R.id.laySmokeCurrentSmoker);
+		laySmokeFormerSmoker = findViewById(R.id.laySmokeFormerSmoker);
+
+		spSmokeType = findViewById(R.id.spSmokeType);
+		spSmokeHowMuchPerDay = findViewById(R.id.spSmokeHowMuchPerDay);
+		spSmokeReadyToQuit = findViewById(R.id.spSmokeReadyToQuit);
+
+		etSmokeWhatAge = findViewById(R.id.etSmokeWhatAge);
+		etSmokeHowLongDidUsmoke = findViewById(R.id.etSmokeHowLongDidUsmoke);
+		etSmokeQuitDate = findViewById(R.id.etSmokeQuitDate);
+
+		etSmokeQuitDate.setOnClickListener(v -> {
+			DialogFragment newFragment = new DatePickerFragment(etSmokeQuitDate);
+			newFragment.show(appCompatActivity.getSupportFragmentManager(), "datePicker");
+		});
+
+		String prefsDataStr = prefs.getString(PREF_APP_LBL_KEY, "");
+
+		DATA.print("-- prefs json lbls: "+prefsDataStr);
+
+		//empty check zarur
+
+		if(! TextUtils.isEmpty(prefsDataStr)){
+			try {
+				JSONObject smokeLblJObj = new JSONObject(prefsDataStr);
+
+				//tvSmokeTypeLbl.setText(smokeLblJObj.getString(""));
+				tvSmokeAgeLbl.setText(smokeLblJObj.getString("start_age_lbl"));
+				tvSmokeHowMuchPerDayLbl.setText(smokeLblJObj.getString("current_smoker_per_day_lbl"));
+				tvSmokeReadyToQuitLbl.setText(smokeLblJObj.getString("ready_quit_lbl"));
+				tvSmokeHowLongDidULbl.setText(smokeLblJObj.getString("how_long_smoke_lbl"));
+				tvSmokeQuitDateLbl.setText(smokeLblJObj.getString("quit_date_lbl"));
+
+				JSONArray current_smoker_types = smokeLblJObj.getJSONArray("current_smoker_types");
+
+				Type listTypeStr = new TypeToken<ArrayList<String>>() {}.getType();
+				smokeTypeList = gson.fromJson(current_smoker_types.toString(), listTypeStr);
+				//ArrayAdapter<String> spSmokeTypeAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_dropdown_item_1line, smokeTypeList);
+				spSmokeType.setAdapter(new ArrayAdapter<String>(activity, android.R.layout.simple_dropdown_item_1line, smokeTypeList));
+
+				JSONArray current_smoker_per_day = smokeLblJObj.getJSONArray("current_smoker_per_day");
+				smokeHowMuchPerDayList = gson.fromJson(current_smoker_per_day.toString(), listTypeStr);
+				spSmokeHowMuchPerDay.setAdapter(new ArrayAdapter<String>(activity, android.R.layout.simple_dropdown_item_1line, smokeHowMuchPerDayList));
+
+				JSONArray ready_quit_options = smokeLblJObj.getJSONArray("ready_quit_options");
+				smokeReadyToQuitList = gson.fromJson(ready_quit_options.toString(), listTypeStr);
+				spSmokeReadyToQuit.setAdapter(new ArrayAdapter<String>(activity, android.R.layout.simple_dropdown_item_1line, smokeReadyToQuitList));
+
+
+
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+
+
+		//New Smoke Section code
+
+
+		rgMedicalSmoke.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int id) {
+				//	 int selectedId = rgMedicalAlcohol.getCheckedRadioButtonId();
+
+				switch (id) {
+					case -1:
+						DATA.print("--nochoice");
+						break;
+
+					case R.id.radioSmokeCurrentSmoker:
+						laySmokeDetail.setVisibility(View.VISIBLE);
+						laySmokeCurrentSmoker.setVisibility(View.VISIBLE);
+						laySmokeFormerSmoker.setVisibility(View.GONE);
+
+						DATA.isSmoke = 0;
+						break;
+
+					case R.id.radioSmokeFormerSmoker:
+						laySmokeDetail.setVisibility(View.VISIBLE);
+						laySmokeCurrentSmoker.setVisibility(View.GONE);
+						laySmokeFormerSmoker.setVisibility(View.VISIBLE);
+
+						DATA.isSmoke = 1;
+						break;
+
+					case R.id.radioSmokeNonSmoker:
+						laySmokeDetail.setVisibility(View.GONE);
+						//laySmokeCurrentSmoker.setVisibility(View.VISIBLE);
+						//laySmokeFormerSmoker.setVisibility(View.GONE);
+
+						DATA.isSmoke = 2;
+						break;
+
+					/*case R.id.radioSmokeYes:
+						etSmokeHowLong.setVisibility(View.VISIBLE);
+						etSmokeHowMuch.setVisibility(View.VISIBLE);
+						DATA.isSmoke = 1;
+						//shouldUpdate = true;
+						break;
+					case R.id.radioSmokeNo:
+						etSmokeHowLong.setVisibility(View.GONE);
+						etSmokeHowMuch.setVisibility(View.GONE);
+						DATA.isSmoke = 0;
+						shouldUpdate = true;
+
+						break;*/
+
+					default:
+						//Toast.makeText(getApplicationContext(), id+"", Toast.LENGTH_SHORT).show();
+
+						break;
+				}
+
+			}
+		});
+
+
+		rgMedicalAlcohol.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int id) {
+				//	 int selectedId = rgMedicalAlcohol.getCheckedRadioButtonId();
+
+				switch (id) {
+					case -1:
+						DATA.print("--nochoice");
+						break;
+					case R.id.rdioAlcoholYes:
+						etAlcoholHowLong.setVisibility(View.VISIBLE);
+						etAlcoholHowMuch.setVisibility(View.VISIBLE);
+						DATA.isDrunk = 1;
+						//shouldUpdate = true;
+						break;
+					case R.id.radioAlcoholNo:
+						etAlcoholHowLong.setVisibility(View.GONE);
+						etAlcoholHowMuch.setVisibility(View.GONE);
+						DATA.isDrunk = 0;
+						shouldUpdate = true;
+
+						break;
+
+					default:
+						Toast.makeText(getApplicationContext(), id+"", Toast.LENGTH_SHORT).show();
+						DATA.print("Huh?");
+						break;
+				}
+
+			}
+		});
+		rgStreetDrug.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int id) {
+				//	 int selectedId = rgMedicalAlcohol.getCheckedRadioButtonId();
+
+				switch (id) {
+					case -1:
+						DATA.print("--nochoice");
+						break;
+					case R.id.radioStreetYes:
+						layStreetDrugs.setVisibility(View.VISIBLE);//etStreetDrugList
+						DATA.isDrug = 1;
+						//shouldUpdate = true;
+
+						break;
+					case R.id.radioStreetNo:
+						layStreetDrugs.setVisibility(View.GONE);//etStreetDrugList
+						DATA.isDrug = 0;
+						shouldUpdate = true;
+						break;
+
+					default:
+						Toast.makeText(getApplicationContext(), id+"", Toast.LENGTH_SHORT).show();
+
+						break;
+				}
+
+			}
+		});
+
+		rgMedications.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int id) {
+				//	 int selectedId = rgMedicalAlcohol.getCheckedRadioButtonId();
+
+				switch (id) {
+					case -1:
+						DATA.print("--nochoice");
+						break;
+					case R.id.radioMedicationYes:
+						findViewById(R.id.medicationsCont).setVisibility(View.VISIBLE);
+						DATA.isMedication=1;
+						//shouldUpdate = true;
+						break;
+					case R.id.radioMedicationNo:
+						findViewById(R.id.medicationsCont).setVisibility(View.GONE);
+						DATA.isMedication=0;
+						shouldUpdate = true;
+						break;
+
+					default:
+						Toast.makeText(getApplicationContext(), id+"", Toast.LENGTH_SHORT).show();
+
+						break;
+				}
+
+			}
+		});
+		rgAllergies.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int id) {
+				//	 int selectedId = rgMedicalAlcohol.getCheckedRadioButtonId();
+
+				switch (id) {
+					case -1:
+						DATA.print("--nochoice");
+						break;
+					case R.id.radioAllergiesYes:
+						findViewById(R.id.contAllergies).setVisibility(View.VISIBLE);
+						DATA.isAlergies = 1;
+						//shouldUpdate = true;
+						break;
+					case R.id.radioAllergiesNo:
+						findViewById(R.id.contAllergies).setVisibility(View.GONE);
+						DATA.isAlergies = 0;
+						shouldUpdate = true;
+						break;
+
+					default:
+						Toast.makeText(getApplicationContext(), id+"", Toast.LENGTH_SHORT).show();
+
+						break;
+				}
+
+			}
+		});
+
+		//=====================Medications========================================================================
+		etMedicationsAddMedication = (EditText) findViewById(R.id.etMedicationsAddMedication);
+		lvMedications = findViewById(R.id.lvMedications);
+		ivAddMedication= (ImageView) findViewById(R.id.ivAddMedication);
+		ivSearchMedication = (ImageView) findViewById(R.id.ivSearchMedication);
+		tvAddMed = findViewById(R.id.tvAddMed);
+		tvViewMed = findViewById(R.id.tvViewMed);
+
+		if(medicationList == null){
+			medicationList = new ArrayList<>();
+		}
+		tvAddMed.setOnClickListener(new OnClickListener() {//new code emcura iphone
+			@Override
+			public void onClick(View v) {
+				addMedDialog();
+			}
+		});
+		tvViewMed.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showMediDialog();
+			}
+		});
+		ivAddMedication.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(!etMedicationsAddMedication.getText().toString().isEmpty()){
+					hideShowKeypad.hideSoftKeyboard();
+					medicationList.add(etMedicationsAddMedication.getText().toString());
+					lvMedications.setAdapter(new HistoryMediAdapter(activity,medicationList));
+					lvMedications.setExpanded(true);
+					etMedicationsAddMedication.setText("");
+				}else {
+					etMedicationsAddMedication.setError("Please enter medication name");
+				}
+			}
+		});
+		ivSearchMedication.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(!etMedicationsAddMedication.getText().toString().trim().isEmpty()){
+					showDrugDialog(etMedicationsAddMedication.getText().toString().trim(),false,0);
+				}else {
+					etMedicationsAddMedication.setError("Please enter medication name");
+				}
+			}
+		});
+		etMedicationsAddMedication.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_DONE) {
+					if(!etMedicationsAddMedication.getText().toString().trim().isEmpty()){
+						//hideShowKeypad.hideSoftKeyboard();
+						showAskMedicationDialog(etMedicationsAddMedication.getText().toString().trim());
+
+					}else {
+						etMedicationsAddMedication.setError("Please enter medication name");
+					}
+					//return true; return true not closes keyboard
+					return false;
+				}
+				return false;
+			}
+		});
+		//=====================Allergies========================================================================
+		lvAllergies = findViewById(R.id.lvAllergies);
+		ivAddAllergies = (ImageView) findViewById(R.id.ivAddAllergies);;
+		etAddAllergies = (EditText) findViewById(R.id.etAddAllergies);
+		tvAddAllergy = findViewById(R.id.tvAddAllergy);
+		tvViewAllergy = findViewById(R.id.tvViewAllergy);
+		if(allergiesList == null){
+			allergiesList = new ArrayList<>();
+		}
+		//new code emcura iphone app like
+		tvAddAllergy.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				addAllergiesDialog();
+			}
+		});
+		tvViewAllergy.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showAllergiesDialog();
+			}
+		});
+		//new code emcura iphone app like ends
+		ivAddAllergies.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(!etAddAllergies.getText().toString().isEmpty()){
+					hideShowKeypad.hideSoftKeyboard();
+					allergiesList.add(etAddAllergies.getText().toString());
+					lvAllergies.setAdapter(new HistoryAllergyAdapter(activity,allergiesList));
+					lvAllergies.setExpanded(true);
+					etAddAllergies.setText("");
+				}else {
+					etAddAllergies.setError("Please enter allergy name");
+				}
+			}
+		});
+		etAddAllergies.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_DONE) {
+					if(!etAddAllergies.getText().toString().isEmpty()){
+						hideShowKeypad.hideSoftKeyboard();
+						allergiesList.add(etAddAllergies.getText().toString());
+						lvAllergies.setAdapter(new HistoryAllergyAdapter(activity,allergiesList));
+						lvAllergies.setExpanded(true);
+						etAddAllergies.setText("");
+					}else {
+						etAddAllergies.setError("Please enter allergy name");
+					}
+					//return true; return true not closes keyboard
+					return false;
+				}
+				return false;
+			}
+		});
+
+		//=====================Hospitalizations========================================================================
+		lvHosptalization = findViewById(R.id.lvHosptalization);
+		ivAddHosptalization = (ImageView) findViewById(R.id.ivAddHosptalization);;
+		etAddHosptalization = (EditText) findViewById(R.id.etAddHosptalization);
+		tvAddHosp = findViewById(R.id.tvAddHosp);
+		tvViewHosp = findViewById(R.id.tvViewHosp);
+
+		if(hosptalizationList == null){
+			hosptalizationList = new ArrayList<>();
+		}
+
+		//new code emcura iphone app
+		tvAddHosp.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				addHospDialog();
+			}
+		});
+		tvViewHosp.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showHospitalizationDialog();
+			}
+		});
+		//new code emcura iphone app ends
+		ivAddHosptalization.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(!etAddHosptalization.getText().toString().isEmpty()){
+					hideShowKeypad.hideSoftKeyboard();
+					hosptalizationList.add(etAddHosptalization.getText().toString());
+					lvHosptalization.setAdapter(new HistoryHosptAdapter(activity,hosptalizationList));
+					lvHosptalization.setExpanded(true);
+					etAddHosptalization.setText("");
+				}else {
+					etAddHosptalization.setError("Please enter Hospitalization/Surgery name");
+				}
+			}
+		});
+		etAddHosptalization.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_DONE) {
+					if(!etAddHosptalization.getText().toString().isEmpty()){
+						hideShowKeypad.hideSoftKeyboard();
+						hosptalizationList.add(etAddHosptalization.getText().toString());
+						lvHosptalization.setAdapter(new HistoryHosptAdapter(activity,hosptalizationList));
+						lvHosptalization.setExpanded(true);
+						etAddHosptalization.setText("");
+					}else {
+						etAddHosptalization.setError("Please enter Hospitalization/Surgery name");
+					}
+					//return true; return true not closes keyboard
+					return false;
+				}
+				return false;
+			}
+		});
+		//========================Tabs================================================================================
+		tvPast = (TextView) findViewById(R.id.tvPast);
+		tvSocial = (TextView) findViewById(R.id.tvSocial);
+		tvRelatives = (TextView) findViewById(R.id.tvRelatives);
+		tvMedications = (TextView) findViewById(R.id.tvMedications);
+
+		OnClickListener onClickListener = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				switch (v.getId()){
+
+					case R.id.tvPast:
+						setupViewFiliperAndTabs(0);
+						break;
+					case R.id.tvSocial:
+						setupViewFiliperAndTabs(1);
+						break;
+					case R.id.tvRelatives:
+						setupViewFiliperAndTabs(2);
+						break;
+					case R.id.tvMedications:
+						setupViewFiliperAndTabs(3);
+						break;
+					default:
+						break;
+				}
+
+
+				setInd();
+				int selectedChild = viewFlipper.getDisplayedChild();
+				DATA.print("-- selectedChild tab click : "+selectedChild);
+				if (selectedChild == 3) {
+					btnFlipNext.setEnabled(false);
+				} else {
+					btnFlipNext.setEnabled(true);
+				}
+
+				if (selectedChild == 0) {
+					btnFlipPrev.setEnabled(false);
+				} else {
+					btnFlipPrev.setEnabled(true);
+				}
+			}
+		};
+
+		tvPast.setOnClickListener(onClickListener);
+		tvSocial.setOnClickListener(onClickListener);
+		tvRelatives.setOnClickListener(onClickListener);
+		tvMedications.setOnClickListener(onClickListener);
+
+
+		ScrollView scroll = (ScrollView) findViewById(R.id.nb);
+		preventScrollViewFromScrollingToEdiText(scroll);
+		/*scroll.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View arg0, MotionEvent arg1) {
+				View focussedView = getCurrentFocus();
+				if( focussedView != null ) focussedView.clearFocus();
+
+				return false;
+			}
+		});*/
+
+
+		//new Diagnosis ILC_CODES field
+
+		tvViewDiag = findViewById(R.id.tvViewDiag);
+		tvAddDiag = findViewById(R.id.tvAddDiag);
+		lvDiagnosis = findViewById(R.id.lvDiagnosis);
+
+		//etMedHistrDiagnosis = findViewById(R.id.etMedHistrDiagnosis);
+		layDiagnosis = findViewById(R.id.layDiagnosis);
+
+		tvViewDiag.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showDiagnosisDialog();
+			}
+		});
+
+		//===============AutoComplete========================
+		pbAutoComplete = (ProgressBar) findViewById(R.id.pbAutoComplete);
+		pbAutoComplete.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.colorPrimary), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+		final AppCompatAutoCompleteTextView autoCompleteTextView = (AppCompatAutoCompleteTextView) findViewById(R.id.auto_complete_edit_text);
+
+		//Setting up the adapter for AutoSuggest
+		icdCodesAdapter = new IcdCodesAdapter(activity, android.R.layout.simple_spinner_dropdown_item);
+		autoCompleteTextView.setThreshold(2);
+		autoCompleteTextView.setAdapter(icdCodesAdapter);
+		autoCompleteTextView.setOnItemClickListener(
+				new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+						//selectedText.setText(icdCodesAdapter.getObject(position).toString());
+						String diagnosis = icdCodesAdapter.getObject(position).desc+ " ("+icdCodesAdapter.getObject(position).code+")";
+
+						/*String diag = etMedHistrDiagnosis.getText().toString();
+						if(TextUtils.isEmpty(diag)){
+							diag = diagnosis;
+						}else {
+							diag = diag + "\n"+diagnosis;//,
+						}
+						etMedHistrDiagnosis.setText(diag);*/
+
+						if(diagnosisList == null){
+							diagnosisList = new ArrayList<>();
+						}
+						diagnosisList.add(diagnosis);
+						lvDiagnosis.setAdapter(new HistoryDiagAdapter(activity, diagnosisList));
+						lvDiagnosis.setExpanded(true);
+
+						autoCompleteTextView.setText("");
+
+						hideShowKeypad.hideSoftKeyboard();
+
+					}
+				});
+
+		autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				handler.removeMessages(TRIGGER_AUTO_COMPLETE);
+				handler.sendEmptyMessageDelayed(TRIGGER_AUTO_COMPLETE, AUTO_COMPLETE_DELAY);
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+
+			}
+		});
+
+		handler = new Handler(new Handler.Callback() {
+			@Override
+			public boolean handleMessage(Message msg) {
+				if (msg.what == TRIGGER_AUTO_COMPLETE) {
+					if (!TextUtils.isEmpty(autoCompleteTextView.getText())) {
+						pbAutoComplete.setVisibility(View.VISIBLE);
+						RequestParams params = new RequestParams();
+						params.put("keyword", autoCompleteTextView.getText().toString());
+						ApiManager apiManager = new ApiManager(ApiManager.GET_ICD_CODES,"post",params, apiCallBack, activity);
+						ApiManager.shouldShowPD = false;
+						apiManager.loadURL();
+					}
+				}
+				return false;
+			}
+		});
+		//new Diagnosis ILC_CODES field Ends
+
+
+		rgMedications.clearCheck();
+		rgAllergies.clearCheck();
+		rgMedicalSmoke.clearCheck();
+		rgMedicalAlcohol.clearCheck();
+		rgStreetDrug.clearCheck();
+
+
+		getMedicalHistory(DATA.selectedUserCallId);
+		layNoNetwork.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				getMedicalHistory(DATA.selectedUserCallId);
+			}
+		});
+
+
+
+		tvAddSurg = findViewById(R.id.tvAddSurg);
+		tvViewSurg = findViewById(R.id.tvViewSurg);
+		laySurgeries  = findViewById(R.id.laySurgeries);
+		ivCloseSurgeries = findViewById(R.id.ivCloseSurgeries);
+		lvSurgeries = findViewById(R.id.lvSurgeries);
+		tvNoSurg = findViewById(R.id.tvNoSurg);
+		srSurgeries = findViewById(R.id.srSurgeries);
+
+		ivCloseAddSurgeries = findViewById(R.id.ivCloseAddSurgeries);
+		etSurgLocation = findViewById(R.id.etSurgLocation);
+		etSurgType = findViewById(R.id.etSurgType);
+		etSurgDocName = findViewById(R.id.etSurgDocName);
+		etSurgDate = findViewById(R.id.etSurgDate);
+		btnAddSurg = findViewById(R.id.btnAddSurg);
+		layAddSurgeries = findViewById(R.id.layAddSurgeries);
+
+		//======================swip to refresh==================================
+		int colorsArr[] = {Color.parseColor("#3cba54"), Color.parseColor("#f4c20d"), Color.parseColor("#db3236"), Color.parseColor("#4885ed")};
+		srSurgeries.setColorSchemeColors(colorsArr);
+		srSurgeries.setOnRefreshListener(
+				new SwipeRefreshLayout.OnRefreshListener() {
+					@Override
+					public void onRefresh() {
+						if(!checkInternetConnection.isConnectedToInternet()){srSurgeries.setRefreshing(false);}else {}
+						loadSurgeries();
+					}
+				}
+		);
+		//======================swip to refresh ends=============================
+
+
+		//=======================Medical Summary======================================
+		tvAddMedSummary = findViewById(R.id.tvAddMedSummary);
+		tvViewMedSummary = findViewById(R.id.tvViewMedSummary);
+		tvNoMedSummary = findViewById(R.id.tvNoMedSummary);
+		layMedSummary = findViewById(R.id.layMedSummary);
+		ivCloseMedSummary = findViewById(R.id.ivCloseMedSummary);
+		lvMedSummary = findViewById(R.id.lvMedSummary);
+		ivCloseAddMedSummary = findViewById(R.id.ivCloseAddMedSummary);
+		etMedSummary = findViewById(R.id.etMedSummary);
+		btnAddMedSummary = findViewById(R.id.btnAddMedSummary);
+		layAddMedSummary = findViewById(R.id.layAddMedSummary);
+		srMedSummary = findViewById(R.id.srMedSummary);
+
+		srMedSummary.setColorSchemeColors(colorsArr);
+		srMedSummary.setOnRefreshListener(() -> {
+			if(!checkInternetConnection.isConnectedToInternet()){srSurgeries.setRefreshing(false);}else {}
+			loadMedSummary();
+		});
+		//=======================Medical Summary======================================
+
+		OnClickListener onClickListener1 = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(v.getId() == R.id.tvViewSurg){
+					laySurgeries.setVisibility(View.VISIBLE);
+				}else if(v.getId() == R.id.ivCloseSurgeries){
+					laySurgeries.setVisibility(View.GONE);
+				}else if(v.getId() == R.id.tvAddSurg){
+					layAddSurgeries.setVisibility(View.VISIBLE);
+				}else if(v.getId() == R.id.ivCloseAddSurgeries){
+					layAddSurgeries.setVisibility(View.GONE);
+				}else if(v.getId() == R.id.etSurgDate){
+					DialogFragment newFragment = new DatePickerFragment(etSurgDate);
+					newFragment.show(appCompatActivity.getSupportFragmentManager(), "datePicker");
+				}else if(v.getId() == R.id.btnAddSurg){
+					String location = etSurgLocation.getText().toString().trim();
+					String type_of_surgery = etSurgType.getText().toString().trim();
+					String doctor_name = etSurgDocName.getText().toString().trim();
+					String dateof = etSurgDate.getText().toString().trim();
+					boolean validate = true;
+					if(TextUtils.isEmpty(location)){etSurgLocation.setError("Required");validate = false;}
+					if(TextUtils.isEmpty(type_of_surgery)){etSurgType.setError("Required");validate = false;}
+					if(TextUtils.isEmpty(doctor_name)){etSurgDocName.setError("Required");validate = false;}
+					if(TextUtils.isEmpty(dateof)){etSurgDate.setError("Required");validate = false;}
+
+					if(validate){
+						RequestParams params = new RequestParams();
+						params.add("patient_id",DATA.selectedUserCallId);
+						params.add("location", location);
+						params.add("type_of_surgery", type_of_surgery);
+						params.add("doctor_name", doctor_name);
+						params.add("dateof", dateof);
+						ApiManager apiManager = new ApiManager(ApiManager.SAVE_SURGERIES, "post", params, apiCallBack, activity);
+						apiManager.loadURL();
+					}else {
+						customToast.showToast("Please enter the required information",0,0);
+					}
+				}else
+
+
+
+				if(v.getId() == R.id.tvViewMedSummary){
+					layMedSummary.setVisibility(View.VISIBLE);
+				}else if(v.getId() == R.id.ivCloseMedSummary){
+					layMedSummary.setVisibility(View.GONE);
+				}else if(v.getId() == R.id.tvAddMedSummary){
+					layAddMedSummary.setVisibility(View.VISIBLE);
+				}else if(v.getId() == R.id.ivCloseAddMedSummary){
+					layAddMedSummary.setVisibility(View.GONE);
+				}else if(v.getId() == R.id.btnAddMedSummary){
+					String summary = etMedSummary.getText().toString().trim();
+					boolean validate = true;
+					if(TextUtils.isEmpty(summary)){etMedSummary.setError("Required");validate = false;}
+
+					if(validate){
+						RequestParams params = new RequestParams();
+						params.add("patient_id",DATA.selectedUserCallId);
+						params.put("author_id", prefs.getString("id", ""));
+						params.add("summary", summary);
+						ApiManager apiManager = new ApiManager(ApiManager.SAVE_MED_SUMMARY, "post", params, apiCallBack, activity);
+						apiManager.loadURL();
+					}else {
+						customToast.showToast("Please enter the required information",0,0);
+					}
+				}
+			}
+		};
+		tvAddSurg.setOnClickListener(onClickListener1);
+		tvViewSurg.setOnClickListener(onClickListener1);
+		ivCloseSurgeries.setOnClickListener(onClickListener1);
+		ivCloseAddSurgeries.setOnClickListener(onClickListener1);
+		etSurgDate.setOnClickListener(onClickListener1);
+		btnAddSurg.setOnClickListener(onClickListener1);
+
+		tvAddMedSummary.setOnClickListener(onClickListener1);
+		tvViewMedSummary.setOnClickListener(onClickListener1);
+		ivCloseMedSummary.setOnClickListener(onClickListener1);
+		ivCloseAddMedSummary.setOnClickListener(onClickListener1);
+		btnAddMedSummary.setOnClickListener(onClickListener1);
+
+		loadSurgeries();
+
+		loadMedSummary();
+
+	}//end oncreate
+
+
+	private void loadSurgeries(){
+		if(!srSurgeries.isRefreshing()){srSurgeries.setRefreshing(true);}
+		ApiManager.shouldShowPD = false;
+		RequestParams params = new RequestParams("patient_id",DATA.selectedUserCallId);
+		ApiManager apiManager = new ApiManager(ApiManager.GET_SURGERIES, "post", params, apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+	int posDeleteSurg;
+	public void deleteSurgery(int listPos){
+		posDeleteSurg = listPos;
+		RequestParams params = new RequestParams("id",surguryBeans.get(listPos).id);
+		ApiManager apiManager = new ApiManager(ApiManager.DELETE_SURGERIES, "post", params, apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+
+	private void loadMedSummary(){
+		if(!srMedSummary.isRefreshing()){srMedSummary.setRefreshing(true);}
+		ApiManager.shouldShowPD = false;
+		RequestParams params = new RequestParams("patient_id",DATA.selectedUserCallId);
+		ApiManager apiManager = new ApiManager(ApiManager.GET_MED_SUMMARY, "post", params, apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+	int posDeleteMedSummary;
+	public void deleteMedSummary(int listPos){
+		posDeleteMedSummary = listPos;
+		RequestParams params = new RequestParams("id",medSummaryBeans.get(listPos).id);
+		ApiManager apiManager = new ApiManager(ApiManager.DELETE_MED_SUMMARY, "post", params, apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+	public static void preventScrollViewFromScrollingToEdiText(ScrollView view) {
+		view.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
+		view.setFocusable(true);
+		view.setFocusableInTouchMode(true);
+		view.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				v.requestFocusFromTouch();
+				return false;
+			}
+		});
+	}
+
+	void setupViewFiliperAndTabs(int pos){
+		switch (pos){
+			case 0:
+				tvPast.setBackgroundColor(getResources().getColor(R.color.theme_red));
+				//tvSubjective.setTextColor(Color.parseColor("#FFFFFF"));
+				tvSocial.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvObjective.setTextColor(getResources().getColor(R.color.theme_red));
+				tvRelatives.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvASSESMENT.setTextColor(getResources().getColor(R.color.theme_red));
+				tvMedications.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvPlan.setTextColor(getResources().getColor(R.color.theme_red));
+
+				viewFlipper.setDisplayedChild(0);
+				break;
+			case 1:
+				tvPast.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvSubjective.setTextColor(getResources().getColor(R.color.theme_red));
+				tvSocial.setBackgroundColor(getResources().getColor(R.color.theme_red));
+				//tvObjective.setTextColor(Color.parseColor("#FFFFFF"));
+				tvRelatives.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvASSESMENT.setTextColor(getResources().getColor(R.color.theme_red));
+				tvMedications.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvPlan.setTextColor(getResources().getColor(R.color.theme_red));
+
+				viewFlipper.setDisplayedChild(1);
+				break;
+			case 2:
+				tvPast.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvSubjective.setTextColor(getResources().getColor(R.color.theme_red));
+				tvSocial.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvObjective.setTextColor(getResources().getColor(R.color.theme_red));
+				tvRelatives.setBackgroundColor(getResources().getColor(R.color.theme_red));
+				//tvASSESMENT.setTextColor(Color.parseColor("#FFFFFF"));
+				tvMedications.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvPlan.setTextColor(getResources().getColor(R.color.theme_red));
+
+				viewFlipper.setDisplayedChild(2);
+				break;
+			case 3:
+				tvPast.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvSubjective.setTextColor(getResources().getColor(R.color.theme_red));
+				tvSocial.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvObjective.setTextColor(getResources().getColor(R.color.theme_red));
+				tvRelatives.setBackgroundColor(getResources().getColor(R.color.theme_red_opaque_60));
+				//tvASSESMENT.setTextColor(getResources().getColor(R.color.theme_red));
+				tvMedications.setBackgroundColor(getResources().getColor(R.color.theme_red));
+				//tvPlan.setTextColor(Color.parseColor("#FFFFFF"));
+
+				viewFlipper.setDisplayedChild(3);
+				break;
+			default:
+
+				break;
+		}
+	}
+
+	public void setInd(){
+		ImageView cir1 = (ImageView) findViewById(R.id.cir1);
+		ImageView cir2 = (ImageView) findViewById(R.id.cir2);
+		ImageView cir3 = (ImageView) findViewById(R.id.cir3);
+		ImageView cir4 = (ImageView) findViewById(R.id.cir4);
+		int pos = viewFlipper.getDisplayedChild();
+
+		switch (pos){
+			case 0:
+				cir1.setImageResource(R.drawable.indicator_blavk_unselected);
+				cir2.setImageResource(R.drawable.indicator_black_unselected);
+				cir3.setImageResource(R.drawable.indicator_black_unselected);
+				cir4.setImageResource(R.drawable.indicator_black_unselected);
+				break;
+			case 1:
+				cir1.setImageResource(R.drawable.indicator_black_unselected);
+				cir2.setImageResource(R.drawable.indicator_blavk_unselected);
+				cir3.setImageResource(R.drawable.indicator_black_unselected);
+				cir4.setImageResource(R.drawable.indicator_black_unselected);
+				break;
+			case 2:
+				cir1.setImageResource(R.drawable.indicator_black_unselected);
+				cir2.setImageResource(R.drawable.indicator_black_unselected);
+				cir3.setImageResource(R.drawable.indicator_blavk_unselected);
+				cir4.setImageResource(R.drawable.indicator_black_unselected);
+				break;
+			case 3:
+				cir1.setImageResource(R.drawable.indicator_black_unselected);
+				cir2.setImageResource(R.drawable.indicator_black_unselected);
+				cir3.setImageResource(R.drawable.indicator_black_unselected);
+				cir4.setImageResource(R.drawable.indicator_blavk_unselected);
+				break;
+		}
+	}
+
+
+//	api: saveMedicalHistory (post)
+//	Params:
+//	patient_id
+//	medical_history (comma sepereated)
+//	is_smoke (1/0)
+//  smoke_detail(text)
+//  is_drink (1/0)
+//   drink_detail(text)
+//   is_drug (1/0)
+//  drug_detail (text)
+//  relation_had (comma seprated ids that you saved in local db)
+//  relation_had_name (comma seperated text)
+//  is_medication (1/0)
+//  medication_detail (txt)
+//  is_alergies (1/0)
+//  alergies_detail (text)
+//  is_hospitalize (1/0)
+//  hospitalize_detail (text)
+
+
+	public void sendMedicalHistory(String patient_id,String medical_history,String is_smoke,String smoke_detail,
+								   String is_drink,String drink_detail,String is_drug,String drug_detail,
+								   String relation_had,String relation_had_name,String relation_had_id,String is_medication,String medication_detail,
+								   String is_alergies,String alergies_detail,String is_hospitalize,String hospitalize_detail, String icd_codes, String other_relation) {
+
+		RequestParams params = new RequestParams();
+		params.put("patient_id", patient_id);
+		params.put("medical_history", medical_history);
+		params.put("is_smoke", is_smoke);
+		params.put("smoke_detail", smoke_detail);
+		params.put("is_drink", is_drink);
+		params.put("drink_detail", drink_detail);
+		params.put("is_drug", is_drug);
+		params.put("drug_detail", drug_detail);
+		params.put("relation_had", relation_had);
+		params.put("relation_had_name", relation_had_name);
+		params.put("relation_had_id", relation_had_id);
+		params.put("is_medication", is_medication);
+		params.put("medication_detail", medication_detail);
+		params.put("is_alergies", is_alergies);
+		params.put("alergies_detail", alergies_detail);
+		params.put("is_hospitalize", is_hospitalize);
+		params.put("hospitalize_detail", hospitalize_detail);
+		params.put("other",etMedicalHistoryOther.getText().toString());
+		params.put("social_other",etSocialOther.getText().toString());
+		params.put("medical_history_other",etPastOther.getText().toString());
+		params.put("icd_codes", icd_codes);
+		params.put("other_relation", other_relation);
+
+		ApiManager apiManager = new ApiManager(ApiManager.SAVE_MEDICAL_HISTORY,"post",params,apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+	public void getMedicalHistory(String patient_id) {
+
+		int vis = connection.isConnectedToInternet() ? View.GONE : View.VISIBLE;
+		layNoNetwork.setVisibility(vis);
+
+		layDiagnosis.setVisibility(connection.isConnectedToInternet() ? View.VISIBLE : View.GONE);
+
+		ApiManager apiManager = new ApiManager(ApiManager.GET_MEDICAL_HISTORY+"/"+patient_id,"get",null,apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+	@Override
+	public void fetchDataCallback(String httpstatus, String apiName, String content) {
+
+		if(apiName.equalsIgnoreCase(ApiManager.SAVE_MEDICAL_HISTORY)){
+
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				if (jsonObject.has("success") && jsonObject.getInt("success") == 1) {
+					if(false) {//DATA.isFromFirstLogin
+						//openActivity.open(FreeCare.class, true);
+					}else
+
+						new AlertDialog.Builder(activity, R.style.CustomAlertDialogTheme)
+								.setTitle(getResources().getString(R.string.app_name))
+								.setMessage("Patient medical history has been saved successfully")
+								.setPositiveButton("Done", null)
+								.setOnDismissListener(new DialogInterface.OnDismissListener() {@Override public void onDismiss(DialogInterface dialog) {finish();}})
+								//.setNegativeButton("Not Now", null)
+								.create()
+								.show();
+
+						/*new SweetAlertDialog(activity, SweetAlertDialog.SUCCESS_TYPE)
+								.setTitleText("Info")
+								.setContentText("Patient medical history has been saved")
+								.setConfirmText("OK, Done").setConfirmClickListener(new OnSweetClickListener() {
+							@Override
+							public void onClick(SweetAlertDialog sweetAlertDialog) {
+								sweetAlertDialog.dismiss();
+								*//*if (connection.isConnectedToInternet()) {
+									getMedicalHistory(DATA.selectedUserCallId);
+								} else {
+									toast.showToast("No internet connection", 0, 0);
+								}*//*
+								finish();
+							}
+						})
+								.show();*/
+				} else {
+					customToast.showToast(DATA.CMN_ERR_MSG,0,1);
+					/*new SweetAlertDialog(activity, SweetAlertDialog.ERROR_TYPE)
+							.setTitleText("Oopss")
+							.setContentText("Something went wrong. Please try again.")
+							.setConfirmText("OK")
+							.show();*/
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				customToast.showToast(DATA.JSON_ERROR_MSG,0,0);
+				/*new SweetAlertDialog(activity, SweetAlertDialog.ERROR_TYPE)
+						.setTitleText("Oopss")
+						.setContentText("Something went wrong. Please try again.")
+						.setConfirmText("OK")
+						.show();*/
+			}
+		}else if(apiName.contains(ApiManager.GET_MEDICAL_HISTORY)){
+
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+
+				//==============================================================================
+				JSONArray diseases = jsonObject.getJSONArray("diseases");
+				DATA.pastHistoryBeans = new ArrayList<PastHistoryBean>();
+				for (int i = 0; i < diseases.length(); i++) {
+
+					/*String dName = "";
+					if(diseases.getJSONObject(i).getString("name").isEmpty()){
+						dName = diseases.getJSONObject(i).getString("dname");
+					}else{
+						dName = diseases.getJSONObject(i).getString("name")+" - "+
+								diseases.getJSONObject(i).getString("dname");
+					}*/
+					String dName = diseases.getJSONObject(i).getString("dname");
+					DATA.pastHistoryBeans.add(new PastHistoryBean(Integer.parseInt(diseases.getJSONObject(i).getString("id")),
+							dName, false));
+				}
+				adapter = new PastHistoryAdapter(activity, DATA.pastHistoryBeans);
+				lvMedicalHistory1.setAdapter(adapter);
+				//==============================================================================
+
+				int success = jsonObject.getInt("success");
+				String message = jsonObject.getString("message");
+				JSONObject data = jsonObject.getJSONObject("data");
+
+				if(! data.has("id")){
+					AlertDialog alertDialog =
+							new AlertDialog.Builder(activity, R.style.CustomAlertDialogTheme)
+									.setTitle(getResources().getString(R.string.app_name))
+									.setMessage("Medical history not added on your profile. Please add your medical history now.")
+									.setPositiveButton("Done",null).create();
+					alertDialog.setCanceledOnTouchOutside(false);
+					alertDialog.show();
+
+					return;
+				}
+
+				String id = data.getString("id");
+				String patient_id = data.getString("patient_id");
+				String medical_history = data.getString("medical_history");
+				String is_smoke = data.getString("is_smoke");
+				String smoke_detail = data.getString("smoke_detail");
+				String is_drink = data.getString("is_drink");
+				String drink_detail = data.getString("drink_detail");
+				String is_drug = data.getString("is_drug");
+				String drug_detail = data.getString("drug_detail");
+				String relation_had = data.getString("relation_had");
+				String relation_had_name = data.getString("relation_had_name");
+				String is_medication = data.getString("is_medication");
+				String medication_detail = data.getString("medication_detail");
+				String is_alergies = data.getString("is_alergies");
+				String alergies_detail = data.getString("alergies_detail");
+				String is_hospitalize = data.getString("is_hospitalize");
+				String hospitalize_detail = data.getString("hospitalize_detail");
+				String dateof = data.getString("dateof");
+				String other = data.getString("other");
+				String social_other = data.getString("social_other");
+				String medical_history_other = data.getString("medical_history_other");
+
+				String icd_codes = data.optString("icd_codes");
+
+				etMedicalHistoryOther.setText(other);
+				etSocialOther.setText(social_other);
+				etPastOther.setText(medical_history_other);
+
+				//etMedHistrDiagnosis.setText(icd_codes);
+
+				diagnosisList = new ArrayList<>(Arrays.asList(icd_codes.split("\n")));
+				if(diagnosisList != null){
+					lvDiagnosis.setAdapter(new HistoryDiagAdapter(activity, diagnosisList));
+					lvDiagnosis.setExpanded(true);
+				}
+
+
+				/*if (is_smoke.equals("1")) {
+					radioMedicalSmokeYes.setChecked(true);
+					String arr[] = smoke_detail.split("/");
+					String howLong = "",howMuch = "";
+					if (arr.length > 0) {
+						howLong = arr[0];
+					}
+					if (arr.length > 1) {
+						howMuch = arr[1];
+					}
+					etSmokeHowLong.setText(howLong);
+					etSmokeHowMuch.setText(howMuch);
+
+
+				} else {
+					radioMedicalSmokeNo.setChecked(true);
+				}*/
+
+				if(is_smoke.equalsIgnoreCase("0")){
+					rgMedicalSmoke.check(R.id.radioSmokeCurrentSmoker);
+
+					String arr[] = smoke_detail.split("\\|");
+					String smokeType = "", smokeAge = "", smokeHowMuchPerDay = "", smokeReadyToQuit = "";
+					try {smokeType = arr[0]; }catch (Exception e){e.printStackTrace();}
+
+					try {smokeAge = arr[1]; }catch (Exception e){e.printStackTrace();}
+
+					try {smokeHowMuchPerDay = arr[2];}catch (Exception e){e.printStackTrace();}
+
+					try {smokeReadyToQuit = arr[3];}catch (Exception e){e.printStackTrace();}
+
+
+					etSmokeWhatAge.setText(smokeAge);
+
+					try {
+						for (int i = 0; i < smokeTypeList.size(); i++) {
+							if(smokeType.equalsIgnoreCase(smokeTypeList.get(i))){
+								spSmokeType.setSelection(i);
+							}
+						}
+					}catch (Exception e){e.printStackTrace();}
+
+					try {
+						for (int i = 0; i < smokeHowMuchPerDayList.size(); i++) {
+							if(smokeHowMuchPerDay.equalsIgnoreCase(smokeHowMuchPerDayList.get(i))){
+								spSmokeHowMuchPerDay.setSelection(i);
+							}
+						}
+					}catch (Exception e){e.printStackTrace();}
+
+					try {
+						for (int i = 0; i < smokeReadyToQuitList.size(); i++) {
+							if(smokeReadyToQuit.equalsIgnoreCase(smokeReadyToQuitList.get(i))){
+								spSmokeReadyToQuit.setSelection(i);
+							}
+						}
+					}catch (Exception e){e.printStackTrace();}
+
+				}else if(is_smoke.equalsIgnoreCase("1")){
+					rgMedicalSmoke.check(R.id.radioSmokeFormerSmoker);
+
+
+					String arr[] = smoke_detail.split("\\|");
+					String smokeType = "", smokeHowLongDidU = "", smokeQuitDate = "";
+					try {smokeType = arr[0]; }catch (Exception e){e.printStackTrace();}
+
+					try {smokeHowLongDidU = arr[1]; }catch (Exception e){e.printStackTrace();}
+
+					try {smokeQuitDate = arr[2];}catch (Exception e){e.printStackTrace();}
+
+
+					etSmokeHowLongDidUsmoke.setText(smokeHowLongDidU);
+					etSmokeQuitDate.setText(smokeQuitDate);
+
+					try {
+						for (int i = 0; i < smokeTypeList.size(); i++) {
+							if(smokeType.equalsIgnoreCase(smokeTypeList.get(i))){
+								spSmokeType.setSelection(i);
+							}
+						}
+					}catch (Exception e){e.printStackTrace();}
+
+
+
+				}else if(is_smoke.equalsIgnoreCase("2")){
+					rgMedicalSmoke.check(R.id.radioSmokeNonSmoker);
+
+				}
+
+
+				if (is_drink.equals("1")) {
+					radioMedicalAlcoholYes.setChecked(true);
+					String arr[] = drink_detail.split("/");
+
+					String howLong = "",howMuch = "";
+					if (arr.length > 0) {
+						howLong = arr[0];
+					}
+					if (arr.length > 1) {
+						howMuch = arr[1];
+					}
+					etAlcoholHowLong.setText(howLong);
+					etAlcoholHowMuch.setText(howMuch);
+				} else {
+					radioMedicalAlcoholNo.setChecked(true);
+				}
+				if (is_drug.equals("1")) {
+					radioStreetDrugYes.setChecked(true);
+					//etStreetDrugList.setText(drug_detail);
+					String[] drugDetailArr = drug_detail.split("\n");
+					List<String> drugDetailList = Arrays.asList(drugDetailArr);
+					for (int i = 0; i < checkBoxesStreetDrugs.length; i++) {
+						if(drugDetailList.contains(checkBoxesStreetDrugs[i].getText().toString())){
+							checkBoxesStreetDrugs[i].setChecked(true);
+						}else {
+							checkBoxesStreetDrugs[i].setChecked(false);
+						}
+					}
+				} else {
+					radioStreetDrugNo.setChecked(true);
+				}
+				if (is_alergies.equals("1")) {
+					radioAllergiesYes.setChecked(true);
+
+					allergiesList = new ArrayList<>();
+					if(alergies_detail.isEmpty()){
+
+					}else {
+						String[] allergyArr = alergies_detail.split("\n");
+						for (int i = 0; i < allergyArr.length; i++) {
+							allergiesList.add(allergyArr[i]);
+						}
+					}
+					lvAllergies.setAdapter(new HistoryAllergyAdapter(activity,allergiesList));
+					lvAllergies.setExpanded(true);
+
+				} else {
+					radioAllergiesNo.setChecked(true);
+				}
+				if (is_medication.equals("1")) {
+					radioMedicationsYes.setChecked(true);
+
+					medicationList = new ArrayList<>();
+					if(medication_detail.isEmpty()){
+
+					}else {
+						String[] mediArr = medication_detail.split("\n");
+						for (int i = 0; i < mediArr.length; i++) {
+							medicationList.add(mediArr[i]);
+						}
+					}
+					lvMedications.setAdapter(new HistoryMediAdapter(activity,medicationList));
+					lvMedications.setExpanded(true);
+
+				} else {
+					radioMedicationsNo.setChecked(true);
+				}
+				if (is_hospitalize.equals("1")) {
+					hosptalizationList = new ArrayList<>();
+					if(hospitalize_detail.isEmpty()){
+
+					}else {
+						String[] hospArr = hospitalize_detail.split("\n");
+						for (int i = 0; i < hospArr.length; i++) {
+							hosptalizationList.add(hospArr[i]);
+						}
+					}
+					lvHosptalization.setAdapter(new HistoryHosptAdapter(activity,hosptalizationList));
+					lvHosptalization.setExpanded(true);
+				} else {
+
+				}
+				//---------------------medicalHistory------------------------------
+				if (medical_history.isEmpty()) {
+					DATA.selectedMedicalHistoryPositions = new ArrayList<Integer>();
+				} else {
+					String[] medicalHistoryPositions = medical_history.split(",");
+					DATA.selectedMedicalHistoryPositions = new ArrayList<Integer>();
+					for (String string : medicalHistoryPositions) {
+						int pos = Integer.parseInt(string);
+						DATA.selectedMedicalHistoryPositions.add(pos);
+
+						DATA.print("--positinselected "+pos);
+					}
+					//	medicalHistoryAdapter.notifyDataSetChanged();
+					for (PastHistoryBean bean : DATA.pastHistoryBeans) {
+						if (DATA.selectedMedicalHistoryPositions.contains(bean.getId())) {
+							bean.setSelected(true);
+						} else {
+							bean.setSelected(false);
+						}
+					}//end loop
+				}
+				adapter = new PastHistoryAdapter(activity, DATA.pastHistoryBeans);
+				lvMedicalHistory1.setAdapter(adapter);
+				//--------------------------medicalHistory-------------------------------------------
+
+
+				//--------------------------relation_had-------------------------------------------
+				if (relation_had.isEmpty()) {
+					DATA.relativeHadBeans = new ArrayList<RelativeHadBean>();
+				} else {
+					DATA.relativeHadBeans = new ArrayList<RelativeHadBean>();
+					String[] rh = relation_had.split("/");
+					String[] rhNames = relation_had_name.split("/");
+
+					for (int i = 0; i < rhNames.length; i++) {
+						String relationHad = rh[i];
+						String relationHadName = rhNames[i];
+						DATA.relativeHadBeans.add(new RelativeHadBean(relationHad, relationHadName));
+					}
+
+
+					for (RelativeHadBean bean : DATA.relativeHadBeans) {
+					    if (bean.getRelation_had().equalsIgnoreCase("Inherited Disease")) {
+							checkDisease.setChecked(true);
+							etDisease.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosID.length; i++) {
+								//note: this line was to show 1 radio selected.
+                                //radiosID[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosID[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosID[i].setChecked(checkedOptions.contains(radiosID[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Heart Trouble")) {
+							checkHeart.setChecked(true);
+							etHeart.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosHT.length; i++) {
+                            	//note: this line was to show 1 radio selected.
+                                //radiosHT[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosHT[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosHT[i].setChecked(checkedOptions.contains(radiosHT[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Mental Illness")) {
+							checkMental.setChecked(true);
+							etMental.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosMI.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosMI[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosMI[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosMI[i].setChecked(checkedOptions.contains(radiosMI[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Cancer")) {
+							checkCancer.setChecked(true);
+							etCancer.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosC.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosC[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosC[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosC[i].setChecked(checkedOptions.contains(radiosC[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("High Blood Pressure")) {
+							checkBp.setChecked(true);
+							etBp.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosHBP.length; i++) {
+								//note: this line was to show 1 radio selected.
+                                //radiosHBP[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosHBP[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosHBP[i].setChecked(checkedOptions.contains(radiosHBP[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Stroke")) {
+							checkStroke.setChecked(true);
+							etStroke.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosSt.length; i++) {
+								//note: this line was to show 1 radio selected.
+                                //radiosSt[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosSt[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosSt[i].setChecked(checkedOptions.contains(radiosSt[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Diabetes")) {
+							checkDiabetes.setChecked(true);
+							etDiabetes.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosDia.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosDia[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosDia[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosDia[i].setChecked(checkedOptions.contains(radiosDia[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Kidney Problems")) {
+							checkKidney.setChecked(true);
+							etKidney.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosKP.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosKP[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosKP[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosKP[i].setChecked(checkedOptions.contains(radiosKP[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Tuberculosis")) {
+							checkTubr.setChecked(true);
+							etTubr.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosTB.length; i++) {
+                                //note: this line was to show 1 radio selected.
+                            	//radiosTB[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosTB[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosTB[i].setChecked(checkedOptions.contains(radiosTB[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Epilespy")) {
+							checkEpilespy.setChecked(true);
+							etEpilespy.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosEp.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosEp[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosEp[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosEp[i].setChecked(checkedOptions.contains(radiosEp[i].getTag().toString()));
+                            }
+						}
+
+						if (bean.getRelation_had().equalsIgnoreCase("Sickle Cell Disease")) {
+							checksickle.setChecked(true);
+							etsickle.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosSCD.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosSCD[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosSCD[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosSCD[i].setChecked(checkedOptions.contains(radiosSCD[i].getTag().toString()));
+                            }
+						}
+						if (bean.getRelation_had().equalsIgnoreCase("Bleeding Problems")) {
+							checkBleeming.setChecked(true);
+							etBleeming.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosBle.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosBle[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosBle[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosBle[i].setChecked(checkedOptions.contains(radiosBle[i].getTag().toString()));
+                            }
+						}
+						if (bean.getRelation_had().equalsIgnoreCase("Other")) {
+							checkFamilyOther.setChecked(true);
+							etFamilyOther.setText(bean.getRelation_had_name());
+							DATA.print("--inside true"+bean.getRelation_had_name());
+                            for (int i = 0; i < radiosOther.length; i++) {
+								//note: this line was to show 1 radio selected.
+                            	//radiosOther[i].setChecked(bean.getRelation_had_name().equalsIgnoreCase(radiosOther[i].getTag().toString()));
+								List<String> checkedOptions = new ArrayList<>(Arrays.asList(bean.getRelation_had_name().split(",")));
+								radiosOther[i].setChecked(checkedOptions.contains(radiosOther[i].getTag().toString()));
+                            }
+						}
+					}
+
+
+				}
+
+
+				//Ahmer Work Start
+				JSONArray patient_family_diseases = data.getJSONArray("patient_family_diseases");
+				for (int i = 0; i < patient_family_diseases.length(); i++) {
+
+					JSONObject object = patient_family_diseases.getJSONObject(i);
+					String disID = object.getString("id");
+					String disPatientID = object.getString("patient_id");
+					String disease = object.getString("disease");
+					String disRelations = object.getString("relations");
+					String otherRel = object.getString("other");
+
+					if(disease.equalsIgnoreCase("Inherited Disease")){
+						etOtherID.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherID.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}else if(disease.equalsIgnoreCase("Heart Trouble")){
+						etOtherHT.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherHT.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Mental Illness")) {
+						etOtherMI.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherMI.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Cancer")) {
+						etOtherC.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherC.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("High Blood Pressure")) {
+						etOtherHBP.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherHBP.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Stroke")) {
+						etOtherSt.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherSt.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Diabetes")) {
+						etOtherDia.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherDia.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Kidney Problems")) {
+						etOtherKP.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherKP.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Tuberculosis")) {
+						etOtherTB.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherTB.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Epilespy")) {
+						etOtherEp.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherEp.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Sickle Cell Disease")) {
+						etOtherSCD.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherSCD.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Bleeding Problems")) {
+						etOtherBle.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherBle.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+					else if(disease.equalsIgnoreCase("Other")) {
+						etOtherOther.setVisibility(otherRel.equalsIgnoreCase("0") ? View.GONE : View.VISIBLE);
+						etOtherOther.setText(otherRel.equalsIgnoreCase("0") ? "" : otherRel);
+					}
+				}
+
+
+				//--------------------------relation_had-------------------------------------------
+
+				//viewFlipper.setDisplayedChild(0);
+				setupViewFiliperAndTabs(0);
+				btnFlipNext.setEnabled(true);
+				btnFlipPrev.setEnabled(false);
+
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}else if(apiName.equalsIgnoreCase(ApiManager.GET_DRUGS)){
+			try {
+				drugBeans = new ArrayList<DrugBean>();
+				DrugBean temp;
+
+				JSONArray jsonArray = new JSONObject(content).getJSONArray("data");
+				if(jsonArray.length() == 0){
+					toast.showToast("No drug found",0,1);
+				}
+				for (int i = 0; i < jsonArray.length(); i++) {
+					String drug_descriptor_id = jsonArray.getJSONObject(i).getString("drug_descriptor_id");
+					String route_of_administration = jsonArray.getJSONObject(i).getString("route_of_administration");
+					String drug_name = jsonArray.getJSONObject(i).getString("drug_name");
+					String code = jsonArray.getJSONObject(i).getString("code");
+					String route = jsonArray.getJSONObject(i).getString("route");
+					String strength = jsonArray.getJSONObject(i).getString("strength");
+					String strength_unit_of_measure = jsonArray.getJSONObject(i).getString("strength_unit_of_measure");
+					String dosage_form = jsonArray.getJSONObject(i).getString("dosage_form");
+					String dfcode = jsonArray.getJSONObject(i).getString("dfcode");
+					String dfdesc = jsonArray.getJSONObject(i).getString("dfdesc");
+
+					String potency_unit = jsonArray.getJSONObject(i).getString("potency_unit");
+					String potency_code = jsonArray.getJSONObject(i).getString("potency_code");
+
+					temp = new DrugBean(drug_descriptor_id, route_of_administration, drug_name, code, route, strength, strength_unit_of_measure, dosage_form, dfcode, dfdesc,potency_unit,potency_code);
+					drugBeans.add(temp);
+					temp = null;
+				}
+
+				//setData here
+
+				ArrayAdapter<DrugBean> spDrugNameAdapter = new ArrayAdapter<DrugBean>(
+						activity,
+						android.R.layout.simple_list_item_1,
+						drugBeans
+				);
+				//spDrugNameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				lvDrugs.setAdapter(spDrugNameAdapter);
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(apiName.equalsIgnoreCase(ApiManager.GET_ICD_CODES)){
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				JSONArray data = jsonObject.getJSONArray("data");
+
+				Type listType = new TypeToken<ArrayList<IcdCodeBean>>() {}.getType();
+				List<IcdCodeBean> icdCodeBeans = gson.fromJson(data.toString(), listType);
+
+                /*List<IcdCodeBean> icdCodeBeans = new ArrayList<>();
+                Gson gson = new Gson();
+                for (int i = 0; i < data.length(); i++) {
+                    icdCodeBeans.add(gson.fromJson(data.getJSONObject(i)+"", IcdCodeBean.class));
+                }*/
+
+				pbAutoComplete.setVisibility(View.GONE);
+				if(icdCodeBeans != null){
+					//IMPORTANT: set data here and notify
+					icdCodesAdapter.setData(icdCodeBeans);
+					icdCodesAdapter.notifyDataSetChanged();
+				}
+
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customToast.showToast(DATA.JSON_ERROR_MSG,0,0);
+			}
+		}else if (apiName.equalsIgnoreCase(ApiManager.GET_SURGERIES)){
+			//loadHospAdmData(false);
+			srSurgeries.setRefreshing(false);
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				JSONArray data = jsonObject.getJSONArray("data");
+
+				int vis = data.length() > 0 ? View.GONE : View.VISIBLE;
+				tvNoSurg.setVisibility(vis);
+
+				tvViewSurg.setText("View ("+data.length()+")");
+
+				Type listType = new TypeToken<ArrayList<SurguryBean>>() {}.getType();
+				surguryBeans = gson.fromJson(data.toString(), listType);
+
+				surgeryAdapter = new SurgeryAdapter(activity, surguryBeans);
+				lvSurgeries.setAdapter(surgeryAdapter);
+				lvSurgeries.setExpanded(true);
+
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+			}
+		}else if(apiName.equalsIgnoreCase(ApiManager.SAVE_SURGERIES)){
+			//{"status":"success","message":"Saved."}
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				if(jsonObject.optString("status").equalsIgnoreCase("success")){
+					customSnakeBar.showToast(jsonObject.optString("message"));
+					layAddSurgeries.setVisibility(View.GONE);
+					laySurgeries.setVisibility(View.VISIBLE);
+					loadSurgeries();
+
+					etSurgLocation.setText("");etSurgType.setText("");etSurgDocName.setText("");etSurgDate.setText("");
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+			}
+		}else if(apiName.equalsIgnoreCase(ApiManager.DELETE_SURGERIES)){
+			//{"status":"success","message":"Deleted."}
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				if(jsonObject.optString("status").equalsIgnoreCase("success")){
+					customSnakeBar.showToast(jsonObject.optString("message"));
+					surguryBeans.remove(posDeleteSurg);
+					surgeryAdapter.notifyDataSetChanged();
+					tvViewSurg.setText("View ("+surguryBeans.size()+")");
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+			}
+		}
+
+
+
+
+
+		else if (apiName.equalsIgnoreCase(ApiManager.GET_MED_SUMMARY)){
+			//loadHospAdmData(false);
+			srMedSummary.setRefreshing(false);
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				JSONArray data = jsonObject.getJSONArray("data");
+
+				int vis = data.length() > 0 ? View.GONE : View.VISIBLE;
+				tvNoMedSummary.setVisibility(vis);
+
+				tvViewMedSummary.setText("View ("+data.length()+")");
+
+				Type listType = new TypeToken<ArrayList<MedSummaryBean>>() {}.getType();
+				medSummaryBeans = gson.fromJson(data.toString(), listType);
+
+				medSummaryAdapter = new MedSummaryAdapter(activity, medSummaryBeans);
+				lvMedSummary.setAdapter(medSummaryAdapter);
+				lvMedSummary.setExpanded(true);
+
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+			}
+		}else if(apiName.equalsIgnoreCase(ApiManager.SAVE_MED_SUMMARY)){
+			//{"status":"success","message":"Saved."}
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				if(jsonObject.optString("status").equalsIgnoreCase("success")){
+					customSnakeBar.showToast(jsonObject.optString("message"));
+					layAddMedSummary.setVisibility(View.GONE);
+					layMedSummary.setVisibility(View.VISIBLE);
+					loadMedSummary();
+
+					etMedSummary.setText("");
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+			}
+		}else if(apiName.equalsIgnoreCase(ApiManager.DELETE_MED_SUMMARY)){
+			//{"status":"success","message":"Deleted."}
+			try {
+				JSONObject jsonObject = new JSONObject(content);
+				if(jsonObject.optString("status").equalsIgnoreCase("success")){
+					customSnakeBar.showToast(jsonObject.optString("message"));
+					medSummaryBeans.remove(posDeleteMedSummary);
+					medSummaryAdapter.notifyDataSetChanged();
+					tvViewMedSummary.setText("View ("+medSummaryBeans.size()+")");
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+				customSnakeBar.showToast(DATA.JSON_ERROR_MSG);
+			}
+		}
+	}
+
+
+	//-------------------------Forgot PIN---------------------
+	Dialog forgotPincodeDialog;
+	public void initForgotPincodeDialogDialog() {
+		forgotPincodeDialog = new Dialog(activity);
+		forgotPincodeDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		forgotPincodeDialog.setContentView(R.layout.dialog_forgot_pincode);
+
+
+		final EditText etEmailForgotPincode = (EditText) forgotPincodeDialog.findViewById(R.id.etEmailForgotPincode);
+		Button btnEnterForgotPincode = (Button) forgotPincodeDialog.findViewById(R.id.btnEnterForgotPincode);
+		Button btnCancelForgotPincode = (Button) forgotPincodeDialog.findViewById(R.id.btnCancelForgotPincode);
+
+		btnEnterForgotPincode.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (etEmailForgotPincode.getText().toString().isEmpty()) {
+					Toast.makeText(activity, "Please enter your email used for OnlineCare account", Toast.LENGTH_SHORT).show();
+				} else {
+
+					if(connection.isConnectedToInternet()) {
+						forgotPincode(etEmailForgotPincode.getText().toString());
+					}
+					else {
+
+						Toast.makeText(activity, "Not connected to Internet", Toast.LENGTH_SHORT).show();
+					}
+
+
+				}
+			}
+		});
+
+		btnCancelForgotPincode.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				forgotPincodeDialog.dismiss();
+			}
+		});
+
+		forgotPincodeDialog.show();
+
+	}
+
+
+	public void forgotPincode(String email) {
+		DATA.showLoaderDefault(activity,  "Please wait...    ");
+		AsyncHttpClient client = new AsyncHttpClient();
+		ApiManager.addHeader(activity, client);
+		RequestParams params = new RequestParams();
+
+		params.put("email", email);
+
+		client.post(DATA.baseUrl+"/forgotPincode/patient", params, new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, byte[] response) {
+				// called when response HTTP status is "200 OK"
+				DATA.dismissLoaderDefault();
+				try{
+					String content = new String(response);
+					DATA.print("--reaponce in forgotPincode "+content);
+					try {
+						JSONObject jsonObject = new JSONObject(content);
+						String status = jsonObject.getString("status");
+						String msg = jsonObject.getString("msg");
+
+						new CustomToast(activity).showToast(msg, 0, 1);
+
+						forgotPincodeDialog.dismiss();
+
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}catch (Exception e){
+					e.printStackTrace();
+					DATA.print("-- responce onsuccess: forgotPincode/patient, http status code: "+statusCode+" Byte responce: "+response);
+					customToast.showToast(DATA.CMN_ERR_MSG,0,0);
+				}
+			}
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
+				// called when response HTTP status is "4XX" (eg. 401, 403, 404)
+				DATA.dismissLoaderDefault();
+				try {
+					String content = new String(errorResponse);
+					DATA.print("--onfail forgotPincode " +content);
+					new GloabalMethods(activity).checkLogin(content, statusCode);
+					customToast.showToast(DATA.CMN_ERR_MSG,0,0);
+
+				}catch (Exception e1){
+					e1.printStackTrace();
+					customToast.showToast(DATA.CMN_ERR_MSG,0,0);
+				}
+			}
+		});
+
+	}//end forgotPincode
+
+
+	void showMediDialog(){
+		Dialog medicationsDialog = new Dialog(activity, R.style.TransparentThemeH4B);
+		medicationsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		medicationsDialog.setContentView(R.layout.lay_view_med);
+		ListView lvMedicationsDial = (ListView) medicationsDialog.findViewById(R.id.lvMedications);
+		TextView tvNoData = medicationsDialog.findViewById(R.id.tvNoData);
+		ImageView ivClose = medicationsDialog.findViewById(R.id.ivClose);
+
+		ivClose.setOnClickListener(v -> medicationsDialog.dismiss());
+
+		if(medicationList!= null){
+			lvMedicationsDial.setAdapter(new HistoryMediAdapter(activity,medicationList));
+			int v = medicationList.isEmpty() ? View.VISIBLE : View.GONE;
+			tvNoData.setVisibility(v);
+		}else {
+			tvNoData.setVisibility(View.VISIBLE);
+		}
+
+		medicationsDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				try {
+					lvMedications.setAdapter(new HistoryMediAdapter(activity,medicationList));
+					lvMedications.setExpanded(true);
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		});
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(medicationsDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+		medicationsDialog.show();
+		medicationsDialog.getWindow().setAttributes(lp);
+	}
+
+	public void addMedDialog(){
+		final Dialog medicationsDialog = new Dialog(activity);
+		medicationsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		medicationsDialog.setContentView(R.layout.dialog_edit_medi);
+		medicationsDialog.setCanceledOnTouchOutside(false);
+
+		TextView tvDTittle = medicationsDialog.findViewById(R.id.tvDTittle);
+		final EditText etEditMed = (EditText) medicationsDialog.findViewById(R.id.etEditMed);
+		Button btnSaveMed = medicationsDialog.findViewById(R.id.btnSaveMed);
+		btnSaveMed.setText("Search");
+		tvDTittle.setText("Add Medication");
+
+		btnSaveMed.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String med = etEditMed.getText().toString().trim();
+				if(med.isEmpty()){
+					etEditMed.setError("Please enter the medication name");
+					return;
+				}
+				medicationsDialog.dismiss();
+				showDrugDialog(med,false,0);
+			}
+		});
+
+		medicationsDialog.findViewById(R.id.btnCancelMed).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				medicationsDialog.dismiss();
+			}
+		});
+		medicationsDialog.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				medicationsDialog.dismiss();
+			}
+		});
+
+
+		ImageView ivSearchM = (ImageView) medicationsDialog.findViewById(R.id.ivSearchM);
+		ivSearchM.setVisibility(View.GONE);
+
+		medicationsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(medicationsDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+		medicationsDialog.show();
+		medicationsDialog.getWindow().setAttributes(lp);
+	}
+
+
+	ListView lvDrugs;
+	ArrayList<DrugBean> drugBeans;
+	public void showDrugDialog(String drugName, final boolean isEdit, final int listPos){
+		final Dialog medicationsDialog = new Dialog(activity);
+		medicationsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		medicationsDialog.setContentView(R.layout.dialog_drug_list);
+
+		final EditText etSearchQuery = (EditText) medicationsDialog.findViewById(R.id.etSearchQuery);
+		ImageView ivSearchQuery = (ImageView) medicationsDialog.findViewById(R.id.ivSearchQuery);
+		lvDrugs = (ListView) medicationsDialog.findViewById(R.id.lvDrugs);
+
+		medicationsDialog.findViewById(R.id.ivClose).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				medicationsDialog.dismiss();
+			}
+		});
+
+
+		ivSearchQuery.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				searchMedication(etSearchQuery);
+			}
+		});
+		etSearchQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+					searchMedication(etSearchQuery);
+					//return true; return true not closes keyboard
+					return false;
+				}
+				return false;
+			}
+		});
+
+		medicationsDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				try {
+					lvMedications.setAdapter(new HistoryMediAdapter(activity,medicationList));
+					lvMedications.setExpanded(true);
+					etMedicationsAddMedication.setText("");
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		});
+
+		lvDrugs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(medicationList == null){
+					medicationList = new ArrayList<>();
+				}
+				if(isEdit){
+					medicationList.remove(listPos);
+					medicationList.add(listPos,drugBeans.get(position).getDrug_name());
+				}else {
+					medicationList.add(drugBeans.get(position).getDrug_name());
+				}
+				medicationsDialog.dismiss();
+			}
+		});
+
+		medicationsDialog.show();
+
+		etSearchQuery.setText(drugName);
+		etSearchQuery.setSelection(etSearchQuery.getText().toString().length());
+		RequestParams params = new RequestParams();
+		params.put("keyword", drugName);
+		ApiManager apiManager = new ApiManager(ApiManager.GET_DRUGS,"post",params,apiCallBack, activity);
+		apiManager.loadURL();
+	}
+
+	private void searchMedication(EditText etSearchQuery){
+		if (etSearchQuery.getText().toString().trim().isEmpty() || etSearchQuery.getText().toString().trim().length()==1) {
+			Toast.makeText(activity, "Please enter at least 2 characters of a medication name to search the medication", Toast.LENGTH_LONG).show();
+			etSearchQuery.setError("Please enter at least 2 characters of a medication name to search the medication");
+		} else {
+			RequestParams params = new RequestParams();
+			params.put("keyword", etSearchQuery.getText().toString().trim());
+			ApiManager apiManager = new ApiManager(ApiManager.GET_DRUGS,"post",params,apiCallBack, activity);
+			apiManager.loadURL();
+		}
+	}
+
+
+	public void showAskMedicationDialog(String medicationName){
+		final Dialog dialogSupport = new Dialog(activity);
+		dialogSupport.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialogSupport.setContentView(R.layout.dialog_ask_medic);
+		dialogSupport.setCancelable(false);
+
+		Button btnSearchMed = dialogSupport.findViewById(R.id.btnSearchMed);
+		Button btnAddMed = dialogSupport.findViewById(R.id.btnAddMed);
+		Button btnCancel = dialogSupport.findViewById(R.id.btnCancel);
+
+		TextView tvMedName = dialogSupport.findViewById(R.id.tvMedName);
+		tvMedName.setText(medicationName);
+
+		btnSearchMed.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				dialogSupport.dismiss();
+				showDrugDialog(medicationName,false,0);
+			}
+		});
+		btnAddMed.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				dialogSupport.dismiss();
+				medicationList.add(medicationName);
+				lvMedications.setAdapter(new HistoryMediAdapter(activity,medicationList));
+				lvMedications.setExpanded(true);
+				etMedicationsAddMedication.setText("");
+			}
+		});
+		btnCancel.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				dialogSupport.dismiss();
+
+			}
+		});
+		dialogSupport.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+		dialogSupport.show();
+	}
+
+	//====================Medications End========================================================
+
+	//===========Allergies view/add dialogs==================================================
+	void showAllergiesDialog(){
+		Dialog allergiesDialog = new Dialog(activity, R.style.TransparentThemeH4B);
+		allergiesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		allergiesDialog.setContentView(R.layout.lay_view_allergies);
+		ListView lvAllergiesDialog = (ListView) allergiesDialog.findViewById(R.id.lvAllergiesDialog);
+		TextView tvNoData = allergiesDialog.findViewById(R.id.tvNoData);
+		ImageView ivClose = allergiesDialog.findViewById(R.id.ivClose);
+
+		ivClose.setOnClickListener(v -> allergiesDialog.dismiss());
+
+		if(allergiesList != null){
+			lvAllergiesDialog.setAdapter(new HistoryAllergyAdapter(activity,allergiesList));
+			int v = allergiesList.isEmpty() ? View.VISIBLE : View.GONE;
+			tvNoData.setVisibility(v);
+		}else {
+			tvNoData.setVisibility(View.VISIBLE);
+		}
+
+		allergiesDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				try {
+					lvAllergies.setAdapter(new HistoryAllergyAdapter(activity,allergiesList));
+					lvAllergies.setExpanded(true);
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		});
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(allergiesDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+		allergiesDialog.show();
+		allergiesDialog.getWindow().setAttributes(lp);
+	}
+
+	public void addAllergiesDialog(){
+		final Dialog allergiesDialog = new Dialog(activity);
+		allergiesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		allergiesDialog.setContentView(R.layout.dialog_add_allergy_hist);
+		allergiesDialog.setCanceledOnTouchOutside(false);
+
+		TextView tvDTittle = allergiesDialog.findViewById(R.id.tvDTittle);
+		final EditText etEditAllergy = (EditText) allergiesDialog.findViewById(R.id.etEditAllergy);
+		Button btnSaveAllergy = allergiesDialog.findViewById(R.id.btnSaveAllergy);
+
+		tvDTittle.setText("Add Allergies");
+
+		btnSaveAllergy.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String allegy = etEditAllergy.getText().toString();
+				if(allegy.isEmpty()){
+					etEditAllergy.setError("Please enter the allergies");
+					return;
+				}
+				allergiesDialog.dismiss();
+
+				allergiesList.add(allegy);
+				lvAllergies.setAdapter(new HistoryAllergyAdapter(activity,allergiesList));
+				lvAllergies.setExpanded(true);
+			}
+		});
+
+		allergiesDialog.findViewById(R.id.btnCancelAllergy).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				allergiesDialog.dismiss();
+			}
+		});
+		allergiesDialog.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				allergiesDialog.dismiss();
+			}
+		});
+
+
+
+		allergiesDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(allergiesDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+		allergiesDialog.show();
+		allergiesDialog.getWindow().setAttributes(lp);
+	}
+
+	//===========Allergies view/add dialogs Ends==================================================
+
+
+	//=====================Hospitalization view/add===============================================
+
+	void showHospitalizationDialog(){
+		Dialog hosptDialog = new Dialog(activity, R.style.TransparentThemeH4B);
+		hosptDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		hosptDialog.setContentView(R.layout.lay_view_hospitalization);
+		ListView lvHosptDialog = (ListView) hosptDialog.findViewById(R.id.lvHosptDialog);
+		TextView tvNoData = hosptDialog.findViewById(R.id.tvNoData);
+		ImageView ivClose = hosptDialog.findViewById(R.id.ivClose);
+
+		ivClose.setOnClickListener(v -> hosptDialog.dismiss());
+
+		if(hosptalizationList != null){
+			lvHosptDialog.setAdapter(new HistoryHosptAdapter(activity,hosptalizationList));
+			int v = hosptalizationList.isEmpty() ? View.VISIBLE : View.GONE;
+			tvNoData.setVisibility(v);
+		}else {
+			tvNoData.setVisibility(View.VISIBLE);
+		}
+
+		hosptDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				try {
+					lvHosptalization.setAdapter(new HistoryHosptAdapter(activity,hosptalizationList));
+					lvHosptalization.setExpanded(true);
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		});
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(hosptDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+		hosptDialog.show();
+		hosptDialog.getWindow().setAttributes(lp);
+	}
+
+	public void addHospDialog(){
+		final Dialog hospDialog = new Dialog(activity);
+		hospDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		hospDialog.setContentView(R.layout.dialog_edit_hosp);
+		hospDialog.setCanceledOnTouchOutside(false);
+
+		TextView tvDTittle = hospDialog.findViewById(R.id.tvDTittle);
+		final EditText etAddHosp = (EditText) hospDialog.findViewById(R.id.etAddHosp);
+		Button btnSaveHosp = hospDialog.findViewById(R.id.btnSaveHosp);
+
+		tvDTittle.setText("Add Hospitalizations/Surgeries");
+
+		btnSaveHosp.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String hosp = etAddHosp.getText().toString();
+				if(hosp.isEmpty()){
+					etAddHosp.setError("Please enter the hospitalizations and surgeries");
+					return;
+				}
+
+				hospDialog.dismiss();
+
+				hosptalizationList.add(hosp);
+				lvHosptalization.setAdapter(new HistoryHosptAdapter(activity,hosptalizationList));
+				lvHosptalization.setExpanded(true);
+
+			}
+		});
+
+		hospDialog.findViewById(R.id.btnCancelHosp).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				hospDialog.dismiss();
+			}
+		});
+		hospDialog.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				hospDialog.dismiss();
+			}
+		});
+
+
+
+		hospDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(hospDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+		hospDialog.show();
+		hospDialog.getWindow().setAttributes(lp);
+	}
+
+	//=====================Hospitalization view/add Ends==================
+
+
+
+	//==================View Diagnosis=========================================
+	void showDiagnosisDialog(){
+		Dialog allergiesDialog = new Dialog(activity, R.style.TransparentThemeH4B);
+		allergiesDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		allergiesDialog.setContentView(R.layout.lay_view_diag);
+		ListView lvDiagDialog = (ListView) allergiesDialog.findViewById(R.id.lvDiagDialog);
+		TextView tvNoData = allergiesDialog.findViewById(R.id.tvNoData);
+		ImageView ivClose = allergiesDialog.findViewById(R.id.ivClose);
+
+		ivClose.setOnClickListener(v -> allergiesDialog.dismiss());
+
+		if(diagnosisList != null){
+			lvDiagDialog.setAdapter(new HistoryDiagAdapter(activity,diagnosisList));
+			int v = diagnosisList.isEmpty() ? View.VISIBLE : View.GONE;
+			tvNoData.setVisibility(v);
+		}else {
+			tvNoData.setVisibility(View.VISIBLE);
+		}
+
+		allergiesDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				try {
+					lvDiagnosis.setAdapter(new HistoryDiagAdapter(activity,diagnosisList));
+					lvDiagnosis.setExpanded(true);
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		});
+		//medicationsDialog.show();
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(allergiesDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+		allergiesDialog.show();
+		allergiesDialog.getWindow().setAttributes(lp);
+	}
+
+
+
+
+
+	private void setEditTextDataOnRadioClick(RadioButton[] radioBtnsArr, EditText etField, int finalI){
+		List<String> checkedOptions;
+
+		if(TextUtils.isEmpty(etField.getText().toString().trim())){
+			checkedOptions = new ArrayList<>();
+		}else {
+			checkedOptions = new ArrayList<>(Arrays.asList(etField.getText().toString().trim().split(",")));
+		}
+
+		String radioTxt = radioBtnsArr[finalI].getTag().toString();
+		if(checkedOptions.contains(radioTxt)){
+			radioBtnsArr[finalI].setChecked(false);
+			checkedOptions.remove(radioTxt);
+		}else {
+			radioBtnsArr[finalI].setChecked(true);
+			checkedOptions.add(radioTxt);
+		}
+		StringBuilder sbEtTxt = new StringBuilder();
+		for (int i = 0; i < checkedOptions.size(); i++) {
+			sbEtTxt.append(checkedOptions.get(i));
+			if(i < (checkedOptions.size()-1)){
+				sbEtTxt.append(",");
+			}
+		}
+		etField.setText(sbEtTxt.toString());
+
+
+
+		String rbValue = radioBtnsArr[finalI].getTag().toString();
+		if (rbValue.equals("Other")){
+			if(radioBtnsArr[finalI].getId() == R.id.rbOtherID){
+				etOtherID.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosID[finalI].isChecked()){etOtherID.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherHT) {
+				etOtherHT.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE : View.GONE);
+				if (!radiosHT[finalI].isChecked()){etOtherHT.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherMI)
+			{
+				etOtherMI.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosMI[finalI].isChecked()){etOtherMI.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherC)
+			{
+				etOtherC.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosC[finalI].isChecked()){etOtherC.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherHBP)
+			{
+				etOtherHBP.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosHBP[finalI].isChecked()){etOtherHBP.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherSt)
+			{
+				etOtherSt.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosSt[finalI].isChecked()){etOtherSt.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherDia)
+			{
+				etOtherDia.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosDia[finalI].isChecked()){etOtherDia.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherKP)
+			{
+				etOtherKP.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosKP[finalI].isChecked()){etOtherKP.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherTB)
+			{
+				etOtherTB.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosTB[finalI].isChecked()){etOtherTB.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherEp)
+			{
+				etOtherEp.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosEp[finalI].isChecked()){etOtherEp.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherSCD)
+			{
+				etOtherSCD.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosSCD[finalI].isChecked()){etOtherSCD.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherBle)
+			{
+				etOtherBle.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosBle[finalI].isChecked()){etOtherBle.setText("");}
+			}
+			else if (radioBtnsArr[finalI].getId() == R.id.rbOtherOther)
+			{
+				etOtherOther.setVisibility(radioBtnsArr[finalI].isChecked() ? View.VISIBLE:View.GONE);
+				if (!radiosOther[finalI].isChecked()){etOtherOther.setText("");}
+			}
+
+		}
+	}
+}

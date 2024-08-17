@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.mdlive_cp.FallRiskForm">
+
+    <ScrollView
+        android:id="@+id/svForm"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <include
+                layout="@layout/lay_asseslist_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom">
+                <LinearLayout
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="\nAge"
+                        android:textSize="10dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etAge65"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Age"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_marginBottom="4dp"
+                        android:layout_toLeftOf="@+id/etTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:text="A score of 4 or more is considered at risk for falling Total"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.mdlive_cp.util.ActionEditText
+                        android:id="@+id/etTotal"
+                        android:layout_alignParentRight="true"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Total"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:longClickable="false"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.app.mdlive_cp.util.ExpandableHeightGridView
+                android:id="@+id/lvFallRiskForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e5e5e5"
+                android:horizontalSpacing="1dp"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="1dp"
+                android:numColumns="2"
+                tools:listitem="@layout/fallrisk_field_row">
+
+            </com.app.mdlive_cp.util.ExpandableHeightGridView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/bottombar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <!--<TextView
+            android:id="@+id/tvTotalScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_selector"
+            android:text="Submit"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+</RelativeLayout>

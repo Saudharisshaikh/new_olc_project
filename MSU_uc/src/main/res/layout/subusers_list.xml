@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_btn"
+        android:id="@+id/toolbarLay"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:id="@+id/lvSubUsersList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:dividerHeight="2px"
+        tools:listitem="@layout/subusers_list_row">
+    </ListView>
+
+    <com.app.msu_uc.AspectRationImageView
+        android:id="@+id/imgAdUsersList"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imgad" />
+
+</LinearLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="RX"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ee4a1f"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Online Care Prescription"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ee4a1f"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPrescDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="DATE: 23/4/2015"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ee4a1f"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPrescPtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Patient Name: Aftab Saraz"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ee4a1f"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/viewww"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etPrescMedicine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/uu"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_margin="7dp"
+        android:background="@drawable/bg_fld"
+        android:gravity="top"
+        android:hint="Enter medicines separated by lines."
+        android:padding="12dp"
+        android:textColor="#ee4a1f" >
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/uu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/btnSendPresc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ee4a1f"
+            android:padding="7dp"
+            android:text="SEND"
+            android:layout_marginRight="5dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnPrescCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ee4a1f"
+            android:padding="7dp"
+            android:text="CANCEL"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

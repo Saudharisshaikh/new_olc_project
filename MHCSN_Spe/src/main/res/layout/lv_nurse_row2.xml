@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/cust_border_white_outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivNurse"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="1sp"
+            app:shadow="true" />
+
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/tvNurseName"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jack Denial"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/tvNurseType"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/tvNurseName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium Text"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                <TextView
+                    android:id="@+id/tvAssign"
+                    android:layout_below="@+id/tvNurseType"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Call"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_selector"
+                    android:textColor="#FFFFFF"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/tvSendMsg"
+                    android:layout_below="@+id/tvAssign"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Message"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_selector"
+                    android:textColor="#FFFFFF"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvDMEName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OnlineCare Doc"
+        android:textSize="18sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/tvDMEEmail"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email : asad@onlinecare.com"/>
+
+    <TextView
+        android:id="@+id/tvDMEFax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fax : +1 20240045533"
+        />
+</LinearLayout> 

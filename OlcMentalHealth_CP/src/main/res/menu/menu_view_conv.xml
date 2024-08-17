@@ -1,0 +1,66 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ViewConversationActivity" >
+
+
+     <item
+         android:id="@+id/action_block"
+         android:title="Block"
+         app:showAsAction="always"/>
+    
+    
+     <item
+        android:id="@+id/action_vcall"
+        android:icon="@drawable/ic_vcall"
+        android:title="Video Call"
+        app:showAsAction="always"/>
+    <!-- <item
+        android:id="@+id/menu_overflow"
+        android:icon="@drawable/ic_action_overflow"
+        android:title=""
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/menuitem_Sign_in"
+                android:icon="@drawable/login"
+                android:title="@string/mainactions_signin"/>
+            <item
+                android:id="@+id/menuitem_myprofile"
+                android:icon="@drawable/menu_icon_profile"
+                android:title="@string/mainactions_profile"/>
+            <item
+                android:id="@+id/menuitem_mydeals"
+                android:icon="@drawable/menu_icon_deals"
+                android:title="@string/mainactions_deals"/>
+            <item
+                android:id="@+id/menuitem_mycart"
+                android:icon="@drawable/menu_icon_cart"
+                android:title="@string/mainactions_cart"/>
+            
+            
+            
+             <item
+                android:id="@+id/menuitem_mycredits"
+                android:icon="@drawable/mycredits"
+                android:title="@string/mainactions_mycredits"/>
+              <item
+                android:id="@+id/menuitem_earnmore"
+                android:icon="@drawable/earnmore"
+                android:title="@string/mainactions_earnmore"/>
+               <item
+                android:id="@+id/menuitem_exchange"
+                android:icon="@drawable/exchange"
+                android:title="@string/mainactions_exchange"/>
+            
+        </menu>
+    </item> -->
+    
+    
+    
+   
+
+
+
+
+</menu>

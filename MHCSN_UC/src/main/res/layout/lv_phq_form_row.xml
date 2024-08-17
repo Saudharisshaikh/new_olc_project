@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/rootCell"
+        android:background="@drawable/cust_border_white_outline"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textStyle="normal"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <RadioGroup
+            android:id="@+id/rgPHQOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:clickable="false"
+                android:longClickable="false"
+                android:id="@+id/rb0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/theme_red"
+                android:text="I do not feel sad. "
+                android:textColor="@color/black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="10dp"/>
+            <RadioButton
+                android:clickable="false"
+                android:longClickable="false"
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/theme_red"
+                android:text="I do not feel sad. "
+                android:textColor="@color/black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="10dp"/>
+            <RadioButton
+                android:clickable="false"
+                android:longClickable="false"
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/theme_red"
+                android:text="I do not feel sad. "
+                android:textColor="@color/black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="10dp"/>
+            <RadioButton
+                android:clickable="false"
+                android:longClickable="false"
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/theme_red"
+                android:text="I do not feel sad. "
+                android:textColor="@color/black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="10dp"/>
+        </RadioGroup>
+
+    </LinearLayout>
+</LinearLayout>

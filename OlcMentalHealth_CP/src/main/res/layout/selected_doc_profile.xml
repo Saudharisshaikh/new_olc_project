@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/bg_gray"
+	android:orientation="vertical">
+
+
+	<LinearLayout
+		android:id="@+id/lin"
+		android:layout_below="@+id/toolbarLay"
+		android:gravity="center_vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_margin="10dp"
+		android:orientation="horizontal" >
+
+		<com.mikhaellopez.circularimageview.CircularImageView
+			android:id="@+id/imgSelPtImage"
+			android:layout_width="70dp"
+			android:layout_height="70dp"
+			android:layout_gravity="top"
+			android:layout_margin="5dp"
+			android:src="@drawable/icon_call_screen"
+			app:border="true"
+			app:border_color="#FFFFFF"
+			app:border_width="1sp"
+			app:shadow="true" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<TextView
+				android:id="@+id/tvSelPtName"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Name"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textSize="20dp"
+				android:textStyle="bold" />
+			<LinearLayout
+				android:id="@+id/patientInfo"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				<TextView
+					android:id="@+id/tvSelPtPhone"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text=""
+					android:layout_marginTop="3dp"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					/>
+				<TextView
+					android:id="@+id/tvSelPtEmail"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text=""
+					android:layout_marginTop="3dp"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					/>
+				<TextView
+					android:id="@+id/tvSelPtDOB"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text=""
+					android:layout_marginTop="3dp"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					/>
+				<TextView
+					android:id="@+id/tvSelPtAddress"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text=""
+					android:layout_marginTop="3dp"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/lin"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="8dp"
+		android:layout_marginTop="10dp" >
+
+		<LinearLayout
+			android:focusableInTouchMode="true"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical" >
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="5dp"
+				android:paddingLeft="15dp"
+				android:paddingRight="15dp"
+				android:orientation="vertical" >
+
+
+				<Button
+					android:id="@+id/btnSendMsg"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="5dp"
+					android:background="@drawable/btn_selector"
+					android:padding="10dp"
+					android:text="Send Message"
+					android:textColor="@android:color/white"
+					android:textSize="18dp"
+					android:drawableLeft="@drawable/ic_livecare_send_msg"
+					android:textAllCaps="false"
+					android:textStyle="normal" />
+				<Button
+					android:id="@+id/btnSelPtStartCheckup"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="5dp"
+					android:background="@drawable/btn_selector"
+					android:padding="10dp"
+					android:text="Start Video Checkup"
+					android:textColor="@android:color/white"
+					android:textSize="18dp"
+					android:drawableLeft="@drawable/ic_livecare_video_checkup"
+					android:textAllCaps="false"
+					android:textStyle="normal" />
+				<Button
+					android:visibility="gone"
+					android:id="@+id/btnLinkToDr"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="5dp"
+					android:background="@drawable/btn_selector"
+					android:padding="10dp"
+					android:text="Link To The Doctor"
+					android:textColor="@android:color/white"
+					android:textAllCaps="false"
+					android:textSize="18dp"
+					android:textStyle="normal" />
+				<Button
+					android:id="@+id/btnViewPatients"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="5dp"
+					android:background="@drawable/btn_selector"
+					android:padding="10dp"
+					android:text="View Patients"
+					android:textColor="@android:color/white"
+					android:textSize="18dp"
+					android:textAllCaps="false"
+					android:drawableLeft="@drawable/ic_livecare_view_reports"
+					android:textStyle="normal" />
+				<Button
+					android:id="@+id/btnAddPatient"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="5dp"
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="5dp"
+					android:layout_marginBottom="5dp"
+					android:background="@drawable/btn_selector"
+					android:padding="10dp"
+					android:text="New Patient Registration"
+					android:textColor="@android:color/white"
+					android:textAllCaps="false"
+					android:textSize="18dp"
+					android:textStyle="normal" />
+				<!--<Button
+					android:id="@+id/btnLeaveDr"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_margin="5dp"
+					android:background="@drawable/btn_selector"
+					android:padding="10dp"
+					android:text="Leave Doctor"
+					android:textColor="@android:color/white"
+					android:textSize="18dp"
+					android:textStyle="bold" />-->
+
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+
+</RelativeLayout>

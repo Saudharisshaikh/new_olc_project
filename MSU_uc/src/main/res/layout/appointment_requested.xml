@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/jjjj"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Thank you.\nYour appointment details are:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/theme_red" />
+
+        <!--  for confirming your appointment -->
+
+        <TextView
+            android:id="@+id/tvApptnmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/theme_red"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Kindly please check your confirmation email, and keep yourself available/online at the time of your appointment. Our provider will contact you."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/theme_red" />
+        <!--Kindly check your confirmation email, and keep yourself online at the appointment timings.\nOur doctor will contact you.-->
+
+        <Button
+            android:id="@+id/btnAppReqOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_selector"
+            android:padding="10dp"
+            android:text="OK, GOT IT."
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</ScrollView>

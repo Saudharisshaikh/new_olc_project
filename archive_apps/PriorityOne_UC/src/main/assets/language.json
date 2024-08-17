@@ -1,0 +1,26 @@
+{
+  "success": 1,
+  "message": "Success",
+  "homeview": {
+    "get_elivecare": "Get\neLiveCare",
+	"book_appointment":"Book\nAppointment",
+    "my_appointment": "My\nAppointments",
+    "medical_history": "Medical\nHistory",
+    "my_reports": "My\nReports",
+    "my_prescriptions": "My\nPrescriptions",
+    "my_profile": "My\nProfile",
+    "add_family_members": "Add Family\nMembers",
+    "switch_user": "Switch\nUser",
+    "transactions": "Transactions",
+    "my_transactions": "My\nTransactions",
+    "my_messages": "My\nMessages",
+    "medical_devices": "Medical\nDevices",
+    "home_health": "Home\nHealth",
+	"donate_for_care": "Donate\nfor care",
+	"logout": "\nLogout"
+    },
+    "getelivecareview": 
+    {
+        "title":"Title"
+    }
+}

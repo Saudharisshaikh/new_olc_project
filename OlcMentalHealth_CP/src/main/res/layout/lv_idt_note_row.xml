@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/CardView.SS">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/host_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+
+
+        <LinearLayout
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/cbIdtIsLocked"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Provider : "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:id="@+id/tvIdtRowProvName"
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Alicia Lichfield"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+                <CheckBox
+                    android:id="@+id/cbIdtIsLocked"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:focusable="false"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/custom_cb_lock"
+                    />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp">
+
+                <!--<TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Notes : "
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"/>-->
+                <TextView
+                    android:id="@+id/tvIdtRowNotes"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="OnlineCare technology is platform agnostic. It can be used on Windows, Smartphones (IOS/Android) and Tablets."
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

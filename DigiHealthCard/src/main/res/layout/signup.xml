@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_clr"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/img_top"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="First Name*"
+                android:textColor="@color/theme_red" />
+
+            <EditText
+                android:id="@+id/etSignupFname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:hint=""
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:padding="10sp"
+                android:textColor="@color/edittextcolor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Last Name*"
+                android:textColor="@color/theme_red" />
+
+            <EditText
+                android:id="@+id/etSignupLname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:hint=""
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:padding="10sp"
+                android:textColor="@color/edittextcolor" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Email*"
+                android:textColor="@color/theme_red" />
+
+            <EditText
+                android:id="@+id/etSignupEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint=""
+                android:inputType="textEmailAddress"
+                android:padding="10sp"
+                android:textColor="@color/edittextcolor" />
+
+            <!--<EditText
+                    android:id="@+id/etSignupPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:padding="10sp"
+                    android:textColor="@color/theme_red"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:maxLength="25"/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Phone Number*"
+                android:textColor="@color/theme_red" />
+            <!--<br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/etSignupPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="25"
+                android:background="@drawable/cust_border_white_outline"
+                app:mask="###-###-####"
+                app:allowed_chars="1234567890">
+            </br.com.sapereaude.maskedEditText.MaskedEditText>-->
+
+            <!--+1(###)###-####-->  <!--android:hint="Phone Number"-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp_CountryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccpDialog_background="@color/background_clr"
+                    app:ccpDialog_textColor="@color/edittextcolor"
+                    app:ccp_contentColor="@color/edittextcolor"
+                    app:ccp_countryPreference="us,pk"
+                    app:ccp_defaultNameCode="us"
+                    app:ccp_defaultPhoneCode="1"
+                    app:ccp_hintExampleNumber="false" />
+
+                <br.com.sapereaude.maskedEditText.MaskedEditText
+                    android:id="@+id/etSignupPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:maxLength="25"
+                    android:padding="10sp"
+                    android:textColor="@color/black"
+                    app:allowed_chars="1234567890"
+                    app:mask="###-###-####"></br.com.sapereaude.maskedEditText.MaskedEditText>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Password*"
+                android:textColor="@color/theme_red" />
+
+            <EditText
+                android:id="@+id/etSignupPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint=""
+                android:inputType="textPassword"
+                android:padding="10sp"
+                android:textColor="@color/edittextcolor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Re Enter Password*"
+                android:textColor="@color/theme_red" />
+
+            <EditText
+                android:id="@+id/etSignupConfrmPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint=""
+                android:inputType="textPassword"
+                android:padding="10sp"
+                android:textColor="@color/edittextcolor" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Gender*"
+                        android:textColor="@color/theme_red" />
+
+                    <RadioGroup
+                        android:id="@+id/rgSignupGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:buttonTint="@color/theme_red"
+                            android:text="Male"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radioFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:buttonTint="@color/theme_red"
+                            android:text="Female"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radioOther"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/theme_red"
+                            android:text="Other"
+                            android:textColor="@color/black" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Username*"
+                    android:textColor="@color/theme_red" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <com.digihealthcard.util.ActionEditText
+                        android:id="@+id/etSignupUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/pbAutoComplete"
+                        android:background="@android:color/transparent"
+                        android:hint=""
+                        android:inputType="textPersonName"
+                        android:maxLength="35"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+                    <ProgressBar
+                        android:id="@+id/pbAutoComplete"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/ivClear"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ivClear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/ic_cancel_cir"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Birthdate*"
+                    android:textColor="@color/theme_red" />
+
+
+                <EditText
+                    android:id="@+id/etSignupBirthdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:editable="false"
+                    android:hint=""
+                    android:inputType="none"
+                    android:padding="10sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="St. Address"
+                    android:textColor="@color/theme_red" />
+
+                <com.digihealthcard.util.ActionEditText
+                    android:id="@+id/etSignupAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint=""
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:padding="10sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="City"
+                    android:textColor="@color/theme_red" />
+
+                <EditText
+                    android:id="@+id/etSignupCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:ems="10"
+                    android:hint=""
+                    android:maxLength="35"
+                    android:padding="10sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="State"
+                    android:textColor="@color/theme_red" />
+                <!--<EditText
+                    android:id="@+id/etSignupState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="State"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:text="Michigan"
+                    android:padding="10sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:maxLength="35"
+                    android:background="@drawable/cust_border_white_outline" />-->
+
+                <Spinner
+                    android:id="@+id/spSignupState"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/spinner_bg" />
+
+                <com.digihealthcard.util.ActionEditText
+                    android:id="@+id/etSignupState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint=""
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapWords"
+                    android:padding="10sp"
+                    android:textColor="@color/black"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Country"
+                    android:textColor="@color/theme_red" />
+
+                <EditText
+                    android:id="@+id/etSignupCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:editable="false"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint=""
+                    android:inputType="none"
+                    android:padding="10sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Zip Code"
+                    android:textColor="@color/theme_red" />
+
+                <EditText
+                    android:id="@+id/etSignupZipcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint=""
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:padding="10sp"
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="Select your hospital"
+                    android:textColor="@color/theme_red" />
+
+                <Spinner
+                    android:id="@+id/spSignupHospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/spinner_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Select your doctor"
+                    android:textColor="@color/theme_red" />
+
+                <Spinner
+                    android:id="@+id/spSignupDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/spinner_bg" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Select one of the following"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgSignupCovidVV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbNewCovid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Need a new covid"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/rbVirtualVisit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Need a virtual visit for clinical care"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+
+                <CheckBox
+                    android:id="@+id/cbPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:buttonTint="@color/theme_red"
+                    android:text="Agree Privacy Policy"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <CheckBox
+                    android:id="@+id/cbUserAgreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:buttonTint="@color/theme_red"
+                    android:text="Agree End User Agreement"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Required Acceptance"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="10dp"
+                    android:text="(Click to accept)*"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red" />
+            </LinearLayout>
+
+
+            <com.digihealthcard.util.ExpandableHeightListView
+                android:id="@+id/lvPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:divider="@android:color/transparent" /><!--tools:listitem="@layout/lv_link_row"-->
+
+            <Button
+                android:id="@+id/btnSubmitSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_selector"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical" 
+    >
+
+    <TextView
+        android:id="@+id/tvDialog"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10sp"
+        android:paddingLeft="20sp"
+        android:paddingRight="40sp"
+        android:paddingTop="10sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/half_transparent_grey"
+        android:textSize="23sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray" />
+
+    <ListView
+        android:id="@+id/lvChooseImage"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'maven'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    //buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+    namespace 'com.paging.listview'
+}
+
+//group = 'com.paginglistview'
+//archivesBaseName = 'paging-listview'
+//version = '1.0'
+//
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: uri("../paginglistview_aar"))
+//        }
+//    }
+//}
+
+//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

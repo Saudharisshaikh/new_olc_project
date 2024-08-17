@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray">
+
+    <LinearLayout
+        android:id="@+id/topD"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:background="@color/toolBarColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:background="@android:color/transparent"
+                android:id="@+id/ivCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/back"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|left"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="IDT Meeting Notes"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/topD"
+        android:layout_above="@+id/bottomD"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:background="@android:color/transparent"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Patient Name :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:id="@+id/etAddIDTPtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint=""
+                    android:padding="10sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="IDT Date :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:id="@+id/etAddIDTdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tap to enter date"
+                    android:padding="10sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <LinearLayout
+                    android:id="@+id/layIDTform"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@android:color/transparent">
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Patient Location :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+                    <RadioGroup
+                        android:id="@+id/rgAddIDTptLocation"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp">
+                        <RadioButton
+                            android:id="@+id/rbAddIdtAtHome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="At Home"
+                            android:buttonTint="@color/theme_red"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/transparent"/>
+                        <RadioButton
+                            android:id="@+id/rbAddIdtHospitalized"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hospitalized"
+                            android:buttonTint="@color/theme_red"
+                            android:background="@android:color/transparent"/>
+                        <RadioButton
+                            android:id="@+id/rbAddIdtRehab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rehab"
+                            android:buttonTint="@color/theme_red"
+                            android:background="@android:color/transparent"/>
+                    </RadioGroup>
+
+                    <TextView
+                        android:background="@android:color/transparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Services Currently Receiving :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <LinearLayout
+                        android:background="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp">
+                        <CheckBox
+                            android:id="@+id/cbAddIdtSkNursing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/theme_red"
+                            android:text="Skilled Nursing"
+                            android:background="@android:color/transparent"/>
+                        <CheckBox
+                            android:id="@+id/cbAddIdtHomeTheropy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/theme_red"
+                            android:text="Home Therapy"
+                            android:background="@android:color/transparent"/>
+                        <CheckBox
+                            android:id="@+id/cbAddIdtOutPtTheropy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/theme_red"
+                            android:text="Outpatient Therapy"
+                            android:background="@android:color/transparent"/>
+                    </LinearLayout>
+
+
+                    <FrameLayout
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:background="@android:color/transparent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Notes :"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textStyle="normal"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginLeft="10dp"/>
+                        <CheckBox
+                            android:visibility="gone"
+                            android:id="@+id/cbIdtIsLocked"
+                            android:layout_gravity="end"
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/custom_cb_lock"
+                            android:button="@null"
+                            android:background="@drawable/cust_border_white_outline"/>
+                    </FrameLayout>
+
+                    <com.app.mhcsn_cp.util.ActionEditText
+                        android:id="@+id/etAddIdtNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter notes here"
+                        android:padding="10sp"
+                        android:inputType="textMultiLine"
+                        android:minLines="3"
+                        android:gravity="top"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:imeOptions="actionDone"
+                        android:layout_marginTop="5dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/cust_border_tr_outline">
+                    <TextView
+                        android:background="@color/theme_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:text="IDT Notes"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/><!--android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"-->
+
+                    <com.app.mhcsn_cp.util.ExpandableHeightListView
+                        android:id="@+id/lvIDTnote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/transparent"
+                        tools:listitem="@layout/lv_idt_note_row"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/cust_border_tr_outline">
+
+                    <TextView
+                        android:background="@color/theme_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:text="Care Goals"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="normal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <com.app.mhcsn_cp.util.ExpandableHeightListView
+                        android:id="@+id/lvCareGoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/transparent"
+                        tools:listitem="@layout/lv_caregoal_row"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomD"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnAddIDTsubmit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_selector"
+            android:text="Submit"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</RelativeLayout>

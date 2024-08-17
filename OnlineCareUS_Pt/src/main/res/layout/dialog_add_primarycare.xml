@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="30dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_red"
+        android:padding="10dp"
+        android:text="Add Primary Care"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvPrimaryCareTxt"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Do you want to add a Primary Care? Please select a primary care physician"/>
+    <LinearLayout
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        android:id="@+id/contFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etAddPrimaryCareFName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textCapWords"
+            android:maxLength="35"
+            android:padding="10sp"
+            android:textColor="@color/theme_red"
+            android:editable="false">
+        </EditText>
+
+        <EditText
+            android:id="@+id/etAddPrimaryCareLName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textCapWords"
+            android:maxLength="35"
+            android:padding="10sp"
+            android:textColor="@color/theme_red"
+            android:editable="false">
+        </EditText>
+
+        <EditText
+            android:id="@+id/etAddPrimaryCareEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLength="35"
+            android:padding="10sp"
+            android:textColor="@color/theme_red"
+            android:editable="false">
+        </EditText>
+
+        <EditText
+            android:id="@+id/etAddPrimaryCareAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPostalAddress"
+            android:maxLength="35"
+            android:padding="10sp"
+            android:textColor="@color/theme_red" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/etAddPrimaryCareMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/cust_border_white_outline"
+            android:ems="10"
+            android:hint="Mobile"
+            android:inputType="phone"
+            android:maxLength="35"
+            android:padding="10sp"
+            android:textColor="@color/theme_red"
+            android:editable="false">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layBtns"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnAddPrimaryCareSbmt"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/btn_selector"
+            android:text="Yes Add Primary Care"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnAddPrimaryCareCancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/apptmnt_cancel_drawable"
+            android:text="Not Now"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

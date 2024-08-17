@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_btn"
+            android:id="@+id/toolbarLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_covacard"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+
+            <TextView
+                android:id="@+id/tvAddCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_scan_card"
+                android:gravity="center"
+                android:text="Scan Card"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black"/>
+
+            <!--<View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"/>-->
+
+            <TextView
+                android:id="@+id/tvShowCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_show_card"
+                android:gravity="center"
+                android:text="Show Cards"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvTestResults"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_test_result"
+                android:gravity="center"
+                android:text="COVID Test Results"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <View
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+
+            <TextView
+                android:id="@+id/tvTestLocations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/test_locations"
+                android:gravity="center"
+                android:text="Test Locations"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvIdCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_id_card"
+                android:gravity="center"
+                android:text="ID Card"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvCovidTestPast"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_print_card"
+                android:gravity="center"
+                android:text="Print Card"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+
+        <View
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tvTeleHealth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_telehealth"
+                android:gravity="center"
+                android:text="Tele Health"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_profile"
+                android:gravity="center"
+                android:text="My Profile"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvLogout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_logout_cc"
+                android:gravity="center"
+                android:text="Logout"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <View
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
+
+
+    <com.app.covacard.AspectRationImageView
+        android:id="@+id/ivAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/covacard_ad"/>
+
+</RelativeLayout>

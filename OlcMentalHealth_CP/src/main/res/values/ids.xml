@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<item type="id" name="key"/>
+    <item type="id" name="type"/>
+    <item type="id" name="childKey"/>
+    <item type="id" name="imagePath"/>
+
+    <item type="id" name="v_required"/>
+    <item type="id" name="error"/>-->
+
+    <!--<item type="id" name="formitembean_toview_tag"/>
+
+    <item type="id" name="formitembean_tocheckbox_tag"/>-->
+
+
+    <item type="id" name="peerIndexTag"/>
+
+    <item type="id" name="remotePeerIdTag"/>
+
+
+    <item type="id" name="etStopMedicationID"/>
+
+</resources>

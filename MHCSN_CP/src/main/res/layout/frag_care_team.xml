@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!--android:background="#e5e5e5"-->
+    <RelativeLayout
+        android:layout_above="@+id/layBottom1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.github.ksoichiro.android.observablescrollview.ObservableGridView
+            android:id="@+id/gvCareTeam"
+            android:numColumns="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EBEAEF"
+            android:horizontalSpacing="10dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+            android:padding="10dp"
+            android:scrollbars="none"
+            tools:listitem="@layout/careteam_row">
+        </com.github.ksoichiro.android.observablescrollview.ObservableGridView>
+        <TextView
+            android:id="@+id/tvNoCareTeam"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Care team not added\nYou can add care team now"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layBottom1"
+        android:visibility="visible"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnAddTeamMember"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:text="Add New Team Member"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</RelativeLayout>

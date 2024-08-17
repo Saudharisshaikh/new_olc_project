@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_patient" >
+
+    <TextView
+        android:id="@+id/tvSplashCAllninonon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvSplashContinue"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/call_911"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSplashContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/policyLay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_selector"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="CONTINUE"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textStyle="normal" />
+
+
+    <!--android:background="@drawable/cust_border2"-->
+    <LinearLayout
+        android:id="@+id/policyLay"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/tvDatarate"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvAgreement"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:text="End User Agreement"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:textColor="#545454"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_useragreement"
+            android:drawablePadding="5dp"
+            android:textSize="10sp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+        <TextView
+            android:id="@+id/tvPolicy"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:layout_gravity="right|center_vertical"
+            android:textColor="#545454"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_privacypolicy"
+            android:drawablePadding="5dp"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDatarate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:text="(Msg / data rates may  apply)"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textColor="#545454"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvSplashCAllninonon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/splash_txt"
+        android:visibility="gone" />
+
+</RelativeLayout>

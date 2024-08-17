@@ -1,0 +1,200 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/sdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="By donating you will support care for someone. Average cost of a patient&apos;s care is $5."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/theme_red"
+            android:textSize="18dp" />
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sdd"
+        android:layout_above="@+id/btnPay"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RadioGroup
+                android:id="@+id/rgDonate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/radioDonateSelf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:text="Self" />
+
+                <RadioButton
+                    android:id="@+id/radioDonateOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/etDonationFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="First Name"
+                android:gravity="center" >
+				
+            </EditText>
+             <EditText
+                android:id="@+id/etDonationLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="Last Name"
+                android:gravity="center" >
+				
+            </EditText>
+            <EditText
+                android:id="@+id/etDonationAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="Address"
+                android:gravity="center" >
+				
+            </EditText>
+            <EditText
+                android:id="@+id/etDonationCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="City"
+                android:gravity="center" >
+				
+            </EditText>
+            <EditText
+                android:id="@+id/etDonationCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="Country"
+                android:gravity="center" >
+				
+            </EditText>
+            <EditText
+                android:id="@+id/etDonationZipCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="Zipcode"
+                android:gravity="center" >
+				
+            </EditText>
+
+            <EditText
+                android:id="@+id/etDonationHowMuchPatients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="Enter no of patients you are donating for"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:gravity="center"
+                android:maxLength="4" >
+				
+            </EditText>
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/etDonationAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:background="@drawable/bg_fld"
+                android:layout_marginTop="5dp"
+                android:hint="Amount to donate"
+                android:gravity="center"
+                android:clickable="false" 
+        		android:cursorVisible="false" 
+      		    android:focusable="false" 
+        		android:focusableInTouchMode="false" >
+				
+            </EditText>
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/theme_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_selector"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="DONATE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

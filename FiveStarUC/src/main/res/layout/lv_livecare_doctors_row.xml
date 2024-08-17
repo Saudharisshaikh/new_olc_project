@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivDrLivecare"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/icon_call_screen"
+            app:border="true"
+            app:border_color="#FFFFFF"
+            app:border_width="2sp"
+            app:shadow="true"
+            android:layout_gravity="top" />
+
+        <LinearLayout
+            android:id="@+id/row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvDrNameLivecare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr Paul Victor"
+                android:textAppearance="@android:style/TextAppearance.Large" />
+
+            <TextView
+                android:id="@+id/tvHospitalVicinity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr Paul Victor"
+                android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnRequest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_selector"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_marginTop="15dp"
+                    android:text="Connect for Care"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+                
+                
+                <Button
+                    android:id="@+id/btnDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_selector"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Doc. Info"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

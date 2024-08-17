@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/login_topimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/img_top"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/scc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:text="First Name*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupFname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapWords"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Last Name*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupLname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapWords"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Username*"
+                android:textColor="@color/theme_red"/>
+            <RelativeLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline">
+
+                <com.app.Olc_MentalHealth.util.ActionEditText
+                    android:id="@+id/etSignupUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/pbAutoComplete"
+                    android:background="@android:color/transparent"
+                    android:hint=""
+                    android:inputType="textPersonName"
+                    android:maxLength="35"
+                    android:padding="10sp"
+                    android:textColor="@color/black" />
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/pbAutoComplete"
+                    android:layout_toLeftOf="@+id/ivClear"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_cancel_cir"
+                    android:paddingRight="5dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Email*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textEmailAddress"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Password*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textPassword"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Re Enter Password*"
+                android:textColor="@color/theme_red"/>
+            <EditText
+                android:id="@+id/etSignupConfrmPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textPassword"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <!--<EditText
+                android:id="@+id/etSignupPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:padding="10sp"
+                android:textColor="@color/theme_red"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:maxLength="25"/>-->
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Phone Number*"
+                android:textColor="@color/theme_red"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:padding="2sp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+1 "
+                    android:textSize="18sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/black"/>
+
+                <br.com.sapereaude.maskedEditText.MaskedEditText
+                    android:id="@+id/etSignupPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:background="@drawable/cust_border_white_outlinewhite"
+                    android:inputType="phone"
+                    android:paddingRight="10sp"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="30dp"
+                    android:maxLength="25"
+                    app:mask="###-###-####"
+                    app:allowed_chars="1234567890">
+                </br.com.sapereaude.maskedEditText.MaskedEditText>
+
+            </LinearLayout>
+
+            <!--+1(###)###-####-->  <!--android:hint="Phone Number"-->
+
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="State*"
+                android:textColor="@color/theme_red"/>
+
+            <EditText
+                android:id="@+id/etSignupState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="State"
+                android:inputType="none"
+                android:focusable="false"
+                android:text="Michigan"
+                android:padding="10sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:maxLength="35"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <Spinner
+                android:id="@+id/spSignupState"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/spinner_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note : Currently accepting patients in Michigan, Illinois, Wisconsin &amp; Florida"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+
+
+            <TextView
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Birthdate*"
+                android:textColor="@color/theme_red"/>
+
+
+            <EditText
+                android:id="@+id/etSignupBirthdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:editable="false"
+                android:hint=""
+                android:inputType="none"
+                android:padding="10sp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="St. Address*"
+                    android:textColor="@color/theme_red"/>
+
+                <com.app.Olc_MentalHealth.util.ActionEditText
+                    android:id="@+id/etSignupAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="textMultiLine"
+                    android:imeOptions="actionDone"
+                    android:padding="10sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="City*"
+                    android:textColor="@color/theme_red"/>
+
+                <EditText
+                    android:id="@+id/etSignupCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint=""
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:maxLength="35"
+                    android:background="@drawable/cust_border_white_outline" />
+
+
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Country*"
+                    android:textColor="@color/theme_red"/>
+
+                <EditText
+                    android:visibility="gone"
+                    android:id="@+id/etSignupCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:hint=""
+                    android:textColor="@color/black"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:padding="10sp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="Zip Code*"
+                    android:textColor="@color/theme_red"/>
+                <EditText
+                    android:id="@+id/etSignupZipcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="10sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:maxLength="9"
+                    android:background="@drawable/cust_border_white_outline" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select your hospital"
+                    android:layout_marginBottom="3dp"
+                    android:textColor="@color/theme_red"/>
+                <Spinner
+                    android:id="@+id/spSignupHospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/spinner_bg"/>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select your doctor"
+                    android:layout_marginBottom="3dp"
+                    android:textColor="@color/theme_red"/>
+                <Spinner
+                    android:id="@+id/spSignupDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/spinner_bg"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/mm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Gender*"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgSignupGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="Male"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+
+                    <RadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Female"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Required Acceptance"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(Click to accept)"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/contPrivacyPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivPrivacyPolicyInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_info_outline_blue" />
+
+                    <Button
+                        android:id="@+id/btnPrivacyPolicy"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="-4dp"
+                        android:layout_toLeftOf="@+id/cbPrivacyPolicy"
+                        android:layout_toRightOf="@+id/ivPrivacyPolicyInfo"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
+                        android:gravity="left|center_vertical"
+                        android:text="Privacy Policy"
+                        android:textAllCaps="false"
+                        android:textColor="@color/toolBarColor"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/pbPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red"
+                        android:maxWidth="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:minHeight="30dip" />
+
+                    <CheckBox
+                        android:id="@+id/cbPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/custom_checkbox_pri" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/contEndUserAgreement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivEndUserAgreementInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_info_outline_blue" />
+
+                    <Button
+                        android:id="@+id/btnEndUserAgreement"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/cbEndUserAgreement"
+                        android:layout_toRightOf="@+id/ivEndUserAgreementInfo"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
+                        android:gravity="left|center_vertical"
+                        android:text="OnlineCare and its partner's Virtual Care End User Agreement"
+                        android:textAllCaps="false"
+                        android:textColor="@color/toolBarColor"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbEndUserAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red"
+                        android:maxWidth="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:minHeight="30dip"
+                        android:visibility="gone"/>
+
+                    <CheckBox
+                        android:id="@+id/cbEndUserAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/custom_checkbox_pri" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contPatientAuthorization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivPatientAuthorizationInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_info_outline_blue"
+                        android:layout_centerVertical="true" />
+
+                    <Button
+                        android:id="@+id/btnPatientAuthorization"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/pbPatientAuthorization"
+                        android:layout_toRightOf="@+id/ivPatientAuthorizationInfo"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
+                        android:gravity="left|center_vertical"
+                        android:text="Patient Authorization"
+                        android:textAllCaps="false"
+                        android:textColor="@color/toolBarColor"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbPatientAuthorization"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone"
+                        android:backgroundTint="@color/theme_red"
+                        android:maxWidth="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:minHeight="30dip" />
+
+                    <CheckBox
+                        android:id="@+id/cbPatientAuthSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/custom_checkbox_pri" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Select one of the following"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgSignupCovidVV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="start">
+
+                    <RadioButton
+                        android:id="@+id/rbNewCovid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Need a new covid"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+
+                    <RadioButton
+                        android:id="@+id/rbVirtualVisit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Need a virtual visit for clinical care"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red" />
+                </RadioGroup>
+
+
+                <CheckBox
+                    android:visibility="gone"
+                    android:id="@+id/cbPrivacy"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree Privacy Policy"
+                    android:buttonTint="@color/theme_red"
+                    android:textStyle="bold"/>
+
+                <CheckBox
+                    android:visibility="gone"
+                    android:id="@+id/cbUserAgreement"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree End User Agreement"
+                    android:buttonTint="@color/theme_red"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnSubmitSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_selector"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewSignup">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/tabBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <TextView
+            android:id="@+id/tvPatientReg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Patient Registration"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvAppointmentDetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Appointment details"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvInsurance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Insurance (optional)"
+            android:textSize="10sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+
+    <ViewFlipper
+        android:id="@+id/viewFlipperSignup"
+        android:layout_below="@+id/tabBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frameLayout1"
+        android:layout_centerHorizontal="true">
+
+
+        <!-- layout 1 starts -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:id="@+id/scc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        android:text="Basic Information"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient First Name *"
+                        android:textColor="@color/theme_red" />
+
+                    <EditText
+                        android:id="@+id/etSignupFname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                        android:hint=""
+                        android:inputType="textCapWords"
+                        android:maxLength="35"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Last Name *"
+                        android:textColor="@color/theme_red" />
+
+                    <EditText
+                        android:id="@+id/etSignupLname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                        android:hint=""
+                        android:inputType="textCapWords"
+                        android:maxLength="35"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Phone *"
+                        android:textColor="@color/theme_red" />
+
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
+                        android:id="@+id/etSignupPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:maxLength="25"
+                        android:padding="10sp"
+                        android:textColor="@color/black"
+                        app:allowed_chars="1234567890"
+                        app:mask="###-###-####">
+
+                    </br.com.sapereaude.maskedEditText.MaskedEditText>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Birthdate *"
+                        android:textColor="@color/theme_red" />
+
+
+                    <EditText
+                        android:id="@+id/etSignupBirthdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:editable="false"
+                        android:hint=""
+                        android:inputType="none"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Email *"
+                        android:textColor="@color/theme_red" />
+
+                    <EditText
+                        android:id="@+id/etSignupEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint=""
+                        android:inputType="textEmailAddress"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Address *"
+                        android:textColor="@color/theme_red" />
+
+                    <com.app.emcurauc.util.ActionEditText
+                        android:id="@+id/etSignupAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint=""
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient City *"
+                        android:textColor="@color/theme_red" />
+
+                    <com.app.emcurauc.util.ActionEditText
+                        android:id="@+id/etSignupCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint=""
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient State *   (Currently Only for Michigan)"
+                        android:textColor="@color/theme_red" />
+
+
+                    <com.app.emcurauc.util.SpinnerCustom
+                        android:id="@+id/spState"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="3"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="@drawable/spinner_bg"
+                        android:spinnerMode="dropdown"
+                        android:textColor="@color/theme_red" />
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Zip Code *"
+                        android:textColor="@color/theme_red" />
+
+                    <EditText
+                        android:id="@+id/etSignupZipcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint=""
+                        android:inputType="number"
+                        android:maxLength="9"
+                        android:padding="10sp"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Gender *"
+                        android:textColor="@color/theme_red" />
+
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="48dp"
+                           android:orientation="horizontal"
+                           android:layout_marginHorizontal="30dp"
+                           android:background="@drawable/cust_border_white_outline"
+                           >
+
+                           <RadioGroup
+                               android:id="@+id/rgSignupStates"
+                               android:gravity="center"
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:orientation="horizontal">
+
+                               <RadioButton
+                                   android:id="@+id/radioMale"
+                                   android:tag="1"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:buttonTint="@color/theme_red"
+                                   android:text="Male" />
+
+                               <RadioButton
+                                   android:id="@+id/radioFemale"
+                                   android:tag="0"
+                                   android:layout_marginLeft="20dp"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:buttonTint="@color/theme_red"
+                                   android:text="Female" />
+
+
+                               <RadioButton
+                                   android:id="@+id/radioOthers"
+                                   android:tag="0"
+                                   android:layout_marginLeft="20dp"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:buttonTint="@color/theme_red"
+                                   android:text="Others" />
+
+
+                           </RadioGroup>
+
+
+
+
+                       </LinearLayout>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Patient Password *"
+                        android:textColor="@color/theme_red"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:id="@+id/etSignupPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint=""
+                        android:inputType="textPassword"
+                        android:padding="10sp"
+                        android:textColor="@color/black"
+                        android:visibility="visible" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Confirm Password *"
+                        android:textColor="@color/theme_red"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:id="@+id/etSignupConfirmPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:hint=""
+                        android:inputType="textPassword"
+                        android:padding="10sp"
+                        android:textColor="@color/black"
+                        android:visibility="visible" />
+
+
+
+
+                    <!--<EditText
+                        android:id="@+id/etSignupPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Phone"
+                        android:inputType="phone"
+                        android:padding="10sp"
+                        android:textColor="@color/theme_red"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:maxLength="25"/>-->
+
+
+
+                    <!--+1(###)###-####-->  <!--android:hint="Phone Number"-->
+
+
+
+
+
+
+                    <EditText
+                        android:id="@+id/etSignupCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:editable="false"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:hint=""
+                        android:inputType="none"
+                        android:padding="10sp"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Please add front and back image of ID card (Required)"
+                        android:textColor="@color/theme_red"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Front Image"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+                            <!-- (optional) :-->
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+
+                                <ImageView
+                                    android:id="@+id/ivIDfrontImg"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@android:color/white"
+                                    android:scaleType="center"
+                                    android:src="@drawable/ic_add_a_photo_black_24dp" /><!--fitCenter-->
+                                <ImageView
+                                    android:id="@+id/ivDeleteIDfrontImg"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="right"
+                                    android:src="@drawable/ic_cancel_cir"
+                                    android:visibility="gone" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Back Image"
+                                android:textColor="@android:color/black"
+                                android:textSize="12sp" />
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+
+                                <ImageView
+                                    android:id="@+id/ivIDbackImg"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:background="@android:color/white"
+                                    android:scaleType="center"
+                                    android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+                                <ImageView
+                                    android:id="@+id/ivDeleteIDbackImg"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="right"
+                                    android:src="@drawable/ic_cancel_cir"
+                                    android:visibility="gone" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+        </RelativeLayout>
+
+        <!-- layout 1 ends -->
+
+
+        <!-- layout 2 starts -->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/iu"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvPastHistory"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:text="Appointment Detail"-->
+<!--                    android:textColor="@color/black" />-->
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="25dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="7"-->
+<!--                        android:text="Scheduling Location"-->
+<!--                        android:textColor="@color/theme_red"-->
+<!--                        android:textSize="15sp" />-->
+
+<!--                    <com.app.emcurauc.util.SpinnerCustom-->
+<!--                        android:id="@+id/spScheduleLocation"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="45dp"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="3"-->
+<!--                        android:background="@drawable/spinner_bg"-->
+<!--                        android:spinnerMode="dropdown"-->
+<!--                        android:textColor="@color/theme_red" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/mm"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginBottom="15dp"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/txtAppointType"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="left|center_vertical"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:text="Appointment Type"-->
+<!--                        android:textColor="@color/theme_red" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:weightSum="2">-->
+
+<!--                        <RadioGroup-->
+<!--                            android:id="@+id/rgSignupAppt"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                        </RadioGroup>-->
+
+<!--                    </LinearLayout>-->
+
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+<!--        </RelativeLayout>-->
+
+        <!-- layout 2 ends -->
+
+
+        <!-- layout 3 starts -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+            <LinearLayout
+                android:id="@+id/iu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPastHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:textStyle="bold"
+                    android:text="Insurance (Optional)"
+                    android:textColor="@color/black"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/button_tab"
+
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    >
+
+                    <Button
+                        android:id="@+id/select_insurance_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_selector"
+                        android:text="Identified Insurance"
+                        android:textAllCaps="false"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:textSize="15sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:id="@+id/add_new_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:background="@drawable/button_drawable_white_selected"
+                        android:text="Add New Insurance"
+                        android:textAllCaps="false"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:textSize="15sp"
+                        android:textColor="@color/theme_red"
+                        android:textStyle="bold"/>
+
+
+
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:visibility="gone"
+                    android:id="@+id/scroll_view_registration"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Insurance Company /Payer name"
+                                android:textColor="@color/theme_red"
+                                android:textSize="15sp" />
+
+                            <com.app.emcurauc.util.SpinnerCustom
+                                android:id="@+id/spInsurancePayer"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_weight="3"
+                                android:background="@drawable/spinner_bg"
+                                android:spinnerMode="dropdown"
+                                android:textColor="@color/theme_red" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Policy number/Member ID"
+                                android:textColor="@color/theme_red"
+                                android:textSize="15sp" />
+
+
+                            <!--<com.app.emcurauc.util.InstantAutoComplete
+                                android:id="@+id/actvInsurance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:hint="Select Insurance"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                />-->
+
+                            <!--<AutoCompleteTextView
+                                android:layout_weight="3"
+                                android:id="@+id/actvInsurance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:hint="Select Insurance"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                />-->
+
+                            <com.app.emcurauc.util.ActionEditText
+                                android:id="@+id/etpolicyNumberMemberId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:hint="Policy number (case sesitve)"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:padding="10dp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Code"
+                                android:textColor="@color/theme_red"
+                                android:textSize="15sp" /><!-- number :-->
+                            <com.app.emcurauc.util.ActionEditText
+                                android:id="@+id/etInsuranceCode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:hint="Enter Code"
+                                android:imeOptions="actionDone"
+                                android:padding="10dp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="7"
+                                android:text="Group"
+                                android:textColor="@color/theme_red"
+                                android:textSize="15sp" />
+
+                            <com.app.emcurauc.util.ActionEditText
+                                android:id="@+id/etInuranceGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:hint="Enter Group"
+                                android:imeOptions="actionDone"
+                                android:padding="10dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="Please add front and back image of insurance card"
+                            android:textColor="@color/theme_red"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Front Image"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="12sp" />
+                                <!-- (optional) :-->
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp">
+
+                                    <ImageView
+                                        android:id="@+id/ivICfrontImg"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:background="@android:color/white"
+                                        android:scaleType="center"
+                                        android:src="@drawable/ic_add_a_photo_black_24dp" /><!--fitCenter-->
+                                    <ImageView
+                                        android:id="@+id/ivDeleteICfrontImg"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="right"
+                                        android:src="@drawable/ic_cancel_cir"
+                                        android:visibility="gone" />
+                                </FrameLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Back Image"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="12sp" />
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp">
+
+                                    <ImageView
+                                        android:id="@+id/ivICbackImg"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:background="@android:color/white"
+                                        android:scaleType="center"
+                                        android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+                                    <ImageView
+                                        android:id="@+id/ivDeleteICbackImg"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="right"
+                                        android:src="@drawable/ic_cancel_cir"
+                                        android:visibility="gone" />
+                                </FrameLayout>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                </ScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/select_form_layout"
+                    >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="patInsurance"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:visibility="gone"
+                    android:id="@+id/patIns_error"
+                    />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/select_form_rv"
+                        android:visibility="gone"
+                        />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/policies_cb"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Required Acceptance"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(Click to accept)"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/contPrivacyPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivPrivacyPolicyInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_info_outline_blue" />
+
+                    <Button
+                        android:id="@+id/btnPrivacyPolicy"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="-4dp"
+                        android:layout_toLeftOf="@+id/cbPrivacyPolicy"
+                        android:layout_toRightOf="@+id/ivPrivacyPolicyInfo"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
+                        android:gravity="left|center_vertical"
+                        android:text="Privacy Policy"
+                        android:textAllCaps="false"
+                        android:textColor="@color/toolBarColor"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/pbPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red"
+                        android:maxWidth="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:minHeight="30dip" />
+
+                    <CheckBox
+                        android:id="@+id/cbPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/custom_checkbox_pri" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/contEndUserAgreement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivEndUserAgreementInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_info_outline_blue" />
+
+                    <Button
+                        android:id="@+id/btnEndUserAgreement"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/cbEndUserAgreement"
+                        android:layout_toRightOf="@+id/ivEndUserAgreementInfo"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
+                        android:gravity="left|center_vertical"
+                        android:text="OnlineCare and its partner's Virtual Care End User Agreement"
+                        android:textAllCaps="false"
+                        android:textColor="@color/toolBarColor"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbEndUserAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red"
+                        android:maxWidth="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:minHeight="30dip"
+                        android:visibility="gone"/>
+
+                    <CheckBox
+                        android:id="@+id/cbEndUserAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/custom_checkbox_pri" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contPatientAuthorization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivPatientAuthorizationInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_info_outline_blue"
+                        android:layout_centerVertical="true" />
+
+                    <Button
+                        android:id="@+id/btnPatientAuthorization"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/pbPatientAuthorization"
+                        android:layout_toRightOf="@+id/ivPatientAuthorizationInfo"
+                        android:background="@android:color/transparent"
+                        android:focusable="false"
+                        android:gravity="left|center_vertical"
+                        android:text="Patient Authorization"
+                        android:textAllCaps="false"
+                        android:textColor="@color/toolBarColor"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbPatientAuthorization"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone"
+                        android:backgroundTint="@color/theme_red"
+                        android:maxWidth="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:minHeight="30dip" />
+
+                    <CheckBox
+                        android:id="@+id/cbPatientAuthSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:button="@drawable/custom_checkbox_pri" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSubmitSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_selector"
+                android:text="Submit"
+                android:visibility="gone"
+                android:layout_below="@+id/policies_cb"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+
+
+        <!-- layout 3 ends -->
+
+    </ViewFlipper>
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btnFlipPrev"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_selector"
+            android:enabled="false"
+            android:text="Previous"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+        <!-- android:background="@drawable/icon_prev" -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/cir1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_blavk_unselected" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/cir2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:src="@drawable/indicator_black_unselected" />-->
+
+            <ImageView
+                android:id="@+id/cir3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/indicator_black_unselected" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFlipNext"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:background="@drawable/btn_selector"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal" />
+        <!-- android:background="@drawable/icon_next" -->
+    </FrameLayout>
+
+</RelativeLayout>

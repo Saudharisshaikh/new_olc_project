@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/host_activity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray">
+
+    <!--<TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dr Test Olc"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12/01/2016"
+        android:textAppearance="?android:attr/textAppearanceSmall" />-->
+
+    <FrameLayout
+        android:background="@color/theme_red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous Progress Note"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp"/>
+    </FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="15dp"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_marginRight="2.5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="Progress Notes for"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.OnlineCareUS_Dr.util.ActionEditText
+                        android:id="@+id/etPtName"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint=""
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:clickable="false"
+                        android:padding="10dp"
+                        android:text=""
+                        android:textSize="11dp"
+                        android:textCursorDrawable="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="Provider Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.OnlineCareUS_Dr.util.ActionEditText
+                        android:id="@+id/etProviderName"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint=""
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null"
+                        android:text=""
+                        android:textSize="11dp"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:textSize="11sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="Date"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.OnlineCareUS_Dr.util.ActionEditText
+                        android:id="@+id/etDate"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint=""
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null"
+                        android:textSize="11dp"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginRight="2.5dp"
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:textSize="11sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="Time"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.OnlineCareUS_Dr.util.ActionEditText
+                        android:id="@+id/etTime"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint=""
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null"
+                        android:textSize="11dp"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:textSize="11sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="Session Length"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.app.OnlineCareUS_Dr.util.ActionEditText
+                        android:id="@+id/etSessionTime"
+                        android:imeOptions="actionDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cust_border"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint=""
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null"
+                        android:textSize="11dp"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Symptom"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.OnlineCareUS_Dr.util.ActionEditText
+                    android:id="@+id/etSymptom"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint=""
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null"
+                    android:text=""
+                    android:textSize="11dp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:longClickable="false"
+                    android:clickable="false"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Condition"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.app.OnlineCareUS_Dr.util.ActionEditText
+                    android:id="@+id/etCondition"
+                    android:imeOptions="actionDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint=""
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null"
+                    android:text=""
+                    android:textSize="11dp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:longClickable="false"
+                    android:clickable="false"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/cust_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <FrameLayout
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vitals"
+                            android:textColor="@color/theme_red"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                        <TextView
+                            android:id="@+id/tvVitalsDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:text=""
+                            android:textStyle="bold"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </FrameLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Temperature"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTTemperature"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginRight="3dp"
+                            android:layout_marginLeft="3dp"
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Height"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTHeight"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Weight"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTWeight"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="BP"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTBP"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="HR"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTHR"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Blood Sugar"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTBloodSugar"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="BMI"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTBMI"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Respirations"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTRespirations"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="O2 Saturations"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                                android:id="@+id/etOTO2Saturations"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:hint=""
+                                android:padding="10dp"
+                                android:textCursorDrawable="@null"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:longClickable="false"
+                                android:clickable="false"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:text="Explanatory Notes"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                android:id="@+id/etExpNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border"
+                android:ems="10"
+                android:gravity="top"
+                android:hint=""
+                android:imeOptions="actionDone"
+                android:padding="10dp"
+                android:textCursorDrawable="@null"
+                android:inputType="none"
+                android:focusable="false"
+                android:longClickable="false"
+                android:clickable="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:text="Care Plan"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            <com.app.OnlineCareUS_Dr.util.ActionEditText
+                android:id="@+id/etCarePlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border"
+                android:ems="10"
+                android:gravity="top"
+                android:hint=""
+                android:imeOptions="actionDone"
+                android:padding="10dp"
+                android:textCursorDrawable="@null"
+                android:inputType="none"
+                android:focusable="false"
+                android:longClickable="false"
+                android:clickable="false"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Interventions/HW"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                <com.app.OnlineCareUS_Dr.util.ActionEditText
+                    android:id="@+id/etInterventions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint=""
+                    android:imeOptions="actionDone"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:longClickable="false"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Patient Response/Feedback"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                <com.app.OnlineCareUS_Dr.util.ActionEditText
+                    android:id="@+id/etPtRes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint=""
+                    android:imeOptions="actionDone"
+                    android:padding="10dp"
+                    android:textCursorDrawable="@null"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:longClickable="false"
+                    android:clickable="false"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do you want to add this note again ?"/>
+
+            <Button
+                android:id="@+id/btnYes"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_selector"
+                android:text="Yes, Add"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+            <Button
+                android:id="@+id/btnNo"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/btn_selector"
+                android:text="No"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

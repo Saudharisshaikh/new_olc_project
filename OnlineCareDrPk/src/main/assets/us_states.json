@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Sindh",
+        "abbreviation": "Sindh"
+    },
+    {
+        "name": "Punjab",
+        "abbreviation": "Punjab"
+    },
+    {
+        "name": "Balochistan",
+        "abbreviation": "Balochistan"
+    },
+    {
+        "name": "Gilgit Baltistan",
+        "abbreviation": "Gilgit Baltistan"
+    },
+    {
+        "name": "Khyber Pakhtunkhwa",
+        "abbreviation": "Khyber Pakhtunkhwa"
+    },
+    {
+        "name": "Azad Jammu and Kashmir",
+        "abbreviation": "Azad Jammu and Kashmir"
+    }
+]

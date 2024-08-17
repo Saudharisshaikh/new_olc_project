@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/tvNoDoctors"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We are sorry.\nNo doctors availabe in this clinic and speciality."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout
+        android:id="@+id/tabOptions"
+        android:background="@drawable/cust_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- <Button
+            android:id="@+id/btnAll" 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_red"
+            android:textColor="#FFFFFF"
+            android:text="All"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View 
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/> -->
+        <Button
+            android:id="@+id/btnDoctors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_red"
+            android:textColor="#FFFFFF"
+            android:text="Doctors"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnSpecialist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:textColor="@color/theme_red"
+            android:text="Specialists"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <com.app.mhcsn_spe.util.ActionEditText
+        android:id="@+id/etZipcode"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cust_border_white_outline"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Search"
+        android:imeOptions="actionDone"
+        android:drawableStart="@drawable/ic_search_black_24dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/lvUsersList"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/lv_divider" >
+        </ListView>
+        <TextView
+            android:id="@+id/tvNoData"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:text="No data available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

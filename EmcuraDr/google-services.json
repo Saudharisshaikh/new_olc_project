@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "522574798528",
+    "firebase_url": "https://online-care-dr.firebaseio.com",
+    "project_id": "online-care-dr",
+    "storage_bucket": "online-care-dr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522574798528:android:89dbe2d3c970f274",
+        "android_client_info": {
+          "package_name": "com.app.convenientdr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522574798528-jlhlplvech580q3g96drohcf245900fa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.convenientdr",
+            "certificate_hash": "f4bcb86a816116b56dafabd8c2b6f3b4aa083c56"
+          }
+        },
+        {
+          "client_id": "522574798528-47hisa4h4p89c9l703ugc9mpcobrn60d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV-f6jKnNEJR3BxyA0277kB577yr5GsF8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522574798528-47hisa4h4p89c9l703ugc9mpcobrn60d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522574798528:android:43ef326f02f25910",
+        "android_client_info": {
+          "package_name": "com.app.emcuradr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522574798528-luref6kt6gabfgtvdpoao5mbaj09u5gh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.emcuradr",
+            "certificate_hash": "f4bcb86a816116b56dafabd8c2b6f3b4aa083c56"
+          }
+        },
+        {
+          "client_id": "522574798528-47hisa4h4p89c9l703ugc9mpcobrn60d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV-f6jKnNEJR3BxyA0277kB577yr5GsF8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522574798528-47hisa4h4p89c9l703ugc9mpcobrn60d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522574798528:android:6a24199873f5c773",
+        "android_client_info": {
+          "package_name": "com.app.onlinecaredr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522574798528-pap05u21jjj7mquc6rnibbfcfpna7c1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.onlinecaredr",
+            "certificate_hash": "f4bcb86a816116b56dafabd8c2b6f3b4aa083c56"
+          }
+        },
+        {
+          "client_id": "522574798528-47hisa4h4p89c9l703ugc9mpcobrn60d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV-f6jKnNEJR3BxyA0277kB577yr5GsF8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522574798528-47hisa4h4p89c9l703ugc9mpcobrn60d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="15dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/list_selector_white"
+    android:weightSum="10">
+
+
+    <TextView
+        android:id="@+id/tvICDCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="D61810"
+        android:textSize="12sp"
+        android:layout_weight="2"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tvCodeDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Antineoplastic chemotherapy induced pancytopenia"
+        android:textColor="@color/black"
+        android:layout_weight="8"/>
+
+</LinearLayout>

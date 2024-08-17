@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/toolbarLay"
+        layout="@layout/toolbar_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:id="@+id/xxx"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarLay"
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:id="@+id/iik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/joo"
+                android:layout_width="130sp"
+                android:layout_height="130sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="12sp">
+
+                <com.app.OnlineCareTDC_Pt.AspectRationImageView
+                    android:id="@+id/imgMainList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/imgChangeProfileImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_call_screen"
+                    app:border="true"
+                    app:border_color="#66FFFFFF"
+                    app:border_width="2sp"
+                    app:shadow="true" />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnEditPicture"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:text="Edit Profile Picture"
+                android:textAllCaps="false"
+                android:textColor="@color/theme_red" />
+
+            <View
+                android:id="@+id/vidd"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/theme_red" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="First Name*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileFname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:ems="10"
+                android:hint="First Name"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:padding="10sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Last Name*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileLname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:digits="aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ.- "
+                android:ems="10"
+                android:hint="Last Name"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:padding="10sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Date of Birth*"
+                android:textColor="@color/theme_red" />
+
+            <EditText
+                android:id="@+id/etUpdateProfilBday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Birth Date"
+                android:inputType="none"
+                android:padding="10sp"
+                android:textColor="@color/black"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Phone*"
+                android:textColor="@color/theme_red" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:padding="2sp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+1 "
+                    android:textSize="18sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/black"/>
+
+                <br.com.sapereaude.maskedEditText.MaskedEditText
+                    android:id="@+id/etUpdateProfilePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:background="@drawable/cust_border_white_outlinewhite"
+                    android:inputType="phone"
+                    android:paddingRight="10sp"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="30dp"
+                    android:maxLength="25"
+                    app:mask="###-###-####"
+                    app:allowed_chars="1234567890">
+                </br.com.sapereaude.maskedEditText.MaskedEditText>
+
+            </LinearLayout>
+
+            <!--+1(###)###-####-->  <!--android:hint="Phone Number"-->
+
+            <!--<EditText
+                android:id="@+id/etUpdateProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:textColor="@color/theme_red"
+                android:padding="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:maxLength="25"
+                android:background="@drawable/cust_border_white_outline"
+                />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="St. Address*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="St. Address"
+                android:imeOptions="actionDone"
+                android:maxLength="35"
+                android:padding="10sp"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Zip Code*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileZipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="Zip code"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="9"
+                android:padding="10sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="City*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:hint="City"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:maxLength="35"
+                android:padding="10sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="State*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="State"
+                android:imeOptions="actionDone"
+                android:inputType="none"
+                android:padding="10sp"
+                android:text="Michigan"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/spUpdateProfileState"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/spinner_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:visibility="gone"
+                android:text="Note : Currently accepting patients in Michigan, Illinois, Wisconsin &amp; Florida"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="-3dp"
+                android:text="Country*"
+                android:textColor="@color/theme_red" />
+
+            <com.app.OnlineCareTDC_Pt.util.ActionEditText
+                android:id="@+id/etUpdateProfileCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Country"
+                android:imeOptions="actionDone"
+                android:inputType="none"
+                android:padding="10sp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/mm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Gender*"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgEditProfilGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:checked="true"
+                        android:text="Male  "
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Female  "
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radioOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Other"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/oi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <!--
+                android:textColor="@color/theme_red"-->
+                <TextView
+                    android:id="@+id/texView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Marital Status*"
+                    android:textColor="@color/theme_red" />
+
+                <RadioGroup
+                    android:id="@+id/rgMaritalStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioSingle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:buttonTint="@color/theme_red"
+                        android:checked="true"
+                        android:text="Single"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioMarried"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Married"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioDivorced"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Divorced"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioWidowed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/theme_red"
+                        android:text="Widowed"
+                        android:textColor="@color/black"
+                        android:textSize="11sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnUpdtPrflSbmt"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+            <!-- android:layout_wixtaldth="wrap_content" commited remove bg img-->
+            <Button
+                android:id="@+id/btnUpdtPrflPwd"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:text="Change Password"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnAddInsurance"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:text="View / Modify Insuance"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnAddPrimaryCare"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_selector"
+                android:padding="10dp"
+                android:text="Add / Modify Primary Care Provider"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnDeleteAccount"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_selector_red"
+                android:padding="10dp"
+                android:text="Delete My Account"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

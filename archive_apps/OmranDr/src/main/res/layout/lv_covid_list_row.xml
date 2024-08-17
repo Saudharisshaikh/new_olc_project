@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:id="@+id/layLvCovidListItem">
+
+
+    <!--android:layout_toStartOf="@+id/layEditOpt"-->
+    <LinearLayout
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivPatientImg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/icon_call_screen"
+                    app:border="true"
+                    app:border_color="#FFFFFF"
+                    app:border_width="2sp"
+                    app:shadow="true" />
+
+                <ImageView
+                    android:id="@+id/ivIsonline"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="top|end"
+                    android:src="@drawable/icon_notification"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Patient Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvPatientName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jack Denial"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Request Date"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="April 17 2019"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Result Status"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvResultStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Results"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/btn_selector"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textStyle="bold"/>
+
+                    <!--<ImageView
+                        android:id="@+id/ivResultStatus"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/cust_cir_res_processing"
+                        android:layout_marginStart="10dp"/>-->
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Location"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvTestLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Emcura Bloomfield"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cust_border_grey_outline"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvSwabSendOut"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="PCR Covid"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/green_check"
+                    android:gravity="center_vertical" />
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+                <TextView
+                    android:id="@+id/tvInHouseSwab"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rapid Covid In-House"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/gray_check"
+                    android:gravity="center_vertical"
+                    />
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+                <TextView
+                    android:id="@+id/tvStrepTest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rapid Strep Test"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/green_check"
+                    android:gravity="center_vertical"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvRapidFlu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rapid Flu"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/gray_check"
+                    android:gravity="center_vertical"/>
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+                <TextView
+                    android:id="@+id/tvDnaFlu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="DNA Flu"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/green_check"
+                    android:gravity="center_vertical"
+                    />
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+                <TextView
+                    android:id="@+id/tvCulture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Strep Culture : Yes"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"/><!--android:drawableEnd="@drawable/gray_check"-->
+            </LinearLayout>
+
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="PCR Covid"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <CheckBox
+                        android:id="@+id/cbSwabSendOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rapid Covid In-House"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <CheckBox
+                        android:id="@+id/cbInHouseSwab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rapid Strep Test"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <CheckBox
+                        android:id="@+id/cbStrepTest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Rapid Flu"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <CheckBox
+                        android:id="@+id/cbRapidFlu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="DNA Flu"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <CheckBox
+                        android:id="@+id/cbDnaFlu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Strep Culture"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/theme_red"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"
+                        android:textStyle="bold"/>
+
+                    <RadioButton
+                        android:id="@+id/rbCulture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:buttonTint="@color/theme_red"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:enabled="false"/>
+                </LinearLayout>
+            </LinearLayout>-->
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:id="@+id/tvViewForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View COVID Test"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvCareAct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View CARES ACT"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/tvCall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Call"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Message"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvAction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Action"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--<TextView
+            android:id="@+id/tvAssignToProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Assign to Provider"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:background="@drawable/btn_selector"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/tvSendResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send Results"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:id="@+id/tvAddVitals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Vitals"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <!--<TextView
+                android:id="@+id/tvAssignToProvider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Assign to Provider"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:background="@drawable/btn_selector"
+                android:textColor="@android:color/white"
+                android:padding="8dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:textStyle="bold"/>-->
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <!--<LinearLayout
+        android:id="@+id/layEditOpt"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvEdit"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:text="Edit"
+            android:gravity="center"
+            android:background="@drawable/btn_selector"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginEnd="5dp"/>
+
+        <ImageView
+            android:id="@+id/ivLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_locked"
+            android:layout_marginEnd="5dp"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow"/>
+    </LinearLayout>-->
+
+
+</RelativeLayout>

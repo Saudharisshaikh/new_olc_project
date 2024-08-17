@@ -1,0 +1,1333 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.app.OnlineCareTDC_Dr.ActivitySoapNotes">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <TextView
+            android:id="@+id/tvSubjective"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/theme_red"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="S"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvObjective"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="O"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvASSESMENT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="A"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvPlan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/theme_red_opaque_60"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="P"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/vfSoapNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- ===============================SUBJECTIVE================================================ -->
+
+        <LinearLayout
+            android:id="@+id/laySubjective"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="SUBJECTIVE"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <ScrollView
+                android:id="@+id/svSubjective"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:focusableInTouchMode="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:weightSum="10" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="Patient"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/tvSOAPPatientName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:weightSum="10" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="DOB"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/tvSOAPDOB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:weightSum="10" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="History"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/tvSOAPHistory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:weightSum="10" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="Allergies"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/tvSOAPAllergies"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp" >
+                        <FrameLayout
+                            android:layout_marginBottom="2dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Complain"
+                                android:layout_gravity="left|bottom"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+                            <TextView
+                                android:onClick="clearComplain"
+                                android:layout_width="80dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:text="Clear"
+                                android:background="@drawable/btn_selector"
+                                android:textColor="#FFFFFF"
+                                android:padding="8dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="right"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+                        </FrameLayout>
+
+                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                            android:id="@+id/etSOAPComplain"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cust_border_white_outline"
+                            android:ems="10"
+                            android:gravity="top"
+                            android:hint="Complain"
+                            android:inputType="textMultiLine"
+                            android:imeOptions="actionDone"
+                            android:minLines="5"
+                            android:padding="10dp"
+                            android:textCursorDrawable="@null" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Patient Complain Description"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/etSOAPDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Patient Complain Description"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:padding="10dp"
+                        android:focusable="false"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Family History"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/etSOAPFamilyHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Family History"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null"
+                        android:focusable="false"
+                        android:editable="false"
+                        android:layout_marginBottom="10dp"/>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        <!-- ===============================OBJECTIVE================================================ -->
+
+        <LinearLayout
+            android:id="@+id/layObjective"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="OBJECTIVE"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <ScrollView
+                android:id="@+id/svObjective"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:id="@+id/nurseOptionsBox"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:padding="10dp"
+                            android:background="@drawable/cust_border_white_radius_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Date"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                android:id="@+id/etOTDate"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="top"
+                                android:hint=""
+                                android:inputType="none"
+                                android:padding="10dp"
+                                android:focusable="false"
+                                android:textCursorDrawable="@null" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="Time In"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                android:id="@+id/etOTTimeIn"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="top"
+                                android:hint=""
+                                android:inputType="none"
+                                android:padding="10dp"
+                                android:focusable="false"
+                                android:textCursorDrawable="@null" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="Time Out"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                            <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                android:id="@+id/etOTTimeout"
+                                android:imeOptions="actionDone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cust_border_white_outline"
+                                android:ems="10"
+                                android:gravity="top"
+                                android:hint=""
+                                android:inputType="none"
+                                android:padding="10dp"
+                                android:focusable="false"
+                                android:textCursorDrawable="@null" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:padding="10dp"
+                            android:background="@drawable/cust_border_white_radius_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:text="Vitals"
+                                android:textColor="@color/theme_red"
+                                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="Height"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTHeight"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="Weight"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTWeight"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="BMI"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTBmi"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="none"
+                                        android:focusable="false"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="8dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="BP"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTBP"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:hint=""
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="HR"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTHR"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="Blood Sugar"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTBloodSugar"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="8dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="Temperature"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTTemperature"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:hint=""
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="Respirations"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTRespirations"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center_horizontal"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="4dp"
+                                        android:text="O2 Saturations"
+                                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                    <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                        android:id="@+id/etOTO2Saturations"
+                                        android:imeOptions="actionDone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/cust_border_white_outline"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:hint=""
+                                        android:inputType="phone"
+                                        android:padding="10dp"
+                                        android:textCursorDrawable="@null" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:background="@drawable/cust_border_white_radius_10"
+                            android:layout_margin="10dp"
+                            android:padding="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:text="Examinations"
+                                    android:textColor="@color/theme_red"
+                                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                                <ImageView
+                                    android:id="@+id/ivExpendExamLay"
+                                    android:padding="6dp"
+                                    android:layout_gravity="right|center_vertical"
+                                    android:src="@drawable/ic_add_box_black_24dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </FrameLayout>
+
+                            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                                android:id="@+id/layExpandExam"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:ael_duration="1000"
+                                app:ael_interpolator="fastOutSlowIn">
+
+                                <androidx.core.widget.NestedScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical" >
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Head"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamHead"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Head"
+                                            android:visibility="gone"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <Spinner
+                                            android:id="@+id/spSOAPExamHead"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="50dp"
+                                            android:layout_marginTop="5dp"
+                                            android:background="@drawable/spinner_bg" />
+
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamEyes"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Eyes"
+                                            android:visibility="gone"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Eyes"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                        <Spinner
+                                            android:id="@+id/spSOAPExamEyes"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="50dp"
+                                            android:layout_marginTop="5dp"
+                                            android:background="@drawable/spinner_bg" />
+
+
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamEars"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Ears"
+                                            android:visibility="gone"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Ears"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                        <Spinner
+                                            android:id="@+id/spSOAPExamEars"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="50dp"
+                                            android:layout_marginTop="5dp"
+                                            android:background="@drawable/spinner_bg" />
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Nose"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                                        <Spinner
+                                            android:id="@+id/spSOAPExamNose"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="50dp"
+                                            android:layout_marginTop="5dp"
+                                            android:background="@drawable/spinner_bg" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Heent"
+                                            android:visibility="gone"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamHeent"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:visibility="gone"
+                                            android:gravity="top"
+                                            android:hint="Heent"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Throat"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamThroat"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:visibility="gone"
+                                            android:gravity="top"
+                                            android:hint="Throat"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <Spinner
+                                            android:id="@+id/spSOAPExamThroat"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="50dp"
+                                            android:layout_marginTop="5dp"
+                                            android:background="@drawable/spinner_bg" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Heart"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamHeart"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Heart"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Lungs"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamLungs"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Lungs"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Chest"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamChest"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Chest"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Extremities"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamExtremities"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Extremities"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Neurologic"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamNeurologic"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Neurologic"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Skin"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamSkin"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Skin"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="GI"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamGI"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="GI"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="GU"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamGU"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="GU"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:text="Other"
+                                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                                        <com.app.OnlineCareTDC_Dr.util.ActionEditText
+                                            android:id="@+id/etSOAPExamOther"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/cust_border_white_outline"
+                                            android:ems="10"
+                                            android:gravity="top"
+                                            android:hint="Other"
+                                            android:inputType="textMultiLine"
+                                            android:imeOptions="actionDone"
+                                            android:padding="10dp"
+                                            android:textCursorDrawable="@null"
+                                            android:minLines="3"/>
+
+                                    </LinearLayout>
+                                </androidx.core.widget.NestedScrollView>
+
+                            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- ===============================ASSESMENT================================================ -->
+
+        <LinearLayout
+            android:id="@+id/layASSESMENT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="ASSESSMENT"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <ScrollView
+                android:id="@+id/svASSESMENT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Summary of Problem"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/etSOAPSummaryofProblem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Summary of Problem"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- ===============================PLAN================================================ -->
+
+        <LinearLayout
+            android:id="@+id/layPLAN"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_red"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="PLAN"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <ScrollView
+                android:id="@+id/svPLAN"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Referred to:"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/etSOAPReferredto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Referred to"
+                        android:inputType="textMultiLine"
+                        android:minLines="1"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Refills"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/etSOAPRefills"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Refills"
+                        android:inputType="textMultiLine"
+                        android:minLines="1"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" /> -->
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:layout_gravity="left|bottom"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                        <Button
+                            android:id="@+id/btnEditServices"
+                            android:padding="10dp"
+                            android:layout_gravity="right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/btn_selector"
+                            android:textColor="#FFFFFF"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            android:text="Edit Services"/>
+                    </FrameLayout>
+
+
+                    <EditText
+                        android:id="@+id/etSOAPPlanDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Description"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Care Plan"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/etSOAPCarePlan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/cust_border_white_outline"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="Care Plan"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:padding="10dp"
+                        android:textCursorDrawable="@null" />
+                    <Button
+                        android:id="@+id/btnSoapConfirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_selector"
+                        android:text="Confirm"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#FFFFFF"
+                        android:layout_margin="20dp"
+                        android:layout_gravity="bottom"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </ViewFlipper>
+
+</LinearLayout>

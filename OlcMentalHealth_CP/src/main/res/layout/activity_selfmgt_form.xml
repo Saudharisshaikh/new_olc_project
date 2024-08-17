@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gray"
+    tools:context=".reliance.assessment.ActivitySelfMgtForm">
+
+    <ScrollView
+        android:id="@+id/svForm"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/bottomD"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="20dp"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/lay_asseslist_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Patient Name :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:id="@+id/etAddSMGptName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Date :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:id="@+id/etAddSMGdate"
+                android:tag="form_data[dateof]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Tap to enter date"
+                android:padding="10sp"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
+                android:longClickable="false"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Staff Name :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:id="@+id/etAddSMGstafName"
+                android:tag="form_data[staff_name]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textPersonName"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Staff Role :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:id="@+id/etAddSMGstafRole"
+                android:tag="form_data[staff_role]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textPersonName"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Staff Contact Info :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:id="@+id/etAddSMGstafCntact"
+                android:tag="form_data[staff_contact_info]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textPersonName"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+            <TextView
+                android:id="@+id/tvSmgLbl1"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Goal : What is something you WANT to work on?"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:id="@+id/etAddSMGgoal"
+                android:tag="form_data[goal]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textPersonName"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+
+            <TextView
+                android:id="@+id/tvSmgLbl2"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Goal Description : What am I going to do?"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGgoalDes"
+                android:tag="form_data[goal_desc]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="How :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGhow"
+                android:tag="form_data[goal_how]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Where :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGwhere"
+                android:tag="form_data[goal_where]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="When :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGwhen"
+                android:tag="form_data[goal_when]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Frequency :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGfreq"
+                android:tag="form_data[frequency]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="How ready am I to work on this goal ?"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/tvSB1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5/10"
+                android:textColor="@color/black"
+                android:layout_gravity="end"
+                android:textSize="16sp" />
+            <SeekBar
+                android:id="@+id/sbAddSMG1"
+                android:tag="form_data[ready_goal]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:progress="5"
+                android:progressDrawable="@drawable/cust_seekprogress"
+                android:minHeight="4dip"
+                android:maxHeight="4dip"
+                android:thumb="@drawable/slider_handle_sq" />
+
+            <TextView
+                android:id="@+id/tvSmgLbl3"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Challenges : What are barriers that could get in the way &amp; how will I overcome them ?"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGchallenges"
+                android:tag="form_data[challenges]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="What support do i need :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGsupport"
+                android:tag="form_data[support_do_need]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="Follow-up &amp; Next Steps (Summary) :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+            <com.app.msu_cp.util.ActionEditText
+                android:id="@+id/etAddSMGfollowup"
+                android:tag="form_data[follow_up_summary]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Type here"
+                android:padding="10sp"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/cust_border_white_outline" />
+
+            <TextView
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="How confident do I feel about this action plan ?"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="normal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/tvSB2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5/10"
+                android:textColor="@color/black"
+                android:layout_gravity="end"
+                android:textSize="16sp" />
+
+            <SeekBar
+                android:id="@+id/sbAddSMG2"
+                android:tag="form_data[how_confident]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:progress="5"
+                android:progressDrawable="@drawable/cust_seekprogress"
+                android:minHeight="4dip"
+                android:maxHeight="4dip"
+                android:thumb="@drawable/slider_handle_sq" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/bottomD"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+        <Button
+            android:id="@+id/btnSubmitForm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_selector"
+            android:text="Submit"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</RelativeLayout>

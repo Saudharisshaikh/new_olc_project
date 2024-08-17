@@ -1,0 +1,142 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    tools:context="com.app.msu_dr.ActivityTelemedicineServices" >
+
+
+    <FrameLayout
+        android:id="@+id/topBar"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolBarColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lab Request"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="10dp"/>
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:src="@drawable/ic_close_white_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+
+    <!--android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        -->
+    <LinearLayout
+        android:id="@+id/layDiag"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diagnosis Description"
+            android:textColor="@color/theme_red"/>
+
+        <com.app.msu_dr.util.ActionEditText
+            android:layout_marginTop="5dp"
+            android:id="@+id/etLabRepDiag"
+            android:imeOptions="actionDone"
+            android:padding="10dp"
+            android:hint="Optional"
+            android:background="@drawable/cust_border_white_outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:minLines="2"
+            android:maxLines="4"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layDiag"
+        android:layout_above="@+id/bottom"
+        android:orientation="vertical">
+
+
+        <com.diegocarloslima.fgelv.lib.FloatingGroupExpandableListView
+            android:id="@+id/lvLabReports"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:groupIndicator="@drawable/group_indicator"
+            android:dividerHeight="1px"
+            android:divider="@android:color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/btnLabAddFav"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_selector"
+            android:text="Add to Favourite"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textColor="#FFFFFF"
+            android:textStyle="normal"
+            android:textSize="11dp"/>
+
+        <Button
+            android:id="@+id/btnLabRemFav"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_selector"
+            android:text="Remove Favourite"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textColor="#FFFFFF"
+            android:textStyle="normal"
+            android:textSize="11dp"/>
+
+        <Button
+            android:id="@+id/btnSendLab"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_selector"
+            android:text="Save And Send"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal"
+            android:textSize="11dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

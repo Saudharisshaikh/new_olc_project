@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    >
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/cc_grey"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true"
+
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="10dp">
+                                <!--<com.mikhaellopez.circularimageview.CircularImageView
+                                    android:id="@+id/ivUserImage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:shadow="true"
+                                    android:src="@drawable/icon_call_screen"/>-->
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardBackgroundColor="@android:color/white"
+                                    app:cardElevation="4dp"
+                                    app:cardUseCompatPadding="false">
+                                    <ImageView
+                                        android:id="@+id/ivUserImage"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_default_user_squire"
+                                        android:scaleType="centerCrop"/>
+                                </androidx.cardview.widget.CardView>
+
+
+                            </LinearLayout>
+
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardBackgroundColor="@android:color/white"
+                                app:cardElevation="4dp"
+                                app:cardUseCompatPadding="false"
+                                >
+                                <com.covacard.util.AspectRationImageView
+                                    android:id="@+id/ivQRcodeImg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_qrcode"
+                                    />
+                            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvUserFullName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mike Jonathan"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/covacard_dark_green"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:textSize="25sp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="20dp"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="Date"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=":"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="15dp"/>
+
+                            <TextView
+                                android:id="@+id/tvDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4/13/2021"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="Name"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=":"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="15dp"/>
+
+                            <TextView
+                                android:id="@+id/tvName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mike Jonathan"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="Type Of Card"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=":"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="15dp"/>
+
+                            <TextView
+                                android:id="@+id/tvTypeOfCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Health / ID Card"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="Relation"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=":"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"
+                                android:layout_marginEnd="15dp"/>
+
+                            <TextView
+                                android:id="@+id/tvRelation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Self"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@android:color/darker_gray"
+                            android:layout_marginTop="10dp"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="10dp"
+                                app:cardBackgroundColor="@color/cc_grey"
+                                app:cardElevation="4dp"
+                                app:cardUseCompatPadding="true">
+
+                                <com.covacard.util.AspectRationImageView
+                                    android:id="@+id/ivVCfrontImg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_placeholder_3"
+                                    android:background="@android:color/white"
+                                    /><!--android:scaleType="centerInside"-->
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="10dp"
+                                app:cardBackgroundColor="@color/cc_grey"
+                                app:cardElevation="4dp"
+                                app:cardUseCompatPadding="true">
+
+                                <com.covacard.util.AspectRationImageView
+                                    android:id="@+id/ivVCBackImg"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_placeholder_3"
+                                    android:background="@android:color/white"
+                                    /><!-- android:scaleType="centerInside"-->
+
+                            </androidx.cardview.widget.CardView>
+
+
+
+
+
+                            <!--<ImageView
+                                android:id="@+id/ivIDfrontImg"
+                                android:layout_width="0dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_placeholder_2"
+                                android:scaleType="fitCenter"
+                                android:background="@android:color/white"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="5dp"/>
+
+                            <ImageView
+                                android:id="@+id/ivIDbackImg"
+                                android:layout_width="0dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_placeholder_2"
+                                android:scaleType="fitCenter"
+                                android:background="@android:color/white"
+                                android:layout_weight="1"/>-->
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <Button
+                    android:id="@+id/btnPrint"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Print Card"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal" />
+
+                <Button
+                    android:id="@+id/btnView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/btn_grey"
+                    android:text="View Card"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+
+
+
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

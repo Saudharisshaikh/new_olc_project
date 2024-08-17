@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layMainCP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"  >
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvCPs1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_nurse_to_nurse"
+                    android:gravity="center"
+                    android:text="Call to CP"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:drawablePadding="10dp"
+                    android:textSize="12dp" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvMessages1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_my_messages"
+                        android:gravity="center"
+                        android:text="My Messages"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvMessagesBadge1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="15dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/button_drawable"
+                        android:gravity="center"
+                        android:minHeight="17sp"
+                        android:minWidth="17sp"
+                        android:padding="2dp"
+                        android:paddingBottom="1dp"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:scaleType="fitStart"
+                        android:text="4"
+                        android:textColor="#ffffffff"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvGroupChat1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_group_chat"
+                        android:gravity="center"
+                        android:text="Group Chat"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvGroupsBadge1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="15dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/button_drawable"
+                        android:gravity="center"
+                        android:minHeight="17sp"
+                        android:minWidth="17sp"
+                        android:padding="2dp"
+                        android:paddingBottom="1dp"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:scaleType="fitStart"
+                        android:text="4"
+                        android:textColor="#ffffffff"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvMyProfile1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_my_profile"
+                    android:gravity="center"
+                    android:text="My Profile"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:drawablePadding="10dp"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/tvLogout1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_logout"
+                    android:gravity="center"
+                    android:text="Logout"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:drawablePadding="10dp"
+                    android:textSize="12dp"/>
+                <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/tvPendingNotes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/icon_reports"
+                    android:gravity="center"
+                    android:text="Pending Notes"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:drawablePadding="10dp"
+                    android:textSize="12dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvNursingHome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_nursing"
+                    android:gravity="center"
+                    android:text="Nursing\nHome"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/tvTCM"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_tcm"
+                    android:gravity="center"
+                    android:text="\nTCM"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:id="@+id/tvComplexCare"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/ic_cc"
+                    android:gravity="center"
+                    android:text="\nComplex Care"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/tvHomeHealth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableTop="@drawable/icon_home_health"
+                    android:gravity="center"
+                    android:text="\nHome Health"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="14dp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout> 

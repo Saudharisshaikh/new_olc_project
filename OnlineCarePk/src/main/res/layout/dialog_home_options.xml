@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray">
+
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/imgMainAd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolBarColor">
+
+            <LinearLayout
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="start|center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/back"
+                    android:background="@android:color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="Emotional Wellness"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_launcher"
+                    android:drawablePadding="10dp"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/ivHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_home_white_24dp"
+                android:layout_gravity="top|right"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:background="@android:color/transparent">
+
+                    <TextView
+                        android:id="@+id/tvDepression"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_depression"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Depression Analysis-->
+                    <TextView
+                        android:id="@+id/tvDAST"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_substance_abuse"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Substance Abuse-->
+                    <TextView
+                        android:id="@+id/tvAnxietyHealth"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_anxiety"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Anxiety Health-->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:background="@android:color/transparent">
+
+                    <TextView
+                        android:id="@+id/tvStress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_stress"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Stress-->
+
+                    <TextView
+                        android:id="@+id/tvScoff"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_eating_disorder"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--SCOFF-->
+                    <TextView
+                        android:id="@+id/tvPanicAttack"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_panic_attack"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Panic Attack-->
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:background="@android:color/transparent">
+
+                    <TextView
+                        android:id="@+id/tvInsomnia"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_insomnia"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Insomnia-->
+                    <TextView
+                        android:id="@+id/tvOCD"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_ocd_form"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--OCD-->
+                    <TextView
+                        android:id="@+id/tvFocusConc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/ic_focus_conc"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:drawablePadding="10dp"
+                        android:textSize="12dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/><!--Focus/Concentratiom-->
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+    <com.app.onlinecare_pk.AspectRationImageView
+        android:id="@+id/imgMainAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/imgad" />
+</RelativeLayout>
+

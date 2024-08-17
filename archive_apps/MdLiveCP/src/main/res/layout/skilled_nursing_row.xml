@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10sp"
+    android:paddingBottom="10sp"
+    android:orientation="horizontal" >
+
+    <!---->
+    <CheckBox
+        android:id="@+id/cbSkilledNursing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:checked="true"
+        android:focusable="false"
+        android:theme="@style/MyCheckBox"
+        android:buttonTint="@color/theme_red"/>
+    <TextView
+        android:id="@+id/tvSkilledNursingLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+       	android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="6dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>

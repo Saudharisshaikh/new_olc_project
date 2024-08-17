@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/toolBarColor"
+        android:gravity="start|center_vertical"
+        android:padding="10dp"
+        android:text="Welcome"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_launcher"
+        android:drawablePadding="10dp"/>
+
+    <ScrollView
+        android:id="@+id/trt"
+        android:scrollbars="none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" >
+
+        <LinearLayout
+            android:id="@+id/linn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- Please be patient. -->
+            <!--<TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="We need some key information for our doctors and nurse practitioners to provide you with great, quality care."
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/theme_red"
+                android:textSize="15dp" />-->
+
+            <!--<TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="We need some key information for our Care Providers to provide you with quality virtual care"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textSize="15dp" />-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="To, continue, please click on the &quot;required&quot; acceptance as required by HIPAA ( The Health Insurance Portability &amp; Accountability Act )"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Required Acceptance"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(Click to accept)"
+                        android:textColor="@color/theme_red"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+                <RelativeLayout
+                    android:id="@+id/contEndUserAgreement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivEndUserAgreementInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_info_outline_blue"
+                        android:layout_centerVertical="true"
+                        />
+                    <Button
+                        android:focusable="false"
+                        android:id="@+id/btnEndUserAgreement"
+                        android:textColor="@color/toolBarColor"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/ivEndUserAgreementInfo"
+                        android:layout_toLeftOf="@+id/pbEndUserAgreement"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="End User Agreement"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbEndUserAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivEndUserAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contPrivacyPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivPrivacyPolicyInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_info_outline_blue"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <Button
+                        android:focusable="false"
+                        android:id="@+id/btnPrivacyPolicy"
+                        android:textColor="@color/toolBarColor"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/ivPrivacyPolicyInfo"
+                        android:layout_toLeftOf="@+id/pbPrivacyPolicy"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Privacy Policy"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contPatientAuthorization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <ImageView
+                        android:id="@+id/ivPatientAuthorizationInfo"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_info_outline_blue"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <Button
+                        android:focusable="false"
+                        android:id="@+id/btnPatientAuthorization"
+                        android:textColor="@color/toolBarColor"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/ivPatientAuthorizationInfo"
+                        android:layout_toLeftOf="@+id/pbPatientAuthorization"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Patient Authorization"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbPatientAuthorization"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivPatientAuthorization"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="We need additional information to provide you with quality care"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:padding="10dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Additional Information"
+                    android:textColor="@color/theme_red"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:id="@+id/contOpenMedicalHistry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <Button
+                        android:id="@+id/btnOpenMedicalHistry"
+                        android:textColor="@color/toolBarColor"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@+id/pbOpenMedicalHistry"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Medical History"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbOpenMedicalHistry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivOpenMedicalHistryStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/contAddPrmaryCare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <Button
+                        android:id="@+id/btnAddPrmaryCare"
+                        android:textColor="@color/toolBarColor"
+                        android:layout_toLeftOf="@+id/pbAddPrmaryCare"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Primary Care Doctor"
+                        android:textAllCaps="false"
+                        android:textSize="15dp"
+                        android:layout_alignParentLeft="true"/>
+
+                    <ProgressBar
+                        android:id="@+id/pbAddPrmaryCare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivAddPrmaryCareStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contAddInsurance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <Button
+                        android:id="@+id/btnAddInsurance"
+                        android:textColor="@color/toolBarColor"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/pbAddInsurance"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Insurance Form"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbAddInsurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivAddInsuranceStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Completed"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_success_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Missing"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_error_2" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contFillConcentForm"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="20dp" >
+
+                    <Button
+                        android:id="@+id/btnFillConcentForm"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/pbFillConcentForm"
+                        android:background="@android:color/transparent"
+                        android:text="Fill Generic Medical Consent"
+                        android:textAllCaps="false"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbFillConcentForm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivFillConcentFormStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_success_2"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contFillPatientConcentForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <Button
+                        android:id="@+id/btnFillPatientConcentForm"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/pbFillPatientConcentForm"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Fill Patient Consent"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbFillPatientConcentForm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivFillPatientConcentFormStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/contFillMedPermission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/cust_border_white_outline">
+
+                    <Button
+                        android:id="@+id/btnFillMedPermission"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/pbFillMedPermission"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Medical Permission"
+                        android:textAllCaps="false"
+                        android:textSize="15dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbFillMedPermission"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:minHeight="30dip"
+                        android:maxHeight="30dip"
+                        android:minWidth="30dip"
+                        android:maxWidth="30dip"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@color/theme_red" />
+
+                    <ImageView
+                        android:id="@+id/ivFillMedPermissionStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_success_2"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSkipp"
+                android:layout_marginTop="10dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_selector"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="normal"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnSkipWithoutFill"
+                android:layout_marginTop="20dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_selector"
+                android:text="Skip"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

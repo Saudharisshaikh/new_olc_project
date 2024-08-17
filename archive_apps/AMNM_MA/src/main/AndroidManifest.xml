@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.amnm_ma">
+
+    <!--
+        <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+    -->
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
+    <!--<uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND"/>-->
+
+
+    <!--<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />-->
+    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
+
+    <!-- [START gcm_permission] -->
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    &lt;!&ndash; Creates a custom permission so only this app can receive its messages. &ndash;&gt;
+    <permission
+        android:name="com.app.onlinecaredr.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.app.onlinecaredr.permission.C2D_MESSAGE" />-->
+
+    <!-- [END gcm_permission] -->
+    <application
+        android:name="com.app.amnm_ma.OnlineCareDr"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CustomActionBarTheme"
+        android:requestLegacyExternalStorage="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <activity
+            android:name="sg.com.temasys.skylink.sdk.sampleapp.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name" />
+
+        <!-- android:debuggable="true" -->
+        <!--
+        <activity
+            android:name="com.oovoo.sdk.sample.ui.SampleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="eLiveCare"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        -->
+        <!-- =======================GCM================================= -->
+        <!-- [START gcm_receiver] -->
+        <!--<receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+        &lt;!&ndash; [END gcm_receiver] &ndash;&gt;
+
+
+        &lt;!&ndash; [START gcm_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END gcm_listener] &ndash;&gt;
+        &lt;!&ndash; [START instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        &lt;!&ndash; [END instanceId_listener] &ndash;&gt;
+        <service
+            android:name=".gcm.RegistrationIntentService"
+            android:exported="false" />-->
+        <!--
+        <service
+			android:name="com.oovoo.sdk.sample.services.MyGcmListenerService"
+			android:exported="false" >
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.MyInstanceIDListenerService"
+			android:exported="false">
+			<intent-filter>
+				<action android:name="com.google.android.gms.iid.InstanceID"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.oovoo.sdk.sample.services.RegistrationIntentService"
+			android:exported="false">
+		</service>
+        -->
+        <!-- =======================GCM================================= -->
+        <!--<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />-->
+
+        <!-- =============================App Activities==================================== -->
+
+        <activity
+            android:name="com.app.amnm_ma.MainActivityNew"
+            android:label="@string/app_label"
+            android:theme="@style/DrawerTheme" />
+        <activity
+            android:name="com.app.amnm_ma.Login"
+            android:label="@string/app_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.SearchADoctor"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.Signup"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Signup"
+            android:parentActivityName="com.app.amnm_ma.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.Login" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ForgotPassword"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Forgot Password"
+            android:parentActivityName="com.app.amnm_ma.Login">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.Login" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.UpdateProfile"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Profile"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.util.ChoosePictureDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/TransparentTheme">
+
+            <!-- @android:style/Theme.Dialog -->
+        </activity>
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+        <activity
+            android:name="com.app.amnm_ma.DoctorsList"
+            android:label="Available Doctors"
+            android:parentActivityName="com.app.amnm_ma.DocToDoc" />
+        <activity
+            android:name="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.amnm_ma.DoctorsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.DoctorsList" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.SubUsersList"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Login As" />
+        <activity
+            android:name="com.app.amnm_ma.DrSchedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doctor&apos;s Schedule"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.app.amnm_ma.Reports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="My Reports"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.LiveCareDetails"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.amnm_ma.LiveCare">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.LiveCare" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.LiveCare"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Immediate Care"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ViewReport"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ViewReportFull"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Report"
+            android:parentActivityName="com.app.amnm_ma.ViewReport">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ViewReport" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.AfterCallDialogEmcura"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.amnm_ma.AfterCallDialog"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.amnm_ma.SendPrescription"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Prescription"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.app.amnm_ma.DocToDoc"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Doc to Doc"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.HomeHealth"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Home Health"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+
+        <!--
+        <service android:name=".VideoCallService" >
+        </service>
+        <service android:name=".services.MessageReceiverService" >
+        </service>
+        <service android:name=".services.VChatListener" >
+        </service>
+        -->
+        <service android:name="com.app.amnm_ma.services.OutgoingCallService" />
+        <!--
+        <service android:name=".services.IncomingCallServiceNew" >
+        </service>
+        -->
+        <!--
+        <service android:name=".services.DeviceRegisterService" >
+        </service>
+        -->
+        <service android:name="com.app.amnm_ma.services.LiveCareRefreshService" />
+
+        <receiver
+            android:name="com.app.amnm_ma.broadcasts.SaveGCM_TokenBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.SAVE_GCM_TOKEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.amnm_ma.broadcasts.BootCompleteBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.app.onlinecaredr.STOP_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_SERVICE" />
+                <action android:name="com.app.onlinecaredr.START_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.app.amnm_ma.DrsAppointments"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Appointments"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.DrApointmentDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.amnm_ma.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.SetDrShedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+
+        <!-- Goolge API Key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_API_key" />
+
+        <activity
+            android:name="com.app.amnm_ma.PresscriptionsActivity"
+            android:label="@string/title_activity_presscriptions"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.UpdatePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.app.amnm_ma.UpdateProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.UpdateProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.PatientMedicalHistory"
+            android:label="Patient Medical History"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.TransectionsActivity"
+            android:label="@string/title_activity_trnsections"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+
+        <!--
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                Receives the actual messages.
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                Receives the registration id.
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.app.onlinecaredr" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".gcm.GCMActivity"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+
+        <receiver
+            android:name=".gcm.MessageBroadcast"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.app.quranplus.DISPLAY_MESSAGE" />
+                
+                <action android:name="com.app.onlinecare.STOP_SERVICE" />
+                <action android:name="com.app.onlinecare.START_SERVICE" />
+                <action android:name="com.app.onlinecare.STOP_VCHAT_SERVICE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LIVE_CARE_WAITING_TIMER" />
+                <action android:name="LIVE_CARE_WAITING_TIMER_STOP" />
+
+
+
+
+               
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.app.amnm_ma.ActivityCallLogs"
+            android:label="@string/title_activity_activity_call_logs"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySendMessage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.app.amnm_ma.ConversationsActivity"
+            android:label="Messages"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ShowMessagePopupActivity"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ViewConversationActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName="com.app.amnm_ma.ConversationsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ConversationsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ShowLiveCarePopup"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <!-- =============================App Activities==================================== -->
+        <activity
+            android:name="com.app.amnm_ma.DoctorScheduleNew"
+            android:label="@string/title_activity_doctor_schedule_new"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ReferAppointmentActivity"
+            android:label="@string/title_activity_refer_appointment"
+            android:parentActivityName="com.app.amnm_ma.DrsAppointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.DrsAppointments" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.CareRatings"
+            android:label="@string/title_activity_care_ratings"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySoapNotes"
+            android:label="@string/title_activity_activity_soap_notes"
+            android:parentActivityName="com.app.amnm_ma.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityRifills"
+            android:label="@string/title_activity_activity_rifills"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityRefillDetails"
+            android:label="@string/title_activity_activity_refill_details"
+            android:parentActivityName="com.app.amnm_ma.ActivityRifills">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityRifills" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityTelemedicineServices"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.amnm_ma.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityTCM"
+            android:label="Patients"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity android:name="com.app.amnm_ma.ActivityFindNurse" />
+        <activity
+            android:name="com.app.amnm_ma.ActivityBilling"
+            android:label="Billing"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.SupportMessagesActivity"
+            android:label="Support Messages"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityPatientRefill"
+            android:label="Patient Refill Requests"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityProbelemList"
+            android:label="Problem List"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityPinnedReports"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Medical Reports"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.PresscriptionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Patient Prescriptions"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityCareProviders"
+            android:label="Care Providers"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.CustomDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" />
+        <activity
+            android:name="com.app.amnm_ma.ActivityTCM_2"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.amnm_ma.CustomDialogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.CustomDialogActivity" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityTCM_4"
+            android:label="Select Patient"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySOAP"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySoapNotesEdit"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.amnm_ma.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityTelemedicineServicesEdit"
+            android:label="Services Billing Codes"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesEdit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesEdit" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityGroupChat"
+            android:label="Group Chat"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityGroupMessages"
+            android:label="Group Messages"
+            android:parentActivityName="com.app.amnm_ma.ActivityGroupChat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityGroupChat" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityDoctors"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.amnm_ma.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ShowGroupMessagePopup"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityTCM_3"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.amnm_ma.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityCareProvidersInvite"
+            android:label="Add Group Members"
+            android:parentActivityName="com.app.amnm_ma.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityGroupMembers"
+            android:label="Group Members"
+            android:parentActivityName="com.app.amnm_ma.ActivityGroupMessages">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityGroupMessages" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityViewOTNotes"
+            android:label="OT/PT Notes"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityAddDoctor"
+            android:label="Add Doctor"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySOAPReferral"
+            android:label="Service Requests"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySOAPReferralOT"
+            android:label="OT DME Referrals"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySkilledNursingApprove"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.amnm_ma.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityDmeRefferalApprove"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.amnm_ma.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityPrescDetailCP"
+            android:label="Prescription Details"
+            android:parentActivityName="com.app.amnm_ma.PresscriptionsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.PresscriptionsActivity" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityHomeCareFormApprove"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.amnm_ma.ActivitySOAPReferral">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySOAPReferral" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityTcmDetails"
+            android:label="Patient Details"
+            android:parentActivityName="com.app.amnm_ma.ActivityTCM">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityTCM" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySoapNotesNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.amnm_ma.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySoapNotesEmpty"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.amnm_ma.AfterCallDialog">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.AfterCallDialog" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySoapNotesEditNew"
+            android:label="SOAP Notes"
+            android:parentActivityName="com.app.amnm_ma.ActivitySOAP">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySOAP" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySkilledNursing"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySkilledNursingEdit"
+            android:label="Skilled Nursing/Therapy"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityDmeRefferal"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityDmeRefferalEdit"
+            android:label="Equipment/Supplies Order"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityHomeCareForm"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityHomeCareFormEdit"
+            android:label="Homecare Referral"
+            android:parentActivityName="com.app.amnm_ma.ActivitySoapNotesEditNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivitySoapNotesEditNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityAllEnvir"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityEnvirForm"
+            android:label="Environmental Assessment"
+            android:parentActivityName="com.app.amnm_ma.ActivityAllEnvir">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityAllEnvir" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityAllFallRisk"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.FallRiskForm"
+            android:label="Fall Risk Assessment Tool"
+            android:parentActivityName="com.app.amnm_ma.ActivityAllFallRisk">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityAllFallRisk" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.amnm_ma.ActivityAllBradenScale">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityAllBradenScale" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityAllBradenScale"
+            android:label="Braden Scale"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityAllDepression"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityDepressionForm"
+            android:label="Geriatric Depression Scale"
+            android:parentActivityName="com.app.amnm_ma.ActivityAllDepression">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.ActivityAllDepression" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityScreeningToolReport"
+            android:label="Screening Tools Report"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity android:name="com.app.amnm_ma.BaseActivity" />
+        <activity
+            android:name="com.app.amnm_ma.ActivityProgressNotes"
+            android:label="Add Progress Notes"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityProgressNotesView"
+            android:label="Progress Notes"
+            android:parentActivityName="com.app.amnm_ma.SelectedDoctorsProfile"
+            android:theme="@style/DrawerTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.SelectedDoctorsProfile" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivityRefferedPatients"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Referred Patients"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" />
+        </activity>
+        <activity
+            android:name="com.app.amnm_ma.ActivitySwitchHosp"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Switch Hospital"
+            android:parentActivityName="com.app.amnm_ma.MainActivityNew">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.amnm_ma.MainActivityNew" /></activity>
+        <activity android:name="com.app.amnm_ma.permission.PermissionsActivity"
+            android:parentActivityName="com.app.amnm_ma.Login"
+            android:label="@string/app_name"/>
+        <activity android:name="com.app.amnm_ma.ActivityAppInvite"/>
+        <activity android:name="com.app.amnm_ma.ActivityInstatntConnect"/>
+
+        <!--===============Angora.io Starts============================================-->
+        <activity
+            android:name="io.agora.openlive.activities.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="io.agora.openlive.activities.LiveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="io.agora.openlive.activities.RoleActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"/>
+        <activity
+            android:name="io.agora.openlive.activities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <!--===============Angora.io Ends============================================-->
+
+
+        <receiver android:name="com.app.amnm_ma.broadcasts.CallNotificationBroadcast"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.app.emcuradr.acceptcall" />
+                <action android:name="com.app.emcuradr.rejectcall" />
+            </intent-filter>
+
+        </receiver>
+
+
+
+        <!--FCM Starts-->
+        <!-- [START fcm_default_icon] -->
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <!-- [END fcm_default_icon] -->
+        <!-- [START fcm_default_channel] -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <!-- [END fcm_default_channel] -->
+
+        <!-- [START firebase_service] -->
+        <service android:name="com.app.amnm_ma.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <service
+            android:name="com.app.amnm_ma.fcm.MyJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <!--FCM Ends-->
+        <!--This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM-->
+        <!--android:authorities="com.meetandeat.provider"-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.app.amnm_ma.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
+    </application>
+
+</manifest>

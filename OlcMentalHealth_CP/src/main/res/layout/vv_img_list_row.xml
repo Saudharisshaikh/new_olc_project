@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:padding="5dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgCatIcon"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_above="@+id/tvCatName"
+                android:src="@drawable/ic_add_a_photo_black_24dp" />
+            <ImageView
+                android:id="@+id/ivDeleteImg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_cancel_cir"
+                android:layout_gravity="right"/>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvImgNo"
+                android:text=""
+                android:gravity="center"
+                android:textColor="@color/theme_red"
+                android:textStyle="bold"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/cust_circle_white"
+                android:layout_gravity="start"/>
+        </FrameLayout>
+
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tvCatName"
+        android:layout_alignParentBottom="true"
+        android:text="Acxskdsdkjk.img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+</LinearLayout>

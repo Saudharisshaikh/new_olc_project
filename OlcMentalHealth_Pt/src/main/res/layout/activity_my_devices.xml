@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.app.Olc_MentalHealth.devices.MyDevices">
+
+    <GridView
+        android:id="@+id/gvMyDevices"
+        android:numColumns="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Device found"
+        android:id="@+id/tvNoDevice"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+   />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/datePickerLayout"
+        android:background="@color/colorGrayHalfTransparent">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+
+            android:padding="10dp"
+            android:background="@drawable/bg_not_rounded"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:focusable="false"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_marginTop="-50dp"
+            android:id="@+id/etSelectStartDate"
+            android:hint="Choose Start Date" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:textColor="@android:color/darker_gray"
+            android:background="@drawable/bg_not_rounded"
+            android:ems="10"
+            android:focusable="false"
+            android:textColorHint="@color/colorPrimary"
+            android:id="@+id/etSelectEndDate"
+            android:hint="Choose End Date" />
+
+        <Button
+            android:text="Submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary"
+            android:id="@+id/btnGetMeasures"
+            android:elevation="5dp" />
+    </LinearLayout>
+
+</RelativeLayout
+   >

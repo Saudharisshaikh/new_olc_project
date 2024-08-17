@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "5379082267",
+    "firebase_url": "https://online-care.firebaseio.com",
+    "project_id": "online-care",
+    "storage_bucket": "online-care.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5379082267:android:7274055471e247a7",
+        "android_client_info": {
+          "package_name": "com.app.emcurauc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5379082267-2l69p8rmclod58562ihqc768ns3i50mr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.emcurauc",
+            "certificate_hash": "f4bcb86a816116b56dafabd8c2b6f3b4aa083c56"
+          }
+        },
+        {
+          "client_id": "5379082267-h70ea4v7msjuku06kh2ofnv9m2u9kqmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrVIHbk6AIAJIC_bDdcfF0lXO7iavG5ZU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5379082267-h70ea4v7msjuku06kh2ofnv9m2u9kqmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

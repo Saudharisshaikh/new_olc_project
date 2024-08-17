@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DEDDDB"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:background="@color/toolBarColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:background="@android:color/transparent"
+            android:id="@+id/ivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_launcher"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="Survey Result"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="normal"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/cust_border_white_outline"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Your total score is :"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/tvScore"
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_marginTop="10dp"
+                    android:text="20"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:gravity="center"
+                    android:background="@drawable/cust_circle_green"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvScoreCri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="Sevirity : No Probelem"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_green_light"
+                android:text="Continue"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textStyle="normal"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/theme_red"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"><!--#2B3686-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Self Care"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"/>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_marginTop="15dp"
+
+                    android:padding="15dp">
+                    <TextView
+                        android:id="@+id/tvSelfText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="The Internet is a composition of ASes (Autonomous Systems), BGP (Border Gateway Protocol) is the routing protocol that is responsible of exchanging routes between these ASes. It operates in two modes: External BGP (eBGP) and Internal BGP (iBGP). EBGP exchanges routing information between ASes, while iBGP propagates that information within the AS. BGP Full Mesh Solution (FMS) is based on that all the ASBRs (Autonomous System Border Routers) should be fully meshed and each internal node should have an iBGP session with all of them. "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:gravity="start"/>
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvEliveOrAppt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Would you like to schedule an appointment OR join a live session ?"
+                    android:textAlignment="textStart"
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
+                <Button
+                    android:id="@+id/btnMakeApptmnt"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Schedule an Appointment"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnLiveCare"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Join a Live Session"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/apptmnt_cancel_drawable"
+                    android:text="Not Now"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

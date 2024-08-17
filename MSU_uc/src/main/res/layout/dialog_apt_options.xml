@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <!--<FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolBarColor">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Appointments"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginStart="15dp"
+                android:background="@android:color/transparent"/>
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:src="@drawable/ic_close_white_24dp"
+                android:layout_gravity="top|right"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>-->
+
+        <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/cardV"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:id="@+id/tvBookApptmnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_book_appointment"
+                android:gravity="center"
+                android:text="Book Appointment"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tvMyAppointments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_my_appointment"
+                android:gravity="center"
+                android:text="My Appointments"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:drawablePadding="10dp"
+                android:textSize="12sp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardV"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ss.com.bannerslider.views.BannerSlider
+                    android:id="@+id/banner_slider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:animateIndicators="true"
+                    app:defaultIndicators="circle"
+                    app:interval="4000"
+                    app:loopSlides="true"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</LinearLayout>
+

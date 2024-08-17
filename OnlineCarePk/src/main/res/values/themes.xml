@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the theme applied to the application or activity -->
+    <!--<style name="CustomActionBarTheme"
+           parent="@style/Theme.AppCompat.Light">--><!--Pk Dental-->
+    <style name="CustomActionBarTheme"
+        parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+
+        <item name="actionSheetStyle">@style/ActionSheetStyleiOS7</item>
+
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item><!--pin view style-->
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!--<item name="android:background">@drawable/ic_dental_header</item>-->  <!--Pk Dental-->
+
+        <!-- Support library compatibility -->
+        <!--<item name="background">@drawable/ic_dental_header</item>-->  <!--Pk Dental-->
+
+        <item name="android:background">#494949</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@color/dark_gray</item>
+    </style>
+
+
+    <style name="ListItemTheme"
+        parent="@style/CustomActionBarTheme">
+        <item name="colorAccent">@color/theme_red</item>
+        <item name="colorControlNormal">@color/theme_red</item>
+        <item name="colorControlActivated">@color/theme_red</item>
+
+    </style>
+
+
+    <style name="ActionSheetStyleiOS7">
+        <item name="actionSheetBackground">@android:color/transparent</item>
+        <item name="cancelButtonBackground">@drawable/slt_as_ios7_cancel_bt</item>
+        <item name="otherButtonTopBackground">@drawable/slt_as_ios7_other_bt_top</item>
+        <item name="otherButtonMiddleBackground">@drawable/slt_as_ios7_other_bt_middle</item>
+        <item name="otherButtonBottomBackground">@drawable/slt_as_ios7_other_bt_bottom</item>
+        <item name="otherButtonSingleBackground">@drawable/slt_as_ios7_other_bt_single</item>
+        <!--<item name="cancelButtonTextColor">#1E82FF</item>-->
+        <item name="otherButtonTextColor">#1E82FF</item>
+        <!--<item name="actionSheetPadding">10dp</item>-->
+        <item name="otherButtonSpacing">0dp</item>
+        <item name="cancelButtonMarginTop">10dp</item>
+        <!--<item name="actionSheetTextSize">12sp</item>-->
+
+        <item name="cancelButtonTextColor">@android:color/holo_red_dark</item>
+        <item name="actionSheetTextSize">15sp</item>
+        <item name="actionSheetPadding">15dp</item>
+    </style>
+</resources>

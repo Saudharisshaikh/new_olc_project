@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/slide_arrwo3" android:state_empty="true"></item>
+    <item android:drawable="@drawable/slide_arrow1" android:state_expanded="true"></item>
+    <item android:drawable="@drawable/slide_arrwo3"></item>
+
+</selector>

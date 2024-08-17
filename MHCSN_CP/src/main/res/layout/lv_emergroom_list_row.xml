@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rootCell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/cust_border_white_outline">
+
+        <TextView
+            android:id="@+id/tvEmergRoomListDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvEmergRoomListERDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ER Visit Date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tvEmergRoomListTypeER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type of ER Visit"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+
+        <TextView
+            android:id="@+id/tvEmergRoomListFacName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facility Name"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tvEmergRoomListAdmObserv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admitted Observation"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+
+        <TextView
+            android:id="@+id/tvEmergRoomListAddInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Additional Information"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvEmergRoomListHospital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hospital"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/tvEmergRoomListAvoidableER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avoidable ER"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/tvEmergRoomListDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reason"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

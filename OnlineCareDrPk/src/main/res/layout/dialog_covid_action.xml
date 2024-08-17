@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_gray">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnSubmit">
+
+        <LinearLayout
+            android:background="@color/toolBarColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:background="@android:color/transparent"
+                android:id="@+id/ivCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_close_white_24dp"
+                />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|left"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Review COVID Testing (Action)"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patient Name : "
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tvPatientName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jack Denial"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Request Date : "
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/theme_red"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="April 17 2019"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+
+        <LinearLayout
+            android:layout_marginStart="20dp"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="@drawable/cust_border_white_outline">
+
+            <TextView
+                android:id="@+id/tvWafaTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A &amp; P"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black" />
+
+            <!--<TextView
+                android:id="@+id/tvScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Please select an option"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="start"/>-->
+
+
+
+
+
+
+            <CheckBox
+                android:id="@+id/cbSwabSendOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Swab Send Out"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_marginTop="5dp"/>
+            <CheckBox
+                android:id="@+id/cbInHouseSwab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In-House Swab"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_marginTop="5dp"/>
+
+            <CheckBox
+                android:id="@+id/cbStrepTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Strep Test"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_marginTop="5dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="start|center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Culture"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="20dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgCulture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+                    <RadioButton
+                        android:id="@+id/rbCultureYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:buttonTint="@color/colorPrimary"
+                        android:layout_marginEnd="10dp"/>
+                    <RadioButton
+                        android:id="@+id/rbCultureNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:buttonTint="@color/colorPrimary"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cbRapidFlu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rapid Flu"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_marginTop="5dp"/>
+
+            <CheckBox
+                android:id="@+id/cbDnaFlu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DNA Flu"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_marginTop="5dp"/>
+
+            <!--<Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_selector"
+                android:text="Next"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/apptmnt_cancel_drawable"
+                android:text="Not Now"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_selector"
+        android:text="Next"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

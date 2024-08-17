@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="bt_descriptor_visa">Visa</string>
+    <string name="bt_descriptor_mastercard">Mastercard</string>
+    <string name="bt_descriptor_amex">Amex</string>
+    <string name="bt_descriptor_jcb">JCB</string>
+    <string name="bt_descriptor_discover">Discover</string>
+    <string name="bt_descriptor_diners">Diners</string>
+    <string name="bt_descriptor_maestro">Maestro</string>
+    <string name="bt_descriptor_paypal">PayPal</string>
+    <string name="bt_descriptor_pay_with_venmo">Venmo</string>
+    <string name="bt_descriptor_google_pay">Google Pay</string>
+    <string name="bt_descriptor_unionpay">UnionPay</string>
+    <string name="bt_descriptor_hiper">Hiper</string>
+    <string name="bt_descriptor_hipercard">Hipercard</string>
+    <string name="bt_descriptor_unknown">신용카드 또는 직불카드</string>
+
+    <string name="bt_recent">최근</string>
+    <string name="bt_other">기타</string>
+    <string name="bt_select_payment_method">결제수단 선택</string>
+    <string name="bt_add_card">카드 추가</string>
+    <string name="bt_next">다음</string>
+    <string name="bt_confirm">확인</string>
+    <string name="bt_scan_with_card_io">card.io로 스캔</string>
+    <string name="bt_sms_code">SMS 코드</string>
+    <string name="bt_sms_code_required">SMS 코드가 필요합니다.</string>
+    <string name="bt_use_a_different_phone_number">다른 전화번호 사용하기</string>
+    <string name="bt_sms_code_sent_to">%1$s에 전송된 SMS 코드를 입력하세요.</string>
+    <string name="bt_card_details">카드 세부정보</string>
+    <string name="bt_confirm_enrollment">등록 확인</string>
+    <string name="bt_postal_code_invalid">우편번호가 올바르지 않습니다.</string>
+    <string name="bt_country_code_invalid">국가 코드가 올바르지 않습니다.</string>
+    <string name="bt_mobile_number_invalid">휴대폰 번호가 올바르지 않습니다.</string>
+    <string name="bt_card_not_accepted">카드 수락되지 않음</string>
+    <string name="bt_unionpay_sms_code_invalid">SMS 코드가 올바르지 않습니다.</string>
+    <string name="bt_unionpay_mobile_number_explanation">이 카드에 대한 등록이 필요할 수 있습니다. 필요한 경우 이 번호로 SMS 코드가 전송됩니다.</string>
+    <string name="bt_edit">편집</string>
+    <string name="bt_delete">삭제</string>
+    <string name="bt_cancel">취소</string>
+    <string name="bt_vault_manager_title">편집 저장됨</string>
+    <string name="bt_delete_confirmation_title">결제수단을 삭제하시겠습니까?</string>
+    <string name="bt_delete_confirmation_description">이 앱에서는 더 이상 이 결제수단을 사용할 수 없습니다.</string>
+    <string name="bt_done">완료</string>
+    <string name="bt_vault_manager_delete_failure">현재 결제수단을 삭제할 수 없습니다. 나중에 다시 시도해 주세요.</string>
+    <string name="bt_back">뒤로</string>
+    <string name="bt_saved_payments">저장된 결제수단</string>
+    <string name="bt_supported_payments">지원되는 결제수단</string>
+    <string name="bt_edit_button_description">저장된 결제수단 편집</string>
+    <string name="bt_card_already_exists">이 신용카드는 이미 저장된 결제수단으로 설정되어 있습니다.</string>
+    <string name="bt_notice_of_collection">자신의 카드로 결제함으로써 사용자는 PayPal 개인정보 취급방침에 동의합니다.</string>
+</resources>

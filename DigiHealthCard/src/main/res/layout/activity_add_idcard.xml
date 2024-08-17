@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_clr"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please add the front and back image of your health / ID card"
+                android:textSize="12sp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/cc_grey"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Front Image"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"/>
+                        <!-- (optional) :-->
+
+                        <FrameLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/ivVCfrontImg"
+                                android:layout_width="150dp"
+                                android:layout_height="120dp"
+                                android:src="@drawable/ic_add_a_photo_black_24dp"
+                                android:scaleType="center"
+                                android:background="@color/background_clr"/><!--fitCenter-->
+                            <ImageView
+                                android:id="@+id/ivDeleteVCfrontImg"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_cancel_cir"
+                                android:layout_gravity="right"
+                                android:visibility="gone"/>
+                        </FrameLayout>
+
+                        <Button
+                            android:visibility="gone"
+                            android:id="@+id/btnRetakeFrontImg"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Retake Image"
+                            android:textStyle="normal"
+                            android:textColor="@color/app_blue_color"
+                            android:background="@drawable/btn_white"
+                            android:textAllCaps="false"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            style="?attr/borderlessButtonStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Back Image"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"/>
+
+                        <FrameLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/ivVCbackImg"
+                                android:layout_width="150dp"
+                                android:layout_height="120dp"
+                                android:src="@drawable/ic_add_a_photo_black_24dp"
+                                android:scaleType="center"
+                                android:background="@color/background_clr"/>
+                            <ImageView
+                                android:id="@+id/ivDeleteVCbackImg"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_cancel_cir"
+                                android:layout_gravity="right"
+                                android:visibility="gone"/>
+                        </FrameLayout>
+
+                        <Button
+                            android:visibility="gone"
+                            android:id="@+id/btnRetakeBackImg"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Retake Image"
+                            android:textStyle="normal"
+                            android:textColor="@color/app_blue_color"
+                            android:background="@drawable/btn_white"
+                            android:textAllCaps="false"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            style="?attr/borderlessButtonStyle"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Type Of Card"/>
+
+                <Spinner
+                    android:id="@+id/spCardType"
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:popupBackground="@color/cardBackcolor"
+                    android:background="@drawable/spinner_bg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layAddiTypeCont"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Enter Type Of Card"/>
+                <com.digihealthcard.util.ActionEditText
+                    android:layout_weight="3"
+                    android:imeOptions="actionDone"
+                    android:id="@+id/etAdditionalTypeOfCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/txtlabelclr"
+                    android:textColor="@color/edittextcolor"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="Enter Type Of Card"
+                    android:padding="10dp"
+                    android:inputType="textPersonName"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Purpose" />
+                <Spinner
+                    android:id="@+id/spPurpose"
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:popupBackground="@color/cardBackcolor"
+                    android:background="@drawable/spinner_bg"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Name"/>
+                <com.digihealthcard.util.ActionEditText
+                    android:layout_weight="3"
+                    android:imeOptions="actionDone"
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="Enter Name"
+                    android:textColorHint="@color/txtlabelclr"
+                    android:textColor="@color/edittextcolor"
+                    android:padding="10dp"
+                    android:inputType="textPersonName"
+                    />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Relationship"
+                    />
+                <com.digihealthcard.util.ActionEditText
+                    android:layout_weight="3"
+                    android:imeOptions="actionDone"
+                    android:id="@+id/etRelationship"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="Enter Relationship"
+                    android:textColorHint="@color/txtlabelclr"
+                    android:textColor="@color/edittextcolor"
+                    android:padding="10dp"
+                    android:inputType="textPersonName"
+                    />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnSaveCard"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_selector"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Save Card"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/btnNotNow"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_grey"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Not Now"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

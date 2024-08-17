@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="Add New Hospital Admission"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"/>
+        <ImageView
+            android:background="@android:color/transparent"
+            android:id="@+id/ivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_cancel_cir"
+            android:layout_gravity="right"/>
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:background="@android:color/transparent"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Date :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:id="@+id/etAddHospAdmDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tap to enter date"
+                    android:padding="10sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Admission Date :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:id="@+id/etHospAdmAdmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tap to enter date"
+                    android:padding="10sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Discharge Date :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <EditText
+                    android:id="@+id/etHospAdmDischarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tap to enter date"
+                    android:padding="10sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Hospital :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <!--<EditText
+                    android:id="@+id/etHospAdmHospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Enter here"
+                    android:padding="10sp"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />-->
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Spinner
+                        android:id="@+id/spHospAdmHospital"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+
+                        android:background="@drawable/spinner_bg"/>
+                    <Button
+                        android:id="@+id/btnAddHosp"
+                        android:layout_marginStart="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:text="Add"
+                        android:textAllCaps="false"
+                        android:background="@drawable/btn_selector"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Diagnosis :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/auto_complete_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:background="@android:color/transparent"
+                        android:padding="10dp"
+                        android:hint="Please enter at least 2 char to search"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:layout_toLeftOf="@+id/pbAutoComplete"/>
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/pbAutoComplete"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/etHospAdmDiagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint=""
+                    android:padding="10sp"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline" />
+                <!--android:focusable="false"
+                    android:clickable="false"
+                    android:longClickable="false"-->
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Admission Description :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <com.app.mdlive_cp.util.ActionEditText
+                    android:id="@+id/etHospAdmDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Enter here"
+                    android:padding="10sp"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:gravity="top"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:imeOptions="actionDone"/>
+
+                <TextView
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Discharge Summary :"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="normal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <com.app.mdlive_cp.util.ActionEditText
+                    android:id="@+id/etHospAdmDeschSumm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Enter here"
+                    android:padding="10sp"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:gravity="top"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:imeOptions="actionDone"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@android:color/darker_gray"/>
+                <Button
+                    android:id="@+id/btnAddHospAdm"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Submit"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
