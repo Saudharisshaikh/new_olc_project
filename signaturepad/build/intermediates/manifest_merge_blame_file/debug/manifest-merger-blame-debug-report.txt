@@ -7,6 +7,6 @@
 7    <uses-sdk android:minSdkVersion="19" />
 8    <!-- <uses-sdk android:minSdkVersion="4" /> -->
 9    <application />
-9-->/Users/onlinecare/Desktop/Prescription_project/signaturepad/src/main/AndroidManifest.xml:7:5-20
+9-->/Users/onlinecare/Documents/Saud/new_olc_project/signaturepad/src/main/AndroidManifest.xml:7:5-20
 10
 11</manifest>
