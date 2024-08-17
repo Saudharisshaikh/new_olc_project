@@ -1,0 +1,202 @@
+Specialist store build
+================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\cert\spec\META-INF>keytool -printcert -file CERT.RSA
+Owner: CN=online care, OU=online care, O=online care
+Issuer: CN=online care, OU=online care, O=online care
+Serial number: 5c084ec6
+Valid from: Mon Oct 10 19:46:17 PKT 2016 until: Sun Feb 11 19:46:17 PKT 3016
+Certificate fingerprints:
+         MD5:  AB:05:5D:42:AE:8B:33:23:91:92:89:D7:DF:F9:51:94
+         SHA1: 61:C7:77:53:0A:01:B2:6A:51:B8:A1:0C:30:6A:E1:D7:72:00:B7:7A
+         SHA256: A1:BA:68:E8:C9:80:E3:5B:0F:3D:6B:F3:C6:3E:D2:5D:3B:6B:A8:3C:26:66:03:9F:7D:E6:0A:55:40:F4:17:39
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: BE 83 C8 20 E0 11 20 FF   7B D3 D2 99 2D FF 10 EE  ... .. .....-...
+0010: FE 12 0A 0D                                        ....
+]
+]
+
+
+
+CP App store build
+========================================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\cert\cp\META-INF>keytool -printcert -file GOOGPLAY.RSA
+Owner: CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US
+Issuer: CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US
+Serial number: 6109ca109899e16f94c77f365b9d604201a65b1b
+Valid from: Tue Nov 14 22:00:35 PKT 2017 until: Thu Nov 14 22:00:35 PKT 2047
+Certificate fingerprints:
+         MD5:  BA:DF:77:F3:92:E2:F9:D9:50:9D:94:A3:D9:32:99:A8
+         SHA1: 33:74:C5:33:EA:66:BD:AC:82:43:E1:38:57:66:05:3E:59:92:C1:D0
+         SHA256: 8C:42:2C:CB:ED:B1:5A:97:81:E2:55:3C:20:5A:77:E2:3B:2A:0E:7A:80:FB:C0:3B:88:A0:46:17:39:F0:AF:BA
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+
+Doctor
+================================================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\cert\dr\META-INF>keytool -printcert -file CERT.RSA
+Owner: CN=online care, OU=online care, O=online care
+Issuer: CN=online care, OU=online care, O=online care
+Serial number: 5c084ec6
+Valid from: Mon Oct 10 19:46:17 PKT 2016 until: Sun Feb 11 19:46:17 PKT 3016
+Certificate fingerprints:
+         MD5:  AB:05:5D:42:AE:8B:33:23:91:92:89:D7:DF:F9:51:94
+         SHA1: 61:C7:77:53:0A:01:B2:6A:51:B8:A1:0C:30:6A:E1:D7:72:00:B7:7A
+         SHA256: A1:BA:68:E8:C9:80:E3:5B:0F:3D:6B:F3:C6:3E:D2:5D:3B:6B:A8:3C:26:66:03:9F:7D:E6:0A:55:40:F4:17:39
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: BE 83 C8 20 E0 11 20 FF   7B D3 D2 99 2D FF 10 EE  ... .. .....-...
+0010: FE 12 0A 0D                                        ....
+]
+]
+
+
+============================patient app==================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\cert\patient\META-INF>keytool -printcert -file CERT.RSA
+Owner: CN=online care, OU=online care, O=online care
+Issuer: CN=online care, OU=online care, O=online care
+Serial number: 5c084ec6
+Valid from: Mon Oct 10 19:46:17 PKT 2016 until: Sun Feb 11 19:46:17 PKT 3016
+Certificate fingerprints:
+         MD5:  AB:05:5D:42:AE:8B:33:23:91:92:89:D7:DF:F9:51:94
+         SHA1: 61:C7:77:53:0A:01:B2:6A:51:B8:A1:0C:30:6A:E1:D7:72:00:B7:7A
+         SHA256: A1:BA:68:E8:C9:80:E3:5B:0F:3D:6B:F3:C6:3E:D2:5D:3B:6B:A8:3C:26:66:03:9F:7D:E6:0A:55:40:F4:17:39
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: BE 83 C8 20 E0 11 20 FF   7B D3 D2 99 2D FF 10 EE  ... .. .....-...
+0010: FE 12 0A 0D                                        ....
+]
+]
+
+
+
+==================================HomeCare App Store Cert SHA1================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\temp\hc\META-INF>keytool -printcert -file GOOGPLAY.RSA
+Owner: CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US
+Issuer: CN=Android, OU=Android, O=Google Inc., L=Mountain View, ST=California, C=US
+Serial number: f02360bad220d943af78cebaef0cc232219f29a3
+Valid from: Mon Dec 04 21:55:23 PKT 2017 until: Wed Dec 04 21:55:23 PKT 2047
+Certificate fingerprints:
+         MD5:  08:A9:AF:B9:59:34:89:5C:BF:11:54:D3:C2:52:1B:D3
+         SHA1: 17:61:1D:7E:F0:BA:F5:2E:B0:FF:A5:1C:1B:A5:A4:91:BD:B2:D1:59
+         SHA256: A3:6B:7A:6D:0C:38:23:3A:B2:83:40:E4:D9:1B:51:6F:2B:9A:79:37:9C:2F:5E:83:60:4B:87:C3:CA:88:8E:19
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+
+C:\Users\Engr G M\Desktop\temp\hc\META-INF>
+
+
+
+
+==========================================Care Provider My release APK==================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\certTest\OnlineCareNurse-release\META-INF>keytool -printcert -file CERT.RSA
+Owner: CN=OnlineCare LLC
+Issuer: CN=OnlineCare LLC
+Serial number: ca5da28
+Valid from: Tue Nov 14 22:06:09 PKT 2017 until: Mon Mar 17 22:06:09 PKT 3017
+Certificate fingerprints:
+         MD5:  50:4E:43:82:50:5B:C5:D2:1C:2D:63:3E:E5:FD:AE:67
+         SHA1: 4E:30:F4:A0:B8:E4:43:2A:87:73:44:96:8E:5F:DA:99:DD:6E:8C:0F
+         SHA256: 0F:F3:6F:C2:98:B8:A7:FF:0E:DF:62:C6:2F:CC:BE:80:14:99:DF:0D:EC:A5:31:9A:D2:4A:27:87:FD:D5:BB:C5
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 85 CC E6 A8 A7 74 2A DB   02 8D 52 66 21 05 B8 8F  .....t*...Rf!...
+0010: 77 80 D5 55                                        w..U
+]
+]
+
+
+C:\Users\Engr G M\Desktop\certTest\OnlineCareNurse-release\META-INF>
+
+
+
+=======================================Home Care App my release APK=======================================================
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Engr G M\Desktop\certTest\OnlineCareHomeCare-release\META-INF>keytool -printcert -file CERT.RSA
+Owner: CN=OnlineCare LLC
+Issuer: CN=OnlineCare LLC
+Serial number: 6dab450f
+Valid from: Mon Dec 04 21:42:20 PKT 2017 until: Sun Apr 06 21:42:20 PKT 3017
+Certificate fingerprints:
+         MD5:  1B:75:AD:92:DD:24:47:FC:00:4B:15:1E:09:F7:4C:36
+         SHA1: E2:CA:E3:CB:79:AB:95:24:08:4D:55:E8:75:46:D0:0B:BF:37:0F:A3
+         SHA256: 2B:FB:84:3F:DB:9F:EC:35:0B:9B:A8:56:3F:68:54:04:9C:B9:E1:F6:D4:4C:30:0A:21:ED:7C:B7:F6:E9:A4:35
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: AC 38 10 63 50 59 72 1D   DD F8 DE DD 1A 61 48 45  .8.cPYr......aHE
+0010: D6 E5 A9 34                                        ...4
+]
+]
+
+
+C:\Users\Engr G M\Desktop\certTest\OnlineCareHomeCare-release\META-INF>
+
+
