@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -119,6 +120,8 @@ public class MedicalHistoryActivity extends BaseActivity{
 				}
 
 				else {
+					DATA.print("zeroIndex");
+					noLayout.setVisibility(View.VISIBLE);
 					if(count ==0){
 						new Handler().postDelayed(new Runnable() {
 							@Override

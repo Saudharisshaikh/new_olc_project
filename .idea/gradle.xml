@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CovaCard_Min" />
+            <option value="$PROJECT_DIR$/DigiHealthCard" />
+            <option value="$PROJECT_DIR$/Drop-In" />
+            <option value="$PROJECT_DIR$/EmcuraDr" />
+            <option value="$PROJECT_DIR$/EmcuraMA" />
+            <option value="$PROJECT_DIR$/EmcuraUC" />
+            <option value="$PROJECT_DIR$/FiveStarDr" />
+            <option value="$PROJECT_DIR$/FiveStarUC" />
+            <option value="$PROJECT_DIR$/FloatingGroupExpandableListView" />
+            <option value="$PROJECT_DIR$/GreatRiverMA" />
+            <option value="$PROJECT_DIR$/LibResult" />
+            <option value="$PROJECT_DIR$/MHCSN_CP" />
+            <option value="$PROJECT_DIR$/MHCSN_Doc" />
+            <option value="$PROJECT_DIR$/MHCSN_MA" />
+            <option value="$PROJECT_DIR$/MHCSN_Spe" />
+            <option value="$PROJECT_DIR$/MHCSN_UC" />
+            <option value="$PROJECT_DIR$/MSU_CP" />
+            <option value="$PROJECT_DIR$/MSU_Doc" />
+            <option value="$PROJECT_DIR$/MSU_UC" />
+            <option value="$PROJECT_DIR$/OlcMentalHealth_CP" />
+            <option value="$PROJECT_DIR$/OlcMentalHealth_DOC" />
+            <option value="$PROJECT_DIR$/OlcMentalHealth_Pt" />
+            <option value="$PROJECT_DIR$/OmranDr" />
+            <option value="$PROJECT_DIR$/OmranPatient" />
+            <option value="$PROJECT_DIR$/OnlineCare" />
+            <option value="$PROJECT_DIR$/OnlineCareDrPk" />
+            <option value="$PROJECT_DIR$/OnlineCarePk" />
+            <option value="$PROJECT_DIR$/OnlineCareTDC_Dr" />
+            <option value="$PROJECT_DIR$/OnlineCareTDC_MA" />
+            <option value="$PROJECT_DIR$/OnlineCareTDC_Pt" />
+            <option value="$PROJECT_DIR$/OnlineCareUS_Dr" />
+            <option value="$PROJECT_DIR$/OnlineCareUS_MA" />
+            <option value="$PROJECT_DIR$/OnlineCareUS_Pt" />
+            <option value="$PROJECT_DIR$/PagingListView" />
+            <option value="$PROJECT_DIR$/bannerslider" />
+            <option value="$PROJECT_DIR$/circularImageView1" />
+            <option value="$PROJECT_DIR$/idcardcamera" />
+            <option value="$PROJECT_DIR$/materialDialogLib" />
+            <option value="$PROJECT_DIR$/multipleimageselect" />
+            <option value="$PROJECT_DIR$/pickit" />
+            <option value="$PROJECT_DIR$/progressWheelLib" />
+            <option value="$PROJECT_DIR$/signaturepad" />
+            <option value="$PROJECT_DIR$/simplecropimagelib" />
+            <option value="$PROJECT_DIR$/singledateandtimepicker" />
+            <option value="$PROJECT_DIR$/sweetalertdialog" />
+            <option value="$PROJECT_DIR$/swipMenuListViewLib" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

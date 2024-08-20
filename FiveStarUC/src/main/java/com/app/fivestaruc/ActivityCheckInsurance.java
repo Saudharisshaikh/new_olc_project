@@ -153,7 +153,7 @@ public class ActivityCheckInsurance extends BaseActivity implements NewInsurance
                             public void onClick(DialogInterface dialog, int which) {
                                 PaymentLiveCare.payment_typeIC = "NewInsurance";
                                 Frominsurance = true;
-                                openActivity.open(GetLiveCare.class , true);
+                                //openActivity.open(GetLiveCare.class , true);
                                 activity.finish();
                             }
                         })

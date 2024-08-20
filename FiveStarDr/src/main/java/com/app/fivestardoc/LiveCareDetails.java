@@ -865,7 +865,7 @@ public class LiveCareDetails extends BaseActivity {
                 }
 
                 StringBuilder socialHistory = new StringBuilder();
-				/*if (is_smoke.equalsIgnoreCase("1")) {
+                /*if (is_smoke.equalsIgnoreCase("1")) {
 					socialHistory.append("Smoke:Yes, ");
 					if ((!smoke_detail.isEmpty()) || (!smoke_detail.equalsIgnoreCase("null"))) {
 						String[] smokeArr = smoke_detail.split("/");

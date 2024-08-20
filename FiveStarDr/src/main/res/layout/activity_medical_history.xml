@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
 
 
@@ -27,18 +28,22 @@
         >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_my_prescriptions"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/description_24px"
             android:layout_gravity="center_horizontal"
+            app:tint="@color/theme_red"
             />
 
         <TextView
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Prescription history found."
+            android:text="No information found."
             android:layout_gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             />
 
 

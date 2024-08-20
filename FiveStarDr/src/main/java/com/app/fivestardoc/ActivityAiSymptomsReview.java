@@ -285,7 +285,7 @@ public class ActivityAiSymptomsReview extends AppCompatActivity {
                             .append("\nDOB : ").append(DATA.selectedUserCallDOB)
                             .append("\n").append(text);
 
-                    etAiAnswerCarePlan.setText(text.toString());
+                    etAiAnswerCarePlan.setText(sb.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -337,7 +337,7 @@ public class ActivityAiSymptomsReview extends AppCompatActivity {
                             .append(ActivityTcmDetails.ptLname)
                             .append("\nDOB : ").append(DATA.selectedUserCallDOB)
                             .append("\n").append(text);
-                    etAiAnswerPresc.setText(text.toString());
+                    etAiAnswerPresc.setText(sb.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

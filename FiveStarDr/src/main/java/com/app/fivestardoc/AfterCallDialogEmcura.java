@@ -2450,17 +2450,15 @@ public class AfterCallDialogEmcura extends BaseActivity {
             dialogBoxAskAi.setVisibility(View.VISIBLE);
         });
 
+        etAiAskNote.setText(queryForAiNotes);
       // etAiAskNote.setText("write medical note for the patient having symptoms: " + DATA.selectedUserCallCondition + " patient name is :" + DATA.selectedUserCallName + " and patient DOB is: " + DATA.selectedUserCallDOB);
 
         String query = etAiAskNote.getText().toString();
         //callChatGPTAPI_forAiBasedNotes(query);
 
         tvAskNowAi.setOnClickListener(v -> {
-            GeneralAlertDialog.callAlert(activity,disclaimer,()->{
-                callChatGPTAPI_forAiBasedNotes(queryForAiNotes);
-            },()->{
+            callChatGPTAPI_forAiBasedNotes(queryForAiNotes);
 
-            },"OK","Not Now","Disclaimer");
         });
 
         tvAddAiNote.setOnClickListener(v -> {
