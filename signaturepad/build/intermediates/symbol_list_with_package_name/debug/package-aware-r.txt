@@ -1,6 +1,0 @@
-com.github.gcacace.signaturepad
-attr maxWidth
-attr minWidth
-attr penColor
-attr velocityFilterWeight
-styleable SignaturePad maxWidth minWidth penColor velocityFilterWeight

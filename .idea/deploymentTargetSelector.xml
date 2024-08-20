@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="FiveStarUC">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-08-19T14:23:16.471379Z">
+        <DropdownSelection timestamp="2024-08-20T15:47:21.199293Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=1C101FDF600DKR" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/onlinecare/.android/avd/Pixel_3a_API_34.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -15,10 +15,10 @@
       </SelectionState>
       <SelectionState runConfigName="FiveStarDr">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-08-19T17:34:21.668103Z">
+        <DropdownSelection timestamp="2024-08-20T15:13:38.506394Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=WS9TBE4DEEHAQG9P" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/onlinecare/.android/avd/Pixel_3a_API_34.avd" />
             </handle>
           </Target>
         </DropdownSelection>

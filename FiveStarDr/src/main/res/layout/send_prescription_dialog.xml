@@ -1118,7 +1118,7 @@
                 android:background="@drawable/btn_selector"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Cancel"
+                android:text="Not Now"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"

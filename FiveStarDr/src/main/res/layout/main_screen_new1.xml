@@ -305,7 +305,7 @@
                                     android:clickable="true"
                                     android:drawablePadding="10dp"
                                     android:gravity="center"
-                                    android:text="Patient Care"
+                                    android:text="Waiting Room"
                                     android:textAppearance="?android:attr/textAppearanceMedium"
                                     android:textColor="@color/black"
                                     android:textSize="15dp" />
@@ -498,7 +498,7 @@
                                 android:drawableTop="@drawable/ic_my_prescriptions"
                                 android:drawablePadding="10dp"
                                 android:gravity="center"
-                                android:text="My Prescriptions"
+                                android:text="Prescriptions"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:textSize="12dp" />
 
@@ -553,7 +553,7 @@
                                 android:drawableTop="@drawable/ic_refills"
                                 android:drawablePadding="10dp"
                                 android:gravity="center"
-                                android:text="Refill Requests"
+                                android:text="My Refills"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:textSize="12dp"
                                 android:visibility="visible" />

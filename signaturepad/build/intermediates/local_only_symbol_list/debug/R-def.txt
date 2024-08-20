@@ -1,7 +1,0 @@
-R_DEF: Internal format may change without notice
-local
-attr? maxWidth
-attr? minWidth
-attr? penColor
-attr? velocityFilterWeight
-styleable SignaturePad minWidth maxWidth penColor velocityFilterWeight

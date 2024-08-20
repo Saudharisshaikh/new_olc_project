@@ -1,9 +1,0 @@
-R_DEF: Internal format may change without notice
-local
-attr? border
-attr? border_color
-attr? border_width
-attr? circularImageViewStyle
-attr? shadow
-styleable CircularImageView border border_width border_color shadow
-styleable Theme circularImageViewStyle
