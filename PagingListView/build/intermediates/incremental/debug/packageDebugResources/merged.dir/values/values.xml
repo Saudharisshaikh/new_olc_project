@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">@android:color/darker_gray</color>
+    <color name="colorPrimary">#CF4C27</color>
+    <color name="colorPrimaryDark">#a53a1c</color>
+    <color name="paginglistview_accent">@color/colorAccent</color>
+    <color name="paginglistview_primary">@color/colorPrimary</color>
+    <color name="paginglistview_primaryDark">@color/colorPrimaryDark</color>
+    <dimen name="loading_view_margin_layout">10dp</dimen>
+    <dimen name="loading_view_margin_right">5dp</dimen>
+    <dimen name="loading_view_progress_size">50dp</dimen>
+    <string name="loading">Loading…</string>
+</resources>

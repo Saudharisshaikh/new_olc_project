@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml
+INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Online Care\onlinecare_apps_20240904\MaskedEditText\src\main\AndroidManifest.xml

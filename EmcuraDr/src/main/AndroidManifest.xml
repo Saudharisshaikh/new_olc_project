@@ -223,6 +223,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.emcuradr.Login" />
         </activity>
+
+
+
         <activity
             android:name=".UpdateProfile"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -1071,6 +1074,19 @@
             android:parentActivityName=".Login" />
         <activity android:name=".ActivityAppInvite" />
         <activity android:name=".ActivityInstatntConnect" />
+
+        <activity android:name=".ActivityExistingPatCall">
+        </activity>
+
+        <activity android:name=".ActivityConsultionNotesPat">
+        </activity>
+
+        <activity android:name=".ActivityConsultionNotes">
+        </activity>
+
+        <activity android:name=".ActivityNotesProcessed">
+        </activity>
+
         <activity android:name=".reliance.therapist.ActivityReferedPatients" />
         <activity android:name=".ActivityCovidFormList" /> <!-- ===============Angora.io Starts============================================ -->
 

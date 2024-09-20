@@ -102,6 +102,7 @@ dependencies {
     //  implementation project(':singledateandtimepicker')
     implementation project(':bannerslider')
     implementation project(':idcardcamera')
+    implementation project (':ActionSheet')
 
     implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
     implementation "com.google.android.material:material:${rootProject.ext.googleMaterialVersion}"
@@ -121,7 +122,7 @@ dependencies {
     implementation "com.google.firebase:firebase-core:${rootProject.ext.firebaseCoreVersion}"
     implementation "com.google.firebase:firebase-iid:${rootProject.ext.firebaseIidVersion}"
     implementation "com.google.firebase:firebase-messaging:${rootProject.ext.firebaseMessagingVersion}"
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    //implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     //==============================Google Play Services end===============================
     //implementation files('libs/android-async-http-1.4.4.jar')
     //implementation files('libs/oovoosdk.jar')
@@ -137,25 +138,31 @@ dependencies {
     implementation("com.facebook.android:facebook-login:${rootProject.ext.facebookSdkVersion}") {
         exclude group: 'com.android.support'
     }
-    implementation("com.twitter.sdk.android:twitter-core:${rootProject.ext.twitterSdkVersion}") {
-        exclude group: 'com.android.support'
-    }
+//    implementation("com.twitter.sdk.android:twitter-core:${rootProject.ext.twitterSdkVersion}") {
+//        exclude group: 'com.android.support'
+//    }
     //implementation "me.leolin:ShortcutBadger:1.1.19@aar"
     implementation("io.socket:socket.io-client:${rootProject.ext.socketIOVersion}") {
         exclude group: 'org.json', module: 'json'
     }
-    implementation 'com.baoyz.actionsheet:library:1.1.7'
+   // implementation 'com.baoyz.actionsheet:library:1.1.7'
+
     implementation('com.github.chrisbanes:PhotoView:2.1.4') {
         exclude group: 'com.android.support'
     }
     //implementation 'com.ss.bannerslider:bannerslider:1.8.0'
     implementation 'com.loopj.android:android-async-http:1.4.9'
-    implementation "com.droidninja:filepicker:${rootProject.ext.filePickerVersion}"
-    implementation 'ru.egslava:MaskedEditText:1.0.5'
+    //implementation "com.droidninja:filepicker:${rootProject.ext.filePickerVersion}"
+    implementation project(':filepicker')
+    //implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation project(":MaskedEditText")
     //implementation 'com.github.santalu:mask-edittext:1.1.1' //androidx
 
     implementation "com.github.bumptech.glide:glide:${rootProject.ext.glideVersion}"
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation project(":kprogresshud")
 
     //Ahmer comment this code for
     /* implementation "com.paypal.sdk:paypal-android-sdk:${rootProject.ext.paypalSdkVersion}"
@@ -172,7 +179,7 @@ dependencies {
 
     implementation 'io.agora.rtc:full-sdk:3.5.0.2'
     implementation "com.github.yalantis:ucrop:${rootProject.ext.uCropLibVersion}"
-    implementation "com.kaopiz:kprogresshud:${rootProject.ext.kprogressHudVersion}"
+   // implementation "com.kaopiz:kprogresshud:${rootProject.ext.kprogressHudVersion}"
 
     implementation 'androidx.work:work-runtime:2.8.1'
     implementation 'com.github.HBiSoft:PickiT:2.0.5'

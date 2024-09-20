@@ -129,8 +129,12 @@ public class AfterCallDialogEmcura extends BaseActivity {
             layPatientOptionsEmcura.setVisibility(View.GONE);
             doctorOptions.setVisibility(View.VISIBLE);
         } else if (MainActivity.isFromInstantConnect && !ActivityInstatntConnect.isFromPatientProfile) {
-            layPatientOptionsEmcura.setVisibility(View.GONE);
-            doctorOptions.setVisibility(View.VISIBLE);
+            layPatientOptionsEmcura.setVisibility(View.VISIBLE);
+            doctorOptions.setVisibility(View.GONE);
+        }
+        else if (MainActivity.isFromExistingInstantConnect && !ActivityInstatntConnect.isFromPatientProfile) {
+            layPatientOptionsEmcura.setVisibility(View.VISIBLE);
+            doctorOptions.setVisibility(View.GONE);
         }
         //note : this is commented b/c after history call show patient options for emcura
 		/*else if(DATA.isFromCallHistoryOrMsgs){
@@ -1190,7 +1194,8 @@ public class AfterCallDialogEmcura extends BaseActivity {
                 e.printStackTrace();
                 customToast.showToast(DATA.JSON_ERROR_MSG, 0, 0);
             }
-        } else if (apiName.equalsIgnoreCase(ApiManager.BILL_WITHOUT_NOTE)) {
+        }
+        else if (apiName.equalsIgnoreCase(ApiManager.BILL_WITHOUT_NOTE)) {
             //{"success":1,"message":"Saved.","note_id":1878}
             try {
                 JSONObject jsonObject = new JSONObject(content);
@@ -1969,7 +1974,11 @@ public class AfterCallDialogEmcura extends BaseActivity {
         String callId = "0";
         if (DATA.incomingCall) {
             callId = DATA.incommingCallId;
-        } else {
+        }
+        else  if(DATA.isExistingPatCall){
+            callId = DATA.incommingCallId;
+        }
+        else {
             callId = prefs.getString("callingID", "");
         }
         params.put("call_id", callId);
@@ -2064,7 +2073,7 @@ public class AfterCallDialogEmcura extends BaseActivity {
         AsyncHttpClient client = new AsyncHttpClient();
         JSONObject params = new JSONObject();
         try {
-            params.put("model", "text-davinci-003");
+            params.put("model", "gpt-3.5-turbo-instruct");
             params.put("prompt", query);
             params.put("temperature", 0);
             params.put("max_tokens", 100);
@@ -2396,9 +2405,16 @@ public class AfterCallDialogEmcura extends BaseActivity {
 
     private void getConvoNotes() {
         String callId = "0";
-        if (DATA.incomingCall) {
+//        if (DATA.incomingCall) {
+//            callId = DATA.incommingCallId;
+//        }
+//        else  if(DATA.isExistingPatCall){
+//            callId = DATA.incommingCallId;
+//        }
+        if(!DATA.incommingCallId.equals("")){
             callId = DATA.incommingCallId;
-        } else {
+        }
+        else {
             callId = prefs.getString("callingID", "");
         }
         RequestParams params = new RequestParams();

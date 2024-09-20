@@ -103,7 +103,7 @@ dependencies {
     implementation "com.google.firebase:firebase-core:${rootProject.ext.firebaseCoreVersion}"
     implementation "com.google.firebase:firebase-iid:${rootProject.ext.firebaseIidVersion}"
     implementation "com.google.firebase:firebase-messaging:${rootProject.ext.firebaseMessagingVersion}"
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    //implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     //==============================Google Play Services end===============================
     //implementation files('libs/android-async-http-1.4.4.jar')
     //implementation files('libs/oovoosdk.jar')
@@ -114,7 +114,8 @@ dependencies {
     implementation "com.google.android.material:material:${rootProject.ext.googleMaterialVersion}"
     implementation "androidx.cardview:cardview:${rootProject.ext.cardviewVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.contraintLayoutVersion}"
-    implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+    //implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     /*implementation "me.leolin:ShortcutBadger:1.1.19@aar"*/
     //implementation('io.socket:socket.io-client:0.8.3')
     implementation("io.socket:socket.io-client:${rootProject.ext.socketIOVersion}") {

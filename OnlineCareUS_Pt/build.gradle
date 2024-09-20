@@ -89,7 +89,7 @@ dependencies {
     implementation "com.google.firebase:firebase-core:${rootProject.ext.firebaseCoreVersion}"
     implementation "com.google.firebase:firebase-iid:${rootProject.ext.firebaseIidVersion}"
     implementation "com.google.firebase:firebase-messaging:${rootProject.ext.firebaseMessagingVersion}"
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    //implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     //==============================Google Play Services end===============================
 
     implementation ("com.facebook.android:facebook-login:${rootProject.ext.facebookSdkVersion}"){

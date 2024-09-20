@@ -1,0 +1,17 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.paging.listview" >
+4    <!--
+5<uses-sdk
+6        android:minSdkVersion="9"
+7        android:targetSdkVersion="18"/>
+8    -->
+9    <uses-sdk android:minSdkVersion="19" />
+10    <!--
+11    android:versionCode="1"
+12          android:versionName="1.0"
+13    -->
+14    <application />
+14-->D:\Online Care\onlinecare_apps_20240904\PagingListView\src\main\AndroidManifest.xml:6:5-19
+15
+16</manifest>

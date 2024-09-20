@@ -64,12 +64,14 @@ import com.app.emcuradr.adapter.PharmacyAdapter;
 import com.app.emcuradr.api.ApiCallBack;
 import com.app.emcuradr.api.ApiManager;
 import com.app.emcuradr.api.Dialog_CustomProgress;
+import com.app.emcuradr.model.ConditionsModel;
 import com.app.emcuradr.model.CountryBean;
 import com.app.emcuradr.model.FaxHistBean;
 import com.app.emcuradr.model.MyAppointmentsModel;
 import com.app.emcuradr.model.PharmacyBean;
 import com.app.emcuradr.model.PharmacyCategoryBean;
 import com.app.emcuradr.model.SpecialityModel;
+import com.app.emcuradr.model.SymptomsModel;
 import com.github.gcacace.signaturepad.views.SignaturePad;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -102,6 +104,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TimeZone;
 
 import cz.msebera.android.httpclient.Header;
@@ -253,6 +256,41 @@ public class GloabalMethods implements ApiCallBack{
         dialogSendMessage.getWindow().setAttributes(lp);
     }
 
+
+    public List<SymptomsModel> getAllSymptoms(){
+        String symp_cond = prefs.getString("symp_cond","");
+
+        List<SymptomsModel> symptomsModels = new ArrayList<>();
+        if(!symp_cond.isEmpty()){
+            try {
+                JSONObject jsonObject = new JSONObject(symp_cond);
+                JSONArray data = jsonObject.getJSONArray("data");
+                for (int i = 0; i < data.length(); i++) {
+                    String id = data.getJSONObject(i).getString("id");
+                    String symptom_name = data.getJSONObject(i).getString("symptom_name");
+                    List<ConditionsModel> conditionsModels = new ArrayList<>();
+                    String conditionsStr = data.getJSONObject(i).getString("conditions");
+                    if(! TextUtils.isEmpty(conditionsStr)){
+                        JSONArray conditions = data.getJSONObject(i).getJSONArray("conditions");
+                        for (int j = 0; j < conditions.length(); j++) {
+                            String condition_id = conditions.getJSONObject(j).getString("id");
+                            String symptom_id = conditions.getJSONObject(j).getString("symptom_id");
+                            String condition_name = conditions.getJSONObject(j).getString("condition_name");
+
+                            conditionsModels.add(new ConditionsModel(condition_id,symptom_id,condition_name));
+                        }
+                    }
+
+                    symptomsModels.add(new SymptomsModel(id,symptom_name,conditionsModels));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                DATA.print("--symp:"+e.getMessage().toString());
+                customToast.showToast(DATA.JSON_ERROR_MSG,0,0);
+            }
+        }
+        return symptomsModels;
+    }
 
     public void sendEMSmessage(final String message_text) {
 

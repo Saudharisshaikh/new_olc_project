@@ -78,7 +78,7 @@ dependencies {
     implementation "com.google.firebase:firebase-core:${rootProject.ext.firebaseCoreVersion}"
     implementation "com.google.firebase:firebase-iid:${rootProject.ext.firebaseIidVersion}"
     implementation "com.google.firebase:firebase-messaging:${rootProject.ext.firebaseMessagingVersion}"
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+   // implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     //==============================Google Play Services end===============================
     //implementation files('libs/android-async-http-1.4.4.jar')
     //implementation files('libs/oovoosdk.jar')
@@ -89,7 +89,10 @@ dependencies {
     implementation "com.google.android.material:material:${rootProject.ext.googleMaterialVersion}"
     implementation "androidx.cardview:cardview:${rootProject.ext.cardviewVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.contraintLayoutVersion}"
-    implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+   // implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
+    implementation project(":ExpandableLayout")
+
     //implementation "me.leolin:ShortcutBadger:1.1.19@aar"
     //implementation('io.socket:socket.io-client:0.8.3')
     implementation("io.socket:socket.io-client:${rootProject.ext.socketIOVersion}") {
@@ -101,7 +104,8 @@ dependencies {
     }
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation project(':PagingListView')
-    implementation 'ru.egslava:MaskedEditText:1.0.5'
+    //implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation project(":MaskedEditText")
     implementation 'com.loopj.android:android-async-http:1.4.9'
 	
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
@@ -114,8 +118,8 @@ dependencies {
     //implementation 'com.android.support:recyclerview-v7:23.0.'
 
     implementation "com.github.yalantis:ucrop:${rootProject.ext.uCropLibVersion}"
-    implementation "com.kaopiz:kprogresshud:${rootProject.ext.kprogressHudVersion}"
-
+   // implementation "com.kaopiz:kprogresshud:${rootProject.ext.kprogressHudVersion}"
+    implementation project(":kprogresshud")
     //work manager
     implementation 'androidx.work:work-runtime:2.8.1'
     implementation 'com.github.travijuu:numberpicker:1.0.7'

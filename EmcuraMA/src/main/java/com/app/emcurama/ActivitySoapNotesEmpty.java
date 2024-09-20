@@ -38,7 +38,7 @@ import com.app.emcurama.util.GloabalMethods;
 import com.app.emcurama.util.HideShowKeypad;
 import com.app.emcurama.util.OpenActivity;
 import com.app.emcurama.util.PrescriptionModule;
-import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+//import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -58,6 +58,8 @@ import static com.app.emcurama.ActivitySoapNotesNew.isDMEFormDone;
 import static com.app.emcurama.ActivitySoapNotesNew.isHomecareFormDone;
 import static com.app.emcurama.ActivitySoapNotesNew.isSkilledNursingFormDone;
 
+import net.cachapa.expandablelayout.ExpandableLayout;
+
 public class ActivitySoapNotesEmpty extends AppCompatActivity implements OnClickListener{
 
 	Activity activity;
@@ -75,7 +77,7 @@ public class ActivitySoapNotesEmpty extends AppCompatActivity implements OnClick
 			etSOAPHistoryMedical,etSOAPHistorySocial,etSOAPHistoryFamily,etSOAPHistoryMedications,etSOAPHistoryAllergies;
 	Spinner spSOAPLevelOfPain;
 	ImageView ivExpendExamLay;
-	ExpandableRelativeLayout layExpandExam;
+	ExpandableLayout layExpandExam;
     EditText etSOAPExamHead,etSOAPExamHeent,etSOAPExamThroat,etSOAPExamHeart,etSOAPExamLungs,etSOAPExamChest,etSOAPExamExtremities,
             etSOAPExamNeurologic,etSOAPExamSkin,etSOAPExamGIGU,etSOAPExamOther;
 
@@ -226,7 +228,7 @@ public class ActivitySoapNotesEmpty extends AppCompatActivity implements OnClick
 
         //Examination
 		ivExpendExamLay = (ImageView) findViewById(R.id.ivExpendExamLay);
-		layExpandExam = (ExpandableRelativeLayout) findViewById(R.id.layExpandExam);
+		layExpandExam = (ExpandableLayout) findViewById(R.id.layExpandExam);
         etSOAPExamHead = (EditText) findViewById(R.id.etSOAPExamHead);
         etSOAPExamHeent = (EditText) findViewById(R.id.etSOAPExamHeent);
         etSOAPExamThroat = (EditText) findViewById(R.id.etSOAPExamThroat);

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gray"
-    tools:context="com.app.fivestardoc.ActivityTelemedicineServices" >
+    tools:context="com.app.emcuradr.ActivityTelemedicineServices" >
 
 
     <RelativeLayout

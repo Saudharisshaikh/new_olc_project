@@ -384,25 +384,58 @@
 
                         </RelativeLayout>
 
+
+
                         <TextView
-                            android:id="@+id/tvInstantConnect"
+                            android:id="@+id/tvConsulNote"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:layout_weight="1"
                             android:clickable="true"
-                            android:drawableTop="@drawable/ic_instant_connect"
+                            android:drawableTop="@drawable/icon_mic"
                             android:gravity="center"
-                            android:text="Instant Connect"
+                            android:text="Clinic Patients"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:drawablePadding="10dp"
                             android:textSize="12dp" />
+
+
+
+                        <TextView
+                            android:id="@+id/tvAppInvite"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:drawableTop="@drawable/ic_app_invite"
+                            android:gravity="center"
+                            android:text="App Invite"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:drawablePadding="10dp"
+                            android:textSize="12dp" />
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:visibility="visible" >
+
+
 
                         <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:layout_weight="1">
+
+
 
                             <TextView
                                 android:id="@+id/tvMessages"
@@ -442,29 +475,20 @@
 
                         </RelativeLayout>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:visibility="visible" >
 
                         <TextView
-                            android:id="@+id/tvAppInvite"
+                            android:id="@+id/tvInstantConnect"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:layout_weight="1"
                             android:clickable="true"
-                            android:drawableTop="@drawable/ic_app_invite"
+                            android:drawableTop="@drawable/instant_connect_new"
                             android:gravity="center"
-                            android:text="App Invite"
+                            android:text="Instant Connect"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:drawablePadding="10dp"
                             android:textSize="12dp" />
-
                         <TextView
                             android:id="@+id/tvHomeHealth"
                             android:layout_width="0dp"
@@ -479,6 +503,22 @@
                             android:drawablePadding="10dp"
                             android:textSize="12dp" />
 
+
+
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+
+
                         <TextView
                             android:id="@+id/tvPrescriptions"
                             android:layout_width="0dp"
@@ -491,17 +531,6 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:drawablePadding="10dp"
                             android:textSize="12dp" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center">
-
-
 
 
                         <RelativeLayout
@@ -572,6 +601,25 @@
                             android:textSize="12dp" />
 
 
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+
+
+
+
                         <TextView
                             android:id="@+id/tvSupport"
                             android:layout_width="0dp"
@@ -588,19 +636,10 @@
                             android:textSize="12dp" />
 
 
-
-
-                    </LinearLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-
                         <TextView
                             android:id="@+id/tvLogout"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:layout_centerHorizontal="true"
@@ -611,6 +650,45 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:drawablePadding="10dp"
                             android:textSize="12dp" />
+
+
+
+
+
+
+
+
+                        <TextView
+                            android:id="@+id/tvnone"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_centerHorizontal="true"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:text=""
+                            android:allowClickWhenDisabled="false"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:drawablePadding="10dp"
+                            android:textSize="12dp" />
+
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
 
 
                     </RelativeLayout>

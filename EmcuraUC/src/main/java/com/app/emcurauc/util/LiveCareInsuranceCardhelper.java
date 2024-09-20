@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import droidninja.filepicker.FilePickerBuilder;
 import droidninja.filepicker.FilePickerConst;
 import droidninja.filepicker.models.sort.SortingTypes;
-import droidninja.filepicker.utils.Orientation;
+//import droidninja.filepicker.utils.Orientation;
 
 public class LiveCareInsuranceCardhelper {
 
@@ -66,7 +66,7 @@ public class LiveCareInsuranceCardhelper {
 
         FilePickerBuilder.getInstance()
                 .setMaxCount(1)
-                .setSelectedFiles(docPaths)
+                //.setSelectedFiles(docPaths)
                 .setActivityTheme(R.style.FilePickerTheme)//DrawerTheme2
                 .setActivityTitle("Please select a file")
                 //.addFileSupport("ZIP", zips)
@@ -78,8 +78,8 @@ public class LiveCareInsuranceCardhelper {
 
                 .enableDocSupport(false)
                 .enableSelectAll(true)
-                .sortDocumentsBy(SortingTypes.name)
-                .withOrientation(Orientation.UNSPECIFIED)
+//                .//sortDocumentsBy(SortingTypes.name)
+//                .withOrientation(Orientation.UNSPECIFIED)
                 .pickFile(activity);
     }
 

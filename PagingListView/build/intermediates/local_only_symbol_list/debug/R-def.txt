@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+color colorAccent
+color colorPrimary
+color colorPrimaryDark
+color paginglistview_accent
+color paginglistview_primary
+color paginglistview_primaryDark
+dimen loading_view_margin_layout
+dimen loading_view_margin_right
+dimen loading_view_progress_size
+id loading_view
+id progressBar2
+id video_item_label
+layout loading_view
+string loading

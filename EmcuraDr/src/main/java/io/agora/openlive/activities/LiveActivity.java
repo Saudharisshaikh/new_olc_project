@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -32,6 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.emcuradr.ActivityExistingPatCall;
 import com.app.emcuradr.ActivityInstatntConnect;
 import com.app.emcuradr.AfterCallDialogEmcura;
 import com.app.emcuradr.R;
@@ -49,6 +51,7 @@ import com.app.emcuradr.util.CheckInternetConnection;
 import com.app.emcuradr.util.CustomToast;
 import com.app.emcuradr.util.DATA;
 import com.app.emcuradr.util.DialogPatientInfo;
+import com.app.emcuradr.util.ExistingPatientCall;
 import com.app.emcuradr.util.GeneralAlertDialog;
 import com.app.emcuradr.util.GloabalMethods;
 import com.app.emcuradr.util.ReportsDialog;
@@ -397,10 +400,16 @@ public class LiveActivity extends RtcBaseActivity implements ApiCallBack {
 
         if (MainActivity.isFromInstantConnect) {
             DATA.endCallInstantConnect(activity, ActivityInstatntConnect.call_id_instant_connect);
-        } else {
+        }
+        if(MainActivity.isFromExistingInstantConnect){
+            DATA.endCallInstantConnect(activity, ActivityExistingPatCall.call_id_instant_connect);
+        }
+
+        else {
             DATA.call_end_time = new SimpleDateFormat("HH:mm:ss").format(new Date());
             DATA.endCall(activity);
         }
+
 
         super.finish();
         statsManager().clearAllData();
@@ -1142,7 +1151,12 @@ public class LiveActivity extends RtcBaseActivity implements ApiCallBack {
         audioRecorder.startRecording();
         DATA.print("-- ## LiveActivity Angora onstart");
         MultiPartyVideoCallFragment.isInVideoCall = true;
-        registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST),RECEIVER_NOT_EXPORTED);
+        }else {
+            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+        }
+
         super.onStart();
     }
 

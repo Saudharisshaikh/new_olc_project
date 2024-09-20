@@ -55,6 +55,11 @@ include ':FiveStarDr'
 
 include ':OmranDr'
 include ':OmranPatient'
+include ':MaskedEditText'
+include ':kprogresshud'
+include ':ExpandableLayout'
+include ':ActionSheet'
+include ':filepicker'
 
 
 //Note : GM moved these modules to the archive on 26Nov2021 before handover to Ahmer

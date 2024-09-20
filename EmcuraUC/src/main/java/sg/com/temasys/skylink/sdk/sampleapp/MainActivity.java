@@ -114,19 +114,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         if(callDisconnectBroadcast != null) {
-            registerReceiver(callDisconnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_DISCONNECTED));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(callDisconnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_DISCONNECTED), Context.RECEIVER_NOT_EXPORTED);
+            }else{
+                registerReceiver(callDisconnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_DISCONNECTED));
+            }
         }
         if (coordinatorCallAccceptBrodcast != null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(VCallModule.COORDINATOR_CALL_ACCEPTED);
             intentFilter.addAction(VCallModule.COORDINATOR_CALL_REJECTED);
-            registerReceiver(coordinatorCallAccceptBrodcast, intentFilter);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(coordinatorCallAccceptBrodcast, intentFilter, RECEIVER_NOT_EXPORTED);
+            }else {
+                registerReceiver(coordinatorCallAccceptBrodcast, intentFilter);
+            }
+
         }
         if (coordinatorCallConnectBrodcast != null) {
-            registerReceiver(coordinatorCallConnectBrodcast, new IntentFilter(VCallModule.COORDINATOR_CALL_CONNECTED));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(coordinatorCallConnectBrodcast, new IntentFilter(VCallModule.COORDINATOR_CALL_CONNECTED), RECEIVER_NOT_EXPORTED);
+            }else {
+                registerReceiver(coordinatorCallConnectBrodcast, new IntentFilter(VCallModule.COORDINATOR_CALL_CONNECTED));
+            }
         }
         if(disconnectSpecialistBroadcast != null){
-            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST), RECEIVER_NOT_EXPORTED);
+            }else {
+                registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+            }
         }
         super.onStart();
     }

@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -82,7 +83,13 @@ public class ViewConversationActivity extends BaseActivity {
 	protected void onStart() {
 		DATA.shouldNotify = false;
 		//registerReceiver(refreshBrodcast, new IntentFilter("com.app.onlinecaredr.refreshmsges"));
-		registerReceiver(refreshChatMsgDelBC, new IntentFilter(REFRESH_CHAT_ACTION_MSG_DEL));
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			registerReceiver(refreshChatMsgDelBC, new IntentFilter(REFRESH_CHAT_ACTION_MSG_DEL),RECEIVER_NOT_EXPORTED);
+		}else {
+			registerReceiver(refreshChatMsgDelBC, new IntentFilter(REFRESH_CHAT_ACTION_MSG_DEL));
+		}
+
 		super.onStart();
 	}
 	@Override

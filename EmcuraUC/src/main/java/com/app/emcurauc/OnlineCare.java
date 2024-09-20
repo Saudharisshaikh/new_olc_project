@@ -10,10 +10,7 @@ import androidx.multidex.MultiDex;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.twitter.sdk.android.core.DefaultLogger;
-import com.twitter.sdk.android.core.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterConfig;
+
 
 import java.net.URISyntaxException;
 
@@ -49,12 +46,12 @@ public class OnlineCare extends Application  implements AppLifecycleHandler.Life
         //initImageLoader(getApplicationContext());
 
 
-        TwitterConfig config = new TwitterConfig.Builder(this)
-                .logger(new DefaultLogger(Log.DEBUG))
-                .twitterAuthConfig(new TwitterAuthConfig(getString(R.string.com_twitter_sdk_android_CONSUMER_KEY), getString(R.string.com_twitter_sdk_android_CONSUMER_SECRET)))
-                .debug(true)
-                .build();
-        Twitter.initialize(config);
+//        TwitterConfig config = new TwitterConfig.Builder(this)
+//                .logger(new DefaultLogger(Log.DEBUG))
+//                .twitterAuthConfig(new TwitterAuthConfig(getString(R.string.com_twitter_sdk_android_CONSUMER_KEY), getString(R.string.com_twitter_sdk_android_CONSUMER_SECRET)))
+//                .debug(true)
+//                .build();
+//        Twitter.initialize(config);
 
         AppLifecycleHandler lifeCycleHandler = new AppLifecycleHandler((AppLifecycleHandler.LifeCycleDelegate) this);
         this.registerLifecycleHandler(lifeCycleHandler);

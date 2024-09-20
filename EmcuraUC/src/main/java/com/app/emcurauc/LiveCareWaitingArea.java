@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Html;
@@ -82,7 +83,12 @@ public class LiveCareWaitingArea extends BaseActivity {
         //filter.addAction("LIVE_CARE_WAITING_TIMER_STOP");
         filter.addAction(GloabalMethods.SHOW_PHARMACY_BROADCAST_ACTION);
         filter.addAction(ACTION_ASSIGNED_DOC);
-        registerReceiver(broadcastReceiver, filter);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(broadcastReceiver,filter , Context.RECEIVER_NOT_EXPORTED);
+        }else {
+            registerReceiver(broadcastReceiver,filter);
+        }
 
     }
 

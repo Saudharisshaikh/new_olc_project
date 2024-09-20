@@ -134,7 +134,9 @@
         </LinearLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            >
             <ListView
                 android:id="@+id/lvDoctorsInvites"
                 android:background="@drawable/cust_border_white_outline"

@@ -172,12 +172,20 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </FrameLayout>
-                        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+
+                        <net.cachapa.expandablelayout.ExpandableLayout
                             android:id="@+id/layExpandHistory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:ael_duration="1000"
-                            app:ael_interpolator="fastOutSlowIn">
+                            app:el_duration="1000"
+                            app:el_expanded="true"
+                            app:el_parallax="0.5">
+<!--                        <com.github.aakira.expandablelayout.ExpandableRelativeLayout-->
+<!--                            android:id="@+id/layExpandHistory"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:ael_duration="1000"-->
+<!--                            app:ael_interpolator="fastOutSlowIn">-->
                             <androidx.core.widget.NestedScrollView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
@@ -276,7 +284,8 @@
 
                                 </LinearLayout>
                             </androidx.core.widget.NestedScrollView>
-                        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+                        </net.cachapa.expandablelayout.ExpandableLayout>
+<!--                        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>-->
                     </LinearLayout>
 
                     <LinearLayout
@@ -308,12 +317,20 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </FrameLayout>
-                        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+<!--                        <com.github.aakira.expandablelayout.ExpandableRelativeLayout-->
+<!--                            android:id="@+id/layExpandExam"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:ael_duration="1000"-->
+<!--                            app:ael_interpolator="fastOutSlowIn">-->
+
+                        <net.cachapa.expandablelayout.ExpandableLayout
                             android:id="@+id/layExpandExam"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:ael_duration="1000"
-                            app:ael_interpolator="fastOutSlowIn">
+                            app:el_duration="1000"
+                            app:el_expanded="true"
+                            app:el_parallax="0.5">
 
                             <androidx.core.widget.NestedScrollView
                                 android:layout_width="match_parent"
@@ -766,7 +783,9 @@
                                 </LinearLayout>
                             </androidx.core.widget.NestedScrollView>
 
-                        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+                        </net.cachapa.expandablelayout.ExpandableLayout>
+
+<!--                        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>-->
                     </LinearLayout>
 
                 </LinearLayout>

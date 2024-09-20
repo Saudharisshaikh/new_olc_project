@@ -63,9 +63,9 @@ import com.app.onlinecare_dr_pk.util.DialogPatientInfo;
 import com.app.onlinecare_dr_pk.util.EasyAES;
 import com.app.onlinecare_dr_pk.util.SharedPrefsHelper;
 import com.bumptech.glide.Glide;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.firebase.jobdispatcher.GooglePlayDriver;
-import com.firebase.jobdispatcher.Job;
+//import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+//import com.firebase.jobdispatcher.GooglePlayDriver;
+//import com.firebase.jobdispatcher.Job;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -164,16 +164,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     /**
      * Schedule a job using FirebaseJobDispatcher.
      */
-    private void scheduleJob() {
-        // [START dispatch_job]
-        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
-        Job myJob = dispatcher.newJobBuilder()
-                .setService(MyJobService.class)
-                .setTag("my-job-tag")
-                .build();
-        dispatcher.schedule(myJob);
-        // [END dispatch_job]
-    }
+//    private void scheduleJob() {
+//        // [START dispatch_job]
+//        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+//        Job myJob = dispatcher.newJobBuilder()
+//                .setService(MyJobService.class)
+//                .setTag("my-job-tag")
+//                .build();
+//        dispatcher.schedule(myJob);
+//        // [END dispatch_job]
+//    }
 
     /**
      * Handle time allotted to BroadcastReceivers.
@@ -629,7 +629,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent intent = new Intent(this, activityToOpen);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, tempId /* Request code */, intent,
-                PendingIntent.FLAG_ONE_SHOT);
+                PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
 
         String channelId = getString(R.string.default_notification_channel_id);
 

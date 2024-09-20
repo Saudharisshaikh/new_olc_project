@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 4
+        versionName "1.03"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    namespace 'com.github.aakira.expandablelayout'
+}
+
+dependencies {
+    implementation  "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
+    androidTestImplementation "com.android.support:support-annotations:${rootProject.ext.appCompatVersion}"
+//    androidTestImplementation "com.android.support.test:runner:$SUPPORT_TEST_VERSION"
+//    androidTestImplementation "com.android.support.test:rules:$SUPPORT_TEST_VERSION"
+}
+

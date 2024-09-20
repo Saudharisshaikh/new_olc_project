@@ -66,7 +66,7 @@ import java.util.Objects;
 import droidninja.filepicker.FilePickerBuilder;
 import droidninja.filepicker.FilePickerConst;
 import droidninja.filepicker.models.sort.SortingTypes;
-import droidninja.filepicker.utils.Orientation;
+
 
 
 public class Reports extends BaseActivity implements PickiTCallbacks {
@@ -909,7 +909,7 @@ public class Reports extends BaseActivity implements PickiTCallbacks {
     public void onPickPhoto() {
         FilePickerBuilder.getInstance()
                 .setMaxCount(1)
-                .setSelectedFiles(photoPaths)
+               // .setSelectedFiles(photoPaths)
                 .setActivityTheme(R.style.FilePickerTheme)
                 .setActivityTitle("Please select a report picture")
                 .enableVideoPicker(false)
@@ -919,7 +919,7 @@ public class Reports extends BaseActivity implements PickiTCallbacks {
                 .enableSelectAll(true)
                 .enableImagePicker(true)
                 .setCameraPlaceholder(R.drawable.custom_camera)
-                .withOrientation(Orientation.PORTRAIT_ONLY)
+               // .withOrientation(Orientation.PORTRAIT_ONLY)
                 .pickPhoto(this, CUSTOM_REQUEST_CODE);
 
         /*int maxCount = MAX_ATTACHMENT_COUNT - docPaths.size();
@@ -955,7 +955,7 @@ public class Reports extends BaseActivity implements PickiTCallbacks {
 
         FilePickerBuilder.getInstance()
                 .setMaxCount(1)
-                .setSelectedFiles(docPaths)
+                //.setSelectedFiles(docPaths)
                 .setActivityTheme(R.style.FilePickerTheme)//DrawerTheme2
                 .setActivityTitle("Please select a file")
                 //.addFileSupport("ZIP", zips)
@@ -967,8 +967,8 @@ public class Reports extends BaseActivity implements PickiTCallbacks {
 
                 .enableDocSupport(false)
                 .enableSelectAll(true)
-                .sortDocumentsBy(SortingTypes.name)
-                .withOrientation(Orientation.UNSPECIFIED)
+                //.sortDocumentsBy(SortingTypes.name)
+               // .withOrientation(Orientation.UNSPECIFIED)
                 .pickFile(this);
 
 

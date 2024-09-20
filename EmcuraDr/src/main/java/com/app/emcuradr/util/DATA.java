@@ -188,7 +188,8 @@ public class DATA {
 	public static String incommingCallId = "";
 	public static String incomingCallUserId = "";
 	public static String incomingCallResponce = "";
-
+	public static boolean isExistingPatCall = false;
+	public static boolean isInstantConnect = false;
 	public static String drSpecialityId = "";
 	public static String drClinicId = "";
 

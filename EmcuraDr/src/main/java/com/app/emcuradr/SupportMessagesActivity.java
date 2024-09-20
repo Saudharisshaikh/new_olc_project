@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -55,7 +56,13 @@ public class SupportMessagesActivity extends AppCompatActivity {
 	
 	@Override
 	protected void onStart() {
-		registerReceiver(supportMsgBroadcast, new IntentFilter("coordinator_message"));
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			registerReceiver(supportMsgBroadcast, new IntentFilter("coordinator_message"),RECEIVER_NOT_EXPORTED);
+		}else {
+			registerReceiver(supportMsgBroadcast, new IntentFilter("coordinator_message"));
+		}
+
 		super.onStart();
 	}
 	

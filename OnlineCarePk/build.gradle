@@ -119,7 +119,7 @@ dependencies {
     implementation "com.google.firebase:firebase-core:${rootProject.ext.firebaseCoreVersion}"
     implementation "com.google.firebase:firebase-iid:${rootProject.ext.firebaseIidVersion}"
     implementation "com.google.firebase:firebase-messaging:${rootProject.ext.firebaseMessagingVersion}"
-    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    //implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     //==============================Google Play Services end===============================
     //implementation files('libs/android-async-http-1.4.4.jar')
     //implementation files('libs/oovoosdk.jar')

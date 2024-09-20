@@ -9,12 +9,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ActionSheet" />
             <option value="$PROJECT_DIR$/CovaCard_Min" />
             <option value="$PROJECT_DIR$/DigiHealthCard" />
             <option value="$PROJECT_DIR$/Drop-In" />
             <option value="$PROJECT_DIR$/EmcuraDr" />
             <option value="$PROJECT_DIR$/EmcuraMA" />
             <option value="$PROJECT_DIR$/EmcuraUC" />
+            <option value="$PROJECT_DIR$/ExpandableLayout" />
             <option value="$PROJECT_DIR$/FiveStarDr" />
             <option value="$PROJECT_DIR$/FiveStarUC" />
             <option value="$PROJECT_DIR$/FloatingGroupExpandableListView" />
@@ -28,6 +30,7 @@
             <option value="$PROJECT_DIR$/MSU_CP" />
             <option value="$PROJECT_DIR$/MSU_Doc" />
             <option value="$PROJECT_DIR$/MSU_UC" />
+            <option value="$PROJECT_DIR$/MaskedEditText" />
             <option value="$PROJECT_DIR$/OlcMentalHealth_CP" />
             <option value="$PROJECT_DIR$/OlcMentalHealth_DOC" />
             <option value="$PROJECT_DIR$/OlcMentalHealth_Pt" />
@@ -45,7 +48,9 @@
             <option value="$PROJECT_DIR$/PagingListView" />
             <option value="$PROJECT_DIR$/bannerslider" />
             <option value="$PROJECT_DIR$/circularImageView1" />
+            <option value="$PROJECT_DIR$/filepicker" />
             <option value="$PROJECT_DIR$/idcardcamera" />
+            <option value="$PROJECT_DIR$/kprogresshud" />
             <option value="$PROJECT_DIR$/materialDialogLib" />
             <option value="$PROJECT_DIR$/multipleimageselect" />
             <option value="$PROJECT_DIR$/pickit" />

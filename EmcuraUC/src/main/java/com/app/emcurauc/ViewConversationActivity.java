@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -66,7 +67,12 @@ public class ViewConversationActivity extends BaseActivity{
 	@Override
 	protected void onStart() {
 		//DATA.shouldNotify = false;
-		registerReceiver(refreshChatMsgDelBC, new IntentFilter(REFRESH_CHAT_ACTION_MSG_DEL));
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			registerReceiver(refreshChatMsgDelBC, new IntentFilter(REFRESH_CHAT_ACTION_MSG_DEL), RECEIVER_NOT_EXPORTED);
+		}else {
+			registerReceiver(refreshChatMsgDelBC, new IntentFilter(REFRESH_CHAT_ACTION_MSG_DEL));
+		}
 		super.onStart();
 	}
 	@Override

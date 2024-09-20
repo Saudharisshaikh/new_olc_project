@@ -33,9 +33,9 @@ import androidx.core.app.NotificationCompat;
 import com.covacard.ActivityCovacardHome;
 import com.covacard.R;
 import com.covacard.util.SharedPrefsHelper;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.firebase.jobdispatcher.GooglePlayDriver;
-import com.firebase.jobdispatcher.Job;
+//import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+//import com.firebase.jobdispatcher.GooglePlayDriver;
+//import com.firebase.jobdispatcher.Job;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -125,16 +125,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     /**
      * Schedule a job using FirebaseJobDispatcher.
      */
-    private void scheduleJob() {
-        // [START dispatch_job]
-        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
-        Job myJob = dispatcher.newJobBuilder()
-                .setService(MyJobService.class)
-                .setTag("my-job-tag")
-                .build();
-        dispatcher.schedule(myJob);
-        // [END dispatch_job]
-    }
+//    private void scheduleJob() {
+//        // [START dispatch_job]
+//        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+//        Job myJob = dispatcher.newJobBuilder()
+//                .setService(MyJobService.class)
+//                .setTag("my-job-tag")
+//                .build();
+//        dispatcher.schedule(myJob);
+//        // [END dispatch_job]
+//    }
 
     /**
      * Handle time allotted to BroadcastReceivers.

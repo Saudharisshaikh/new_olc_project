@@ -183,13 +183,13 @@
             </intent-filter>
         </service>
         <!-- [END firebase_service] -->
-        <service
-            android:name=".fcm.MyJobService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
-            </intent-filter>
-        </service>
+<!--        <service-->
+<!--            android:name=".fcm.MyJobService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
         <!--FCM Ends-->
 
         <!--This file provider is used to get file uri in choosepicturedialog.dispatchTakePictureIntent()  Android26  GM-->

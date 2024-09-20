@@ -33,7 +33,7 @@ import com.app.emcurama.util.GloabalMethods;
 import com.app.emcurama.util.HideShowKeypad;
 import com.app.emcurama.util.OpenActivity;
 import com.app.emcurama.util.PrescriptionModule;
-import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+//import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -51,6 +51,8 @@ import cz.msebera.android.httpclient.Header;
 import static com.app.emcurama.ActivitySoapNotesNew.isDMEFormDone;
 import static com.app.emcurama.ActivitySoapNotesNew.isHomecareFormDone;
 import static com.app.emcurama.ActivitySoapNotesNew.isSkilledNursingFormDone;
+
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 public class ActivitySoapNotesEditNew extends AppCompatActivity implements OnClickListener,ApiCallBack{
 
@@ -70,7 +72,7 @@ public class ActivitySoapNotesEditNew extends AppCompatActivity implements OnCli
 	Spinner spSOAPLevelOfPain;
 	EditText etSOAP_PainBodyPart;
 	ImageView ivExpendExamLay;
-	ExpandableRelativeLayout layExpandExam;
+	ExpandableLayout layExpandExam;
     EditText etSOAPExamHead,etSOAPExamHeent,etSOAPExamThroat,etSOAPExamHeart,etSOAPExamLungs,etSOAPExamChest,etSOAPExamExtremities,
             etSOAPExamNeurologic,etSOAPExamSkin,etSOAPExamGIGU,etSOAPExamOther;
 
@@ -223,7 +225,7 @@ public class ActivitySoapNotesEditNew extends AppCompatActivity implements OnCli
 
         //Examination
 		ivExpendExamLay = (ImageView) findViewById(R.id.ivExpendExamLay);
-		layExpandExam = (ExpandableRelativeLayout) findViewById(R.id.layExpandExam);
+		layExpandExam = (ExpandableLayout) findViewById(R.id.layExpandExam);
         etSOAPExamHead = (EditText) findViewById(R.id.etSOAPExamHead);
         etSOAPExamHeent = (EditText) findViewById(R.id.etSOAPExamHeent);
         etSOAPExamThroat = (EditText) findViewById(R.id.etSOAPExamThroat);

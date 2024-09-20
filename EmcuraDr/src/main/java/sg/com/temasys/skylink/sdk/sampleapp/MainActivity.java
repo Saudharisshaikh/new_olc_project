@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity
     public static boolean isFromCallToCoordinator = false;
     public static boolean isFromCallToEMS = false;
     public static boolean isFromInstantConnect = false;
+    public static boolean isFromExistingInstantConnect = false;
     BroadcastReceiver coordinatorCallAccceptBrodcast;
     BroadcastReceiver coordinatorCallConnectBrodcast;
 
@@ -150,19 +151,41 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         isOnVideoCallActivity = true;
-        registerReceiver(cBroadcast, new IntentFilter(VCallModule.OUTGOING_CALL_RESPONSE));
-        registerReceiver(callConnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_CONNECTED));
-        registerReceiver(callDisconnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_DISCONNECTED));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(cBroadcast, new IntentFilter(VCallModule.OUTGOING_CALL_RESPONSE),RECEIVER_NOT_EXPORTED);
+            registerReceiver(callConnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_CONNECTED),RECEIVER_NOT_EXPORTED);
+            registerReceiver(callDisconnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_DISCONNECTED),RECEIVER_NOT_EXPORTED);
+        }else {
+            registerReceiver(cBroadcast, new IntentFilter(VCallModule.OUTGOING_CALL_RESPONSE));
+            registerReceiver(callConnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_CONNECTED));
+            registerReceiver(callDisconnectBroadcast, new IntentFilter(VCallModule.INCOMMING_CALL_DISCONNECTED));
+        }
 
-        registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST),RECEIVER_NOT_EXPORTED);
+        }else {
+            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+        }
+
         if (coordinatorCallAccceptBrodcast != null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(VCallModule.COORDINATOR_CALL_ACCEPTED);
             intentFilter.addAction(VCallModule.COORDINATOR_CALL_REJECTED);
-            registerReceiver(coordinatorCallAccceptBrodcast, intentFilter);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(coordinatorCallAccceptBrodcast, intentFilter,RECEIVER_NOT_EXPORTED);
+            }else {
+                registerReceiver(coordinatorCallAccceptBrodcast, intentFilter);
+            }
+
         }
         if (coordinatorCallConnectBrodcast != null) {//this action not sent from fcm service because it already sent onther bc working for it remove this bc in future
-            registerReceiver(coordinatorCallConnectBrodcast, new IntentFilter(VCallModule.COORDINATOR_CALL_CONNECTED));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(coordinatorCallConnectBrodcast, new IntentFilter(VCallModule.COORDINATOR_CALL_CONNECTED),RECEIVER_NOT_EXPORTED);
+            }else {
+                registerReceiver(coordinatorCallConnectBrodcast, new IntentFilter(VCallModule.COORDINATOR_CALL_CONNECTED));
+            }
+
         }
         DATA.call_start_time = new SimpleDateFormat("HH:mm:ss").format(new Date());
         DATA.isSOAP_NotesSent = false;
@@ -408,7 +431,7 @@ public class MainActivity extends AppCompatActivity
         isFromCallToCoordinator = getIntent().getBooleanExtra("isFromCallToCoordinator", false);
         isFromCallToEMS = getIntent().getBooleanExtra("isFromCallToEMS", false);
         isFromInstantConnect = getIntent().getBooleanExtra("isFromInstantConnect", false);
-
+        isFromExistingInstantConnect = getIntent().getBooleanExtra("isFromExistingConnect", false);
         activity = MainActivity.this;
         prefs = getSharedPreferences(DATA.SHARED_PREFS_NAME, Context.MODE_PRIVATE);
         checkInternetConnection = new CheckInternetConnection(activity);
@@ -569,7 +592,23 @@ public class MainActivity extends AppCompatActivity
             //}
             //else {checkPermission();}
 
-        } else {
+        }
+
+        else if (isFromExistingInstantConnect) {
+
+            outgoingCallLayout.setVisibility(View.GONE);
+            incomingCallLayout.setVisibility(View.GONE);
+            callButtons.setVisibility(View.VISIBLE);
+            //onNavigationDrawerItemSelected(5);
+            //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            resetLayoutAndForward();
+            //}
+            //else {checkPermission();}
+
+        }
+
+
+        else {
             incomingCallLayout.setVisibility(View.GONE);
             outgoingCallLayout.setVisibility(View.VISIBLE);
 

@@ -82,14 +82,14 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterApiClient;
-import com.twitter.sdk.android.core.TwitterException;
-import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.identity.TwitterAuthClient;
-import com.twitter.sdk.android.core.identity.TwitterLoginButton;
-import com.twitter.sdk.android.core.models.User;
+//import com.twitter.sdk.android.core.Callback;
+//import com.twitter.sdk.android.core.Result;
+//import com.twitter.sdk.android.core.TwitterApiClient;
+//import com.twitter.sdk.android.core.TwitterException;
+//import com.twitter.sdk.android.core.TwitterSession;
+//import com.twitter.sdk.android.core.identity.TwitterAuthClient;
+//import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+//import com.twitter.sdk.android.core.models.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -105,7 +105,7 @@ import java.util.Objects;
 import java.util.TimeZone;
 
 import cz.msebera.android.httpclient.Header;
-import retrofit2.Call;
+
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, ApiCallBack {
 
@@ -134,7 +134,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     Database db;
     GPSTracker gps;
 
-    TwitterLoginButton loginButton;
+    //TwitterLoginButton loginButton;
 
     //public static final String CURRENT_APP = "patient",
     public static final String CURRENT_APP = "patient_emcura",
@@ -418,16 +418,16 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             }
         });
 
-        ivLoginTwitter.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginButton.performClick();
-                loginButton.setPressed(true);
-                loginButton.invalidate();
-                loginButton.setPressed(false);
-                loginButton.invalidate();
-            }
-        });
+//        ivLoginTwitter.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loginButton.performClick();
+//                loginButton.setPressed(true);
+//                loginButton.invalidate();
+//                loginButton.setPressed(false);
+//                loginButton.invalidate();
+//            }
+//        });
 
         btnAppUpdate.setOnClickListener(new OnClickListener() {
             @Override
@@ -508,90 +508,90 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         //------------Twitter
 
-        loginButton = (TwitterLoginButton) findViewById(R.id.login_button);
-        loginButton.setCallback(new Callback<TwitterSession>() {
-            @Override
-            public void success(Result<TwitterSession> result) {
-                // Do something with result, which provides a TwitterSession for making API calls
-                DATA.print("-------" + result.data.getUserName());
-
-                //DATA.print("-------"+result.response);
-                //DATA.print("-------"+result.data.toString());
-
-                //getDetails(result.data);
-                //serviceCall.doLoginSocial(result.data.getUserName(), result.data.getUserName(), progressDialog);
-
-                //-------------------------------------
-
-				/*TwitterAuthClient authClient = new TwitterAuthClient();
-				authClient.requestEmail(result.data, new Callback<String>() {
-					@Override
-					public void success(Result<String> result) {
-						// Do something with the result, which provides the email address
-						DATA.print("-- *************************************************");
-						DATA.print(result.data);
-						//DATA.print(result.response.raw());
-						DATA.print(result.response);
-						//DATA.print(result.response.message());
-					}
-
-					@Override
-					public void failure(TwitterException exception) {
-						// Do something on failure
-					}
-				});*/
-
-                TwitterAuthClient authClient = new TwitterAuthClient();
-                //authClient.
-                TwitterApiClient twitterApiClient = new TwitterApiClient(result.data);
-                Call<User> call = twitterApiClient.getAccountService().verifyCredentials(true, false, true);
-
-                call.enqueue(new Callback<User>() {
-
-                    @Override
-                    public void success(Result<User> result) {
-                        DATA.print("-- data: " + result.data.toString());
-                        DATA.print("-- responce: " + result.response);
-
-                        User user = result.data;
-                        DATA.print("-- email: " + user.email);
-                        DATA.print("-- name: " + user.name);
-                        DATA.print("-- id: " + user.id);
-                        DATA.print("-- idStr: " + user.idStr);
-                        DATA.print("-- profileBannerUrl: " + user.profileBannerUrl);
-                        DATA.print("-- profileImageUrl: " + user.profileImageUrl);
-                        DATA.print("-- screenName: " + user.screenName);
-                        DATA.print("-- location: " + user.location);
-                        DATA.print("-- timeZone: " + user.timeZone);
-
-                        //serviceCall.doLoginSocial(user.name," ", user.screenName,user.email , progressDialog);
-
-                        //Check social login status here
-                        emailFromSocial = user.email;
-                        fnameFromSocial = user.name;
-                        fromSocial = "google";
-                        socialId = user.id + "";
-                        imageUrlFromSocial = user.profileImageUrl;
-                        checkSocial("twitter", user.id + "", prefs.getString("hospitalIdLogin", ""));
-                        //end
-                    }
-
-                    @Override
-                    public void failure(TwitterException exception) {
-
-                    }
-                });
-
-            }
-
-            @Override
-            public void failure(TwitterException exception) {
-                // Do something on failure
-                DATA.print(exception.getMessage());
-                DATA.print("--- exception");
-                exception.printStackTrace();
-            }
-        });
+        //loginButton = (TwitterLoginButton) findViewById(R.id.login_button);
+//        loginButton.setCallback(new Callback<TwitterSession>() {
+//            @Override
+//            public void success(Result<TwitterSession> result) {
+//                // Do something with result, which provides a TwitterSession for making API calls
+//                DATA.print("-------" + result.data.getUserName());
+//
+//                //DATA.print("-------"+result.response);
+//                //DATA.print("-------"+result.data.toString());
+//
+//                //getDetails(result.data);
+//                //serviceCall.doLoginSocial(result.data.getUserName(), result.data.getUserName(), progressDialog);
+//
+//                //-------------------------------------
+//
+//				/*TwitterAuthClient authClient = new TwitterAuthClient();
+//				authClient.requestEmail(result.data, new Callback<String>() {
+//					@Override
+//					public void success(Result<String> result) {
+//						// Do something with the result, which provides the email address
+//						DATA.print("-- *************************************************");
+//						DATA.print(result.data);
+//						//DATA.print(result.response.raw());
+//						DATA.print(result.response);
+//						//DATA.print(result.response.message());
+//					}
+//
+//					@Override
+//					public void failure(TwitterException exception) {
+//						// Do something on failure
+//					}
+//				});*/
+//
+//                TwitterAuthClient authClient = new TwitterAuthClient();
+//                //authClient.
+//                TwitterApiClient twitterApiClient = new TwitterApiClient(result.data);
+//                Call<User> call = twitterApiClient.getAccountService().verifyCredentials(true, false, true);
+//
+//                call.enqueue(new Callback<User>() {
+//
+//                    @Override
+//                    public void success(Result<User> result) {
+//                        DATA.print("-- data: " + result.data.toString());
+//                        DATA.print("-- responce: " + result.response);
+//
+//                        User user = result.data;
+//                        DATA.print("-- email: " + user.email);
+//                        DATA.print("-- name: " + user.name);
+//                        DATA.print("-- id: " + user.id);
+//                        DATA.print("-- idStr: " + user.idStr);
+//                        DATA.print("-- profileBannerUrl: " + user.profileBannerUrl);
+//                        DATA.print("-- profileImageUrl: " + user.profileImageUrl);
+//                        DATA.print("-- screenName: " + user.screenName);
+//                        DATA.print("-- location: " + user.location);
+//                        DATA.print("-- timeZone: " + user.timeZone);
+//
+//                        //serviceCall.doLoginSocial(user.name," ", user.screenName,user.email , progressDialog);
+//
+//                        //Check social login status here
+//                        emailFromSocial = user.email;
+//                        fnameFromSocial = user.name;
+//                        fromSocial = "google";
+//                        socialId = user.id + "";
+//                        imageUrlFromSocial = user.profileImageUrl;
+//                        checkSocial("twitter", user.id + "", prefs.getString("hospitalIdLogin", ""));
+//                        //end
+//                    }
+//
+//                    @Override
+//                    public void failure(TwitterException exception) {
+//
+//                    }
+//                });
+//
+//            }
+//
+//            @Override
+//            public void failure(TwitterException exception) {
+//                // Do something on failure
+//                DATA.print(exception.getMessage());
+//                DATA.print("--- exception");
+//                exception.printStackTrace();
+//            }
+//        });
 
         //getOAuthToken();
 
@@ -1471,7 +1471,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         } else if (requestCode == RC_SIGN_IN_FACEBOOK) {
             callbackManager.onActivityResult(requestCode, resultCode, data);
         } else if (requestCode == RC_SIGN_IN_TWITTER) {
-            loginButton.onActivityResult(requestCode, resultCode, data);
+           // loginButton.onActivityResult(requestCode, resultCode, data);
         }
     }
 

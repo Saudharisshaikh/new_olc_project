@@ -159,6 +159,8 @@ public class ApiManager {
 	public static final String INSTANT_PATIENT = "patient/instantPatient";
 	public static final String CALLING_INVITE_CALL = "calling/invite_call";
 
+
+
 	public static final String BHEALTH_GETDIAG = "bhealth/getDiagnosis";
 	public static final String BHEALTH_GETGOALS = "bhealth/getGoals";
 	public static final String BHEALTH_SAVE_THERAPY_NOTE = "bhealth/saveTherapyNote";
@@ -194,8 +196,8 @@ public class ApiManager {
 
 	public static final String GET_LIVECARE_REQUESTS = "ma/getlivecareRequests";
 	public static final String ACCEPT_LIVECARE_REQUEST = "doctor/accept_livecare";
-
-
+	public static final String GET_STATES = "general/getstates";
+	public static final String SYMP_COND = "general/symptoms_conditions";
 
 	// Saud works starts here.
 	public static final String LABELS = "general/labels";
@@ -206,6 +208,9 @@ public class ApiManager {
 
 	public static final String CHECK_APP_UPDATES = "general/checkversion";
 
+	public static final String PATIENT_EXISTING_SEARCH = "patient/search_patient";
+
+	public static final String ALLSCRIPTPATIENT_SEARCH = "patient/search_allscripts_patient";
 
 
 	private String api = "";

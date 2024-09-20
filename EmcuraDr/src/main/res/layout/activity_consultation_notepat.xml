@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/layHeader"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolBarColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/back"
+            android:layout_marginHorizontal="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Patient"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:id="@+id/activity_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:drawableStart="@drawable/ic_launcher"
+            android:gravity="center_vertical"
+            android:drawablePadding="10dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp"
+        android:id="@+id/select_layout"
+        app:layout_constraintTop_toBottomOf="@+id/layHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        android:weightSum="2"
+        >
+
+        <Button
+            android:id="@+id/btnOnlineCare"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/btn_selector"
+            android:text="OnlineCare Patients"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textStyle="normal"
+            android:visibility="visible" />
+
+
+        <Button
+            android:id="@+id/btnAllScript"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:textSize="14sp"
+            android:background="@drawable/button_drawable_white_selected"
+            android:text="EMR Patients"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/theme_red"
+            android:textStyle="normal"
+            android:visibility="visible" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_layout"
+        android:id="@+id/onlinecareLayout"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:id="@+id/searchbar"
+            android:background="@drawable/searchfield"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/edt_search_pat"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Search by firstname or lastname"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:maxLines="1"
+                android:padding="10dp"
+
+                />
+
+
+            <Button
+                android:id="@+id/btn_search_pat"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Search"
+                android:textColor="@android:color/white"
+                android:background="@drawable/btn_selector"
+                android:textAllCaps="false"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"/>
+
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_layout"
+            android:orientation="vertical"
+            >
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchbar"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="20dp"
+
+                android:id="@+id/rv_existing_pat"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/no_layout"
+            android:visibility="visible"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/no_users_icon"
+                app:tint="@color/theme_red"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Patient found."
+                android:layout_marginTop="10dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please search patient by first name or last name."
+                android:layout_marginTop="10dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your search will appear here."
+                android:layout_marginTop="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_layout"
+        android:id="@+id/allscriptLayout"
+        >
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:id="@+id/allscriptbar"
+            android:background="@drawable/searchfield"
+            android:focusableInTouchMode="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/firstlayout"
+                android:weightSum="2"
+                >
+
+            <EditText
+                android:id="@+id/et_firstname"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint="first name"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:drawablePadding="10dp"/>
+
+
+            <EditText
+                android:id="@+id/et_lastname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cust_border_white_outline"
+                android:hint="last name"
+                android:layout_weight="1"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/et_firstname"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:drawablePadding="10dp"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/secondlayout"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/firstlayout"
+                android:weightSum="2"
+                >
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="phone"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"
+                    android:drawableStart="@drawable/ic_search_black_24dp"
+                    android:drawablePadding="10dp"/>
+
+
+                <EditText
+                    android:id="@+id/et_zipcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="zipcode"
+                    android:layout_weight="1"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toRightOf="@+id/et_firstname"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"
+                    android:drawableStart="@drawable/ic_search_black_24dp"
+                    android:drawablePadding="10dp"/>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:id="@+id/thirdlayout"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/secondlayout"
+                >
+
+                <EditText
+                    android:id="@+id/et_dob"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cust_border_white_outline"
+                    android:hint="DOB"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"
+                    android:drawableStart="@drawable/ic_search_black_24dp"
+                    android:drawablePadding="10dp"/>
+
+
+                <Button
+                    android:id="@+id/btn_search_pat2"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:text="Search"
+                    android:textAllCaps="false"
+
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="normal"
+                    android:visibility="visible" />
+
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/main_layout2"
+                android:visibility="gone"
+                android:orientation="vertical"
+                >
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchbar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="80dp"
+                    android:id="@+id/rv_allscript"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:id="@+id/no_layout2"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/no_users_icon"
+                    app:tint="@color/theme_red"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Patient found."
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please search patient by any above field."
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your search will appear here."
+                    android:layout_marginTop="10dp"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

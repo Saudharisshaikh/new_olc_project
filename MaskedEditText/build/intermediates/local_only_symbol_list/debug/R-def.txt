@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+attr? allowed_chars
+attr? char_representation
+attr? denied_chars
+attr? enable_ime_action
+attr? keep_hint
+attr? mask
+styleable MaskedEditText mask allowed_chars enable_ime_action denied_chars char_representation keep_hint

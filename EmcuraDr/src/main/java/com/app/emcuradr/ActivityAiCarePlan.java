@@ -68,8 +68,16 @@ public class ActivityAiCarePlan extends AppCompatActivity implements ApiCallBack
         btnGoback = findViewById(R.id.btnGoback);
         sharedPrefsHelper = SharedPrefsHelper.getInstance();
 
-        txtptData.setText("Patient name : " + ActivityTcmDetails.ptFname + " " + ActivityTcmDetails.ptLname + "\nDOB : " + ActivityTcmDetails.ptDOB
-                + "\nSymptoms : " + DATA.selectedUserCallCondition);
+        if(DATA.isExistingPatCall || DATA.isInstantConnect){
+            txtptData.setText("Patient name : " + DATA.selectedUserCallName + "\nDOB : " + DATA.selectedUserCallDOB
+                    + "\nSymptoms : " + DATA.selectedUserCallCondition);
+        }
+
+        else {
+            txtptData.setText("Patient name : " + ActivityTcmDetails.ptFname + " " + ActivityTcmDetails.ptLname + "\nDOB : " + ActivityTcmDetails.ptDOB
+                    + "\nSymptoms : " + DATA.selectedUserCallCondition);
+        }
+
 
         disclaimer = sharedPrefsHelper.get("disclaimer");
         generateCarePlan();
@@ -92,9 +100,16 @@ public class ActivityAiCarePlan extends AppCompatActivity implements ApiCallBack
         RequestParams params = new RequestParams();
         //GM added call_id
         String callId = "0";
-        if (DATA.incomingCall) {
+//        if (DATA.incomingCall) {
+//            callId = DATA.incommingCallId;
+//        }
+//        else  if(DATA.isExistingPatCall){
+//            callId = DATA.incommingCallId;
+//        }
+        if(!DATA.incommingCallId.equals("")){
             callId = DATA.incommingCallId;
-        } else {
+        }
+        else {
             callId = prefs.getString("callingID", "");
         }
         params.put("call_id", callId);

@@ -131,8 +131,14 @@ public class ActivityAiSymptomsReview extends AppCompatActivity {
         });
         //end
 
-        txtptName.setText(ActivityTcmDetails.ptFname + " " + ActivityTcmDetails.ptLname);
-        txtptSymp.setText(DATA.selectedUserCallCondition);
+        if(DATA.isInstantConnect || DATA.isExistingPatCall){
+            txtptName.setText(DATA.selectedUserCallName);
+            txtptSymp.setText(DATA.selectedUserCallSympTom);
+        }
+        else {
+            txtptName.setText(ActivityTcmDetails.ptFname + " " + ActivityTcmDetails.ptLname);
+            txtptSymp.setText(DATA.selectedUserCallCondition);
+        }
 
 
         btnGenAiReview.setOnClickListener(v -> {
@@ -230,11 +236,21 @@ public class ActivityAiSymptomsReview extends AppCompatActivity {
                     DATA.print("-- response frm chatgpt : " + response);
                     customProgressDialog.dismissProgressDialog();
 
+
                     StringBuilder sb = new StringBuilder();
-                    sb.append("Patient Name : ").append(ActivityTcmDetails.ptFname).append(" ")
-                                    .append(ActivityTcmDetails.ptLname)
-                                            .append("\nDOB : ").append(DATA.selectedUserCallDOB)
-                                    .append("\n").append(text);
+                    if(DATA.isExistingPatCall || DATA.isInstantConnect){
+
+                        sb.append("Patient Name : ").append(DATA.selectedUserCallName).append(" ")
+                                .append("\nDOB : ").append(DATA.selectedUserCallDOB)
+                                .append("\n").append(text);
+                    }
+                    else {
+                        sb.append("Patient Name : ").append(ActivityTcmDetails.ptFname).append(" ")
+                                .append(ActivityTcmDetails.ptLname)
+                                .append("\nDOB : ").append(DATA.selectedUserCallDOB)
+                                .append("\n").append(text);
+                    }
+
 
                     etAiAnswerDignosis.setText(sb.toString());
                 } catch (Exception e) {
@@ -288,10 +304,20 @@ public class ActivityAiSymptomsReview extends AppCompatActivity {
                     customProgressDialog.dismissProgressDialog();
 
                     StringBuilder sb = new StringBuilder();
-                    sb.append("Patient Name : ").append(ActivityTcmDetails.ptFname).append(" ")
-                            .append(ActivityTcmDetails.ptLname)
-                            .append("\nDOB : ").append(DATA.selectedUserCallDOB)
-                            .append("\n").append(text);
+                    if(DATA.isExistingPatCall || DATA.isInstantConnect){
+
+                        sb.append("Patient Name : ").append(DATA.selectedUserCallName).append(" ")
+                                .append("\nDOB : ").append(DATA.selectedUserCallDOB)
+                                .append("\n").append(text);
+                    }
+                    else {
+
+                        sb.append("Patient Name : ").append(ActivityTcmDetails.ptFname).append(" ")
+                                .append(ActivityTcmDetails.ptLname)
+                                .append("\nDOB : ").append(DATA.selectedUserCallDOB)
+                                .append("\n").append(text);
+                    }
+
 
 
                     etAiAnswerCarePlan.setText(sb.toString());
@@ -344,10 +370,19 @@ public class ActivityAiSymptomsReview extends AppCompatActivity {
 
 
                     StringBuilder sb = new StringBuilder();
-                    sb.append("Patient Name : ").append(ActivityTcmDetails.ptFname).append(" ")
-                            .append(ActivityTcmDetails.ptLname)
-                            .append("\nDOB : ").append(DATA.selectedUserCallDOB)
-                            .append("\n").append(text);
+                    if(DATA.isExistingPatCall || DATA.isInstantConnect){
+
+                        sb.append("Patient Name : ").append(DATA.selectedUserCallName).append(" ")
+                                .append("\nDOB : ").append(DATA.selectedUserCallDOB)
+                                .append("\n").append(text);
+                    }
+                    else {
+                        sb.append("Patient Name : ").append(ActivityTcmDetails.ptFname).append(" ")
+                                .append(ActivityTcmDetails.ptLname)
+                                .append("\nDOB : ").append(DATA.selectedUserCallDOB)
+                                .append("\n").append(text);
+                    }
+
 
                     etAiAnswerPresc.setText(sb.toString());
                 } catch (Exception e) {

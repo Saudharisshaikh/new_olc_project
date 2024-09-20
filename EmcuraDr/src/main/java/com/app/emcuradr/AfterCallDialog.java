@@ -81,7 +81,12 @@ public class AfterCallDialog extends BaseActivity {
 		 }else if(MainActivity.isFromInstantConnect){
 			 patientOptions.setVisibility(View.GONE);
 			 doctorOptions.setVisibility(View.VISIBLE);
-		 }else if(DATA.isFromCallHistoryOrMsgs){
+		 }
+		 else if(MainActivity.isFromExistingInstantConnect){
+			 patientOptions.setVisibility(View.GONE);
+			 doctorOptions.setVisibility(View.VISIBLE);
+		 }
+		 else if(DATA.isFromCallHistoryOrMsgs){
 			 patientOptions.setVisibility(View.GONE);
 			 doctorOptions.setVisibility(View.VISIBLE);
 		 }else{

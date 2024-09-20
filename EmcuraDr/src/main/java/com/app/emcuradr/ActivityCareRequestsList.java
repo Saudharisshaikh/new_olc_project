@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -198,8 +199,15 @@ public class ActivityCareRequestsList extends BaseActivity{
 
     @Override
     public void onStart() {
-        registerReceiver(ptRemovedbroadCast, new IntentFilter(ActivityCareRequestsList.pt_removed));
-        registerReceiver(ptAddedbroadCast, new IntentFilter(ActivityCareRequestsList.pt_added));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(ptRemovedbroadCast, new IntentFilter(ActivityCareRequestsList.pt_removed),RECEIVER_NOT_EXPORTED);
+            registerReceiver(ptAddedbroadCast, new IntentFilter(ActivityCareRequestsList.pt_added),RECEIVER_NOT_EXPORTED);
+        }else {
+            registerReceiver(ptRemovedbroadCast, new IntentFilter(ActivityCareRequestsList.pt_removed));
+            registerReceiver(ptAddedbroadCast, new IntentFilter(ActivityCareRequestsList.pt_added));
+        }
+
         super.onStart();
     }
 

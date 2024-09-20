@@ -30,7 +30,7 @@ import com.app.emcurama.util.DATA;
 import com.app.emcurama.util.DialogPatientInfo;
 import com.app.emcurama.util.ExpandableHeightGridView;
 import com.app.emcurama.util.GloabalMethods;
-import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+//import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,6 +40,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -110,7 +112,7 @@ public class LiveCareDetails extends BaseActivity {
 		etSOAPHistoryAllergies = (TextView) findViewById(R.id.etSOAPHistoryAllergies);
 
 		final ImageView ivExpendExamLay = (ImageView) findViewById(R.id.ivExpendExamLay);
-		final ExpandableRelativeLayout layExpandExam = (ExpandableRelativeLayout) findViewById(R.id.layExpandExam);
+		final ExpandableLayout layExpandExam = (ExpandableLayout) findViewById(R.id.layExpandExam);
 		layExpandExam.collapse();
 		ivExpendExamLay.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -126,7 +128,7 @@ public class LiveCareDetails extends BaseActivity {
 		});
 
 		final ImageView ivExpendHistoryLay = (ImageView) findViewById(R.id.ivExpendHistoryLay);
-		final ExpandableRelativeLayout layExpandHistory = (ExpandableRelativeLayout) findViewById(R.id.layExpandHistory);
+		final ExpandableLayout layExpandHistory = (ExpandableLayout) findViewById(R.id.layExpandHistory);
 		layExpandHistory.collapse();
 		layExpandHistory.toggle();
 		ivExpendHistoryLay.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +139,8 @@ public class LiveCareDetails extends BaseActivity {
 					ivExpendHistoryLay.setImageResource(R.drawable.ic_add_box_black_24dp);
 				}else {
 					//layExpandHistory.expand();
-					layExpandHistory.expand(1000, new FastOutSlowInInterpolator());
+					 layExpandHistory.expand();
+					//layExpandHistory.expand(1000, new FastOutSlowInInterpolator());
 					ivExpendHistoryLay.setImageResource(R.drawable.ic_indeterminate_check_box_black_24dp);
 				}
 			}

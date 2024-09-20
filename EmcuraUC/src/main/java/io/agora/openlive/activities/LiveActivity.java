@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
@@ -389,7 +390,12 @@ public class LiveActivity extends RtcBaseActivity {
         audioRecorder.startRecording();
         DATA.print("-- ## LiveActivity Angora onstart");
         MultiPartyVideoCallFragment.isInVideoCall = true;
-        registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST), RECEIVER_NOT_EXPORTED);
+        }else {
+            registerReceiver(disconnectSpecialistBroadcast, new IntentFilter(VCallModule.DISCONNECT_SPECIALIST));
+        }
         super.onStart();
     }
 

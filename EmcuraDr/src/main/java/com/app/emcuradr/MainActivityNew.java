@@ -55,6 +55,7 @@ import com.app.emcuradr.util.CustomToast;
 import com.app.emcuradr.util.DATA;
 import com.app.emcuradr.util.Database;
 import com.app.emcuradr.util.DialogPatientInfo;
+import com.app.emcuradr.util.GeneralAlertDialog;
 import com.app.emcuradr.util.GloabalMethods;
 import com.app.emcuradr.util.GloabalSocket;
 import com.app.emcuradr.util.HideShowKeypad;
@@ -97,7 +98,7 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 	SharedPrefsHelper sharedPrefsHelper;
 
 	LinearLayout tvLiveCare,tvWaitingLiveCare;//,tvCovidList;
-	TextView  tvAppointments, tvDrProfile, tvLogout,tvDrSchedule,
+	TextView  tvAppointments, tvDrProfile, tvLogout,tvDrSchedule,tvConsultNotes,
 			tvDoctoDoc,tvHomeHealth,tvPresscriptions,tvMessages,tvTransactions,
 			tvRatting,tvRefills,tvTCM,tvBilling,tvSupport,tvGroups,tvAddDoctor,tvEMS,tvSoapRef,tvMyPatients,tvRefrals,
 			tvInstantConnect,tvAppInvite,tvReffredPt, tvCovidList;
@@ -426,6 +427,7 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 
 		sharedPrefsHelper = SharedPrefsHelper.getInstance();
 		getLabels();
+		loadSymtomsConditions();
 
 //		exportDB();
 
@@ -510,6 +512,7 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 		tvAddDoctorBadge = findViewById(R.id.tvAddDoctorBadge);
 		tvSoapRefBadge = findViewById(R.id.tvSoapRefBadge);
 		tvCovidBadge = findViewById(R.id.tvCovidBadge);
+		tvConsultNotes = findViewById(R.id.tvConsulNote);
 
 		btnOffline = findViewById(R.id.btnOffline);
 		String vacation_mode = prefs.getString("vacation_mode","0");
@@ -718,7 +721,11 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 		tvDoctoDoc.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				showDocToDocDialog();
+				DATA.referToSpecialist = false;
+				//openActivity.open(DocToDoc.class, false);
+				openActivity.open(DoctorsList.class, false);
+
+				//showDocToDocDialog();
 				/*DATA.referToSpecialist = false;
 				//openActivity.open(DocToDoc.class, false);
 				openActivity.open(DoctorsList.class, false);*/
@@ -800,7 +807,9 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 		tvInstantConnect.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				openActivity.open(ActivityInstatntConnect.class, false);
+
+				showNewInstantDialog();
+
 			}
 		});
 
@@ -820,6 +829,13 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 			@Override
 			public void onClick(View v) {
 				openActivity.open(ActivityCovidFormList.class, false);
+			}
+		});
+
+		tvConsultNotes.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				openActivity.open(ActivityConsultionNotesPat.class,false);
 			}
 		});
 
@@ -1007,6 +1023,12 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 	}//oncreate
 
 
+
+	public void loadSymtomsConditions(){
+		ApiManager apiManager = new ApiManager(ApiManager.SYMP_COND,"get",null,this, MainActivityNew.this);
+		apiManager.loadURL();
+	}
+
 	private void parseLabelsData(String content) {
 		try {
 			JSONObject jsonObject = new JSONObject(content);
@@ -1172,7 +1194,67 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 		else if (apiName.equalsIgnoreCase(ApiManager.LABELS)) {
 			parseLabelsData(content);
 		}
+
+		else if(apiName.equalsIgnoreCase(ApiManager.SYMP_COND)){
+			if(! TextUtils.isEmpty(content)){
+				prefs.edit().putString("symp_cond", content).commit();
+			}
+		}
 	}
+
+
+
+
+	public void showNewInstantDialog() {
+		Dialog dialogNewInstantConnect = new Dialog(activity);
+		dialogNewInstantConnect.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialogNewInstantConnect.setContentView(R.layout.instant_connect_dialog);
+
+
+		Button buttonExistingPat = (Button) dialogNewInstantConnect.findViewById(R.id.btn_existing_pat);
+		Button buttonNewPat = (Button) dialogNewInstantConnect.findViewById(R.id.btn_new_pat);
+		Button buttonCancel = (Button) dialogNewInstantConnect.findViewById(R.id.btn_cancel);
+		ImageView cancelImageview = dialogNewInstantConnect.findViewById(R.id.iv_Cancel);
+
+
+
+
+		buttonExistingPat.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialogNewInstantConnect.dismiss();
+				openActivity.open(ActivityExistingPatCall.class,false);
+			}
+		});
+		buttonNewPat.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialogNewInstantConnect.dismiss();
+				openActivity.open(ActivityInstatntConnect.class, false);
+
+			}
+		});
+		buttonCancel.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				dialogNewInstantConnect.dismiss();
+			}
+		});
+		cancelImageview.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialogNewInstantConnect.dismiss();
+			}
+		});
+
+
+		dialogNewInstantConnect.show();
+
+		dialogNewInstantConnect.getWindow().setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(android.R.color.transparent)));
+
+
+	}
+
 
 	@Override
 	public void onSocketCallBack(String emitterResponse) {
@@ -1201,7 +1283,10 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 					}
 					break;
 				case 1:
-					showDocToDocDialog();
+					DATA.referToSpecialist = false;
+					//openActivity.open(DocToDoc.class, false);
+					openActivity.open(DoctorsList.class, false);
+					//showDocToDocDialog();
 					/*DATA.referToSpecialist = false;
 					//openActivity.open(DocToDoc.class, false);
 					openActivity.open(DoctorsList.class, false);*/
@@ -1216,7 +1301,8 @@ public class MainActivityNew extends AppCompatActivity implements ApiCallBack, G
 					openActivity.open(ActivityCallLogs.class, false);
 					break;
 				case 5:
-					openActivity.open(ActivityInstatntConnect.class, false);
+					showNewInstantDialog();
+					//openActivity.open(ActivityInstatntConnect.class, false);
 					break;
 				case 6:
 					openActivity.open(ActivityAppInvite.class, false);
